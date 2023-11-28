@@ -1,0 +1,85 @@
+/*
+  This is a reasonable starting point for the CSS in Mock.
+  Positioning in CSS can sometimes be annoying to manage, so we've opted to 
+  give you this starter CSS. Feel free to modify it as you wish, though.
+*/
+
+.repl {
+    position:relative;
+    /* min-height:95vh;     */
+}
+
+.repl-history {      
+    height:55vh;   
+    margin: auto;
+    display: block;
+    overflow: scroll;    
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+  }
+
+.repl-input {        
+    margin: auto;    
+    height:10vh;
+}
+
+.map {    
+    display: flex;    
+    align-items: center;
+    justify-content: center;
+}
+
+.city {
+    color: rgba(0, 0, 0, 0.7);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.popup {
+    max-width: 10px;
+    color: rgba(0, 0, 0, 0.7);
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
+
+.repl-command-box {
+    width: 90%;            
+    margin: auto;
+    display: block;
+}
+button{
+    margin: auto;
+    display: block;
+}
+
+p {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+
+a{
+    color: black;
+    display:inline-block;
+    width: 80%;
+    background-color: aliceblue;
+    border-radius: 10px;
+    
+}
+a:hover{
+    color:black
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack items vertically in the center */
+    /* height: 100vh; Set the container to fill the entire viewport height */
+  }

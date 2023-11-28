@@ -1,0 +1,5044 @@
+{ "counties": [
+  {
+    "NAME": "Shiawassee County, Michigan",
+    "S2802_C03_022E": "81.5",
+    "state": "26",
+    "county": "155"
+  },
+  {
+    "NAME": "Washtenaw County, Michigan",
+    "S2802_C03_022E": "90.9",
+    "state": "26",
+    "county": "161"
+  },
+  {
+    "NAME": "Scott County, Minnesota",
+    "S2802_C03_022E": "91.9",
+    "state": "27",
+    "county": "139"
+  },
+  {
+    "NAME": "Wright County, Minnesota",
+    "S2802_C03_022E": "89.3",
+    "state": "27",
+    "county": "171"
+  },
+  {
+    "NAME": "Harrison County, Mississippi",
+    "S2802_C03_022E": "83.9",
+    "state": "28",
+    "county": "047"
+  },
+  {
+    "NAME": "Jackson County, Mississippi",
+    "S2802_C03_022E": "87.2",
+    "state": "28",
+    "county": "059"
+  },
+  {
+    "NAME": "Madison County, Mississippi",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "28",
+    "county": "089"
+  },
+  {
+    "NAME": "Christian County, Missouri",
+    "S2802_C03_022E": "88.4",
+    "state": "29",
+    "county": "043"
+  },
+  {
+    "NAME": "Franklin County, Missouri",
+    "S2802_C03_022E": "83.3",
+    "state": "29",
+    "county": "071"
+  },
+  {
+    "NAME": "Greene County, Missouri",
+    "S2802_C03_022E": "87.6",
+    "state": "29",
+    "county": "077"
+  },
+  {
+    "NAME": "Jefferson County, Missouri",
+    "S2802_C03_022E": "84.7",
+    "state": "29",
+    "county": "099"
+  },
+  {
+    "NAME": "Platte County, Missouri",
+    "S2802_C03_022E": "89.3",
+    "state": "29",
+    "county": "165"
+  },
+  {
+    "NAME": "Gallatin County, Montana",
+    "S2802_C03_022E": "90.6",
+    "state": "30",
+    "county": "031"
+  },
+  {
+    "NAME": "Missoula County, Montana",
+    "S2802_C03_022E": "87.5",
+    "state": "30",
+    "county": "063"
+  },
+  {
+    "NAME": "Grafton County, New Hampshire",
+    "S2802_C03_022E": "79.9",
+    "state": "33",
+    "county": "009"
+  },
+  {
+    "NAME": "Merrimack County, New Hampshire",
+    "S2802_C03_022E": "89.3",
+    "state": "33",
+    "county": "013"
+  },
+  {
+    "NAME": "Burlington County, New Jersey",
+    "S2802_C03_022E": "91.2",
+    "state": "34",
+    "county": "005"
+  },
+  {
+    "NAME": "Cumberland County, New Jersey",
+    "S2802_C03_022E": "85.3",
+    "state": "34",
+    "county": "011"
+  },
+  {
+    "NAME": "Hudson County, New Jersey",
+    "S2802_C03_022E": "85.4",
+    "state": "34",
+    "county": "017"
+  },
+  {
+    "NAME": "Middlesex County, New Jersey",
+    "S2802_C03_022E": "90.6",
+    "state": "34",
+    "county": "023"
+  },
+  {
+    "NAME": "Ocean County, New Jersey",
+    "S2802_C03_022E": "83.0",
+    "state": "34",
+    "county": "029"
+  },
+  {
+    "NAME": "Salem County, New Jersey",
+    "S2802_C03_022E": "87.2",
+    "state": "34",
+    "county": "033"
+  },
+  {
+    "NAME": "Union County, New Jersey",
+    "S2802_C03_022E": "90.0",
+    "state": "34",
+    "county": "039"
+  },
+  {
+    "NAME": "Sandoval County, New Mexico",
+    "S2802_C03_022E": "85.5",
+    "state": "35",
+    "county": "043"
+  },
+  {
+    "NAME": "Santa Fe County, New Mexico",
+    "S2802_C03_022E": "88.0",
+    "state": "35",
+    "county": "049"
+  },
+  {
+    "NAME": "Valencia County, New Mexico",
+    "S2802_C03_022E": "79.3",
+    "state": "35",
+    "county": "061"
+  },
+  {
+    "NAME": "Cattaraugus County, New York",
+    "S2802_C03_022E": "80.3",
+    "state": "36",
+    "county": "009"
+  },
+  {
+    "NAME": "Madison County, New York",
+    "S2802_C03_022E": "83.9",
+    "state": "36",
+    "county": "053"
+  },
+  {
+    "NAME": "Niagara County, New York",
+    "S2802_C03_022E": "82.0",
+    "state": "36",
+    "county": "063"
+  },
+  {
+    "NAME": "Ontario County, New York",
+    "S2802_C03_022E": "88.8",
+    "state": "36",
+    "county": "069"
+  },
+  {
+    "NAME": "Oswego County, New York",
+    "S2802_C03_022E": "87.7",
+    "state": "36",
+    "county": "075"
+  },
+  {
+    "NAME": "Queens County, New York",
+    "S2802_C03_022E": "89.0",
+    "state": "36",
+    "county": "081"
+  },
+  {
+    "NAME": "Richmond County, New York",
+    "S2802_C03_022E": "86.7",
+    "state": "36",
+    "county": "085"
+  },
+  {
+    "NAME": "Saratoga County, New York",
+    "S2802_C03_022E": "85.7",
+    "state": "36",
+    "county": "091"
+  },
+  {
+    "NAME": "Suffolk County, New York",
+    "S2802_C03_022E": "91.0",
+    "state": "36",
+    "county": "103"
+  },
+  {
+    "NAME": "Warren County, New York",
+    "S2802_C03_022E": "83.9",
+    "state": "36",
+    "county": "113"
+  },
+  {
+    "NAME": "Westchester County, New York",
+    "S2802_C03_022E": "89.9",
+    "state": "36",
+    "county": "119"
+  },
+  {
+    "NAME": "Alamance County, North Carolina",
+    "S2802_C03_022E": "83.8",
+    "state": "37",
+    "county": "001"
+  },
+  {
+    "NAME": "Burke County, North Carolina",
+    "S2802_C03_022E": "80.5",
+    "state": "37",
+    "county": "023"
+  },
+  {
+    "NAME": "Catawba County, North Carolina",
+    "S2802_C03_022E": "81.4",
+    "state": "37",
+    "county": "035"
+  },
+  {
+    "NAME": "Lincoln County, North Carolina",
+    "S2802_C03_022E": "88.6",
+    "state": "37",
+    "county": "109"
+  },
+  {
+    "NAME": "McLennan County, Texas",
+    "S2802_C03_022E": "88.1",
+    "state": "48",
+    "county": "309"
+  },
+  {
+    "NAME": "Midland County, Texas",
+    "S2802_C03_022E": "86.4",
+    "state": "48",
+    "county": "329"
+  },
+  {
+    "NAME": "Nueces County, Texas",
+    "S2802_C03_022E": "86.4",
+    "state": "48",
+    "county": "355"
+  },
+  {
+    "NAME": "Orange County, Texas",
+    "S2802_C03_022E": "90.4",
+    "state": "48",
+    "county": "361"
+  },
+  {
+    "NAME": "Parker County, Texas",
+    "S2802_C03_022E": "90.4",
+    "state": "48",
+    "county": "367"
+  },
+  {
+    "NAME": "Lubbock County, Texas",
+    "S2802_C03_022E": "86.2",
+    "state": "48",
+    "county": "303"
+  },
+  {
+    "NAME": "Potter County, Texas",
+    "S2802_C03_022E": "78.5",
+    "state": "48",
+    "county": "375"
+  },
+  {
+    "NAME": "Randall County, Texas",
+    "S2802_C03_022E": "92.8",
+    "state": "48",
+    "county": "381"
+  },
+  {
+    "NAME": "Smith County, Texas",
+    "S2802_C03_022E": "85.4",
+    "state": "48",
+    "county": "423"
+  },
+  {
+    "NAME": "Starr County, Texas",
+    "S2802_C03_022E": "73.5",
+    "state": "48",
+    "county": "427"
+  },
+  {
+    "NAME": "Tarrant County, Texas",
+    "S2802_C03_022E": "90.5",
+    "state": "48",
+    "county": "439"
+  },
+  {
+    "NAME": "Travis County, Texas",
+    "S2802_C03_022E": "89.7",
+    "state": "48",
+    "county": "453"
+  },
+  {
+    "NAME": "Walker County, Texas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "48",
+    "county": "471"
+  },
+  {
+    "NAME": "Nash County, North Carolina",
+    "S2802_C03_022E": "80.7",
+    "state": "37",
+    "county": "127"
+  },
+  {
+    "NAME": "Onslow County, North Carolina",
+    "S2802_C03_022E": "87.0",
+    "state": "37",
+    "county": "133"
+  },
+  {
+    "NAME": "Randolph County, North Carolina",
+    "S2802_C03_022E": "84.5",
+    "state": "37",
+    "county": "151"
+  },
+  {
+    "NAME": "Robeson County, North Carolina",
+    "S2802_C03_022E": "69.2",
+    "state": "37",
+    "county": "155"
+  },
+  {
+    "NAME": "Union County, North Carolina",
+    "S2802_C03_022E": "92.1",
+    "state": "37",
+    "county": "179"
+  },
+  {
+    "NAME": "Wayne County, North Carolina",
+    "S2802_C03_022E": "85.8",
+    "state": "37",
+    "county": "191"
+  },
+  {
+    "NAME": "Ward County, North Dakota",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "38",
+    "county": "101"
+  },
+  {
+    "NAME": "Ashtabula County, Ohio",
+    "S2802_C03_022E": "80.9",
+    "state": "39",
+    "county": "007"
+  },
+  {
+    "NAME": "Butler County, Ohio",
+    "S2802_C03_022E": "86.7",
+    "state": "39",
+    "county": "017"
+  },
+  {
+    "NAME": "Clark County, Ohio",
+    "S2802_C03_022E": "84.0",
+    "state": "39",
+    "county": "023"
+  },
+  {
+    "NAME": "Erie County, Ohio",
+    "S2802_C03_022E": "81.5",
+    "state": "39",
+    "county": "043"
+  },
+  {
+    "NAME": "Franklin County, Ohio",
+    "S2802_C03_022E": "88.6",
+    "state": "39",
+    "county": "049"
+  },
+  {
+    "NAME": "Geauga County, Ohio",
+    "S2802_C03_022E": "86.3",
+    "state": "39",
+    "county": "055"
+  },
+  {
+    "NAME": "Portage County, Ohio",
+    "S2802_C03_022E": "80.1",
+    "state": "39",
+    "county": "133"
+  },
+  {
+    "NAME": "Summit County, Ohio",
+    "S2802_C03_022E": "86.9",
+    "state": "39",
+    "county": "153"
+  },
+  {
+    "NAME": "Warren County, Ohio",
+    "S2802_C03_022E": "91.3",
+    "state": "39",
+    "county": "165"
+  },
+  {
+    "NAME": "Wayne County, Ohio",
+    "S2802_C03_022E": "71.7",
+    "state": "39",
+    "county": "169"
+  },
+  {
+    "NAME": "Wichita County, Texas",
+    "S2802_C03_022E": "81.1",
+    "state": "48",
+    "county": "485"
+  },
+  {
+    "NAME": "Williamson County, Texas",
+    "S2802_C03_022E": "94.6",
+    "state": "48",
+    "county": "491"
+  },
+  {
+    "NAME": "Wise County, Texas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "48",
+    "county": "497"
+  },
+  {
+    "NAME": "Cache County, Utah",
+    "S2802_C03_022E": "93.0",
+    "state": "49",
+    "county": "005"
+  },
+  {
+    "NAME": "Davis County, Utah",
+    "S2802_C03_022E": "92.6",
+    "state": "49",
+    "county": "011"
+  },
+  {
+    "NAME": "Salt Lake County, Utah",
+    "S2802_C03_022E": "92.1",
+    "state": "49",
+    "county": "035"
+  },
+  {
+    "NAME": "Tooele County, Utah",
+    "S2802_C03_022E": "94.6",
+    "state": "49",
+    "county": "045"
+  },
+  {
+    "NAME": "Utah County, Utah",
+    "S2802_C03_022E": "93.7",
+    "state": "49",
+    "county": "049"
+  },
+  {
+    "NAME": "Washington County, Utah",
+    "S2802_C03_022E": "91.0",
+    "state": "49",
+    "county": "053"
+  },
+  {
+    "NAME": "Weber County, Utah",
+    "S2802_C03_022E": "93.3",
+    "state": "49",
+    "county": "057"
+  },
+  {
+    "NAME": "Chittenden County, Vermont",
+    "S2802_C03_022E": "88.3",
+    "state": "50",
+    "county": "007"
+  },
+  {
+    "NAME": "Albemarle County, Virginia",
+    "S2802_C03_022E": "89.1",
+    "state": "51",
+    "county": "003"
+  },
+  {
+    "NAME": "Arlington County, Virginia",
+    "S2802_C03_022E": "93.4",
+    "state": "51",
+    "county": "013"
+  },
+  {
+    "NAME": "Bedford County, Virginia",
+    "S2802_C03_022E": "88.8",
+    "state": "51",
+    "county": "019"
+  },
+  {
+    "NAME": "Chesterfield County, Virginia",
+    "S2802_C03_022E": "90.4",
+    "state": "51",
+    "county": "041"
+  },
+  {
+    "NAME": "Comanche County, Oklahoma",
+    "S2802_C03_022E": "88.7",
+    "state": "40",
+    "county": "031"
+  },
+  {
+    "NAME": "Creek County, Oklahoma",
+    "S2802_C03_022E": "84.3",
+    "state": "40",
+    "county": "037"
+  },
+  {
+    "NAME": "Tulsa County, Oklahoma",
+    "S2802_C03_022E": "87.6",
+    "state": "40",
+    "county": "143"
+  },
+  {
+    "NAME": "Clackamas County, Oregon",
+    "S2802_C03_022E": "92.4",
+    "state": "41",
+    "county": "005"
+  },
+  {
+    "NAME": "Deschutes County, Oregon",
+    "S2802_C03_022E": "89.4",
+    "state": "41",
+    "county": "017"
+  },
+  {
+    "NAME": "Josephine County, Oregon",
+    "S2802_C03_022E": "89.1",
+    "state": "41",
+    "county": "033"
+  },
+  {
+    "NAME": "Lane County, Oregon",
+    "S2802_C03_022E": "89.9",
+    "state": "41",
+    "county": "039"
+  },
+  {
+    "NAME": "Linn County, Oregon",
+    "S2802_C03_022E": "88.5",
+    "state": "41",
+    "county": "043"
+  },
+  {
+    "NAME": "Polk County, Oregon",
+    "S2802_C03_022E": "88.2",
+    "state": "41",
+    "county": "053"
+  },
+  {
+    "NAME": "Umatilla County, Oregon",
+    "S2802_C03_022E": "74.8",
+    "state": "41",
+    "county": "059"
+  },
+  {
+    "NAME": "Allegheny County, Pennsylvania",
+    "S2802_C03_022E": "85.7",
+    "state": "42",
+    "county": "003"
+  },
+  {
+    "NAME": "Cambria County, Pennsylvania",
+    "S2802_C03_022E": "81.4",
+    "state": "42",
+    "county": "021"
+  },
+  {
+    "NAME": "Centre County, Pennsylvania",
+    "S2802_C03_022E": "81.5",
+    "state": "42",
+    "county": "027"
+  },
+  {
+    "NAME": "Clearfield County, Pennsylvania",
+    "S2802_C03_022E": "74.7",
+    "state": "42",
+    "county": "033"
+  },
+  {
+    "NAME": "Dauphin County, Pennsylvania",
+    "S2802_C03_022E": "84.9",
+    "state": "42",
+    "county": "043"
+  },
+  {
+    "NAME": "Mercer County, Pennsylvania",
+    "S2802_C03_022E": "77.8",
+    "state": "42",
+    "county": "085"
+  },
+  {
+    "NAME": "Monroe County, Pennsylvania",
+    "S2802_C03_022E": "90.2",
+    "state": "42",
+    "county": "089"
+  },
+  {
+    "NAME": "Northampton County, Pennsylvania",
+    "S2802_C03_022E": "84.6",
+    "state": "42",
+    "county": "095"
+  },
+  {
+    "NAME": "Philadelphia County, Pennsylvania",
+    "S2802_C03_022E": "82.0",
+    "state": "42",
+    "county": "101"
+  },
+  {
+    "NAME": "Schuylkill County, Pennsylvania",
+    "S2802_C03_022E": "80.0",
+    "state": "42",
+    "county": "107"
+  },
+  {
+    "NAME": "Washington County, Pennsylvania",
+    "S2802_C03_022E": "82.6",
+    "state": "42",
+    "county": "125"
+  },
+  {
+    "NAME": "Kent County, Rhode Island",
+    "S2802_C03_022E": "84.1",
+    "state": "44",
+    "county": "003"
+  },
+  {
+    "NAME": "Providence County, Rhode Island",
+    "S2802_C03_022E": "85.4",
+    "state": "44",
+    "county": "007"
+  },
+  {
+    "NAME": "Aiken County, South Carolina",
+    "S2802_C03_022E": "86.3",
+    "state": "45",
+    "county": "003"
+  },
+  {
+    "NAME": "Berkeley County, South Carolina",
+    "S2802_C03_022E": "85.1",
+    "state": "45",
+    "county": "015"
+  },
+  {
+    "NAME": "Greenville County, South Carolina",
+    "S2802_C03_022E": "88.0",
+    "state": "45",
+    "county": "045"
+  },
+  {
+    "NAME": "Horry County, South Carolina",
+    "S2802_C03_022E": "90.3",
+    "state": "45",
+    "county": "051"
+  },
+  {
+    "NAME": "Lancaster County, South Carolina",
+    "S2802_C03_022E": "80.9",
+    "state": "45",
+    "county": "057"
+  },
+  {
+    "NAME": "Fairfax County, Virginia",
+    "S2802_C03_022E": "94.6",
+    "state": "51",
+    "county": "059"
+  },
+  {
+    "NAME": "Fauquier County, Virginia",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "51",
+    "county": "061"
+  },
+  {
+    "NAME": "Frederick County, Virginia",
+    "S2802_C03_022E": "91.8",
+    "state": "51",
+    "county": "069"
+  },
+  {
+    "NAME": "Henrico County, Virginia",
+    "S2802_C03_022E": "85.6",
+    "state": "51",
+    "county": "087"
+  },
+  {
+    "NAME": "Montgomery County, Virginia",
+    "S2802_C03_022E": "92.0",
+    "state": "51",
+    "county": "121"
+  },
+  {
+    "NAME": "Prince William County, Virginia",
+    "S2802_C03_022E": "95.4",
+    "state": "51",
+    "county": "153"
+  },
+  {
+    "NAME": "Roanoke County, Virginia",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "51",
+    "county": "161"
+  },
+  {
+    "NAME": "Rockingham County, Virginia",
+    "S2802_C03_022E": "79.0",
+    "state": "51",
+    "county": "165"
+  },
+  {
+    "NAME": "Spotsylvania County, Virginia",
+    "S2802_C03_022E": "95.9",
+    "state": "51",
+    "county": "177"
+  },
+  {
+    "NAME": "Stafford County, Virginia",
+    "S2802_C03_022E": "96.4",
+    "state": "51",
+    "county": "179"
+  },
+  {"NAME": "Alexandria city, Virginia",
+    "S2802_C03_022E": "89.4",
+    "state": "51",
+    "county": "510"
+  },
+  {
+    "NAME": "Chesapeake city, Virginia",
+    "S2802_C03_022E": "90.7",
+    "state": "51",
+    "county": "550"
+  },
+  {
+    "NAME": "Lincoln County, South Dakota",
+    "S2802_C03_022E": "93.4",
+    "state": "46",
+    "county": "083"
+  },
+  {
+    "NAME": "Anderson County, Tennessee",
+    "S2802_C03_022E": "85.4",
+    "state": "47",
+    "county": "001"
+  },
+  {
+    "NAME": "Hamilton County, Tennessee",
+    "S2802_C03_022E": "85.4",
+    "state": "47",
+    "county": "065"
+  },
+  {
+    "NAME": "Knox County, Tennessee",
+    "S2802_C03_022E": "83.5",
+    "state": "47",
+    "county": "093"
+  },
+  {
+    "NAME": "Rutherford County, Tennessee",
+    "S2802_C03_022E": "93.4",
+    "state": "47",
+    "county": "149"
+  },
+  {
+    "NAME": "Sevier County, Tennessee",
+    "S2802_C03_022E": "81.9",
+    "state": "47",
+    "county": "155"
+  },
+  {
+    "NAME": "Sumner County, Tennessee",
+    "S2802_C03_022E": "86.5",
+    "state": "47",
+    "county": "165"
+  },
+  {
+    "NAME": "Bell County, Texas",
+    "S2802_C03_022E": "88.7",
+    "state": "48",
+    "county": "027"
+  },
+  {
+    "NAME": "Brazoria County, Texas",
+    "S2802_C03_022E": "89.6",
+    "state": "48",
+    "county": "039"
+  },
+  {
+    "NAME": "Hampton city, Virginia",
+    "S2802_C03_022E": "86.7",
+    "state": "51",
+    "county": "650"
+  },
+  {
+    "NAME": "Newport News city, Virginia",
+    "S2802_C03_022E": "86.6",
+    "state": "51",
+    "county": "700"
+  },
+  {
+    "NAME": "Norfolk city, Virginia",
+    "S2802_C03_022E": "84.5",
+    "state": "51",
+    "county": "710"
+  },
+  {
+    "NAME": "Roanoke city, Virginia",
+    "S2802_C03_022E": "79.2",
+    "state": "51",
+    "county": "770"
+  },
+  {
+    "NAME": "Suffolk city, Virginia",
+    "S2802_C03_022E": "90.4",
+    "state": "51",
+    "county": "800"
+  },
+  {
+    "NAME": "Virginia Beach city, Virginia",
+    "S2802_C03_022E": "92.0",
+    "state": "51",
+    "county": "810"
+  },
+  {
+    "NAME": "Chelan County, Washington",
+    "S2802_C03_022E": "82.7",
+    "state": "53",
+    "county": "007"
+  },
+  {
+    "NAME": "Clallam County, Washington",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "53",
+    "county": "009"
+  },
+  {
+    "NAME": "Cowlitz County, Washington",
+    "S2802_C03_022E": "86.5",
+    "state": "53",
+    "county": "015"
+  },
+  {
+    "NAME": "Franklin County, Washington",
+    "S2802_C03_022E": "91.7",
+    "state": "53",
+    "county": "021"
+  },
+  {
+    "NAME": "Grant County, Washington",
+    "S2802_C03_022E": "89.0",
+    "state": "53",
+    "county": "025"
+  },
+  {
+    "NAME": "Grays Harbor County, Washington",
+    "S2802_C03_022E": "88.9",
+    "state": "53",
+    "county": "027"
+  },
+  {
+    "NAME": "Island County, Washington",
+    "S2802_C03_022E": "93.0",
+    "state": "53",
+    "county": "029"
+  },
+  {
+    "NAME": "King County, Washington",
+    "S2802_C03_022E": "93.3",
+    "state": "53",
+    "county": "033"
+  },
+  {
+    "NAME": "Kitsap County, Washington",
+    "S2802_C03_022E": "93.4",
+    "state": "53",
+    "county": "035"
+  },
+  {
+    "NAME": "Lewis County, Washington",
+    "S2802_C03_022E": "88.1",
+    "state": "53",
+    "county": "041"
+  },
+  {
+    "NAME": "Mason County, Washington",
+    "S2802_C03_022E": "91.7",
+    "state": "53",
+    "county": "045"
+  },
+  {
+    "NAME": "Pierce County, Washington",
+    "S2802_C03_022E": "91.1",
+    "state": "53",
+    "county": "053"
+  },
+  {
+    "NAME": "Skagit County, Washington",
+    "S2802_C03_022E": "90.8",
+    "state": "53",
+    "county": "057"
+  },
+  {
+    "NAME": "Snohomish County, Washington",
+    "S2802_C03_022E": "92.9",
+    "state": "53",
+    "county": "061"
+  },
+  {
+    "NAME": "Yakima County, Washington",
+    "S2802_C03_022E": "85.6",
+    "state": "53",
+    "county": "077"
+  },
+  {
+    "NAME": "Berkeley County, West Virginia",
+    "S2802_C03_022E": "87.9",
+    "state":"54",
+    "county": "003"
+  },
+  {
+    "NAME": "Cabell County, West Virginia",
+    "S2802_C03_022E": "81.4",
+    "state": "54",
+    "county": "011"
+  },
+  {
+    "NAME": "Dallas County, Texas",
+    "S2802_C03_022E": "87.7",
+    "state": "48",
+    "county": "113"
+  },
+  {
+    "NAME": "Ector County, Texas",
+    "S2802_C03_022E": "84.6",
+    "state": "48",
+    "county": "135"
+  },
+  {
+    "NAME": "El Paso County, Texas",
+    "S2802_C03_022E": "86.2",
+    "state": "48",
+    "county": "141"
+  },
+  {
+    "NAME": "Fort Bend County, Texas",
+    "S2802_C03_022E": "94.0",
+    "state": "48",
+    "county": "157"
+  },
+  {
+    "NAME": "Galveston County, Texas",
+    "S2802_C03_022E": "91.7",
+    "state": "48",
+    "county": "167"
+  },
+  {
+    "NAME": "Hunt County, Texas",
+    "S2802_C03_022E": "85.1",
+    "state": "48",
+    "county": "231"
+  },
+  {
+    "NAME": "Liberty County, Texas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "48",
+    "county": "291"
+  },
+  {
+    "NAME": "Montgomery County, Texas",
+    "S2802_C03_022E": "91.3",
+    "state": "48",
+    "county": "339"
+  },
+  {
+    "NAME": "Rockwall County, Texas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "48",
+    "county": "397"
+  },
+  {
+    "NAME": "San Patricio County, Texas",
+    "S2802_C03_022E": "72.6",
+    "state": "48",
+    "county": "409"
+  },
+  {
+    "NAME": "Taylor County, Texas",
+    "S2802_C03_022E": "86.7",
+    "state": "48",
+    "county": "441"
+  },
+  {
+    "NAME": "Tom Green County, Texas",
+    "S2802_C03_022E": "81.9",
+    "state": "48",
+    "county": "451"
+  },
+  {
+    "NAME": "Victoria County, Texas",
+    "S2802_C03_022E": "74.4",
+    "state": "48",
+    "county": "469"
+  },
+  {
+    "NAME": "Webb County, Texas",
+    "S2802_C03_022E": "82.4",
+    "state": "48",
+    "county": "479"
+  },
+  {
+    "NAME": "Harrison County, West Virginia",
+    "S2802_C03_022E": "82.2",
+    "state": "54",
+    "county": "033"
+  },
+  {
+    "NAME": "Kanawha County, West Virginia",
+    "S2802_C03_022E": "87.3",
+    "state": "54",
+    "county": "039"
+  },
+  {
+    "NAME": "Monongalia County, West Virginia",
+    "S2802_C03_022E": "84.2",
+    "state": "54",
+    "county": "061"
+  },
+  {
+    "NAME": "Jefferson County, Wisconsin",
+    "S2802_C03_022E": "83.6",
+    "state": "55",
+    "county": "055"
+  },
+  {
+    "NAME": "Kenosha County, Wisconsin",
+    "S2802_C03_022E": "87.4",
+    "state": "55",
+    "county": "059"
+  },
+  {
+    "NAME": "Wood County, West Virginia",
+    "S2802_C03_022E": "82.1",
+    "state": "54",
+    "county": "107"
+  },
+  {
+    "NAME": "Brown County, Wisconsin",
+    "S2802_C03_022E": "85.4",
+    "state": "55",
+    "county": "009"
+  },
+  {
+    "NAME": "Chippewa County, Wisconsin",
+    "S2802_C03_022E": "78.6",
+    "state": "55",
+    "county": "017"
+  },
+  {
+    "NAME": "Dane County, Wisconsin",
+    "S2802_C03_022E": "90.8",
+    "state": "55",
+    "county": "025"
+  },
+  {
+    "NAME": "Dodge County, Wisconsin",
+    "S2802_C03_022E": "80.9",
+    "state": "55",
+    "county": "027"
+  },
+  {
+    "NAME": "Eau Claire County, Wisconsin",
+    "S2802_C03_022E": "88.9",
+    "state": "55",
+    "county": "035"
+  },
+  {
+    "NAME": "Fond du Lac County, Wisconsin",
+    "S2802_C03_022E": "83.0",
+    "state": "55",
+    "county": "039"
+  },
+  {
+    "NAME": "Augusta County, Virginia",
+    "S2802_C03_022E": "79.0",
+    "state": "51",
+    "county": "015"
+  },
+  {
+    "NAME": "Hanover County, Virginia",
+    "S2802_C03_022E": "89.8",
+    "state": "51",
+    "county": "085"
+  },
+  {
+    "NAME": "James City County, Virginia",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "51",
+    "county": "095"
+  },
+  {
+    "NAME": "Loudoun County, Virginia",
+    "S2802_C03_022E": "95.3",
+    "state": "51",
+    "county": "107"
+  },
+  {
+    "NAME": "York County, Virginia",
+    "S2802_C03_022E": "88.5",
+    "state": "51",
+    "county": "199"
+  },
+  {
+    "NAME": "Lynchburg city, Virginia",
+    "S2802_C03_022E": "88.2",
+    "state": "51",
+    "county": "680"
+  },
+  {
+    "NAME": "Portsmouth city, Virginia",
+    "S2802_C03_022E": "79.5",
+    "state": "51",
+    "county": "740"
+  },
+  {
+    "NAME": "Richmond city, Virginia",
+    "S2802_C03_022E": "78.6",
+    "state": "51",
+    "county": "760"
+  },
+  {
+    "NAME": "Benton County, Washington",
+    "S2802_C03_022E": "88.5",
+    "state": "53",
+    "county": "005"
+  },
+  {
+    "NAME": "Clark County, Washington",
+    "S2802_C03_022E": "93.3",
+    "state": "53",
+    "county": "011"
+  },
+  {
+    "NAME": "Spokane County, Washington",
+    "S2802_C03_022E": "89.5",
+    "state": "53",
+    "county": "063"
+  },
+  {
+    "NAME": "Thurston County, Washington",
+    "S2802_C03_022E": "93.1",
+    "state": "53",
+    "county": "067"
+  },
+  {
+    "NAME": "Whatcom County, Washington",
+    "S2802_C03_022E": "92.5",
+    "state": "53",
+    "county": "073"
+  },
+  {
+    "NAME": "Manitowoc County, Wisconsin",
+    "S2802_C03_022E": "79.6",
+    "state": "55",
+    "county": "071"
+  },
+  {
+    "NAME": "Marathon County, Wisconsin",
+    "S2802_C03_022E": "82.7",
+    "state": "55",
+    "county": "073"
+  },
+  {
+    "NAME": "Outagamie County, Wisconsin",
+    "S2802_C03_022E": "84.9",
+    "state": "55",
+    "county": "087"
+  },
+  {
+    "NAME": "Portage County, Wisconsin",
+    "S2802_C03_022E": "88.7",
+    "state": "55",
+    "county": "097"
+  },
+  {
+    "NAME": "St. Croix County, Wisconsin",
+    "S2802_C03_022E": "89.7",
+    "state": "55",
+    "county": "109"
+  },
+  {
+    "NAME": "Washington County, Wisconsin",
+    "S2802_C03_022E": "88.3",
+    "state": "55",
+    "county": "131"
+  },
+  {
+    "NAME": "Wood County, Wisconsin",
+    "S2802_C03_022E": "83.1",
+    "state": "55",
+    "county": "141"
+  },
+  {
+    "NAME": "Laramie County, Wyoming",
+    "S2802_C03_022E": "85.5",
+    "state": "56",
+    "county": "021"
+  },
+  {
+    "NAME": "Carolina Municipio, Puerto Rico",
+    "S2802_C03_022E": "84.8",
+    "state": "72",
+    "county": "031"
+  },
+  {
+    "NAME": "Arecibo Municipio, Puerto Rico",
+    "S2802_C03_022E": "66.5",
+    "state": "72",
+    "county": "013"
+  },
+  {
+    "NAME": "Bayam\u00f3n Municipio, Puerto Rico",
+    "S2802_C03_022E": "71.8",
+    "state": "72",
+    "county": "021"
+  },
+  {
+    "NAME": "Caguas Municipio, Puerto Rico",
+    "S2802_C03_022E": "76.9",
+    "state": "72",
+    "county": "025"
+  },
+  {
+    "NAME": "Raleigh County, West Virginia",
+    "S2802_C03_022E": "66.9",
+    "state": "54",
+    "county": "081"
+  },
+  {
+    "NAME": "La Crosse County, Wisconsin",
+    "S2802_C03_022E": "86.6",
+    "state": "55",
+    "county": "063"
+  },
+  {
+    "NAME": "Milwaukee County, Wisconsin",
+    "S2802_C03_022E": "81.3",
+    "state": "55",
+    "county": "079"
+  },
+  {
+    "NAME": "Ozaukee County, Wisconsin",
+    "S2802_C03_022E": "91.0",
+    "state": "55",
+    "county": "089"
+  },
+  {
+    "NAME": "Racine County, Wisconsin",
+    "S2802_C03_022E": "86.0",
+    "state": "55",
+    "county": "101"
+  },
+  {
+    "NAME": "Rock County, Wisconsin",
+    "S2802_C03_022E": "88.3",
+    "state": "55",
+    "county": "105"
+  },
+  {
+    "NAME": "Sauk County, Wisconsin",
+    "S2802_C03_022E": "78.0",
+    "state": "55",
+    "county": "111"
+  },
+  {
+    "NAME": "Sheboygan County, Wisconsin",
+    "S2802_C03_022E": "84.2",
+    "state": "55",
+    "county": "117"
+  },
+  {
+    "NAME": "Walworth County, Wisconsin",
+    "S2802_C03_022E": "84.7",
+    "state": "55",
+    "county": "127"
+  },
+  {
+    "NAME": "Waukesha County, Wisconsin",
+    "S2802_C03_022E": "90.4",
+    "state": "55",
+    "county": "133"
+  },
+  {
+    "NAME": "Winnebago County, Wisconsin",
+    "S2802_C03_022E": "86.2",
+    "state": "55",
+    "county": "139"
+  },
+  {
+    "NAME": "Natrona County, Wyoming",
+    "S2802_C03_022E": "89.9",
+    "state": "56",
+    "county": "025"
+  },
+  {
+    "NAME": "Guaynabo Municipio, Puerto Rico",
+    "S2802_C03_022E": "77.0",
+    "state": "72",
+    "county": "061"
+  },
+  {
+    "NAME": "Mayag\u00fcez Municipio, Puerto Rico",
+    "S2802_C03_022E": "74.6",
+    "state": "72",
+    "county": "097"
+  },
+  {
+    "NAME": "San Juan Municipio, Puerto Rico",
+    "S2802_C03_022E": "69.5",
+    "state": "72",
+    "county": "127"
+  },
+  {
+    "NAME": "Toa Alta Municipio, Puerto Rico",
+    "S2802_C03_022E": "72.1",
+    "state": "72",
+    "county": "135"
+  },
+  {
+    "NAME": "Trujillo Alto Municipio, Puerto Rico",
+    "S2802_C03_022E": "79.0",
+    "state": "72",
+    "county": "139"
+  },
+  {
+    "NAME": "Elmore County, Alabama",
+    "S2802_C03_022E": "82.7",
+    "state": "01",
+    "county": "051"
+  },
+  {
+    "NAME": "Jefferson County, Alabama",
+    "S2802_C03_022E": "84.8",
+    "state": "01",
+    "county": "073"
+  },
+  {
+    "NAME": "Limestone County, Alabama",
+    "S2802_C03_022E": "81.9",
+    "state": "01",
+    "county": "083"
+  },
+  {
+    "NAME": "Madison County, Alabama",
+    "S2802_C03_022E": "87.8",
+    "state": "01",
+    "county": "089"
+  },
+  {
+    "NAME": "Marshall County, Alabama",
+    "S2802_C03_022E": "83.6",
+    "state": "01",
+    "county": "095"
+  },
+  {
+    "NAME": "Montgomery County, Alabama",
+    "S2802_C03_022E": "82.4",
+    "state": "01",
+    "county": "101"
+  },
+  {
+    "NAME": "Shelby County, Alabama",
+    "S2802_C03_022E": "92.9",
+    "state": "01",
+    "county": "117"
+  },
+  {
+    "NAME": "Ponce Municipio, Puerto Rico",
+    "S2802_C03_022E": "73.9",
+    "state": "72",
+    "county": "113"
+  },
+  {
+    "NAME": "Toa Baja Municipio, Puerto Rico",
+    "S2802_C03_022E": "81.4",
+    "state": "72",
+    "county": "137"
+  },
+  {
+    "NAME": "Anchorage Municipality, Alaska",
+    "S2802_C03_022E": "90.9",
+    "state": "02",
+    "county": "020"
+  },
+  {
+    "NAME": "Pinal County, Arizona",
+    "S2802_C03_022E": "89.9",
+    "state": "04",
+    "county": "021"
+  },
+  {
+    "NAME": "Yuma County, Arizona",
+    "S2802_C03_022E": "87.3",
+    "state": "04",
+    "county": "027"
+  },
+  {
+    "NAME": "Pulaski County, Arkansas",
+    "S2802_C03_022E": "84.4",
+    "state": "05",
+    "county": "119"
+  },
+  {
+    "NAME": "Kings County, California",
+    "S2802_C03_022E": "83.5",
+    "state": "06",
+    "county": "031"
+  },
+  {
+    "NAME": "Los Angeles County, California",
+    "S2802_C03_022E": "89.9",
+    "state": "06",
+    "county": "037"
+  },
+  {
+    "NAME": "Napa County, California",
+    "S2802_C03_022E": "91.2",
+    "state": "06",
+    "county": "055"
+  },
+  {
+    "NAME": "Orange County, California",
+    "S2802_C03_022E": "93.0",
+    "state": "06",
+    "county": "059"
+  },
+  {
+    "NAME": "Riverside County, California",
+    "S2802_C03_022E": "91.6",
+    "state": "06",
+    "county": "065"
+  },
+  {
+    "NAME": "San Bernardino County, California",
+    "S2802_C03_022E": "91.0",
+    "state": "06",
+    "county": "071"
+  },
+  {
+    "NAME": "San Joaquin County, California",
+    "S2802_C03_022E": "89.3",
+    "state": "06",
+    "county": "077"
+  },
+  {
+    "NAME": "Santa Barbara County, California",
+    "S2802_C03_022E": "90.0",
+    "state": "06",
+    "county": "083"
+  },
+  {
+    "NAME": "Craighead County, Arkansas",
+    "S2802_C03_022E": "86.3",
+    "state": "05",
+    "county": "031"
+  },
+  {
+    "NAME": "Jefferson County, Arkansas",
+    "S2802_C03_022E": "75.4",
+    "state": "05",
+    "county": "069"
+  },
+  {
+    "NAME": "Shasta County, California",
+    "S2802_C03_022E": "87.7",
+    "state": "06",
+    "county": "089"
+  },
+  {
+    "NAME": "Solano County, California",
+    "S2802_C03_022E": "92.2",
+    "state": "06",
+    "county": "095"
+  },
+  {
+    "NAME": "Stanislaus County, California",
+    "S2802_C03_022E": "90.2",
+    "state": "06",
+    "county": "099"
+  },
+  {
+    "NAME": "Ventura County, California",
+    "S2802_C03_022E": "91.7",
+    "state": "06",
+    "county": "111"
+  },
+  {
+    "NAME": "Adams County, Colorado",
+    "S2802_C03_022E": "89.2",
+    "state": "08",
+    "county": "001"
+  },
+  {
+    "NAME": "Mesa County, Colorado",
+    "S2802_C03_022E": "90.3",
+    "state": "08",
+    "county": "077"
+  },
+  {
+    "NAME": "Litchfield County, Connecticut",
+    "S2802_C03_022E": "88.9",
+    "state": "09",
+    "county": "005"
+  },
+  {
+    "NAME": "New London County, Connecticut",
+    "S2802_C03_022E": "88.6",
+    "state": "09",
+    "county": "011"
+  },
+  {
+    "NAME": "Kent County, Delaware",
+    "S2802_C03_022E": "87.0",
+    "state": "10",
+    "county": "001"
+  },
+  {
+    "NAME": "District of Columbia, District of Columbia",
+    "S2802_C03_022E": "80.9",
+    "state": "11",
+    "county": "001"
+  },
+  {
+    "NAME": "Bay County, Florida",
+    "S2802_C03_022E": "90.7",
+    "state": "12",
+    "county": "005"
+  },
+  {
+    "NAME": "Brevard County, Florida",
+    "S2802_C03_022E": "89.3",
+    "state": "12",
+    "county": "009"
+  },
+  {
+    "NAME": "Charlotte County, Florida",
+    "S2802_C03_022E": "91.0",
+    "state": "12",
+    "county": "015"
+  },
+  {
+    "NAME": "Collier County, Florida",
+    "S2802_C03_022E": "89.5",
+    "state": "12",
+    "county": "021"
+  },
+  {
+    "NAME": "Escambia County, Florida",
+    "S2802_C03_022E": "84.9",
+    "state": "12",
+    "county": "033"
+  },
+  {
+    "NAME": "Okaloosa County, Florida",
+    "S2802_C03_022E": "89.1",
+    "state": "12",
+    "county": "091"
+  },
+  {
+    "NAME": "Osceola County, Florida",
+    "S2802_C03_022E": "93.1",
+    "state": "12",
+    "county": "097"
+  },
+  {
+    "NAME": "Pasco County, Florida",
+    "S2802_C03_022E": "87.6",
+    "state": "12",
+    "county": "101"
+  },
+  {
+    "NAME": "Putnam County, Florida",
+    "S2802_C03_022E": "82.1",
+    "state": "12",
+    "county": "107"
+  },
+  {
+    "NAME": "Santa Rosa County, Florida",
+    "S2802_C03_022E": "93.5",
+    "state": "12",
+    "county": "113"
+  },
+  {
+    "NAME": "Sumter County, Florida",
+    "S2802_C03_022E": "90.4",
+    "state": "12",
+    "county": "119"
+  },
+  {
+    "NAME": "Carroll County, Georgia",
+    "S2802_C03_022E": "92.6",
+    "state": "13",
+    "county": "045"
+  },
+  {
+    "NAME": "Chatham County, Georgia",
+    "S2802_C03_022E": "89.2",
+    "state": "13",
+    "county": "051"
+  },
+  {
+    "NAME": "Cherokee County, Georgia",
+    "S2802_C03_022E": "91.1",
+    "state": "13",
+    "county": "057"
+  },
+  {
+    "NAME": "Clayton County, Georgia",
+    "S2802_C03_022E": "92.3",
+    "state": "13",
+    "county": "063"
+  },
+  {
+    "NAME": "Cobb County, Georgia",
+    "S2802_C03_022E": "93.0",
+    "state": "13",
+    "county": "067"
+  },
+  {
+    "NAME": "Columbia County, Georgia",
+    "S2802_C03_022E": "90.0",
+    "state": "13",
+    "county": "073"
+  },
+  {
+    "NAME": "DeKalb County, Georgia",
+    "S2802_C03_022E": "91.2",
+    "state": "13",
+    "county": "089"
+  },
+  {
+    "NAME": "Houston County, Georgia",
+    "S2802_C03_022E": "89.0",
+    "state": "13",
+    "county": "153"
+  },
+  {
+    "NAME": "Muscogee County, Georgia",
+    "S2802_C03_022E": "80.2",
+    "state": "13",
+    "county": "215"
+  },
+  {
+    "NAME": "Whitfield County, Georgia",
+    "S2802_C03_022E": "81.9",
+    "state": "13",
+    "county": "313"
+  },
+  {
+    "NAME": "Hawaii County, Hawaii",
+    "S2802_C03_022E": "88.5",
+    "state": "15",
+    "county": "001"
+  },
+  {
+    "NAME": "Kauai County, Hawaii",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "15",
+    "county": "007"
+  },
+  {
+    "NAME": "Bonneville County, Idaho",
+    "S2802_C03_022E": "91.7",
+    "state": "16",
+    "county": "019"
+  },
+  {
+    "NAME": "Twin Falls County, Idaho",
+    "S2802_C03_022E": "82.9",
+    "state": "16",
+    "county": "083"
+  },
+  {
+    "NAME": "Kankakee County, Illinois",
+    "S2802_C03_022E": "83.1",
+    "state": "17",
+    "county": "091"
+  },
+  {
+    "NAME": "Lake County, Illinois",
+    "S2802_C03_022E": "90.2",
+    "state": "17",
+    "county": "097"
+  },
+  {
+    "NAME": "McLean County, Illinois",
+    "S2802_C03_022E": "80.6",
+    "state": "17",
+    "county": "113"
+  },
+  {
+    "NAME": "Madison County, Illinois",
+    "S2802_C03_022E": "83.7",
+    "state": "17",
+    "county": "119"
+  },
+  {
+    "NAME": "St. Clair County, Illinois",
+    "S2802_C03_022E": "85.8",
+    "state": "17",
+    "county": "163"
+  },
+  {
+    "NAME": "Tazewell County, Illinois",
+    "S2802_C03_022E": "82.4",
+    "state": "17",
+    "county": "179"
+  },
+  {
+    "NAME": "Winnebago County, Illinois",
+    "S2802_C03_022E": "83.5",
+    "state": "17",
+    "county": "201"
+  },
+  {
+    "NAME": "Kosciusko County, Indiana",
+    "S2802_C03_022E": "88.5",
+    "state": "18",
+    "county": "085"
+  },
+  {
+    "NAME": "LaPorte County, Indiana",
+    "S2802_C03_022E": "87.3",
+    "state": "18",
+    "county": "091"
+  },
+  {
+    "NAME": "Marion County, Indiana",
+    "S2802_C03_022E": "86.3",
+    "state": "18",
+    "county": "097"
+  },
+  {
+    "NAME": "Tippecanoe County, Indiana",
+    "S2802_C03_022E": "85.7",
+    "state": "18",
+    "county": "157"
+  },
+  {
+    "NAME": "Vigo County, Indiana",
+    "S2802_C03_022E": "82.0",
+    "state": "18",
+    "county": "167"
+  },
+  {
+    "NAME": "Wayne County, Indiana",
+    "S2802_C03_022E": "82.1",
+    "state": "18",
+    "county": "177"
+  },
+  {
+    "NAME": "Grant County, Indiana",
+    "S2802_C03_022E": "83.1",
+    "state": "18",
+    "county": "053"
+  },
+  {
+    "NAME": "Hancock County, Indiana",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "18",
+    "county": "059"
+  },
+  {
+    "NAME": "Hendricks County, Indiana",
+    "S2802_C03_022E": "90.6",
+    "state": "18",
+    "county": "063"
+  },
+  {
+    "NAME": "Polk County, Iowa",
+    "S2802_C03_022E": "86.3",
+    "state": "19",
+    "county": "153"
+  },
+  {
+    "NAME": "Story County, Iowa",
+    "S2802_C03_022E": "71.1",
+    "state": "19",
+    "county": "169"
+  },
+  {
+    "NAME": "Douglas County, Kansas",
+    "S2802_C03_022E": "87.0",
+    "state": "20",
+    "county": "045"
+  },
+  {
+    "NAME": "Wyandotte County, Kansas",
+    "S2802_C03_022E": "79.7",
+    "state": "20",
+    "county": "209"
+  },
+  {
+    "NAME": "Boone County, Kentucky",
+    "S2802_C03_022E": "85.7",
+    "state": "21",
+    "county": "015"
+  },
+  {
+    "NAME": "Campbell County, Kentucky",
+    "S2802_C03_022E": "84.3",
+    "state": "21",
+    "county": "037"
+  },
+  {
+    "NAME": "Daviess County, Kentucky",
+    "S2802_C03_022E": "86.3",
+    "state": "21",
+    "county": "059"
+  },
+  {
+    "NAME": "Hardin County, Kentucky",
+    "S2802_C03_022E": "87.2",
+    "state": "21",
+    "county": "093"
+  },
+  {
+    "NAME": "Pulaski County, Kentucky",
+    "S2802_C03_022E": "71.4",
+    "state": "21",
+    "county": "199"
+  },
+  {
+    "NAME": "Calcasieu Parish, Louisiana",
+    "S2802_C03_022E": "74.5",
+    "state": "22",
+    "county": "019"
+  },
+  {
+    "NAME": "Androscoggin County, Maine",
+    "S2802_C03_022E": "86.1",
+    "state": "23",
+    "county": "001"
+  },
+  {
+    "NAME": "Allegany County, Maryland",
+    "S2802_C03_022E": "79.2",
+    "state": "24",
+    "county": "001"
+  },
+  {
+    "NAME": "Calvert County, Maryland","S2802_C03_022E": "89.1",
+    "state": "24",
+    "county": "009"
+  },
+  {
+    "NAME": "Cecil County, Maryland",
+    "S2802_C03_022E": "88.0",
+    "state": "24",
+    "county": "015"
+  },
+  {
+    "NAME": "Frederick County, Maryland",
+    "S2802_C03_022E": "90.0",
+    "state": "24",
+    "county": "021"
+  },
+  {
+    "NAME": "Harford County, Maryland",
+    "S2802_C03_022E": "90.4",
+    "state": "24",
+    "county": "025"
+  },
+  {
+    "NAME": "Montgomery County, Maryland",
+    "S2802_C03_022E": "94.2",
+    "state": "24",
+    "county": "031"
+  },
+  {
+    "NAME": "St. Mary's County, Maryland",
+    "S2802_C03_022E": "86.0",
+    "state": "24",
+    "county": "037"
+  },
+  {
+    "NAME": "Washington County, Maryland",
+    "S2802_C03_022E": "72.3",
+    "state": "24",
+    "county": "043"
+  },
+  {
+    "NAME": "Baltimore city, Maryland",
+    "S2802_C03_022E": "72.7",
+    "state": "24",
+    "county": "510"
+  },
+  {
+    "NAME": "Berkshire County, Massachusetts",
+    "S2802_C03_022E": "85.0",
+    "state": "25",
+    "county": "003"
+  },
+  {
+    "NAME": "Essex County, Massachusetts",
+    "S2802_C03_022E": "86.5",
+    "state": "25",
+    "county": "009"
+  },
+  {
+    "NAME": "Hampshire County, Massachusetts",
+    "S2802_C03_022E": "84.1",
+    "state": "25",
+    "county": "015"
+  },
+  {
+    "NAME": "Norfolk County, Massachusetts",
+    "S2802_C03_022E": "91.3",
+    "state": "25",
+    "county": "021"
+  },
+  {
+    "NAME": "Eaton County, Michigan",
+    "S2802_C03_022E": "88.7",
+    "state": "26",
+    "county": "045"
+  },
+  {
+    "NAME": "Ionia County, Michigan",
+    "S2802_C03_022E": "80.1",
+    "state": "26",
+    "county": "067"
+  },
+  {
+    "NAME": "Midland County, Michigan",
+    "S2802_C03_022E": "87.9",
+    "state": "26",
+    "county": "111"
+  },
+  {
+    "NAME": "Montcalm County, Michigan",
+    "S2802_C03_022E": "79.8",
+    "state": "26",
+    "county": "117"
+  },
+  {
+    "NAME": "Ottawa County, Michigan",
+    "S2802_C03_022E": "87.9",
+    "state": "26",
+    "county": "139"
+  },
+  {
+    "NAME": "Saginaw County, Michigan",
+    "S2802_C03_022E": "80.8",
+    "state": "26",
+    "county": "145"
+  },
+  {
+    "NAME": "Madera County, California",
+    "S2802_C03_022E": "87.4",
+    "state": "06",
+    "county": "039"
+  },
+  {
+    "NAME": "Marin County, California",
+    "S2802_C03_022E": "94.0",
+    "state": "06",
+    "county": "041"
+  },
+  {
+    "NAME": "Mendocino County, California",
+    "S2802_C03_022E": "86.9",
+    "state": "06",
+    "county": "045"
+  },
+  {
+    "NAME": "Merced County, California",
+    "S2802_C03_022E": "82.0",
+    "state": "06",
+    "county": "047"
+  },
+  {
+    "NAME": "Monterey County, California",
+    "S2802_C03_022E": "93.1",
+    "state": "06",
+    "county": "053"
+  },
+  {
+    "NAME": "Nevada County, California",
+    "S2802_C03_022E": "87.1",
+    "state": "06",
+    "county": "057"
+  },
+  {
+    "NAME": "Placer County, California",
+    "S2802_C03_022E": "91.3",
+    "state": "06",
+    "county": "061"
+  },
+  {
+    "NAME": "Sacramento County, California",
+    "S2802_C03_022E": "91.9",
+    "state": "06",
+    "county": "067"
+  },
+  {
+    "NAME": "San Benito County, California",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "06",
+    "county": "069"
+  },
+  {
+    "NAME": "San Diego County, California",
+    "S2802_C03_022E": "92.9",
+    "state": "06",
+    "county": "073"
+  },
+  {
+    "NAME": "San Francisco County, California",
+    "S2802_C03_022E": "87.1",
+    "state": "06",
+    "county": "075"
+  },
+  {
+    "NAME": "San Luis Obispo County, California",
+    "S2802_C03_022E": "91.6",
+    "state": "06",
+    "county": "079"
+  },
+  {
+    "NAME": "San Mateo County, California",
+    "S2802_C03_022E": "92.1",
+    "state": "06",
+    "county": "081"
+  },
+  {
+    "NAME": "Santa Clara County, California",
+    "S2802_C03_022E": "94.1",
+    "state": "06",
+    "county": "085"
+  },
+  {
+    "NAME": "Santa Cruz County, California",
+    "S2802_C03_022E": "93.0",
+    "state": "06",
+    "county": "087"
+  },
+  {
+    "NAME": "Sonoma County, California",
+    "S2802_C03_022E": "92.5",
+    "state": "06",
+    "county": "097"
+  },
+  {
+    "NAME": "Sutter County, California",
+    "S2802_C03_022E": "88.0",
+    "state": "06",
+    "county": "101"
+  },
+  {
+    "NAME": "Tehama County, California",
+    "S2802_C03_022E": "80.2",
+    "state": "06",
+    "county": "103"
+  },
+  {
+    "NAME": "Tulare County, California",
+    "S2802_C03_022E": "82.6",
+    "state": "06",
+    "county": "107"
+  },
+  {
+    "NAME": "Yolo County, California",
+    "S2802_C03_022E": "88.7",
+    "state": "06",
+    "county": "113"
+  },
+  {
+    "NAME": "Yuba County, California",
+    "S2802_C03_022E": "89.0",
+    "state": "06",
+    "county": "115"
+  },
+  {
+    "NAME": "Arapahoe County, Colorado",
+    "S2802_C03_022E": "91.5",
+    "state": "08",
+    "county": "005"
+  },
+  {
+    "NAME": "Boulder County, Colorado",
+    "S2802_C03_022E": "93.4",
+    "state": "08",
+    "county": "013"
+  },
+  {
+    "NAME": "Broomfield County, Colorado",
+    "S2802_C03_022E": "93.5",
+    "state": "08",
+    "county": "014"
+  },
+  {
+    "NAME": "Denver County, Colorado",
+    "S2802_C03_022E": "86.5",
+    "state": "08",
+    "county": "031"
+  },
+  {
+    "NAME": "Douglas County, Colorado",
+    "S2802_C03_022E": "96.8",
+    "state": "08",
+    "county": "035"
+  },
+  {
+    "NAME": "Lake County, California",
+    "S2802_C03_022E": "84.9",
+    "state": "06",
+    "county": "033"
+  },
+  {
+    "NAME": "El Paso County, Colorado",
+    "S2802_C03_022E": "92.7",
+    "state": "08",
+    "county": "041"
+  },
+  {
+    "NAME": "Jefferson County, Colorado",
+    "S2802_C03_022E": "91.8",
+    "state": "08",
+    "county": "059"
+  },
+  {
+    "NAME": "Larimer County, Colorado",
+    "S2802_C03_022E": "88.8",
+    "state": "08",
+    "county": "069"
+  },
+  {
+    "NAME": "Jackson County, Missouri",
+    "S2802_C03_022E": "86.7",
+    "state": "29",
+    "county": "095"
+  },
+  {
+    "NAME": "Jasper County, Missouri",
+    "S2802_C03_022E": "86.1",
+    "state": "29",
+    "county": "097"
+  },
+  {
+    "NAME": "St. Charles County, Missouri",
+    "S2802_C03_022E": "92.4",
+    "state": "29",
+    "county": "183"
+  },
+  {
+    "NAME": "St. Francois County, Missouri",
+    "S2802_C03_022E": "79.4",
+    "state": "29",
+    "county": "187"
+  },
+  {
+    "NAME": "St. Louis County, Missouri",
+    "S2802_C03_022E": "87.5",
+    "state": "29",
+    "county": "189"
+  },
+  {
+    "NAME": "St. Louis city, Missouri",
+    "S2802_C03_022E": "76.7",
+    "state": "29",
+    "county": "510"
+  },
+  {
+    "NAME": "Cascade County, Montana",
+    "S2802_C03_022E": "84.9",
+    "state": "30",
+    "county": "013"
+  },
+  {
+    "NAME": "Pueblo County, Colorado",
+    "S2802_C03_022E": "84.3",
+    "state": "08",
+    "county": "101"
+  },
+  {
+    "NAME": "Weld County, Colorado",
+    "S2802_C03_022E": "88.3",
+    "state": "08",
+    "county": "123"
+  },
+  {
+    "NAME": "Fairfield County, Connecticut",
+    "S2802_C03_022E": "89.1",
+    "state": "09",
+    "county": "001"
+  },
+  {
+    "NAME": "Hartford County, Connecticut",
+    "S2802_C03_022E": "86.2",
+    "state": "09",
+    "county": "003"
+  },
+  {
+    "NAME": "Middlesex County, Connecticut",
+    "S2802_C03_022E": "89.6",
+    "state": "09",
+    "county": "007"
+  },
+  {
+    "NAME": "New Haven County, Connecticut",
+    "S2802_C03_022E": "87.3",
+    "state": "09",
+    "county": "009"
+  },
+  {
+    "NAME": "Tolland County, Connecticut",
+    "S2802_C03_022E": "92.2",
+    "state": "09",
+    "county": "013"
+  },
+  {
+    "NAME": "Windham County, Connecticut",
+    "S2802_C03_022E": "81.4",
+    "state": "09",
+    "county": "015"
+  },
+  {
+    "NAME": "New Castle County, Delaware",
+    "S2802_C03_022E": "88.6",
+    "state": "10",
+    "county": "003"
+  },
+  {
+    "NAME": "Sussex County, Delaware",
+    "S2802_C03_022E": "88.9",
+    "state": "10",
+    "county": "005"
+  },
+  {
+    "NAME": "Alachua County, Florida","S2802_C03_022E": "85.6",
+    "state": "12",
+    "county": "001"
+  },
+  {
+    "NAME": "Broward County, Florida",
+    "S2802_C03_022E": "87.0",
+    "state": "12",
+    "county": "011"
+  },
+  {
+    "NAME": "Citrus County, Florida",
+    "S2802_C03_022E": "87.2",
+    "state": "12",
+    "county": "017"
+  },
+  {
+    "NAME": "Clay County, Florida",
+    "S2802_C03_022E": "92.9",
+    "state": "12",
+    "county": "019"
+  },
+  {
+    "NAME": "Columbia County, Florida",
+    "S2802_C03_022E": "81.7",
+    "state": "12",
+    "county": "023"
+  },
+  {
+    "NAME": "Duval County, Florida",
+    "S2802_C03_022E": "85.7",
+    "state": "12",
+    "county": "031"
+  },
+  {
+    "NAME": "Flagler County, Florida",
+    "S2802_C03_022E": "83.1",
+    "state": "12",
+    "county": "035"
+  },
+  {
+    "NAME": "Hernando County, Florida",
+    "S2802_C03_022E": "89.0",
+    "state": "12",
+    "county": "053"
+  },
+  {
+    "NAME": "Highlands County, Florida",
+    "S2802_C03_022E": "85.5",
+    "state": "12",
+    "county": "055"
+  },
+  {
+    "NAME": "Hillsborough County, Florida",
+    "S2802_C03_022E": "90.0",
+    "state": "12",
+    "county": "057"
+  },
+  {
+    "NAME": "Indian River County, Florida",
+    "S2802_C03_022E": "89.2",
+    "state": "12",
+    "county": "061"
+  },
+  {
+    "NAME": "Lake County, Florida",
+    "S2802_C03_022E": "87.7",
+    "state": "12",
+    "county": "069"
+  },
+  {
+    "NAME": "Lee County, Florida",
+    "S2802_C03_022E": "88.4",
+    "state": "12",
+    "county": "071"
+  },
+  {
+    "NAME": "Leon County, Florida",
+    "S2802_C03_022E": "90.2",
+    "state": "12",
+    "county": "073"
+  },
+  {
+    "NAME": "Manatee County, Florida",
+    "S2802_C03_022E": "90.8",
+    "state": "12",
+    "county": "081"
+  },
+  {
+    "NAME": "Marion County, Florida",
+    "S2802_C03_022E": "88.4",
+    "state": "12",
+    "county": "083"
+  },
+  {
+    "NAME": "Martin County, Florida",
+    "S2802_C03_022E": "90.2",
+    "state": "12",
+    "county": "085"
+  },
+  {
+    "NAME": "Flathead County, Montana",
+    "S2802_C03_022E": "90.1",
+    "state": "30",
+    "county": "029"
+  },
+  {
+    "NAME": "Lewis and Clark County, Montana",
+    "S2802_C03_022E": "83.3",
+    "state": "30",
+    "county": "049"
+  },
+  {
+    "NAME": "Yellowstone County, Montana",
+    "S2802_C03_022E": "90.7",
+    "state": "30",
+    "county": "111"
+  },
+  {
+    "NAME": "Douglas County, Nebraska",
+    "S2802_C03_022E": "86.2",
+    "state": "31",
+    "county": "055"
+  },
+  {
+    "NAME": "Miami-Dade County, Florida",
+    "S2802_C03_022E": "85.0",
+    "state": "12",
+    "county": "086"
+  },
+  {
+    "NAME": "Monroe County, Florida",
+    "S2802_C03_022E": "83.0",
+    "state": "12",
+    "county": "087"
+  },
+  {
+    "NAME": "Nassau County, Florida",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "12",
+    "county": "089"
+  },
+  {
+    "NAME": "Orange County, Florida",
+    "S2802_C03_022E": "91.0",
+    "state": "12",
+    "county": "095"
+  },
+  {
+    "NAME": "Palm Beach County, Florida",
+    "S2802_C03_022E": "86.9",
+    "state": "12",
+    "county": "099"
+  },
+  {
+    "NAME": "Pinellas County, Florida",
+    "S2802_C03_022E": "87.3",
+    "state": "12",
+    "county": "103"
+  },
+  {
+    "NAME": "Polk County, Florida",
+    "S2802_C03_022E": "84.9",
+    "state": "12",
+    "county": "105"
+  },
+  {
+    "NAME": "St. Johns County, Florida",
+    "S2802_C03_022E": "90.1",
+    "state": "12",
+    "county": "109"
+  },
+  {
+    "NAME": "St. Lucie County, Florida",
+    "S2802_C03_022E": "90.2",
+    "state": "12",
+    "county": "111"
+  },
+  {
+    "NAME": "Sarasota County, Florida",
+    "S2802_C03_022E": "89.2",
+    "state": "12",
+    "county": "115"
+  },
+  {
+    "NAME": "Seminole County, Florida",
+    "S2802_C03_022E": "93.3",
+    "state": "12",
+    "county": "117"
+  },
+  {
+    "NAME": "Volusia County, Florida",
+    "S2802_C03_022E": "86.7",
+    "state": "12",
+    "county": "127"
+  },
+  {
+    "NAME": "Walton County, Florida",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "12",
+    "county": "131"
+  },
+  {
+    "NAME": "Barrow County, Georgia",
+    "S2802_C03_022E": "91.8",
+    "state": "13",
+    "county": "013"
+  },
+  {
+    "NAME": "Bartow County, Georgia",
+    "S2802_C03_022E": "83.5",
+    "state": "13",
+    "county": "015"
+  },
+  {
+    "NAME": "Bibb County, Georgia",
+    "S2802_C03_022E": "83.4",
+    "state": "13",
+    "county": "021"
+  },
+  {
+    "NAME": "Bulloch County, Georgia",
+    "S2802_C03_022E": "81.9",
+    "state": "13",
+    "county": "031"
+  },
+  {
+    "NAME": "Catoosa County, Georgia",
+    "S2802_C03_022E": "78.9",
+    "state": "13",
+    "county": "047"
+  },
+  {
+    "NAME": "Clarke County, Georgia",
+    "S2802_C03_022E": "80.9",
+    "state": "13",
+    "county": "059"
+  },
+  {
+    "NAME": "Coweta County, Georgia",
+    "S2802_C03_022E": "92.0",
+    "state": "13",
+    "county": "077"
+  },
+  {
+    "NAME": "Dougherty County, Georgia",
+    "S2802_C03_022E": "76.6",
+    "state": "13",
+    "county": "095"
+  },
+  {
+    "NAME": "Douglas County, Georgia",
+    "S2802_C03_022E": "84.8",
+    "state": "13",
+    "county": "097"
+  },
+  {
+    "NAME": "Effingham County, Georgia",
+    "S2802_C03_022E": "86.8",
+    "state": "13",
+    "county": "103"
+  },
+  {
+    "NAME": "Fayette County, Georgia",
+    "S2802_C03_022E": "95.7",
+    "state": "13",
+    "county": "113"
+  },
+  {
+    "NAME": "Floyd County, Georgia",
+    "S2802_C03_022E": "78.6",
+    "state": "13",
+    "county": "115"
+  },
+  {
+    "NAME": "Forsyth County, Georgia",
+    "S2802_C03_022E": "96.3",
+    "state": "13",
+    "county": "117"
+  },
+  {
+    "NAME": "Fulton County, Georgia",
+    "S2802_C03_022E": "88.2",
+    "state": "13",
+    "county": "121"
+  },
+  {
+    "NAME": "Davidson County, Tennessee",
+    "S2802_C03_022E": "86.1",
+    "state": "47",
+    "county": "037"
+  },
+  {
+    "NAME": "Greene County, Tennessee",
+    "S2802_C03_022E": "74.4",
+    "state": "47",
+    "county": "059"
+  },
+  {
+    "NAME": "Madison County, Tennessee",
+    "S2802_C03_022E": "79.1",
+    "state": "47",
+    "county": "113"
+  },
+  {
+    "NAME": "Maury County, Tennessee",
+    "S2802_C03_022E": "87.0",
+    "state": "47",
+    "county": "119"
+  },
+  {
+    "NAME": "Montgomery County, Tennessee",
+    "S2802_C03_022E": "89.6",
+    "state": "47",
+    "county": "125"
+  },
+  {
+    "NAME": "Blount County, Tennessee",
+    "S2802_C03_022E": "87.6",
+    "state": "47",
+    "county": "009"
+  },
+  {
+    "NAME": "Bradley County, Tennessee",
+    "S2802_C03_022E": "83.7",
+    "state": "47",
+    "county": "011"
+  },
+  {
+    "NAME": "Putnam County, Tennessee",
+    "S2802_C03_022E": "83.9",
+    "state": "47",
+    "county": "141"
+  },
+  {
+    "NAME": "Robertson County, Tennessee",
+    "S2802_C03_022E": "84.5",
+    "state": "47",
+    "county": "147"
+  },
+  {
+    "NAME": "Glynn County, Georgia",
+    "S2802_C03_022E": "92.3",
+    "state": "13",
+    "county": "127"
+  },
+  {
+    "NAME": "Gwinnett County, Georgia",
+    "S2802_C03_022E": "93.3",
+    "state": "13",
+    "county": "135"
+  },
+  {
+    "NAME": "Hall County, Georgia",
+    "S2802_C03_022E": "91.7",
+    "state": "13",
+    "county": "139"
+  },
+  {
+    "NAME": "Henry County, Georgia",
+    "S2802_C03_022E": "92.2",
+    "state": "13",
+    "county": "151"
+  },
+  {
+    "NAME": "Jackson County, Georgia",
+    "S2802_C03_022E": "88.6",
+    "state": "13",
+    "county": "157"
+  },
+  {
+    "NAME": "Liberty County, Georgia",
+    "S2802_C03_022E": "79.3",
+    "state": "13",
+    "county": "179"
+  },
+  {
+    "NAME": "Lowndes County, Georgia",
+    "S2802_C03_022E": "80.5",
+    "state": "13",
+    "county": "185"
+  },
+  {
+    "NAME": "Newton County, Georgia",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "13",
+    "county": "217"
+  },
+  {
+    "NAME": "Paulding County, Georgia",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "13",
+    "county": "223"
+  },
+  {
+    "NAME": "Richmond County, Georgia",
+    "S2802_C03_022E": "79.7",
+    "state": "13",
+    "county": "245"
+  },
+  {
+    "NAME": "Rockdale County, Georgia",
+    "S2802_C03_022E": "85.4",
+    "state": "13",
+    "county": "247"
+  },
+  {
+    "NAME": "Spalding County, Georgia",
+    "S2802_C03_022E": "82.6",
+    "state": "13",
+    "county": "255"
+  },
+  {
+    "NAME": "Troup County, Georgia",
+    "S2802_C03_022E": "79.6",
+    "state": "13",
+    "county": "285"
+  },
+  {
+    "NAME": "Walker County, Georgia",
+    "S2802_C03_022E": "85.7",
+    "state": "13",
+    "county": "295"
+  },
+  {
+    "NAME": "Shelby County, Tennessee",
+    "S2802_C03_022E": "83.1",
+    "state": "47",
+    "county": "157"
+  },
+  {
+    "NAME": "Sullivan County, Tennessee",
+    "S2802_C03_022E": "80.9",
+    "state": "47",
+    "county": "163"
+  },
+  {
+    "NAME": "Washington County, Tennessee",
+    "S2802_C03_022E": "84.8",
+    "state": "47",
+    "county": "179"
+  },
+  {
+    "NAME": "Williamson County, Tennessee",
+    "S2802_C03_022E": "95.2",
+    "state": "47",
+    "county": "187"
+  },
+  {
+    "NAME": "Wilson County, Tennessee",
+    "S2802_C03_022E": "89.9",
+    "state": "47",
+    "county": "189"
+  },
+  {
+    "NAME": "Angelina County, Texas",
+    "S2802_C03_022E": "86.9",
+    "state": "48",
+    "county": "005"
+  },
+  {
+    "NAME": "Bastrop County, Texas",
+    "S2802_C03_022E": "92.2",
+    "state": "48",
+    "county": "021"
+  },
+  {
+    "NAME": "Bexar County, Texas",
+    "S2802_C03_022E": "87.6",
+    "state": "48",
+    "county": "029"
+  },
+  {
+    "NAME": "Bowie County, Texas",
+    "S2802_C03_022E": "73.3",
+    "state": "48",
+    "county": "037"
+  },
+  {
+    "NAME": "Brazos County, Texas",
+    "S2802_C03_022E": "83.3",
+    "state": "48",
+    "county": "041"
+  },
+  {
+    "NAME": "Cameron County, Texas",
+    "S2802_C03_022E": "78.0",
+    "state": "48",
+    "county": "061"
+  },
+  {
+    "NAME": "Collin County, Texas",
+    "S2802_C03_022E": "95.6",
+    "state": "48",
+    "county": "085"
+  },
+  {
+    "NAME": "Comal County, Texas",
+    "S2802_C03_022E": "92.6",
+    "state": "48",
+    "county": "091"
+  },
+  {
+    "NAME": "Coryell County, Texas",
+    "S2802_C03_022E": "89.8",
+    "state": "48",
+    "county": "099"
+  },
+  {
+    "NAME": "Denton County, Texas",
+    "S2802_C03_022E": "94.4",
+    "state": "48",
+    "county": "121"
+  },
+  {
+    "NAME": "Walton County, Georgia",
+    "S2802_C03_022E": "86.1",
+    "state": "13",
+    "county": "297"
+  },
+  {
+    "NAME": "Honolulu County, Hawaii",
+    "S2802_C03_022E": "89.9",
+    "state": "15",
+    "county": "003"
+  },
+  {
+    "NAME": "Maui County, Hawaii",
+    "S2802_C03_022E": "86.6",
+    "state": "15",
+    "county": "009"
+  },
+  {
+    "NAME": "Ada County, Idaho",
+    "S2802_C03_022E": "92.9",
+    "state": "16",
+    "county": "001"
+  },
+  {
+    "NAME": "Bannock County, Idaho",
+    "S2802_C03_022E": "85.6",
+    "state": "16",
+    "county": "005"
+  },
+  {
+    "NAME": "Canyon County, Idaho","S2802_C03_022E": "89.3",
+    "state": "16",
+    "county": "027"
+  },
+  {
+    "NAME": "Kootenai County, Idaho",
+    "S2802_C03_022E": "87.3",
+    "state": "16",
+    "county": "055"
+  },
+  {
+    "NAME": "Champaign County, Illinois",
+    "S2802_C03_022E": "89.8",
+    "state": "17",
+    "county": "019"
+  },
+  {
+    "NAME": "Cook County, Illinois",
+    "S2802_C03_022E": "84.8",
+    "state": "17",
+    "county": "031"
+  },
+  {
+    "NAME": "DeKalb County, Illinois",
+    "S2802_C03_022E": "87.8",
+    "state": "17",
+    "county": "037"
+  },
+  {
+    "NAME": "DuPage County, Illinois",
+    "S2802_C03_022E": "91.3",
+    "state": "17",
+    "county": "043"
+  },
+  {
+    "NAME": "Ellis County, Texas",
+    "S2802_C03_022E": "89.2",
+    "state": "48",
+    "county": "139"
+  },
+  {
+    "NAME": "Grayson County, Texas",
+    "S2802_C03_022E": "86.9",
+    "state": "48",
+    "county": "181"
+  },
+  {
+    "NAME": "Gregg County, Texas",
+    "S2802_C03_022E": "82.3",
+    "state": "48",
+    "county": "183"
+  },
+  {
+    "NAME": "Guadalupe County, Texas",
+    "S2802_C03_022E": "90.0",
+    "state": "48",
+    "county": "187"
+  },
+  {
+    "NAME": "Harris County, Texas",
+    "S2802_C03_022E": "87.3",
+    "state": "48",
+    "county": "201"
+  },
+  {
+    "NAME": "Harrison County, Texas",
+    "S2802_C03_022E": "82.4",
+    "state": "48",
+    "county": "203"
+  },
+  {
+    "NAME": "Hays County, Texas",
+    "S2802_C03_022E": "90.5",
+    "state": "48",
+    "county": "209"
+  },
+  {
+    "NAME": "Henderson County, Texas",
+    "S2802_C03_022E": "77.2",
+    "state": "48",
+    "county": "213"
+  },
+  {
+    "NAME": "Hidalgo County, Texas",
+    "S2802_C03_022E": "82.6",
+    "state": "48",
+    "county": "215"
+  },
+  {
+    "NAME": "Jefferson County, Texas",
+    "S2802_C03_022E": "87.2",
+    "state": "48",
+    "county": "245"
+  },
+  {
+    "NAME": "Johnson County, Texas",
+    "S2802_C03_022E": "90.6",
+    "state": "48",
+    "county": "251"
+  },
+  {
+    "NAME": "Kaufman County, Texas",
+    "S2802_C03_022E": "86.9",
+    "state": "48",
+    "county": "257"
+  },
+  {
+    "NAME": "Kane County, Illinois",
+    "S2802_C03_022E": "90.9",
+    "state": "17",
+    "county": "089"
+  },
+  {
+    "NAME": "Kendall County, Illinois",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "17",
+    "county": "093"
+  },
+  {
+    "NAME": "LaSalle County, Illinois",
+    "S2802_C03_022E": "81.2",
+    "state": "17",
+    "county": "099"
+  },
+  {
+    "NAME": "McHenry County, Illinois",
+    "S2802_C03_022E": "92.5",
+    "state": "17",
+    "county": "111"
+  },
+  {
+    "NAME": "Macon County, Illinois",
+    "S2802_C03_022E": "76.7",
+    "state": "17",
+    "county": "115"
+  },
+  {
+    "NAME": "Peoria County, Illinois",
+    "S2802_C03_022E": "86.9",
+    "state": "17",
+    "county": "143"
+  },
+  {
+    "NAME": "Rock Island County, Illinois",
+    "S2802_C03_022E": "86.6",
+    "state": "17",
+    "county": "161"
+  },
+  {
+    "NAME": "Sangamon County, Illinois",
+    "S2802_C03_022E": "82.4",
+    "state": "17",
+    "county": "167"
+  },
+  {
+    "NAME": "Vermilion County, Illinois",
+    "S2802_C03_022E": "76.7",
+    "state": "17",
+    "county": "183"
+  },
+  {
+    "NAME": "Will County, Illinois",
+    "S2802_C03_022E": "91.5",
+    "state": "17",
+    "county": "197"
+  },
+  {
+    "NAME": "Williamson County, Illinois",
+    "S2802_C03_022E": "78.5",
+    "state": "17",
+    "county": "199"
+  },
+  {
+    "NAME": "Allen County, Indiana",
+    "S2802_C03_022E": "88.8",
+    "state": "18",
+    "county": "003"
+  },
+  {
+    "NAME": "Bartholomew County, Indiana",
+    "S2802_C03_022E": "89.2",
+    "state": "18",
+    "county": "005"
+  },
+  {
+    "NAME": "Lancaster County, Nebraska",
+    "S2802_C03_022E": "87.8",
+    "state": "31",
+    "county": "109"
+  },
+  {
+    "NAME": "Sarpy County, Nebraska",
+    "S2802_C03_022E": "90.6",
+    "state": "31",
+    "county": "153"
+  },
+  {
+    "NAME": "Clark County, Nevada",
+    "S2802_C03_022E": "89.1",
+    "state": "32",
+    "county": "003"
+  },
+  {
+    "NAME": "Washoe County, Nevada",
+    "S2802_C03_022E": "83.1",
+    "state": "32",
+    "county": "031"
+  },
+  {
+    "NAME": "Cheshire County, New Hampshire",
+    "S2802_C03_022E": "86.3",
+    "state": "33",
+    "county": "005"
+  },
+  {
+    "NAME": "Hillsborough County, New Hampshire",
+    "S2802_C03_022E": "91.7",
+    "state": "33",
+    "county": "011"
+  },
+  {
+    "NAME": "Boone County, Indiana",
+    "S2802_C03_022E": "93.6",
+    "state": "18",
+    "county": "011"
+  },
+  {
+    "NAME": "Clark County, Indiana",
+    "S2802_C03_022E": "85.7",
+    "state": "18",
+    "county": "019"
+  },
+  {
+    "NAME": "Delaware County, Indiana",
+    "S2802_C03_022E": "81.9",
+    "state": "18",
+    "county": "035"
+  },
+  {
+    "NAME": "Elkhart County, Indiana",
+    "S2802_C03_022E": "84.6",
+    "state": "18",
+    "county": "039"
+  },
+  {
+    "NAME": "Floyd County, Indiana",
+    "S2802_C03_022E": "82.4",
+    "state": "18",
+    "county": "043"
+  },
+  {
+    "NAME": "Hamilton County, Indiana",
+    "S2802_C03_022E": "93.7",
+    "state": "18",
+    "county": "057"
+  },
+  {
+    "NAME": "Howard County, Indiana",
+    "S2802_C03_022E": "82.6",
+    "state": "18",
+    "county": "067"
+  },
+  {
+    "NAME": "Johnson County, Indiana",
+    "S2802_C03_022E": "86.6",
+    "state": "18",
+    "county": "081"
+  },
+  {
+    "NAME": "Lake County, Indiana",
+    "S2802_C03_022E": "86.0",
+    "state": "18",
+    "county": "089"
+  },
+  {
+    "NAME": "Madison County, Indiana",
+    "S2802_C03_022E": "81.9",
+    "state": "18",
+    "county": "095"
+  },
+  {
+    "NAME": "Monroe County, Indiana",
+    "S2802_C03_022E": "87.2",
+    "state": "18",
+    "county": "105"
+  },
+  {
+    "NAME": "Morgan County, Indiana",
+    "S2802_C03_022E": "82.4",
+    "state": "18",
+    "county": "109"
+  },
+  {
+    "NAME": "Porter County, Indiana",
+    "S2802_C03_022E": "91.3",
+    "state": "18",
+    "county": "127"
+  },
+  {
+    "NAME": "St. Joseph County, Indiana",
+    "S2802_C03_022E": "84.5",
+    "state": "18",
+    "county": "141"
+  },
+  {
+    "NAME": "Vanderburgh County, Indiana",
+    "S2802_C03_022E": "81.5",
+    "state": "18",
+    "county": "163"
+  },
+  {
+    "NAME": "Rockingham County, New Hampshire",
+    "S2802_C03_022E": "92.7",
+    "state": "33",
+    "county": "015"
+  },
+  {
+    "NAME": "Strafford County, New Hampshire",
+    "S2802_C03_022E": "91.4",
+    "state": "33",
+    "county": "017"
+  },
+  {
+    "NAME": "Atlantic County, New Jersey",
+    "S2802_C03_022E": "87.5",
+    "state": "34",
+    "county": "001"
+  },
+  {
+    "NAME": "Bergen County, New Jersey",
+    "S2802_C03_022E": "91.2",
+    "state": "34",
+    "county": "003"
+  },
+  {
+    "NAME": "Camden County, New Jersey",
+    "S2802_C03_022E": "85.8",
+    "state": "34",
+    "county": "007"
+  },
+  {
+    "NAME": "Cape May County, New Jersey",
+    "S2802_C03_022E": "87.8",
+    "state": "34",
+    "county": "009"
+  },
+  {
+    "NAME": "Essex County, New Jersey",
+    "S2802_C03_022E": "83.1",
+    "state": "34",
+    "county": "013"
+  },
+  {
+    "NAME": "Gloucester County, New Jersey",
+    "S2802_C03_022E": "88.7",
+    "state": "34",
+    "county": "015"
+  },
+  {
+    "NAME": "Hunterdon County, New Jersey",
+    "S2802_C03_022E": "90.0",
+    "state": "34",
+    "county": "019"
+  },
+  {
+    "NAME": "Mercer County, New Jersey",
+    "S2802_C03_022E": "87.4",
+    "state": "34",
+    "county": "021"
+  },
+  {
+    "NAME": "Monmouth County, New Jersey",
+    "S2802_C03_022E": "91.2",
+    "state": "34",
+    "county": "025"
+  },
+  {
+    "NAME": "Morris County, New Jersey",
+    "S2802_C03_022E": "92.4",
+    "state": "34",
+    "county": "027"
+  },
+  {
+    "NAME": "Passaic County, New Jersey",
+    "S2802_C03_022E": "84.3",
+    "state": "34",
+    "county": "031"
+  },
+  {
+    "NAME": "Somerset County, New Jersey",
+    "S2802_C03_022E": "90.2",
+    "state": "34",
+    "county": "035"
+  },
+  {
+    "NAME": "Sussex County, New Jersey",
+    "S2802_C03_022E": "91.2",
+    "state": "34",
+    "county": "037"
+  },
+  {
+    "NAME": "Warren County, New Jersey",
+    "S2802_C03_022E": "89.5",
+    "state": "34",
+    "county": "041"
+  },
+  {
+    "NAME": "Bernalillo County, New Mexico",
+    "S2802_C03_022E": "87.9",
+    "state": "35",
+    "county": "001"
+  },
+  {
+    "NAME": "Do\u00f1a Ana County, New Mexico",
+    "S2802_C03_022E": "84.7",
+    "state": "35",
+    "county": "013"
+  },
+  {
+    "NAME": "Lea County, New Mexico",
+    "S2802_C03_022E": "84.3",
+    "state": "35",
+    "county": "025"
+  },
+  {
+    "NAME": "McKinley County, New Mexico",
+    "S2802_C03_022E": "51.9",
+    "state": "35",
+    "county": "031"
+  },
+  {
+    "NAME": "Otero County, New Mexico",
+    "S2802_C03_022E": "85.7",
+    "state": "35",
+    "county": "035"
+  },
+  {
+    "NAME": "San Juan County, New Mexico",
+    "S2802_C03_022E": "52.5",
+    "state": "35",
+    "county": "045"
+  },
+  {
+    "NAME": "Albany County, New York",
+    "S2802_C03_022E": "84.7",
+    "state": "36",
+    "county": "001"
+  },
+  {
+    "NAME": "Bronx County, New York",
+    "S2802_C03_022E": "82.5",
+    "state": "36",
+    "county": "005"
+  },
+  {
+    "NAME": "Broome County, New York",
+    "S2802_C03_022E": "84.5",
+    "state": "36",
+    "county": "007"
+  },
+  {
+    "NAME": "Cayuga County, New York",
+    "S2802_C03_022E": "81.4",
+    "state": "36",
+    "county": "011"
+  },
+  {
+    "NAME": "Chautauqua County, New York",
+    "S2802_C03_022E": "84.6",
+    "state": "36",
+    "county": "013"
+  },
+  {
+    "NAME": "Chemung County, New York",
+    "S2802_C03_022E": "82.3",
+    "state": "36",
+    "county": "015"
+  },
+  {
+    "NAME": "Clinton County, New York",
+    "S2802_C03_022E": "84.9",
+    "state": "36",
+    "county": "019"
+  },
+  {
+    "NAME": "Dutchess County, New York",
+    "S2802_C03_022E": "88.5",
+    "state": "36",
+    "county": "027"
+  },
+  {
+    "NAME": "Erie County, New York",
+    "S2802_C03_022E": "83.9",
+    "state": "36",
+    "county": "029"
+  },
+  {
+    "NAME": "Jefferson County, New York",
+    "S2802_C03_022E": "86.3",
+    "state": "36",
+    "county": "045"
+  },
+  {
+    "NAME": "Black Hawk County, Iowa",
+    "S2802_C03_022E": "84.0",
+    "state": "19",
+    "county": "013"
+  },
+  {
+    "NAME": "Dallas County, Iowa",
+    "S2802_C03_022E": "85.8",
+    "state": "19",
+    "county": "049"
+  },
+  {
+    "NAME": "Dubuque County, Iowa",
+    "S2802_C03_022E": "84.0",
+    "state": "19",
+    "county": "061"
+  },
+  {
+    "NAME": "Johnson County, Iowa",
+    "S2802_C03_022E": "88.4",
+    "state": "19",
+    "county": "103"
+  },
+  {
+    "NAME": "Linn County, Iowa",
+    "S2802_C03_022E": "86.4",
+    "state": "19",
+    "county": "113"
+  },
+  {
+    "NAME": "Pottawattamie County, Iowa",
+    "S2802_C03_022E": "80.6",
+    "state": "19",
+    "county": "155"
+  },
+  {
+    "NAME": "Scott County, Iowa",
+    "S2802_C03_022E": "84.2",
+    "state": "19",
+    "county": "163"
+  },
+  {
+    "NAME": "Kings County, New York",
+    "S2802_C03_022E": "82.9",
+    "state": "36",
+    "county": "047"
+  },
+  {
+    "NAME": "Monroe County, New York",
+    "S2802_C03_022E": "86.1",
+    "state": "36",
+    "county": "055"
+  },
+  {
+    "NAME": "Nassau County, New York",
+    "S2802_C03_022E": "91.0",
+    "state": "36",
+    "county": "059"
+  },
+  {
+    "NAME": "New York County, New York",
+    "S2802_C03_022E": "83.9",
+    "state": "36",
+    "county": "061"
+  },
+  {
+    "NAME": "Oneida County, New York",
+    "S2802_C03_022E": "82.0",
+    "state": "36",
+    "county": "065"
+  },
+  {
+    "NAME": "Onondaga County, New York",
+    "S2802_C03_022E": "88.5",
+    "state": "36",
+    "county": "067"
+  },
+  {
+    "NAME": "Orange County, New York",
+    "S2802_C03_022E": "86.8",
+    "state": "36",
+    "county": "071"
+  },
+  {
+    "NAME": "Putnam County, New York",
+    "S2802_C03_022E": "93.6",
+    "state": "36",
+    "county": "079"
+  },
+  {
+    "NAME": "Rensselaer County, New York",
+    "S2802_C03_022E": "83.5",
+    "state": "36",
+    "county": "083"
+  },
+  {
+    "NAME": "Rockland County, New York",
+    "S2802_C03_022E": "82.3",
+    "state": "36",
+    "county": "087"
+  },
+  {
+    "NAME": "St. Lawrence County, New York",
+    "S2802_C03_022E": "83.2",
+    "state": "36",
+    "county": "089"
+  },
+  {
+    "NAME": "Schenectady County, New York",
+    "S2802_C03_022E": "84.2",
+    "state": "36",
+    "county": "093"
+  },
+  {
+    "NAME": "Steuben County, New York",
+    "S2802_C03_022E": "82.7",
+    "state": "36",
+    "county": "101"
+  },
+  {
+    "NAME": "Sullivan County, New York",
+    "S2802_C03_022E": "86.3",
+    "state": "36",
+    "county": "105"
+  },
+  {
+    "NAME": "Tompkins County, New York",
+    "S2802_C03_022E": "87.9",
+    "state": "36",
+    "county": "109"
+  },
+  {
+    "NAME": "Ulster County, New York",
+    "S2802_C03_022E": "88.3",
+    "state": "36",
+    "county": "111"
+  },
+  {
+    "NAME": "Wayne County, New York",
+    "S2802_C03_022E": "84.6",
+    "state": "36",
+    "county": "117"
+  },
+  {
+    "NAME": "Brunswick County, North Carolina",
+    "S2802_C03_022E": "94.4",
+    "state": "37",
+    "county": "019"
+  },
+  {
+    "NAME": "Buncombe County, North Carolina",
+    "S2802_C03_022E": "83.6",
+    "state": "37",
+    "county": "021"
+  },
+  {
+    "NAME": "Cabarrus County, North Carolina",
+    "S2802_C03_022E": "88.0",
+    "state": "37",
+    "county": "025"
+  },
+  {
+    "NAME": "Caldwell County, North Carolina",
+    "S2802_C03_022E": "76.4",
+    "state": "37",
+    "county": "027"
+  },
+  {
+    "NAME": "Carteret County, North Carolina",
+    "S2802_C03_022E": "90.4",
+    "state": "37",
+    "county": "031"
+  },
+  {
+    "NAME": "Chatham County, North Carolina",
+    "S2802_C03_022E": "88.4",
+    "state": "37",
+    "county": "037"
+  },
+  {
+    "NAME": "Cleveland County, North Carolina",
+    "S2802_C03_022E": "72.0",
+    "state": "37",
+    "county": "045"
+  },
+  {
+    "NAME": "Craven County, North Carolina",
+    "S2802_C03_022E": "79.1",
+    "state": "37",
+    "county": "049"
+  },
+  {
+    "NAME": "Cumberland County, North Carolina",
+    "S2802_C03_022E": "87.6",
+    "state": "37",
+    "county": "051"
+  },
+  {
+    "NAME": "Davidson County, North Carolina",
+    "S2802_C03_022E": "85.2",
+    "state": "37",
+    "county": "057"
+  },
+  {
+    "NAME": "Durham County, North Carolina",
+    "S2802_C03_022E": "90.0",
+    "state": "37",
+    "county": "063"
+  },
+  {
+    "NAME": "Forsyth County, North Carolina",
+    "S2802_C03_022E": "85.7",
+    "state": "37",
+    "county": "067"
+  },
+  {
+    "NAME": "Franklin County, North Carolina",
+    "S2802_C03_022E": "85.8",
+    "state": "37",
+    "county": "069"
+  },
+  {
+    "NAME": "Gaston County, North Carolina",
+    "S2802_C03_022E": "78.4",
+    "state": "37",
+    "county": "071"
+  },
+  {
+    "NAME": "Guilford County, North Carolina",
+    "S2802_C03_022E": "89.2",
+    "state": "37",
+    "county": "081"
+  },
+  {
+    "NAME": "Woodbury County, Iowa",
+    "S2802_C03_022E": "86.3",
+    "state": "19",
+    "county": "193"
+  },
+  {
+    "NAME": "Butler County, Kansas",
+    "S2802_C03_022E": "84.7",
+    "state": "20",
+    "county": "015"
+  },
+  {
+    "NAME": "Johnson County, Kansas",
+    "S2802_C03_022E": "93.3",
+    "state": "20",
+    "county": "091"
+  },
+  {
+    "NAME": "Leavenworth County, Kansas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "20",
+    "county": "103"
+  },
+  {
+    "NAME": "Harnett County, North Carolina",
+    "S2802_C03_022E": "76.5",
+    "state": "37",
+    "county": "085"
+  },
+  {
+    "NAME": "Henderson County, North Carolina",
+    "S2802_C03_022E": "86.3",
+    "state": "37",
+    "county": "089"
+  },
+  {
+    "NAME": "Iredell County, North Carolina",
+    "S2802_C03_022E": "89.8",
+    "state": "37",
+    "county": "097"
+  },
+  {
+    "NAME": "Johnston County, North Carolina",
+    "S2802_C03_022E": "83.1",
+    "state": "37",
+    "county": "101"
+  },
+  {
+    "NAME": "Mecklenburg County, North Carolina",
+    "S2802_C03_022E": "89.6",
+    "state": "37",
+    "county": "119"
+  },
+  {
+    "NAME": "Moore County, North Carolina",
+    "S2802_C03_022E": "81.3",
+    "state": "37",
+    "county": "125"
+  },
+  {
+    "NAME": "New Hanover County, North Carolina",
+    "S2802_C03_022E": "89.2",
+    "state": "37",
+    "county": "129"
+  },
+  {
+    "NAME": "Orange County, North Carolina",
+    "S2802_C03_022E": "89.1",
+    "state": "37",
+    "county": "135"
+  },
+  {
+    "NAME": "Pitt County, North Carolina",
+    "S2802_C03_022E": "75.5",
+    "state": "37",
+    "county": "147"
+  },
+  {
+    "NAME": "Rockingham County, North Carolina",
+    "S2802_C03_022E": "74.7",
+    "state": "37",
+    "county": "157"
+  },
+  {
+    "NAME": "Rowan County, North Carolina",
+    "S2802_C03_022E": "85.8",
+    "state": "37",
+    "county": "159"
+  },
+  {
+    "NAME": "Surry County, North Carolina",
+    "S2802_C03_022E": "80.6",
+    "state": "37",
+    "county": "171"
+  },
+  {
+    "NAME": "Wake County, North Carolina",
+    "S2802_C03_022E": "92.0",
+    "state": "37",
+    "county": "183"
+  },
+  {
+    "NAME": "Wilkes County, North Carolina",
+    "S2802_C03_022E": "77.6",
+    "state": "37",
+    "county": "193"
+  },
+  {
+    "NAME": "Wilson County, North Carolina",
+    "S2802_C03_022E": "71.9",
+    "state": "37",
+    "county": "195"
+  },
+  {
+    "NAME": "Burleigh County, North Dakota",
+    "S2802_C03_022E": "85.4",
+    "state": "38",
+    "county": "015"
+  },
+  {
+    "NAME": "Cass County, North Dakota",
+    "S2802_C03_022E": "89.4",
+    "state": "38",
+    "county": "017"
+  },
+  {
+    "NAME": "Grand Forks County, North Dakota",
+    "S2802_C03_022E": "83.5",
+    "state": "38",
+    "county": "035"
+  },
+  {
+    "NAME": "Riley County, Kansas",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "20",
+    "county": "161"
+  },
+  {
+    "NAME": "Sedgwick County, Kansas",
+    "S2802_C03_022E": "89.4",
+    "state": "20",
+    "county": "173"
+  },
+  {
+    "NAME": "Shawnee County, Kansas",
+    "S2802_C03_022E": "82.9",
+    "state": "20",
+    "county": "177"
+  },
+  {
+    "NAME": "Bullitt County, Kentucky",
+    "S2802_C03_022E": "87.0",
+    "state": "21",
+    "county": "029"
+  },
+  {
+    "NAME": "Christian County, Kentucky",
+    "S2802_C03_022E": "68.3",
+    "state": "21",
+    "county": "047"
+  },
+  {
+    "NAME": "Fayette County, Kentucky",
+    "S2802_C03_022E": "90.3",
+    "state": "21",
+    "county": "067"
+  },
+  {
+    "NAME": "Allen County, Ohio",
+    "S2802_C03_022E": "84.6",
+    "state": "39",
+    "county": "003"
+  },
+  {
+    "NAME": "Belmont County, Ohio",
+    "S2802_C03_022E": "83.1",
+    "state": "39",
+    "county": "013"
+  },
+  {
+    "NAME": "Clermont County, Ohio",
+    "S2802_C03_022E": "88.8",
+    "state": "39",
+    "county": "025"
+  },
+  {
+    "NAME": "Columbiana County, Ohio",
+    "S2802_C03_022E": "79.5",
+    "state": "39",
+    "county": "029"
+  },
+  {
+    "NAME": "Cuyahoga County, Ohio",
+    "S2802_C03_022E": "82.2",
+    "state": "39",
+    "county": "035"
+  },
+  {
+    "NAME": "Delaware County, Ohio",
+    "S2802_C03_022E": "95.1",
+    "state": "39",
+    "county": "041"
+  },
+  {
+    "NAME": "Fairfield County, Ohio",
+    "S2802_C03_022E": "87.1",
+    "state": "39",
+    "county": "045"
+  },
+  {
+    "NAME": "Greene County, Ohio",
+    "S2802_C03_022E": "89.3",
+    "state": "39",
+    "county": "057"
+  },
+  {
+    "NAME": "Hamilton County, Ohio",
+    "S2802_C03_022E": "86.5",
+    "state": "39",
+    "county": "061"
+  },
+  {
+    "NAME": "Hancock County, Ohio",
+    "S2802_C03_022E": "84.3",
+    "state": "39",
+    "county": "063"
+  },
+  {
+    "NAME": "Lake County, Ohio",
+    "S2802_C03_022E": "87.3",
+    "state": "39",
+    "county": "085"
+  },
+  {
+    "NAME": "Licking County, Ohio",
+    "S2802_C03_022E": "89.7",
+    "state": "39",
+    "county": "089"
+  },
+  {
+    "NAME": "Lorain County, Ohio",
+    "S2802_C03_022E": "82.2",
+    "state": "39",
+    "county": "093"
+  },
+  {
+    "NAME": "Lucas County, Ohio",
+    "S2802_C03_022E": "82.6",
+    "state": "39",
+    "county": "095"
+  },
+  {
+    "NAME": "Mahoning County, Ohio",
+    "S2802_C03_022E": "81.1",
+    "state": "39",
+    "county": "099"
+  },
+  {
+    "NAME": "Marion County, Ohio",
+    "S2802_C03_022E": "85.4",
+    "state": "39",
+    "county": "101"
+  },
+  {
+    "NAME": "Medina County, Ohio",
+    "S2802_C03_022E": "87.2",
+    "state": "39",
+    "county": "103"
+  },
+  {
+    "NAME": "Jefferson County, Kentucky",
+    "S2802_C03_022E": "85.7",
+    "state": "21",
+    "county": "111"
+  },
+  {
+    "NAME": "Kenton County, Kentucky",
+    "S2802_C03_022E": "86.7",
+    "state": "21",
+    "county": "117"
+  },
+  {
+    "NAME": "McCracken County, Kentucky",
+    "S2802_C03_022E": "89.0",
+    "state": "21",
+    "county": "145"
+  },
+  {
+    "NAME": "Madison County, Kentucky",
+    "S2802_C03_022E": "80.4",
+    "state": "21",
+    "county": "151"
+  },
+  {
+    "NAME": "Oldham County, Kentucky",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "21",
+    "county": "185"
+  },
+  {
+    "NAME": "Warren County, Kentucky",
+    "S2802_C03_022E": "85.7",
+    "state": "21",
+    "county": "227"
+  },
+  {
+    "NAME": "Ascension Parish, Louisiana",
+    "S2802_C03_022E": "88.5",
+    "state": "22",
+    "county": "005"
+  },
+  {
+    "NAME": "Bossier Parish, Louisiana",
+    "S2802_C03_022E": "79.5",
+    "state": "22",
+    "county": "015"
+  },
+  {
+    "NAME": "Caddo Parish, Louisiana",
+    "S2802_C03_022E": "79.9",
+    "state": "22",
+    "county": "017"
+  },
+  {
+    "NAME": "Miami County, Ohio",
+    "S2802_C03_022E": "85.2",
+    "state": "39",
+    "county": "109"
+  },
+  {
+    "NAME": "Montgomery County, Ohio",
+    "S2802_C03_022E": "85.4",
+    "state": "39",
+    "county": "113"
+  },
+  {
+    "NAME": "Muskingum County, Ohio",
+    "S2802_C03_022E": "76.7",
+    "state": "39",
+    "county": "119"
+  },
+  {
+    "NAME": "Richland County, Ohio",
+    "S2802_C03_022E": "78.9",
+    "state": "39",
+    "county": "139"
+  },
+  {
+    "NAME": "Ross County, Ohio",
+    "S2802_C03_022E": "77.6",
+    "state": "39",
+    "county": "141"
+  },
+  {
+    "NAME": "Scioto County, Ohio",
+    "S2802_C03_022E": "82.1",
+    "state": "39",
+    "county": "145"
+  },
+  {
+    "NAME": "Stark County, Ohio",
+    "S2802_C03_022E": "80.0",
+    "state": "39",
+    "county": "151"
+  },
+  {
+    "NAME": "Trumbull County, Ohio",
+    "S2802_C03_022E": "76.4",
+    "state": "39",
+    "county": "155"
+  },
+  {
+    "NAME": "Tuscarawas County, Ohio",
+    "S2802_C03_022E": "77.7",
+    "state": "39",
+    "county": "157"
+  },
+  {
+    "NAME": "Wood County, Ohio",
+    "S2802_C03_022E": "86.1",
+    "state": "39",
+    "county": "173"
+  },
+  {
+    "NAME": "Canadian County, Oklahoma",
+    "S2802_C03_022E": "89.7",
+    "state": "40",
+    "county": "017"
+  },
+  {
+    "NAME": "Cleveland County, Oklahoma",
+    "S2802_C03_022E": "90.0",
+    "state": "40",
+    "county": "027"
+  },
+  {
+    "NAME": "Muskogee County, Oklahoma",
+    "S2802_C03_022E": "70.9",
+    "state": "40",
+    "county": "101"
+  },
+  {
+    "NAME": "East Baton Rouge Parish, Louisiana",
+    "S2802_C03_022E": "83.5",
+    "state": "22",
+    "county": "033"
+  },
+  {
+    "NAME": "Iberia Parish, Louisiana",
+    "S2802_C03_022E": "84.1",
+    "state": "22",
+    "county": "045"
+  },
+  {
+    "NAME": "Jefferson Parish, Louisiana",
+    "S2802_C03_022E": "81.6",
+    "state": "22",
+    "county": "051"
+  },
+  {
+    "NAME": "Lafayette Parish, Louisiana",
+    "S2802_C03_022E": "84.8",
+    "state": "22",
+    "county": "055"
+  },
+  {
+    "NAME": "Lafourche Parish, Louisiana",
+    "S2802_C03_022E": "80.5",
+    "state": "22",
+    "county": "057"
+  },
+  {
+    "NAME": "Livingston Parish, Louisiana",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "22",
+    "county": "063"
+  },
+  {
+    "NAME": "Orleans Parish, Louisiana",
+    "S2802_C03_022E": "77.8",
+    "state": "22",
+    "county": "071"
+  },
+  {
+    "NAME": "Ouachita Parish, Louisiana",
+    "S2802_C03_022E": "81.4",
+    "state": "22",
+    "county": "073"
+  },
+  {
+    "NAME": "Rapides Parish, Louisiana",
+    "S2802_C03_022E": "80.0",
+    "state": "22",
+    "county": "079"
+  },
+  {
+    "NAME": "St. Landry Parish, Louisiana",
+    "S2802_C03_022E": "68.0",
+    "state": "22",
+    "county": "097"
+  },
+  {
+    "NAME": "St. Tammany Parish, Louisiana",
+    "S2802_C03_022E": "87.4",
+    "state": "22",
+    "county": "103"
+  },
+  {
+    "NAME": "Tangipahoa Parish, Louisiana",
+    "S2802_C03_022E": "82.6",
+    "state": "22",
+    "county": "105"
+  },
+  {
+    "NAME": "Terrebonne Parish, Louisiana",
+    "S2802_C03_022E": "74.3",
+    "state": "22",
+    "county": "109"
+  },
+  {
+    "NAME": "Aroostook County, Maine",
+    "S2802_C03_022E": "76.0",
+    "state": "23",
+    "county": "003"
+  },
+  {
+    "NAME": "Cumberland County, Maine",
+    "S2802_C03_022E": "89.8",
+    "state": "23",
+    "county": "005"
+  },
+  {
+    "NAME": "Kennebec County, Maine",
+    "S2802_C03_022E": "87.0",
+    "state": "23",
+    "county": "011"
+  },
+  {
+    "NAME": "Penobscot County, Maine",
+    "S2802_C03_022E": "83.0",
+    "state": "23",
+    "county": "019"
+  },
+  {
+    "NAME": "York County, Maine",
+    "S2802_C03_022E": "87.9",
+    "state": "23",
+    "county": "031"
+  },
+  {
+    "NAME": "Anne Arundel County, Maryland",
+    "S2802_C03_022E": "93.8",
+    "state": "24",
+    "county": "003"
+  },
+  {
+    "NAME": "Baltimore County, Maryland",
+    "S2802_C03_022E": "87.8",
+    "state": "24",
+    "county": "005"
+  },
+  {
+    "NAME": "Carroll County, Maryland",
+    "S2802_C03_022E": "86.4",
+    "state": "24",
+    "county": "013"
+  },
+  {
+    "NAME": "Charles County, Maryland",
+    "S2802_C03_022E": "90.2",
+    "state": "24",
+    "county": "017"
+  },
+  {
+    "NAME": "Oklahoma County, Oklahoma",
+    "S2802_C03_022E": "86.9",
+    "state": "40",
+    "county": "109"
+  },
+  {
+    "NAME": "Payne County, Oklahoma",
+    "S2802_C03_022E": "82.6",
+    "state": "40",
+    "county": "119"
+  },
+  {
+    "NAME": "Pottawatomie County, Oklahoma",
+    "S2802_C03_022E": "83.3",
+    "state": "40",
+    "county": "125"
+  },
+  {
+    "NAME": "Rogers County, Oklahoma",
+    "S2802_C03_022E": "86.1",
+    "state": "40",
+    "county": "131"
+  },
+  {
+    "NAME": "Wagoner County, Oklahoma",
+    "S2802_C03_022E": "87.4",
+    "state": "40",
+    "county": "145"
+  },
+  {
+    "NAME": "Benton County, Oregon",
+    "S2802_C03_022E": "87.3",
+    "state": "41",
+    "county": "003"
+  },
+  {
+    "NAME": "Douglas County, Oregon",
+    "S2802_C03_022E": "87.0",
+    "state": "41",
+    "county": "019"
+  },
+  {
+    "NAME": "Jackson County, Oregon",
+    "S2802_C03_022E": "86.5",
+    "state": "41",
+    "county": "029"
+  },
+  {
+    "NAME": "Klamath County, Oregon",
+    "S2802_C03_022E": "82.7",
+    "state": "41",
+    "county": "035"
+  },
+  {
+    "NAME": "Marion County, Oregon",
+    "S2802_C03_022E": "89.7",
+    "state": "41",
+    "county": "047"
+  },
+  {
+    "NAME": "Multnomah County, Oregon",
+    "S2802_C03_022E": "90.1",
+    "state": "41",
+    "county": "051"
+  },
+  {
+    "NAME": "Washington County, Oregon",
+    "S2802_C03_022E": "92.2",
+    "state": "41",
+    "county": "067"
+  },
+  {
+    "NAME": "Yamhill County, Oregon",
+    "S2802_C03_022E": "84.5",
+    "state": "41",
+    "county": "071"
+  },
+  {
+    "NAME": "Adams County, Pennsylvania",
+    "S2802_C03_022E": "83.9",
+    "state": "42",
+    "county": "001"
+  },
+  {
+    "NAME": "Armstrong County, Pennsylvania",
+    "S2802_C03_022E": "76.0",
+    "state": "42",
+    "county": "005"
+  },
+  {
+    "NAME": "Beaver County, Pennsylvania",
+    "S2802_C03_022E": "82.9",
+    "state": "42",
+    "county": "007"
+  },
+  {
+    "NAME": "Berks County, Pennsylvania",
+    "S2802_C03_022E": "81.8",
+    "state": "42",
+    "county": "011"
+  },
+  {
+    "NAME": "Blair County, Pennsylvania",
+    "S2802_C03_022E": "78.4",
+    "state": "42",
+    "county": "013"
+  },
+  {
+    "NAME": "Bucks County, Pennsylvania",
+    "S2802_C03_022E": "90.8",
+    "state": "42",
+    "county": "017"
+  },
+  {
+    "NAME": "Butler County, Pennsylvania",
+    "S2802_C03_022E": "85.0",
+    "state": "42",
+    "county": "019"
+  },
+  {
+    "NAME": "Carbon County, Pennsylvania",
+    "S2802_C03_022E": "87.9",
+    "state": "42",
+    "county": "025"
+  },
+  {
+    "NAME": "Chester County, Pennsylvania",
+    "S2802_C03_022E": "90.5",
+    "state": "42",
+    "county": "029"
+  },
+  {
+    "NAME": "Crawford County, Pennsylvania",
+    "S2802_C03_022E": "81.9",
+    "state": "42",
+    "county": "039"
+  },
+  {
+    "NAME": "Cumberland County, Pennsylvania",
+    "S2802_C03_022E": "86.8",
+    "state": "42",
+    "county": "041"
+  },
+  {
+    "NAME": "Howard County, Maryland",
+    "S2802_C03_022E": "95.6",
+    "state": "24",
+    "county": "027"
+  },
+  {
+    "NAME": "Prince George's County, Maryland",
+    "S2802_C03_022E": "90.1",
+    "state": "24",
+    "county": "033"
+  },
+  {
+    "NAME": "Wicomico County, Maryland",
+    "S2802_C03_022E": "79.7",
+    "state": "24",
+    "county": "045"
+  },
+  {
+    "NAME": "Barnstable County, Massachusetts",
+    "S2802_C03_022E": "91.6",
+    "state": "25",
+    "county": "001"
+  },
+  {
+    "NAME": "Bristol County, Massachusetts",
+    "S2802_C03_022E": "83.6",
+    "state": "25",
+    "county": "005"
+  },
+  {
+    "NAME": "Franklin County, Massachusetts",
+    "S2802_C03_022E": "85.3",
+    "state": "25",
+    "county": "011"
+  },
+  {
+    "NAME": "Hampden County, Massachusetts",
+    "S2802_C03_022E": "82.4",
+    "state": "25",
+    "county": "013"
+  },
+  {
+    "NAME": "Middlesex County, Massachusetts",
+    "S2802_C03_022E": "91.0",
+    "state": "25",
+    "county": "017"
+  },
+  {
+    "NAME": "Plymouth County, Massachusetts",
+    "S2802_C03_022E": "88.4",
+    "state": "25",
+    "county": "023"
+  },
+  {
+    "NAME": "Suffolk County, Massachusetts",
+    "S2802_C03_022E": "83.5",
+    "state": "25",
+    "county": "025"
+  },
+  {
+    "NAME": "Worcester County, Massachusetts",
+    "S2802_C03_022E": "88.2",
+    "state": "25",
+    "county": "027"
+  },
+  {
+    "NAME": "Berrien County, Michigan",
+    "S2802_C03_022E": "85.2",
+    "state": "26",
+    "county": "021"
+  },
+  {
+    "NAME": "Calhoun County, Michigan",
+    "S2802_C03_022E": "82.8",
+    "state": "26",
+    "county": "025"
+  },
+  {
+    "NAME": "Clinton County, Michigan",
+    "S2802_C03_022E": "84.8",
+    "state": "26",
+    "county": "037"
+  },
+  {
+    "NAME": "Genesee County, Michigan",
+    "S2802_C03_022E": "82.3",
+    "state": "26",
+    "county": "049"
+  },
+  {
+    "NAME": "Grand Traverse County, Michigan",
+    "S2802_C03_022E": "89.2",
+    "state": "26",
+    "county": "055"
+  },
+  {
+    "NAME": "Ingham County, Michigan",
+    "S2802_C03_022E": "88.5",
+    "state": "26",
+    "county": "065"
+  },
+  {
+    "NAME": "Jackson County, Michigan",
+    "S2802_C03_022E": "87.1",
+    "state": "26",
+    "county": "075"
+  },
+  {
+    "NAME": "Kalamazoo County, Michigan",
+    "S2802_C03_022E": "85.8",
+    "state": "26",
+    "county": "077"
+  },
+  {
+    "NAME": "Kent County, Michigan",
+    "S2802_C03_022E": "86.2",
+    "state": "26",
+    "county": "081"
+  },
+  {
+    "NAME": "Allegan County, Michigan",
+    "S2802_C03_022E": "87.0",
+    "state": "26",
+    "county": "005"
+  },
+  {
+    "NAME": "Bay County, Michigan",
+    "S2802_C03_022E": "86.4",
+    "state": "26",
+    "county": "017"
+  },
+  {
+    "NAME": "Lapeer County, Michigan",
+    "S2802_C03_022E": "81.1",
+    "state": "26",
+    "county": "087"
+  },
+  {
+    "NAME": "Lenawee County, Michigan",
+    "S2802_C03_022E": "87.7",
+    "state": "26",
+    "county": "091"
+  },
+  {
+    "NAME": "Livingston County, Michigan",
+    "S2802_C03_022E": "91.0",
+    "state": "26",
+    "county": "093"
+  },
+  {
+    "NAME": "Macomb County, Michigan",
+    "S2802_C03_022E": "89.7",
+    "state": "26",
+    "county": "099"
+  },
+  {
+    "NAME": "Marquette County, Michigan",
+    "S2802_C03_022E": "81.7",
+    "state": "26",
+    "county": "103"
+  },
+  {
+    "NAME": "Erie County, Pennsylvania",
+    "S2802_C03_022E": "81.3",
+    "state": "42",
+    "county": "049"
+  },
+  {
+    "NAME": "Fayette County, Pennsylvania",
+    "S2802_C03_022E": "81.2",
+    "state": "42",
+    "county": "051"
+  },
+  {
+    "NAME": "Franklin County, Pennsylvania",
+    "S2802_C03_022E": "79.2",
+    "state": "42",
+    "county": "055"
+  },
+  {
+    "NAME": "Indiana County, Pennsylvania",
+    "S2802_C03_022E": "73.2",
+    "state": "42",
+    "county": "063"
+  },
+  {
+    "NAME": "Lackawanna County, Pennsylvania",
+    "S2802_C03_022E": "82.4",
+    "state": "42",
+    "county": "069"
+  },
+  {
+    "NAME": "Lancaster County, Pennsylvania",
+    "S2802_C03_022E": "80.7",
+    "state": "42",
+    "county": "071"
+  },
+  {
+    "NAME": "Lawrence County, Pennsylvania",
+    "S2802_C03_022E": "80.4",
+    "state": "42",
+    "county": "073"
+  },
+  {
+    "NAME": "Lebanon County, Pennsylvania",
+    "S2802_C03_022E": "84.2",
+    "state": "42",
+    "county": "075"
+  },
+  {
+    "NAME": "Lehigh County, Pennsylvania",
+    "S2802_C03_022E": "79.4",
+    "state": "42",
+    "county": "077"
+  },
+  {
+    "NAME": "Luzerne County, Pennsylvania",
+    "S2802_C03_022E": "80.5",
+    "state": "42",
+    "county": "079"
+  },
+  {
+    "NAME": "Lycoming County, Pennsylvania",
+    "S2802_C03_022E": "80.8",
+    "state": "42",
+    "county": "081"
+  },
+  {
+    "NAME": "Montgomery County, Pennsylvania",
+    "S2802_C03_022E": "90.9",
+    "state": "42",
+    "county": "091"
+  },
+  {
+    "NAME": "Northumberland County, Pennsylvania",
+    "S2802_C03_022E": "74.9",
+    "state": "42",
+    "county": "097"
+  },
+  {
+    "NAME": "Somerset County, Pennsylvania",
+    "S2802_C03_022E": "74.0",
+    "state": "42",
+    "county": "111"
+  },
+  {
+    "NAME": "Westmoreland County, Pennsylvania",
+    "S2802_C03_022E": "81.9",
+    "state": "42",
+    "county": "129"
+  },
+  {
+    "NAME": "York County, Pennsylvania",
+    "S2802_C03_022E": "83.7",
+    "state": "42",
+    "county": "133"
+  },
+  {
+    "NAME": "Newport County, Rhode Island",
+    "S2802_C03_022E": "90.1",
+    "state": "44",
+    "county": "005"
+  },
+  {
+    "NAME": "Washington County, Rhode Island",
+    "S2802_C03_022E": "92.8",
+    "state": "44",
+    "county": "009"
+  },
+  {
+    "NAME": "Anderson County, South Carolina",
+    "S2802_C03_022E": "85.7",
+    "state": "45",
+    "county": "007"
+  },
+  {
+    "NAME": "Beaufort County, South Carolina",
+    "S2802_C03_022E": "90.6",
+    "state": "45",
+    "county": "013"
+  },
+  {
+    "NAME": "Charleston County, South Carolina",
+    "S2802_C03_022E": "87.6",
+    "state": "45",
+    "county": "019"
+  },
+  {
+    "NAME": "Dorchester County, South Carolina",
+    "S2802_C03_022E": "89.6",
+    "state": "45",
+    "county": "035"
+  },
+  {
+    "NAME": "Delaware County, Pennsylvania",
+    "S2802_C03_022E": "89.2",
+    "state": "42",
+    "county": "045"
+  },
+  {
+    "NAME": "Florence County, South Carolina",
+    "S2802_C03_022E": "70.1",
+    "state": "45",
+    "county": "041"
+  },
+  {
+    "NAME": "Greenwood County, South Carolina",
+    "S2802_C03_022E": "76.3",
+    "state": "45",
+    "county": "047"
+  },
+  {
+    "NAME": "Monroe County, Michigan",
+    "S2802_C03_022E": "86.0",
+    "state": "26",
+    "county": "115"
+  },
+  {
+    "NAME": "Muskegon County, Michigan",
+    "S2802_C03_022E": "84.7",
+    "state": "26",
+    "county": "121"
+  },
+  {
+    "NAME": "Oakland County, Michigan",
+    "S2802_C03_022E": "90.6",
+    "state": "26",
+    "county": "125"
+  },
+  {
+    "NAME": "Van Buren County, Michigan",
+    "S2802_C03_022E": "85.6",
+    "state": "26",
+    "county": "159"
+  },
+  {
+    "NAME": "Wayne County, Michigan",
+    "S2802_C03_022E": "85.2",
+    "state": "26",
+    "county": "163"
+  },
+  {
+    "NAME": "Anoka County, Minnesota",
+    "S2802_C03_022E": "88.8",
+    "state": "27",
+    "county": "003"
+  },
+  {
+    "NAME": "Blue Earth County, Minnesota",
+    "S2802_C03_022E": "82.2",
+    "state": "27",
+    "county": "013"
+  },
+  {
+    "NAME": "Carver County, Minnesota",
+    "S2802_C03_022E": "91.8",
+    "state": "27",
+    "county": "019"
+  },
+  {
+    "NAME": "St. Clair County, Michigan",
+    "S2802_C03_022E": "88.1",
+    "state": "26",
+    "county": "147"
+  },
+  {
+    "NAME": "Clay County, Minnesota",
+    "S2802_C03_022E": "81.3",
+    "state": "27",
+    "county": "027"
+  },
+  {
+    "NAME": "Crow Wing County, Minnesota",
+    "S2802_C03_022E": "88.0",
+    "state": "27",
+    "county": "035"
+  },
+  {
+    "NAME": "Dakota County, Minnesota",
+    "S2802_C03_022E": "90.7",
+    "state": "27",
+    "county": "037"
+  },
+  {
+    "NAME": "Hennepin County, Minnesota",
+    "S2802_C03_022E": "87.6",
+    "state": "27",
+    "county": "053"
+  },
+  {
+    "NAME": "Kershaw County, South Carolina",
+    "S2802_C03_022E": "88.1",
+    "state": "45",
+    "county": "055"
+  },
+  {
+    "NAME": "Laurens County, South Carolina",
+    "S2802_C03_022E": "85.8",
+    "state": "45",
+    "county": "059"
+  },
+  {
+    "NAME": "Lexington County, South Carolina",
+    "S2802_C03_022E": "87.3",
+    "state": "45",
+    "county": "063"
+  },
+  {
+    "NAME": "Oconee County, South Carolina",
+    "S2802_C03_022E": "79.3",
+    "state": "45",
+    "county": "073"
+  },
+  {
+    "NAME": "Orangeburg County, South Carolina",
+    "S2802_C03_022E": "75.9",
+    "state": "45",
+    "county": "075"
+  },
+  {
+    "NAME": "Pickens County, South Carolina",
+    "S2802_C03_022E": "79.9",
+    "state": "45",
+    "county": "077"
+  },
+  {
+    "NAME": "Richland County, South Carolina",
+    "S2802_C03_022E": "86.3",
+    "state": "45",
+    "county": "079"
+  },
+  {
+    "NAME": "Spartanburg County, South Carolina",
+    "S2802_C03_022E": "85.2",
+    "state": "45",
+    "county": "083"
+  },
+  {
+    "NAME": "Sumter County, South Carolina",
+    "S2802_C03_022E": "79.3",
+    "state": "45",
+    "county": "085"
+  },
+  {
+    "NAME": "York County, South Carolina",
+    "S2802_C03_022E": "91.6",
+    "state": "45",
+    "county": "091"
+  },
+  {
+    "NAME": "Minnehaha County, South Dakota",
+    "S2802_C03_022E": "85.2",
+    "state": "46",
+    "county": "099"
+  },
+  {
+    "NAME": "Pennington County, South Dakota",
+    "S2802_C03_022E": "85.9",
+    "state": "46",
+    "county": "103"
+  },
+  {
+    "NAME": "Baldwin County, Alabama",
+    "S2802_C03_022E": "88.6",
+    "state": "01",
+    "county": "003"
+  },
+  {
+    "NAME": "Calhoun County, Alabama",
+    "S2802_C03_022E": "80.7",
+    "state": "01",
+    "county": "015"
+  },
+  {
+    "NAME": "Cullman County, Alabama",
+    "S2802_C03_022E": "83.2",
+    "state": "01",
+    "county": "043"
+  },
+  {
+    "NAME": "DeKalb County, Alabama",
+    "S2802_C03_022E": "76.8",
+    "state": "01",
+    "county": "049"
+  },
+  {
+    "NAME": "Etowah County, Alabama",
+    "S2802_C03_022E": "81.7",
+    "state": "01",
+    "county": "055"
+  },
+  {
+    "NAME": "Houston County, Alabama",
+    "S2802_C03_022E": "82.4",
+    "state": "01",
+    "county": "069"
+  },
+  {
+    "NAME": "Lauderdale County, Alabama",
+    "S2802_C03_022E": "77.8",
+    "state": "01",
+    "county": "077"
+  },
+  {
+    "NAME": "Lee County, Alabama",
+    "S2802_C03_022E": "83.2",
+    "state": "01",
+    "county": "081"
+  },
+  {
+    "NAME": "Olmsted County, Minnesota",
+    "S2802_C03_022E": "88.9",
+    "state": "27",
+    "county": "109"
+  },
+  {
+    "NAME": "Ramsey County, Minnesota",
+    "S2802_C03_022E": "86.8",
+    "state": "27",
+    "county": "123"
+  },
+  {
+    "NAME": "Rice County, Minnesota",
+    "S2802_C03_022E": "90.7",
+    "state": "27",
+    "county": "131"
+  },
+  {
+    "NAME": "St. Louis County, Minnesota",
+    "S2802_C03_022E": "82.6",
+    "state": "27",
+    "county": "137"
+  },
+  {
+    "NAME": "Sherburne County, Minnesota",
+    "S2802_C03_022E": "80.2",
+    "state": "27",
+    "county": "141"
+  },
+  {
+    "NAME": "Stearns County, Minnesota",
+    "S2802_C03_022E": "83.5",
+    "state": "27",
+    "county": "145"
+  },
+  {
+    "NAME": "DeSoto County, Mississippi",
+    "S2802_C03_022E": "85.6",
+    "state": "28",
+    "county": "033"
+  },
+  {
+    "NAME": "Forrest County, Mississippi",
+    "S2802_C03_022E": "81.0",
+    "state": "28",
+    "county": "035"
+  },
+  {
+    "NAME": "Washington County, Minnesota",
+    "S2802_C03_022E": "91.6",
+    "state": "27",
+    "county": "163"
+  },
+  {
+    "NAME": "Hinds County, Mississippi",
+    "S2802_C03_022E": "82.3",
+    "state": "28",
+    "county": "049"
+  },
+  {
+    "NAME": "Jones County, Mississippi",
+    "S2802_C03_022E": "68.4",
+    "state": "28",
+    "county": "067"
+  },
+  {
+    "NAME": "Lamar County, Mississippi",
+    "S2802_C03_022E": "-999999999.0",
+    "state": "28",
+    "county": "073"
+  },
+  {
+    "NAME": "Lauderdale County, Mississippi",
+    "S2802_C03_022E": "75.1",
+    "state": "28",
+    "county": "075"
+  },
+  {
+    "NAME": "Lee County, Mississippi",
+    "S2802_C03_022E": "73.0",
+    "state": "28",
+    "county": "081"
+  },
+  {
+    "NAME": "Mobile County, Alabama",
+    "S2802_C03_022E": "77.6",
+    "state": "01",
+    "county": "097"
+  },
+  {
+    "NAME": "Morgan County, Alabama",
+    "S2802_C03_022E": "75.2",
+    "state": "01",
+    "county": "103"
+  },
+  {
+    "NAME": "St. Clair County, Alabama",
+    "S2802_C03_022E": "87.1",
+    "state": "01",
+    "county": "115"
+  },
+  {
+    "NAME": "Talladega County, Alabama",
+    "S2802_C03_022E": "86.9",
+    "state": "01",
+    "county": "121"
+  },
+  {
+    "NAME": "Tuscaloosa County, Alabama",
+    "S2802_C03_022E": "82.3",
+    "state": "01",
+    "county": "125"
+  },
+  {
+    "NAME": "Fairbanks North Star Borough, Alaska",
+    "S2802_C03_022E": "85.7",
+    "state": "02",
+    "county": "090"
+  },
+  {
+    "NAME": "Matanuska-Susitna Borough, Alaska",
+    "S2802_C03_022E": "90.5",
+    "state": "02",
+    "county": "170"
+  },
+  {
+    "NAME": "Apache County, Arizona",
+    "S2802_C03_022E": "50.2",
+    "state": "04",
+    "county": "001"
+  },
+  {
+    "NAME": "Cochise County, Arizona",
+    "S2802_C03_022E": "80.9",
+    "state": "04",
+    "county": "003"
+  },
+  {
+    "NAME": "Coconino County, Arizona",
+    "S2802_C03_022E": "73.2",
+    "state": "04",
+    "county": "005"
+  },
+  {
+    "NAME": "Maricopa County, Arizona",
+    "S2802_C03_022E": "91.2",
+    "state": "04",
+    "county": "013"
+  },
+  {
+    "NAME": "Mohave County, Arizona",
+    "S2802_C03_022E": "89.4",
+    "state": "04",
+    "county": "015"
+  },
+  {
+    "NAME": "Navajo County, Arizona",
+    "S2802_C03_022E": "71.0",
+    "state": "04",
+    "county": "017"
+  },
+  {
+    "NAME": "Pima County, Arizona",
+    "S2802_C03_022E": "88.4",
+    "state": "04",
+    "county": "019"
+  },
+  {
+    "NAME": "Yavapai County, Arizona",
+    "S2802_C03_022E": "91.9",
+    "state": "04",
+    "county": "025"
+  },
+  {
+    "NAME": "Benton County, Arkansas",
+    "S2802_C03_022E": "91.0",
+    "state": "05",
+    "county": "007"
+  },
+  {
+    "NAME": "Rankin County, Mississippi",
+    "S2802_C03_022E": "83.3",
+    "state": "28",
+    "county": "121"
+  },
+  {
+    "NAME": "Boone County, Missouri",
+    "S2802_C03_022E": "87.9",
+    "state": "29",
+    "county": "019"
+  },
+  {
+    "NAME": "Buchanan County, Missouri",
+    "S2802_C03_022E": "78.3",
+    "state": "29",
+    "county": "021"
+  },
+  {
+    "NAME": "Cape Girardeau County, Missouri",
+    "S2802_C03_022E": "88.9",
+    "state": "29",
+    "county": "031"
+  },
+  {
+    "NAME": "Cass County, Missouri",
+    "S2802_C03_022E": "87.0",
+    "state": "29",
+    "county": "037"
+  },
+  {
+    "NAME": "Clay County, Missouri",
+    "S2802_C03_022E": "88.3",
+    "state": "29",
+    "county": "047"
+  },
+  {
+    "NAME": "Cole County, Missouri",
+    "S2802_C03_022E": "84.7",
+    "state": "29",
+    "county": "051"
+  },
+  {
+    "NAME": "Faulkner County, Arkansas",
+    "S2802_C03_022E": "87.4",
+    "state": "05",
+    "county": "045"
+  },
+  {
+    "NAME": "Garland County, Arkansas",
+    "S2802_C03_022E": "76.3",
+    "state": "05",
+    "county": "051"
+  },
+  {
+    "NAME": "Lonoke County, Arkansas",
+    "S2802_C03_022E": "85.5",
+    "state": "05",
+    "county": "085"
+  },
+  {
+    "NAME": "Saline County, Arkansas",
+    "S2802_C03_022E": "90.3",
+    "state": "05",
+    "county": "125"
+  },
+  {
+    "NAME": "Sebastian County, Arkansas",
+    "S2802_C03_022E": "80.0",
+    "state": "05",
+    "county": "131"
+  },
+  {
+    "NAME": "Washington County, Arkansas",
+    "S2802_C03_022E": "87.4",
+    "state": "05",
+    "county": "143"
+  },
+  {
+    "NAME": "White County, Arkansas",
+    "S2802_C03_022E": "89.5",
+    "state": "05",
+    "county": "145"
+  },
+  {
+    "NAME": "Alameda County, California",
+    "S2802_C03_022E": "89.9",
+    "state": "06",
+    "county": "001"
+  },
+  {
+    "NAME": "Butte County, California",
+    "S2802_C03_022E": "88.5",
+    "state": "06",
+    "county": "007"
+  },
+  {
+    "NAME": "Contra Costa County, California",
+    "S2802_C03_022E": "93.1",
+    "state": "06",
+    "county": "013"
+  },
+  {
+    "NAME": "El Dorado County, California",
+    "S2802_C03_022E": "91.4",
+    "state": "06",
+    "county": "017"
+  },
+  {
+    "NAME": "Fresno County, California",
+    "S2802_C03_022E": "81.9",
+    "state": "06",
+    "county": "019"
+  },
+  {
+    "NAME": "Humboldt County, California",
+    "S2802_C03_022E": "89.8",
+    "state": "06",
+    "county": "023"
+  },
+  {
+    "NAME": "Imperial County, California",
+    "S2802_C03_022E": "87.8",
+    "state": "06",
+    "county": "025"
+  },
+  {
+    "NAME": "Kern County, California",
+    "S2802_C03_022E": "88.6",
+    "state": "06",
+    "county": "029"
+  }
+]}

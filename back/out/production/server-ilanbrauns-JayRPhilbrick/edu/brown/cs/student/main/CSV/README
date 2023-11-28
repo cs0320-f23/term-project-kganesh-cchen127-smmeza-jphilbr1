@@ -1,0 +1,42 @@
+This software has three main class: parser, searcher, and the main class.
+
+The parser class is responsible for parsing a csv file and converting it into a list of object type<T>.
+This is done through the transform method, which reads the file using a reader object, splits
+the rows into arrays of strings using a regex, and creates the object from each individual row
+and returns the list of all the objects. The parser class takes in three constructor elements:
+a reader, creator, and boolean. The reader and creator are customizable elements by a future
+developer to have freedom with their ability to read the file and the ability to dictate
+what object is created from the rows. The creator object passed should implement CreatorFromRow
+interface and override the create method. The creator object will throw a factory failure exception
+if there is a problem with the create method, and the parser method transform() handle this method accordingly.
+The boolean represents true if there are headers in the file,and false otherwise.
+
+The searcher class is responsible for searching the dataset returned by the parser. The searcher
+class uses the parser to create a list of lists of strings. With this, we can run simple search algorithms
+to find rows with the given target data. The search class provides a method to search the entire dataset,
+or just a subset of the data by limiting the search to a given column.
+
+The main method is how the user interacts with the searcher, and ultimately the parser classes.
+The user can run the program with the following format:
+
+   ./run <CSV file path> <target string> <boolean false for search all, true to narrow search>
+
+   if the user would like to narrow the search, the following argument must be added in the same line:
+
+   <column information (header index or header name)> <boolean true if index false if name>
+
+
+The main method takes these args and calls the relevant search method to perform the operation.
+Key note: args are seperated by spaces, so if you must type a space as part of the string (i.e.
+the target string you want to search for is "Ilan Brauns"), you must replace the space with an underscore
+(Ilan_Brauns) would be typed. Case matters for everything but the header name (the target must be case
+specific but the header does not)
+
+There are many situation of error handling in the code. This code assumes that the user uses the searcher class properly,
+although still error checked very simply in some cases (see search index method for index out of bounds example).
+However, the parser class handled errors accordingly because we want the developer to have a fully baked product.
+
+Testing for this program includes simple tests with the parser and searcher class to ensure proper functionality,
+as well as more complicated tests to make sure the reader and creator functionality of the parser class
+is correct. System testing was not included in this software, although it was manually tested by the software
+engineer.
