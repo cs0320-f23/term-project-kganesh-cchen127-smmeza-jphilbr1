@@ -4,82 +4,86 @@
   give you this starter CSS. Feel free to modify it as you wish, though.
 */
 
-.repl {
-    position:relative;
-    /* min-height:95vh;     */
+.maps {
+  position: relative;
+  min-height: 60vh;
 }
 
-.repl-history {      
-    height:55vh;   
-    margin: auto;
-    display: block;
-    overflow: scroll;    
+.maps-history {
+  height: 65vh;
+  margin: auto;
+  display: flex;
+  overflow: scroll;
+  justify-content: center;
+}
+.right{
+  height: 80vh;
+  margin-left: 3.5vh;
+  display: flex;
+  overflow: scroll;
+  justify-content: center;
+  align-items: center;
 }
 
-table.center {
-    margin-left:auto; 
-    margin-right:auto;
-  }
-
-.repl-input {        
-    margin: auto;    
-    height:10vh;
+.maps-element {
+  height: 55vh;
+  margin: auto;
+  display: block;
+  overflow: scroll;
 }
 
-.map {    
-    display: flex;    
-    align-items: center;
-    justify-content: center;
+.maps-input {
+  margin: 2vh;
+  height: 15vh;
+  padding-bottom: 1vh;
+  overflow: auto;
 }
 
-.city {
-    color: rgba(0, 0, 0, 0.7);
-    font-size: 0.875rem;
-    margin: 0;
+.maps-command-box {
+  width: 90%;
+  margin: auto;
+  display: block;
+  padding: 1vh;
 }
 
-.popup {
-    max-width: 10px;
-    color: rgba(0, 0, 0, 0.7);
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+button {
+  margin: auto;
+  margin-top: 1vh;
+  display: block;
 }
 
-
-.repl-command-box {
-    width: 90%;            
-    margin: auto;
-    display: block;
-}
-button{
-    margin: auto;
-    display: block;
+table {
+  margin-top: 1vh;
+  width: auto;
+  border: 0;
 }
 
-p {
-    color: rgba(0, 0, 0, 0.7);
+td,
+th {
+  text-align: center;
+  width: 10%;
 }
 
-h2 {
-    color: rgba(0, 0, 0, 0.7);
+thead {
+  width: 100%;
+  font-weight: bold;
+  background-color: #d7ffe8;
 }
 
-
-a{
-    color: black;
-    display:inline-block;
-    width: 80%;
-    background-color: aliceblue;
-    border-radius: 10px;
-    
-}
-a:hover{
-    color:black
+table,
+th,
+td {
+  border: 1px solid hwb(0 0% 100%);
+  border-collapse: collapse;
 }
 
-.input-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column; /* Stack items vertically in the center */
-    /* height: 100vh; Set the container to fill the entire viewport height */
-  }
+.mapbox-container {
+  height: 65vh;
+  width: 110vh;
+  overflow: auto;
+}
+
+.left{
+  margin: 2vh;
+}
+
