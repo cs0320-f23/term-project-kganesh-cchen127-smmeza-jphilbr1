@@ -157,9 +157,5 @@ http://localhost:3232/broadband?state=Louisiana&county=Jefferson%20Parish,%20Lou
 
 Depending on the choice of browser, each space may need to be replaced with %20.
 
-###
-
-Edit 11/02/2023: This program also can parse in a generic .JSON file using the ParseJson class, converting into a Map from strings to objects.
-
 # API Key
 d9ab70f1962723dec8d9c8a8ffde26a35fe97524

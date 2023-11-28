@@ -5,7 +5,6 @@ import com.squareup.moshi.Moshi;
 import edu.brown.cs.student.main.Server.Exceptions.DatasourceException;
 import edu.brown.cs.student.main.Server.Interfaces.CensusDataSource;
 import edu.brown.cs.student.main.Server.Records.CensusData;
-import edu.brown.cs.student.main.Server.Records.GeoBroadband;
 import edu.brown.cs.student.main.Server.Records.Geolocation;
 import java.io.IOException;
 import java.lang.reflect.Type;
@@ -17,8 +16,6 @@ import java.util.List;
 
 import com.squareup.moshi.Types;
 import okio.Buffer;
-
-import javax.swing.plaf.basic.BasicButtonUI;
 
 /**
  * Class for the backend connection with the census API. Queries state, then county, and then broadband
@@ -191,27 +188,6 @@ public class CensusAPI implements CensusDataSource {
       throw new DatasourceException(
           "unexpected: API connection not success status " + clientConnection.getResponseMessage());
     return clientConnection;
-  }
-
-  public static String[] getStateCounty(String lat, String lon) throws Exception {
-    URL requestApiURL = new URL("https://geo.fcc.gov/api/census/area?lat=" + lat + "&lon=" + lon + "&censusYear=2020&format=json");
-    HttpURLConnection apiRequest = connect(requestApiURL);
-    apiRequest.connect();
-    Moshi moshi = new Moshi.Builder().build();
-    JsonAdapter<GeoBroadband> adapter2 = moshi.adapter(GeoBroadband.class);
-    GeoBroadband gbb = adapter2.fromJson(new Buffer().readFrom(apiRequest.getInputStream()));
-    apiRequest.disconnect();
-    String[] arr = new String[2];
-    arr[0] = gbb.results()[0].state_name();
-    String rawCounty = gbb.results()[0].county_name();
-    String[] temp = rawCounty.split(" ");
-    StringBuilder returnCounty = new StringBuilder();
-    for (int i = 0; i < temp.length - 1; i++) {
-      returnCounty.append(temp[i]).append("+");
-    }
-    returnCounty = new StringBuilder(returnCounty.substring(0, returnCounty.length() - 1));
-    arr[1] = returnCounty.toString();
-    return arr;
   }
 
 }

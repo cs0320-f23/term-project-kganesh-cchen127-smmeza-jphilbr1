@@ -57,9 +57,9 @@ public class Parser implements Route {
       Path folderPathObj = Paths.get(this.folderpath);
       boolean isFileInFolder = filePathObj.startsWith(folderPathObj);
 
-      // if (!isFileInFolder){
-      //   throw new IndexOutOfBoundsException("The file " + filename + " is NOT within the folder: " + this.folderpath);
-      // }
+      if (!isFileInFolder){
+        throw new IndexOutOfBoundsException("The file " + filename + " is NOT within the folder: " + this.folderpath);
+      }
 
       // checks if arguments have been input
       if (filename == null){
