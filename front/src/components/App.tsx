@@ -21,9 +21,26 @@ function App() {
   });
   return (
     <div className="App">
-      <p className="App-header">
-        <h1>Mesh Community Network</h1>
-      </p>
+      <div className="App-header">
+        {/* <p className="App-header"> */}
+          <h1 className="header">womp womp</h1>
+        {/* </p> */}
+      </div>
+      <div className="section-header">
+        <p className="section-text">
+          INFO
+        </p>
+      </div>
+      <div className="Info">
+        <p>
+          click on the toggling thing womp womp
+        </p>
+      </div>
+      <div className="section-header">
+        <p className="section-text">
+          MAP
+        </p>
+      </div>
       <Maps />
     </div>
   );

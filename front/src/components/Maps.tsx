@@ -32,19 +32,20 @@ export default function Maps() {
       <div className="left">
         <MapBox updateHistory={updateHistory} 
         />
+        
+      </div>
+      {/* Our input comes before our history so that users can scroll down
+      to view the history */}
+      <div className="bottom">
         <hr aria-hidden="true"></hr>
         <MapsInput
           updateHistory={updateHistory}
           // setNotification={setNotif}
           isBrief={mode}
         />
-      </div>
-
-      {/* Our input comes before our history so that users can scroll down
-      to view the history */}
-      <div className="right">
         <MapsHistory history={history} mode={mode} />
       </div>
     </div>
+  
   );
 }

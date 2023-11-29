@@ -86,17 +86,14 @@ export function MapsInput(props: MapsInputProps) {
   };
 
   return (
-    <div className="mock-input">
-      <hr aria-hidden="true"></hr>
-      <fieldset>
-        <legend>Enter a command:</legend>
+    <div className="maps-input">
+      {/* <hr aria-hidden="true"></hr> */}
         <ControlledInput
           value={commandString}
           setValue={setCommandList}
           ariaLabel={"Command input"}
           onKeyDown={handleClick}
         />
-      </fieldset>
       <button
         className="submit-button"
         aria-label="Submit Button"
@@ -110,7 +107,7 @@ export function MapsInput(props: MapsInputProps) {
       >
         Enter!
       </button>
-      <hr aria-hidden="true"></hr>
+      {/* <hr aria-hidden="true"></hr> */}
     </div>
   );
 }

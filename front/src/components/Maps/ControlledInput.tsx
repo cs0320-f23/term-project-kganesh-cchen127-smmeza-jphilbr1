@@ -18,20 +18,36 @@ export function ControlledInput({
   onKeyDown,
 }: ControlledInputProps) {
   return (
-    <input
-      type="text"
-      id="maps-command-box"
-      className="maps-command-box"
-      value={value}
-      placeholder="Enter command here!"
-      onChange={(ev) => setValue(ev.target.value)}
-      aria-label={ariaLabel}
-      aria-roledescription="Click the enter button or press enter to submit"
-      onKeyUp={(e) => {
-        if (e.key === "Enter") {
-          onKeyDown();
-        }
-      }}
-    ></input>
+    // <input
+    //   type="text"
+    //   id="maps-command-box"
+    //   className="maps-command-box"
+    //   value={value}
+    //   placeholder="Enter command here!"
+    //   onChange={(ev) => setValue(ev.target.value)}
+    //   aria-label={ariaLabel}
+    //   aria-roledescription="Click the enter button or press enter to submit"
+    //   onKeyUp={(e) => {
+    //     if (e.key === "Enter") {
+    //       onKeyDown();
+    //     }
+    //   }}
+    // ></input>
+    <div className="input-group">
+      <input className="input" 
+             required type="text" 
+             id="maps-command-box"
+             value={value}
+             onChange={(ev) => setValue(ev.target.value)}
+             aria-label={ariaLabel}
+             aria-roledescription="Click the enter button or press enter to submit"
+             onKeyUp={(e) => {
+              if (e.key === "Enter") {
+                onKeyDown();
+              }
+             }}>
+      </input>
+      <label className="label">Enter command here!</label>
+    </div>
   );
 }
