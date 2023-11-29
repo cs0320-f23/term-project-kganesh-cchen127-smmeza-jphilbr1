@@ -1,4 +1,4 @@
-import "./Nav.css";
+import "../styles/navBar.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
 
@@ -25,26 +25,26 @@ function debounce(func, wait, immediate) {
 }
 
 function NavBar() {
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [visible, setVisible] = useState(true);
-  const [textColor, setTextColor] = useState("white");
-  const [bgColor, setBgColor] = useState("transparent");
-  const [borderSize, setBorderSize] = useState("0px");
+  // const [prevScrollPos, setPrevScrollPos] = useState(0);
+  // const [visible, setVisible] = useState(true);
+  // const [textColor, setTextColor] = useState("white");
+  // const [bgColor, setBgColor] = useState("transparent");
+  // const [borderSize, setBorderSize] = useState("0px");
 
-  const listenScrollEvent = (event) => {
+  // const listenScrollEvent = (event) => {
 
-      setTextColor("black");
-      setBgColor("white");
-      setBorderSize("1px");
-      return;
-  };
+  //     setTextColor("black");
+  //     setBgColor("white");
+  //     setBorderSize("1px");
+  //     return;
+  // };
 
-  useEffect(() => {
-    window.addEventListener("scroll", listenScrollEvent);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", listenScrollEvent);
 
-    return () =>
-      window.removeEventListener("scroll", listenScrollEvent);
-  }, []);
+  //   return () =>
+  //     window.removeEventListener("scroll", listenScrollEvent);
+  // }, []);
 
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
@@ -53,10 +53,10 @@ function NavBar() {
       <div
         className="navbar"
         style={{
-          backgroundColor: bgColor,
-          color: textColor,
-          top: visible ? "0" : "-120px",
-          borderBottom: `${borderSize} solid #e4e4e4`,
+          backgroundColor: "#FECEE9",
+          color: "white",
+          top: true ? "0" : "-120px",
+          borderBottom: `${1} solid #e4e4e4`,
         }}
       >
         <div id="navbar" className="navbar-fixed">
@@ -74,18 +74,15 @@ function NavBar() {
           </Link>
 
           <div className="mobile-menu">
-          <Hamburger toggled={isNavExpanded} toggle={setIsNavExpanded} />
+            <Hamburger toggled={isNavExpanded} toggle={setIsNavExpanded} />
           </div>
           <nav
-            className={
-              isNavExpanded ? "nav-items expanded" : "nav-items"
-            }
+            className={isNavExpanded ? "nav-items expanded" : "nav-items"}
             style={{
-              backgroundColor: bgColor,
-              top: isNavExpanded? "0" : "-100%",
-              transitionDelay: isNavExpanded? "0s" : "0s",
+              backgroundColor:"#FECEE9",
+              top: isNavExpanded ? "0" : "-100%",
+              transitionDelay: isNavExpanded ? "0s" : "0s",
             }}
-            
           >
             <ul className="nav-menu">
               <li className="nav-menu-item">
@@ -118,7 +115,7 @@ function NavBar() {
               </li>
               <li className="nav-menu-item">
                 <Link
-                  to="history"
+                  to="maps-history"
                   spy={true}
                   smooth={true}
                   offset={-100}
@@ -130,9 +127,6 @@ function NavBar() {
                   History
                 </Link>
               </li>
-    
-
-              
             </ul>
           </nav>
         </div>

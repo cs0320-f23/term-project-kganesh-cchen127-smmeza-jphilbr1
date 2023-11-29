@@ -1,0 +1,151 @@
+.navbar-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  z-index: 9999;
+}
+
+.navbar {
+  padding: 0px 20px;
+  font-size: 20px;
+  width: 100%;
+}
+
+.navbar-fixed {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#navbar:hover {
+  top: 0;
+}
+
+/* adds extra height to active menu item */
+.nav-menu .active {
+  font-weight: 600;
+  border-bottom: 3px solid black;
+  flex-shrink: 0;
+}
+
+.logo {
+  /* margin-right: auto;
+  margin-left: 20px; */
+  display: flex;
+  padding: 5px;
+}
+
+.logo-link {
+  align-self: center;
+  text-align: left;
+  position: relative;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  min-width: 50%;
+}
+
+.nav-menu {
+  position: static;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding-left: 0;
+  font-family: "neue-haas-grotesk-display", sans-serif;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.nav-menu-item {
+  /* // removes default disc bullet for li tags and applies margin to left & right side */
+  list-style: none;
+  flex-grow: 1;
+  text-align: center;
+  margin-right: 15px;
+}
+.nav-items li a {
+  text-decoration: none;
+}
+
+.nav-items li a:link {
+  color: black;
+}
+
+.nav-items li a:visited {
+  color: black;
+}
+
+#navbar button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+}
+
+.mobile-menu {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+
+}
+#navbar button:hover {
+}
+
+.mobile-menu {
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  .nav-items ul {
+    /* // navigation menu is positioned to start 60px from the top of the document (which is directly below the navbar) */
+    position: absolute;
+    top: 81px;
+    left: 0;
+    /* // stacks the li tags vertically  */
+    flex-direction: column;
+    /* // makes menu span full height and width */
+    width: 100%;
+    background-color: white;
+    /* // hides the menu */
+    display: none;
+    transition: all 0.5s;
+  }
+  .nav-items li {
+    /* // centers link text and strips off margin */
+    text-align: center;
+  }
+  .nav-items li a {
+    color: black;
+    /* // increases the surface area of the anchor tag to span the full width of the menu */
+    width: 100%;
+  }
+  .nav-items.expanded ul {
+    display: block;
+  }
+  .mobile-menu {
+    display: block;
+  }
+
+  .nav-menu-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 0px;
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+}
