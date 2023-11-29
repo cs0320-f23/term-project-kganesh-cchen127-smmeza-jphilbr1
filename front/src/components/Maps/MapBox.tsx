@@ -6,6 +6,7 @@ import Map, {
   ViewStateChangeEvent,
   MapRef,
   PointLike,
+  Popup,
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState, useRef } from "react";
@@ -36,6 +37,14 @@ export function setSearchOverlay(
 ) {
   searchOverlay = newData;
 }
+
+export var popupCoords: LatLong = { long: -71.4128, lat: 41.824 };
+export function setPopupCoords(
+  newCoords: LatLong
+) {
+  popupCoords = newCoords;
+}
+
 // can be exported since search has to use it
 // this sets the search data to be the features gotten 
 // from the search function 
@@ -99,6 +108,14 @@ function MapBox(props: MapBoxprops) {
     var latitude = String(lat);
     var lon = e.lngLat.lng;
     var longitude = String(lon);
+
+    var popupLatLon: LatLong = { long: lon, lat: lat };
+    setPopupCoords(popupLatLon);
+
+    // const popup: Popup = {
+
+    // }
+
 
     // begins the response so that even if an error occurs, 
     // the specific lat and lon from the map is still shown
@@ -176,6 +193,9 @@ function MapBox(props: MapBoxprops) {
         <Source id="search_data" type="geojson" data={searchOverlay}>
           <Layer {...searchLayer} />
         </Source>
+        <Popup longitude={popupCoords.long} latitude={popupCoords.lat} closeOnClick={false}>
+          Long: {popupCoords.long} <br></br>  Lat: {popupCoords.lat}
+        </Popup>
       </Map>
     </div>
   );
