@@ -43,10 +43,12 @@
 }
 
 .maps-input {
+  display: flex;
   margin: 2vh;
   height: 15vh;
   padding-bottom: 1vh;
   overflow: auto;
+  align-items: center;
 }
 
 .maps-command-box {
@@ -61,11 +63,11 @@
   border: 2px solid #8C8A93;
 }
 
-button {
+/* button {
   margin: auto;
   margin-top: 1vh;
   display: block;
-}
+} */
 
 table {
   margin-top: 1vh;
@@ -147,20 +149,22 @@ td {
   color: var(--primary);
 }
 
-.maps-input{
-  display: flex;
-  justify-content: center;
-}
 .submit-button{
-  padding: auto;
+  border-radius: 10px;
+  padding: 2vh;
   margin: auto;
   background: #FFC0CB;
   border: none;
+  font-size: 1.25rem;
 }
 .submit-button:hover{
-  padding: auto;
+  border-radius: 10px;
+  padding: 2vh;
   margin: auto;
   background: #FFFFFF;
   color: #FFC0CB;
-  border: none;
+  font-size: 1.25rem;
+  border: 2px solid #FFC0CB;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
