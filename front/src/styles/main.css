@@ -124,6 +124,12 @@ td {
     
 }
 
+.state-label {
+  color:#FFC0CB;
+  font-size: small;
+  margin-left: 1vh;
+}
+
 .label {
   position: absolute;
   top: 1rem;

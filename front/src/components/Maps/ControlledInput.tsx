@@ -48,6 +48,10 @@ export function ControlledInput({
              }}>
       </input>
       <label className="label">Enter command here!</label>
+      {/* <label className="state-label" htmlFor="state">State:</label>
+      <select name="state" id="state">
+        <option value="New Jersey">New Jersey</option>
+      </select> */}
     </div>
   );
 }
