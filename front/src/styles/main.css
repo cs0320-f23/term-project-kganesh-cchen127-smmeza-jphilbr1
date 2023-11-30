@@ -171,9 +171,9 @@ td {
 
 .mapboxgl-popup-content {
   width: 180px;
-  background-color: aqua;
+  /* background-color: aqua; */
   border-color: aqua;
-  color: aquamarine;
+  color: black;
   background: #FFC0CB;
 }
 
