@@ -128,7 +128,7 @@ td {
   position: absolute;
   top: 1rem;
   left: 1rem;
-  right: 1rem;
+  /* right: 1rem; */
   color: #d4d4d4;
   pointer-events: none;
   transition: 150ms
