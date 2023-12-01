@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import requests
 import json
 
+# TODO: Talk about inputs to this funciton. Should be make the function itself take in a lat and long param, or do it through a call to the server?
 
 # Given latitude and longitude, returns a map of useful location information for those coords, including fips codes, county name, and state name
 def coordToStateAndCountyConversion():
