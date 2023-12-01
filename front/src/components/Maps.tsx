@@ -3,6 +3,7 @@ import "../styles/app.css";
 import { MapsHistory } from "./Maps/MapsHistory";
 import { MapsInput } from "./Maps/MapsInput";
 import MapBox from "./Maps/MapBox";
+import {Dropdown} from "./Dropdown";
 
 /* 
   This is the class that creates most of our variables that handle state across 
@@ -10,6 +11,11 @@ import MapBox from "./Maps/MapBox";
   
   This is where we organize all components in a component folder.
 */
+
+
+ 
+
+
 
 // these are out side of the Mock function so that our Mode REPLfunction can use them
 export function setMode(newMode: boolean) {
@@ -26,14 +32,21 @@ export default function Maps() {
     setHistory([command, ...history]);
   };
 
+  const [value, setValue] = React.useState("fruit");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
 
   return (
     <div className="maps">
       <div className="left">
-        <MapBox updateHistory={updateHistory} 
-        />
-        
+        <MapBox updateHistory={updateHistory} />
       </div>
+      <div>
+        <Dropdown/>
+      </div>
+      
       {/* Our input comes before our history so that users can scroll down
       to view the history */}
       <div className="bottom">
@@ -46,6 +59,5 @@ export default function Maps() {
         <MapsHistory history={history} mode={mode} />
       </div>
     </div>
-  
   );
 }
