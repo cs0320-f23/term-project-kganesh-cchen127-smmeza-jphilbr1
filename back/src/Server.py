@@ -15,12 +15,14 @@ def hello():
     name = request.args.get('name', 'Guest')
     return f'Hello, {name}!'
 
-@app.route('/api')
+@app.route('/unemployment_rate')
 def api():
-    # Replace 'https://api.example.com/endpoint' with the actual API endpoint you want to call
-    api_url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN281070000000003'
-
+    state_fips = request.args.get('state_fips')
+    county_fips = request.args.get('county_fips')
+    # EXAMPLE: http://127.0.0.1:5000/unemployment_rate?state_fips=01&county_fips=001
+    api_url = "https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN" + str(state_fips) + str(county_fips) + "0000000003"
+    print(api_url)
     # Making a GET request
     response = requests.get(api_url)    
-
-    return response.json()
+    API_Data = response.json()
+    return "The unemployment rate for FIPS code " + str(state_fips) + str(county_fips) + " is " + str(API_Data["Results"]["series"][0]["data"][0]["value"]) + "%"
