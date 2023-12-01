@@ -16,7 +16,7 @@ def hello():
     return f'Hello, {name}!'
 
 @app.route('/unemployment_rate')
-def api():
+def umployment_endpoint():
     state_fips = request.args.get('state_fips')
     county_fips = request.args.get('county_fips')
     # EXAMPLE: http://127.0.0.1:5000/unemployment_rate?state_fips=01&county_fips=001
