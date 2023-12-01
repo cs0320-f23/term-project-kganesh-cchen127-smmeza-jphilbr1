@@ -1,5 +1,6 @@
 import json
 import math
+from ApiBLS import * 
 
 def update_geojson():
     f = open('../data/all_county_geojson.json')
@@ -22,7 +23,12 @@ def update_geojson():
             
             # NOW SEND THOSE county_list to function, save that as county_map
             # retVal = [["02033","67.1"]]
-            retVal = kylashFunctionCall(var_name, county_list)
+
+            if len(county_list > 50):
+                raise ValueError("ERROR ON 28")
+            retVal = fips_to_data(var_name, county_list)
+            if len(retVal > 50):
+                raise ValueError("ERROR ON 31")
             
             for j in range(len(retVal)):
                 data.features[50*i+j].properties.update({var_name:retVal[j][1]})
