@@ -1,6 +1,6 @@
 import json
 
-
+# Returns contents of GEOJson file with all geo-tagged data
 def full_data_retrieval():
 
     f = open('../data/all_county_geojson.json')
