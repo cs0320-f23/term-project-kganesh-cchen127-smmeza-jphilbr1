@@ -43,6 +43,12 @@ def unemployment_endpoint():
 def employment_endpoint():
     return generic_bls_endpoint("employed", "05")
 
+# Industry Employment Endpoint 
+@app.route('/industry_employment')
+def industry_employment_endpoint():
+    return industry_endpoint()
+
+
 
 # ------------------ Old Code (kept if needed to revert back to) ------------------
 
