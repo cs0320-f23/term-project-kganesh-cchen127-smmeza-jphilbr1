@@ -4,6 +4,7 @@ import { MapsHistory } from "./Maps/MapsHistory";
 import { MapsInput } from "./Maps/MapsInput";
 import MapBox from "./Maps/MapBox";
 import {Dropdown} from "./Dropdown";
+import { CheckboxGroup } from "./Checkbox";
 
 /* 
   This is the class that creates most of our variables that handle state across 
@@ -42,6 +43,9 @@ export default function Maps() {
     <div className="maps">
       <div className="left">
         <MapBox updateHistory={updateHistory} />
+      </div>
+      <div>
+        <CheckboxGroup/>
       </div>
       <div>
         <Dropdown/>
