@@ -1,10 +1,14 @@
-# maps-dlauerma-jphilbr1
+# term-project-kganesh-cchen127-smmeza-jphilbr1
 
 ## Team Members and Contributions
 
-Jay Philbrick - jphilbr1
+Connor Chen - cchen127
 
-David Lauerman - dlauerma
+Kylash Ganesh - kganesh
+
+Sydney Meza - smmeza
+
+Jay Philbrick - jphilbr1
 
 ### Contributions:
 
@@ -12,7 +16,7 @@ David Lauerman - dlauerma
 
 ## Repository Link
 
-https://github.com/cs0320-f23/maps-dlauerma-jphilbr1
+https://github.com/cs0320-f23/term-project-kganesh-cchen127-smmeza-jphilbr1
 
 # Design Choices
 
@@ -109,8 +113,6 @@ To run tests: `npm run jest-w`
 
 # Whose Labor
 
-Your finished Maps product is built using many systems: programming languages, development environments, software packages, hardware, etc.  Whose labor do you rely on when you run your capstone demo? Enumerate at least 12 different packages, tools, hardware components, etc. that you implicitly or explicitly used during this week’s work. 
-
 Programming Languages:
 1. Typescript
 1. React
@@ -132,15 +134,3 @@ APIs:
 1. Census API
 
 Acknowledgements:
-1. https://www.lostcreekdesigns.co/writing/how-to-create-a-map-popup-component-using-mapbox-and-react/
-1. Ryan Eng helped with the backend broadband conversion
-1. Used ChatGPT to understand Popup syntax in the frontend
-
-# TODO:
-
-1. Add income data: BROADBAND IS STILL BROADBAND
-1. Add layer toggle
-1. Expand search criteria from area to city, town, area
-1. Test
-1. README
-1. Comments
