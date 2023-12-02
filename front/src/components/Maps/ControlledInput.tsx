@@ -1,12 +1,15 @@
 import React from "react";
 import "../../styles/main.css"
 import { Dispatch, SetStateAction } from "react";
+import statesList from "../statesList";
 
 interface ControlledInputProps {
   value: string;
   setValue: Dispatch<SetStateAction<string>>;
   ariaLabel: string;
   onKeyDown: () => void;
+  selectedState: string;
+  setSelectedState: Dispatch<SetStateAction<string>>;
 }
 
 // Input boxes contain state. We want to make sure React is managing that state,
@@ -16,6 +19,8 @@ export function ControlledInput({
   setValue,
   ariaLabel,
   onKeyDown,
+  selectedState,
+  setSelectedState,
 }: ControlledInputProps) {
   return (
     // <input
@@ -48,10 +53,19 @@ export function ControlledInput({
              }}>
       </input>
       <label className="label">Enter command here!</label>
-      {/* <label className="state-label" htmlFor="state">State:</label>
-      <select name="state" id="state">
-        <option value="New Jersey">New Jersey</option>
-      </select> */}
+      <label className="state-label" htmlFor="state">State:</label>
+      <select 
+        name="state" 
+        id="state"
+        onChange={(e) => setSelectedState(e.target.value)}
+        >
+        <option value="no state">Select a state:</option>
+        {statesList.map((state, index) => (
+          <option key={index} value={state}>
+            {state}
+          </option>
+        ))}
+      </select>
     </div>
   );
 }

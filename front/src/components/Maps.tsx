@@ -25,6 +25,7 @@ export default function Maps() {
   const updateHistory = (command: (string | string[][])[]) => {
     setHistory([command, ...history]);
   };
+  const [selectCounty, setSelectCounty] = useState<(string | string[][])[][]>([]);
 
 
   return (
@@ -42,6 +43,8 @@ export default function Maps() {
           updateHistory={updateHistory}
           // setNotification={setNotif}
           isBrief={mode}
+          selectCounty={selectCounty}
+          setSelectCounty={setSelectCounty}
         />
         <MapsHistory history={history} mode={mode} />
       </div>

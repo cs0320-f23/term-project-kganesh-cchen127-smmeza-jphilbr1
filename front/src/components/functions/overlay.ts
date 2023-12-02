@@ -62,3 +62,26 @@ export const searchLayer: FillLayer = {
     "fill-opacity": 0.2,
   },
 };
+
+export const countyLayer: FillLayer = {
+  id: "counties",
+  type: "fill",
+  source: "counties",
+  "source-layer": "c_19se23-4rtu37",
+  paint: {
+    "fill-outline-color": 'rgba(0,0,0,1)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  }
+};
+
+export const selectedCountyLayer: FillLayer = {
+  id: "counties-selected",
+  type: "fill",
+  source: "counties",
+  "source-layer": "c_19se23-4rtu37",
+  paint: {
+    'fill-outline-color': '#484896',
+    'fill-color': '#ff59c7',
+    'fill-opacity': 0.75
+  },
+}

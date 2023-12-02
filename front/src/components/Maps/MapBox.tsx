@@ -16,6 +16,8 @@ import {
   searchLayer,
   overlayData,
   searchOverlayData,
+  countyLayer,
+  selectedCountyLayer,
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
@@ -112,10 +114,6 @@ function MapBox(props: MapBoxprops) {
     var popupLatLon: LatLong = { long: lon, lat: lat };
     setPopupCoords(popupLatLon);
 
-    // const popup: Popup = {
-
-    // }
-
 
     // begins the response so that even if an error occurs, 
     // the specific lat and lon from the map is still shown
@@ -192,6 +190,10 @@ function MapBox(props: MapBoxprops) {
         </Source>
         <Source id="search_data" type="geojson" data={searchOverlay}>
           <Layer {...searchLayer} />
+        </Source>
+        <Source type="vector" url="mapbox://connorkrchen.akl8a8ou">
+          <Layer {...countyLayer} />
+          <Layer {...selectedCountyLayer} filter={['in', 'COUNTYNAME', 'Providence']}/>
         </Source>
         <Popup longitude={popupCoords.long} latitude={popupCoords.lat} closeOnClick={false}>
           Long: {popupCoords.long} <br></br>  Lat: {popupCoords.lat}
