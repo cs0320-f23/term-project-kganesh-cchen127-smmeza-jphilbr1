@@ -106,9 +106,6 @@ def industry_endpoint():
     # return message
 
 
-
-
-
 # Given a var_name (ex: unemployment_rate) and a list of fips (len <=50), will return a list of pairs, where each pair[0] is a fips code and pair[1] is its corresponding value for var_name
 def fips_to_data(var_name, fips_list):
     # ensuring list is not too large
@@ -149,7 +146,7 @@ def fips_to_data(var_name, fips_list):
 
     # Data returned from the api call as a json
     API_Data = response.json()
-    
+
     if API_Data["status"] == "REQUEST_NOT_PROCESSED":
         return "error occurred: " + API_Data["status"]
 
@@ -158,7 +155,7 @@ def fips_to_data(var_name, fips_list):
 
     # Iterating through fips list and making pairs with fips and it's corresponding value
     for i in range(len(fips_list)):
-        pair = [fips, API_Data["Results"]["series"][i]["data"][0]["value"]]
+        pair = [fips_list[i], API_Data["Results"]["series"][i]["data"][0]["value"]]
         value_table.append(pair)
 
     # Returning values as a list of lists
