@@ -53,7 +53,6 @@ def industry_endpoint():
 
     # Gets employee counts in private firms across various industries
     payload = {
-        
         "seriesid":
         [
             f"ENU{state_fips}{county_fips}1051011", 
@@ -94,7 +93,6 @@ def industry_endpoint():
         "employees_leisureandhospitality":API_Data["Results"]["series"][8]["data"][0]["value"],
         "employees_otherservices":API_Data["Results"]["series"][9]["data"][0]["value"],
     }
-    
 
     # Json that will be returned
     response_map = {
@@ -106,3 +104,64 @@ def industry_endpoint():
 
     return response_json
     # return message
+
+
+
+
+
+# Given a var_name (ex: unemployment_rate) and a list of fips (len <=50), will return a list of pairs, where each pair[0] is a fips code and pair[1] is its corresponding value for var_name
+def fips_to_data(var_name, fips_list):
+    # ensuring list is not too large
+    if len(fips_list) > 50:
+        raise ValueError(f"List is too large: Length is {len(fips_list)} when it should be <=50")
+    
+    # Converting var_name to measure code
+    var_name_to_measure_code = {
+        "unemployment_rate": "03",
+        "labor_force": "06",
+        "unemployed": "04",
+        "employed": "05"
+    }
+    measure_code = var_name_to_measure_code[var_name]
+
+    
+    # Initializing a list that will hold the series id's associatted with corresponding fips codes
+    series_id_list = []
+
+    # Iterating through fips_list, making its series_id, and appending that to series_id_list
+    for fips in fips_list:
+        series_id_list.append(f"LAUCN{fips}00000000{measure_code}")
+    
+    # Making API call
+    api_url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
+
+    headers = {'Content-type': 'application/json'}
+
+    payload = {
+        "seriesid": series_id_list, # Series_id_list goes here
+        "startyear":"2023", 
+        "endyear":"2023",   
+        "registrationkey":f"{API_KEY}"
+    }
+
+    data=json.dumps(payload)
+    response = requests.post(api_url, headers=headers, data=data)
+
+    # Data returned from the api call as a json
+    API_Data = response.json()
+    
+    if API_Data["status"] == "REQUEST_NOT_PROCESSED":
+        return "error occurred: " + API_Data["status"]
+
+    # map getting returned
+    value_table = []
+
+    # Iterating through fips list and making pairs with fips and it's corresponding value
+    for i in range(len(fips_list)):
+        pair = [fips, API_Data["Results"]["series"][i]["data"][0]["value"]]
+        value_table.append(pair)
+
+    # Returning values as a list of lists
+    return value_table
+
+
