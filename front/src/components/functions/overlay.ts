@@ -1,6 +1,7 @@
 import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
 import { SearchOverLay } from "./Search";
+import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 // makes sure that the json type is a feature collection
 function isFeatureCollection(json: any): json is GeoJSON.FeatureCollection {
@@ -67,7 +68,7 @@ export const countyLayer: FillLayer = {
   id: "counties",
   type: "fill",
   source: "counties",
-  "source-layer": "c_19se23-4rtu37",
+  "source-layer": SOURCE_LAYER_ID,
   paint: {
     "fill-outline-color": 'rgba(0,0,0,1)',
     "fill-color": 'rgba(0,0,0,0.0)'
@@ -78,7 +79,7 @@ export const selectedCountyLayer: FillLayer = {
   id: "counties-selected",
   type: "fill",
   source: "counties",
-  "source-layer": "c_19se23-4rtu37",
+  "source-layer": SOURCE_LAYER_ID,
   paint: {
     'fill-outline-color': '#484896',
     'fill-color': '#ff59c7',
