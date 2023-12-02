@@ -13,7 +13,7 @@ def update_geojson():
 
     for var_name in variables:
         for i in range(n_iter_needed):
-            print("VARIABLE " + str(var_name) + " " + "BATCH NUMBER " + str(i))
+            print("VARIABLE: " + str(var_name) + " " + "BATCH NUMBER: " + str(i))
             county_list = []
             if i != n_iter_needed - 1:
                 for j in range(50):
