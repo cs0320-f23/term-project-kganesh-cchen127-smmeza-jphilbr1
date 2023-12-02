@@ -21,6 +21,7 @@ import {
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
+import { TILESET_ID } from "../../private/TilesetID.js";
 
 interface LatLong {
   lat: number;
@@ -191,7 +192,7 @@ function MapBox(props: MapBoxprops) {
         <Source id="search_data" type="geojson" data={searchOverlay}>
           <Layer {...searchLayer} />
         </Source>
-        <Source type="vector" url="mapbox://connorkrchen.akl8a8ou">
+        <Source type="vector" url={TILESET_ID}>
           <Layer {...countyLayer} />
           <Layer {...selectedCountyLayer} filter={['in', 'COUNTYNAME', 'Providence']}/>
         </Source>
