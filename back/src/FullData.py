@@ -9,20 +9,17 @@ def update_geojson():
 
     variables = ["unemployment_rate", "labor_force", "unemployed", "employed"]
 
-    n_iter_needed = math.ceil(len(data.features)/50)
-
+    n_iter_needed = math.ceil(len(data["features"])/50)
     for var_name in variables:
         for i in range(n_iter_needed):
+            print("VARIABLE " + str(var_name) + " " + "BATCH NUMBER " + str(i))
             county_list = []
             if i != n_iter_needed - 1:
                 for j in range(50):
                     county_list.append(str(data.features[50*i+j].properties.STATEFP)+str(data.features[50*i+j].properties.COUNTYFP))
             else:
-                for j in range((len(data.features)/50-math.floor(len(data.features)/50))*50):
-                    county_list.append(str(data.features[50*i+j].properties.STATEFP)+str(data.features[50*i+j].properties.COUNTYFP))
-            
-            # NOW SEND THOSE county_list to function, save that as county_map
-            # retVal = [["02033","67.1"]]
+                for j in range(int(math.floor((len(data["features"])/50-math.floor(len(data["features"])/50))*50))):
+                    county_list.append(str(data["features"][50*i+j]["properties"]["STATEFP"])+str(data["features"][50*i+j]["properties"]["COUNTYFP"]))
 
             if len(county_list > 50):
                 raise ValueError("ERROR ON 28")
@@ -40,7 +37,7 @@ def update_geojson():
 # Returns contents of GEOJson file with all geo-tagged data
 def full_data_retrieval():
 
-    f = open('../data/all_county_geojson.json')
+    f = open('../data/all_county_geojson_with_data.json')
     data = json.load(f)
     f.close
 
