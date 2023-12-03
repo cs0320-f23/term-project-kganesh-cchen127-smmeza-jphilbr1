@@ -4,7 +4,7 @@ import { MapsHistory } from "./Maps/MapsHistory";
 import { MapsInput } from "./Maps/MapsInput";
 import MapBox from "./Maps/MapBox";
 import {Dropdown} from "./Dropdown";
-import { CheckboxGroup } from "./Checkbox";
+import { CheckboxGroup } from "./RadioButton";
 
 /* 
   This is the class that creates most of our variables that handle state across 
@@ -12,10 +12,6 @@ import { CheckboxGroup } from "./Checkbox";
   
   This is where we organize all components in a component folder.
 */
-
-
- 
-
 
 
 // these are out side of the Mock function so that our Mode REPLfunction can use them
@@ -45,24 +41,18 @@ export default function Maps() {
       <div className="left">
         <MapBox updateHistory={updateHistory} />
       </div>
-      <div>
-        <CheckboxGroup/>
-      </div>
-      <div>
-        <Dropdown/>
-      </div>
       
       {/* Our input comes before our history so that users can scroll down
       to view the history */}
       <div className="bottom">
         <hr aria-hidden="true"></hr>
-        <MapsInput
+        {/* <MapsInput
           updateHistory={updateHistory}
           // setNotification={setNotif}
           isBrief={mode}
           selectCounty={selectCounty}
           setSelectCounty={setSelectCounty}
-        />
+        /> */}
         <MapsHistory history={history} mode={mode} />
       </div>
     </div>

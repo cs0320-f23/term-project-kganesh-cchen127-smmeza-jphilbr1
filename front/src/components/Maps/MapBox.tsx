@@ -21,8 +21,9 @@ import {
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
-import { TILESET_ID } from "../../private/TilesetID.js";
-
+import { TILESET_ID } from "../../private/TilesetID.ts";
+import { ControlledInput } from "../Maps/ControlledInput.tsx";
+import { convertToAbbreviation } from "../stateAbbreviations";
 interface LatLong {
   lat: number;
   long: number;
@@ -102,6 +103,7 @@ function getFeatureInfo(feature: GeoJSON.Feature): string[][] {
 }
 
 function MapBox(props: MapBoxprops) {
+  // Items for Map box
   let ProvidenceLatLong: LatLong = { long: -71.4128, lat: 41.824 };
   let initialZoom = 12;
 
@@ -153,14 +155,11 @@ function MapBox(props: MapBoxprops) {
     // sends the lat, lon, and other info to the history to be displayed
     props.updateHistory(["MapClick", newResponse]);
   }
-
   const [viewState, setViewState] = useState({
     longitude: ProvidenceLatLong.long,
     latitude: ProvidenceLatLong.lat,
     zoom: initialZoom,
   });
-  
-
   const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
@@ -173,35 +172,91 @@ function MapBox(props: MapBoxprops) {
 
   const mapRef = useRef<MapRef>(null);
 
+  // items for the input
+  const [commandString, setCommandList] = useState<string>("");
+  const [selectedState, setSelectedState] = useState<string>("");
+  
+
   return (
-    <div className="mapbox-container" aria-label="Map Container">
-      <Map
-        
-        mapboxAccessToken={ACCESS_TOKEN}
-        {...viewState}
-        // for moving the map
-        onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
-        // theme of map
-        mapStyle={"mapbox://styles/mapbox/streets-v12"}
-        onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
-        ref={mapRef}
-      >
-        <Source id="geo_data" type="geojson" data={overlay}>
-          <Layer {...geoLayer} />
-        </Source>
-        <Source id="search_data" type="geojson" data={searchOverlay}>
-          <Layer {...searchLayer} />
-        </Source>
-        <Source type="vector" url={TILESET_ID}>
-          <Layer {...countyLayer} />
-          <Layer {...selectedCountyLayer} filter={['in', 'COUNTYNAME', 'Providence']}/>
-        </Source>
-        <Popup longitude={popupCoords.long} latitude={popupCoords.lat} closeOnClick={false}>
-          Long: {popupCoords.long} <br></br>  Lat: {popupCoords.lat}
-        </Popup>
-      </Map>
+    <div className="maps-items">
+      <div className="mapbox-container" aria-label="Map Container">
+        <Map
+          mapboxAccessToken={ACCESS_TOKEN}
+          {...viewState}
+          // for moving the map
+          onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+          // theme of map
+          mapStyle={"mapbox://styles/mapbox/streets-v12"}
+          onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+          ref={mapRef}
+        >
+          <Source id="geo_data" type="geojson" data={overlay}>
+            <Layer {...geoLayer} />
+          </Source>
+          <Source id="search_data" type="geojson" data={searchOverlay}>
+            <Layer {...searchLayer} />
+          </Source>
+          <Source type="vector" url={TILESET_ID}>
+            <Layer {...countyLayer} />
+            <Layer
+              {...selectedCountyLayer}
+              filter={["in", "COUNTYNAME", "Providence"]}
+            />
+          </Source>
+          <Popup
+            longitude={popupCoords.long}
+            latitude={popupCoords.lat}
+            closeOnClick={false}
+          >
+            Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
+          </Popup>
+        </Map>
+      </div>
+      <div className="bottom">
+        <div className="maps-input">
+          <ControlledInput
+            value={commandString}
+            setValue={setCommandList}
+            selectedState={selectedState}
+            setSelectedState={setSelectedState}
+            ariaLabel={"Command input"}
+            onKeyDown={()=>handleButtonClick(commandString, selectedState, setCommandList)}
+          />
+          <button
+            className="submit-button"
+            aria-label="Submit Button"
+            aria-roledescription="Click or press Enter to submit"
+            onClick={()=>handleButtonClick(commandString, selectedState, setCommandList)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                ()=>handleButtonClick(commandString, selectedState, setCommandList);
+              }
+            }}
+          >
+            Enter!
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
+
+
+function handleButtonClick(commandString: string, selectedState: string, setCommandString: React.Dispatch<React.SetStateAction<string>>){
+    const stateAbbrv = convertToAbbreviation(selectedState);
+    console.log(stateAbbrv);
+    const selectionArray = [
+      "all",
+      ["in", "COUNTYNAME", commandString],
+      ["in", "STATE", stateAbbrv],
+    ];
+    console.log(selectionArray);
+    // props.setSelectCounty(selectionArray);
+    // console.log(props.selectCounty);
+    setCommandString("");
+}
+
+
+
 
 export default MapBox;
