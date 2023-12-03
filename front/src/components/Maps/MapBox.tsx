@@ -24,6 +24,8 @@ import { Broadband } from "../functions/Broadband";
 import { TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
+
+
 interface LatLong {
   lat: number;
   long: number;
@@ -163,7 +165,7 @@ function MapBox(props: MapBoxprops) {
   const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
-  // is only used once for the redlining overlay day
+  // is only used once for the redlining overlay data
   useEffect(() => {
     overlayData().then((data) => {
       setOverlay(data);
@@ -220,16 +222,16 @@ function MapBox(props: MapBoxprops) {
             selectedState={selectedState}
             setSelectedState={setSelectedState}
             ariaLabel={"Command input"}
-            onKeyDown={()=>handleButtonClick(commandString, selectedState, setCommandList)}
+            onKeyDown={()=>handleButtonClick(commandString, selectedState,props.updateHistory, setCommandList)}
           />
           <button
             className="submit-button"
             aria-label="Submit Button"
             aria-roledescription="Click or press Enter to submit"
-            onClick={()=>handleButtonClick(commandString, selectedState, setCommandList)}
+            onClick={()=>handleButtonClick(commandString, selectedState, props.updateHistory,setCommandList)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                ()=>handleButtonClick(commandString, selectedState, setCommandList);
+                ()=>handleButtonClick(commandString, selectedState, props.updateHistory, setCommandList);
               }
             }}
           >
@@ -242,7 +244,7 @@ function MapBox(props: MapBoxprops) {
 }
 
 
-function handleButtonClick(commandString: string, selectedState: string, setCommandString: React.Dispatch<React.SetStateAction<string>>){
+function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>){
     const stateAbbrv = convertToAbbreviation(selectedState);
     console.log(stateAbbrv);
     const selectionArray = [
@@ -253,6 +255,8 @@ function handleButtonClick(commandString: string, selectedState: string, setComm
     console.log(selectionArray);
     // props.setSelectCounty(selectionArray);
     // console.log(props.selectCounty);
+    updateHistory(["state",selectedState])
+    
     setCommandString("");
 }
 

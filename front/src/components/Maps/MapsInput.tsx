@@ -11,7 +11,7 @@ import { MapRef } from "react-map-gl";
 
 interface MapsInputProps {
   // updateHistory: (command: (string | string[][])[]) => void;
-  // // setNotification: Dispatch<SetStateAction<string>>;
+  // setNotification: Dispatch<SetStateAction<string>>;
   // isBrief: boolean;
   selectCounty: string[][];
   setSelectCounty: Dispatch<SetStateAction<string[][]>>;
