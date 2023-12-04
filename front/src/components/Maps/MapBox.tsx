@@ -24,6 +24,7 @@ import { Broadband } from "../functions/Broadband";
 import { TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
+import { county_data } from "../functions/CountyParse.ts";
 
 
 interface LatLong {
@@ -177,6 +178,25 @@ function MapBox(props: MapBoxprops) {
   // items for the input
   const [commandString, setCommandList] = useState<string>("");
   const [selectedState, setSelectedState] = useState<string>("");
+  const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
+
+  useEffect(() => {
+    if (mapRef.current == null) {
+      return;
+    }
+    // const highlightedFeatures = mapRef.current.queryRenderedFeatures(undefined, { layers: ['counties-selected'] });
+    // console.log(highlightedFeatures)
+
+    const features = mapRef.current.querySourceFeatures('county-data', {
+      sourceLayer: "c_19se23-4rtu37",
+      filter: [
+        "all",
+        ["in", "COUNTYNAME", "Middlesex"],
+        ["in", "STATE", "NJ"],
+      ],
+    });
+    console.log(features);
+  })
   
 
   return (
@@ -198,11 +218,11 @@ function MapBox(props: MapBoxprops) {
           <Source id="search_data" type="geojson" data={searchOverlay}>
             <Layer {...searchLayer} />
           </Source>
-          <Source type="vector" url={TILESET_ID}>
+          <Source id="county-data" type="vector" url={TILESET_ID}>
             <Layer {...countyLayer} />
             <Layer
               {...selectedCountyLayer}
-              filter={["in", "COUNTYNAME", "Providence"]}
+              filter={filterArray}
             />
           </Source>
           <Popup
@@ -222,16 +242,16 @@ function MapBox(props: MapBoxprops) {
             selectedState={selectedState}
             setSelectedState={setSelectedState}
             ariaLabel={"Command input"}
-            onKeyDown={()=>handleButtonClick(commandString, selectedState,props.updateHistory, setCommandList)}
+            onKeyDown={()=>handleButtonClick(commandString, selectedState,props.updateHistory, setCommandList, setFilterArray, mapRef)}
           />
           <button
             className="submit-button"
             aria-label="Submit Button"
             aria-roledescription="Click or press Enter to submit"
-            onClick={()=>handleButtonClick(commandString, selectedState, props.updateHistory,setCommandList)}
+            onClick={()=>handleButtonClick(commandString, selectedState, props.updateHistory,setCommandList, setFilterArray, mapRef)}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                ()=>handleButtonClick(commandString, selectedState, props.updateHistory, setCommandList);
+                ()=>handleButtonClick(commandString, selectedState, props.updateHistory, setCommandList, setFilterArray, mapRef);
               }
             }}
           >
@@ -244,20 +264,23 @@ function MapBox(props: MapBoxprops) {
 }
 
 
-function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>){
+function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){
     const stateAbbrv = convertToAbbreviation(selectedState);
-    console.log(stateAbbrv);
     const selectionArray = [
       "all",
       ["in", "COUNTYNAME", commandString],
       ["in", "STATE", stateAbbrv],
     ];
-    console.log(selectionArray);
-    // props.setSelectCounty(selectionArray);
-    // console.log(props.selectCounty);
+    setFilterArray(selectionArray);
     updateHistory(["state",selectedState])
-    
     setCommandString("");
+
+    // mapRef.current?.flyTo({
+    //   center: [-74.492653, 40.572601],
+    //   zoom: 10,
+    //   speed: 2,
+    //   essential: true,
+    // })
 }
 
 
