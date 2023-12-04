@@ -3,31 +3,51 @@ import "../styles/main.css";
 
 // Input boxes contain state. We want to make sure React is managing that state,
 //   so we have a special component that wraps the input box.
-export function CheckboxGroup() {
-const [checkedOne, setCheckedOne] = React.useState(false);
-const [checkedTwo, setCheckedTwo] = React.useState(false);
+interface RadioButtonProps{
+   
+}
 
-const handleChangeOne = () => {
-  setCheckedOne(!checkedOne);
-};
+export function RadioButtonGroup(props: RadioButtonProps) {
 
-const handleChangeTwo = () => {
-  setCheckedTwo(!checkedTwo);
-};
+const [selectedOption, setSelectedOption] = React.useState("Overlay 1");
+
+function onValueChange(event){
+  setSelectedOption(event.target.value);
+}
 
 return (
   <div>
-    <Checkbox label="Value 1" value={checkedOne} onChange={handleChangeOne} />
-    <Checkbox label="Value 2" value={checkedTwo} onChange={handleChangeTwo} />
+    <div onChange={onValueChange}>
+      <RadioButton
+        label="variable 1"
+        checked={selectedOption === "Overlay 1"}
+        value="Overlay 1"
+        name="overlay"
+      />
+      <RadioButton
+        label="variable 2"
+        checked={selectedOption === "Overlay 2"}
+        value="Overlay 2"
+        name="overlay"
+      />
+      <RadioButton
+        label="variable 3"
+        checked={selectedOption === "Overlay 3"}
+        value="Overlay 3"
+        name="overlay"
+      />
+    </div>
+    the selected overlay is : {selectedOption} 
   </div>
 );
 }
 
-const Checkbox = ({ label, value, onChange }) => {
+const RadioButton = ({ label, checked, value, name }) => {
   return (
     <label>
-      <input type="checkbox" checked={value} onChange={onChange} />
+      <input type="radio" checked={checked} value={value} name={name} />
       {label}
     </label>
   );
 };
+

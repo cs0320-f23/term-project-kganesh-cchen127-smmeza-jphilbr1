@@ -85,4 +85,9 @@ export const selectedCountyLayer: FillLayer = {
     'fill-color': '#ff59c7',
     'fill-opacity': 0.75
   },
+  layout:{
+    'visibility': 'visible'
+  }
 }
+
+

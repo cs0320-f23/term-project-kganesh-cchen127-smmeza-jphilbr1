@@ -24,7 +24,8 @@ import { Broadband } from "../functions/Broadband";
 import { TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
-import { county_data } from "../functions/CountyParse.ts";
+import { RadioButtonGroup } from "../RadioButton.tsx";
+// import { county_data } from "../functions/CountyParse.ts";
 
 
 interface LatLong {
@@ -233,6 +234,9 @@ function MapBox(props: MapBoxprops) {
             Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
           </Popup>
         </Map>
+      </div>
+      <div className="right">
+        <RadioButtonGroup/>
       </div>
       <div className="bottom">
         <div className="maps-input">
