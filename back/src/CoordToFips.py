@@ -33,6 +33,8 @@ def coordToStateAndCountyConversion():
 
 # Given a lat and long, will return the fips code of that location
 def coord_to_fips(latitude, longitude):
+    lat = latitude
+    long = longitude
     # Calling API with lat and long inputs
     url = f"https://geo.fcc.gov/api/census/area?lat={lat}&lon={long}"
 
