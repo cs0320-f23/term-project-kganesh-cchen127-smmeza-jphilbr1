@@ -60,4 +60,4 @@ def full_data_retrieval():
     return response_json
 
 
-update_geojson()
+# update_geojson()

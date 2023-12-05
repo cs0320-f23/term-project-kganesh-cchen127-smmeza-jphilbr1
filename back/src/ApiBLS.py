@@ -3,7 +3,8 @@ import requests
 import json
 from CoordToFips import *
 
-API_KEY = "8e005747a44f4542965de8c1051a83f6"
+API_KEY = "8e005747a44f4542965de8c1051a83f6" # Jay's API Key
+# API_KEY = "464996beb3b343948b7f9f91fb3b7797" # Kylash's API Key
 
 # --------------- Generic Endpoint Function------------------------
 # Enter a data_name (ex: unemployment rate) and the corresponding measure code 
@@ -155,8 +156,11 @@ def fips_to_data(var_name, fips_list):
 
     # Iterating through fips list and making pairs with fips and it's corresponding value
     for i in range(len(fips_list)):
-        pair = [fips_list[i], API_Data["Results"]["series"][i]["data"][0]["value"]]
-        value_table.append(pair)
+        try:
+            pair = [fips_list[i], API_Data["Results"]["series"][i]["data"][0]["value"]]
+            value_table.append(pair)
+        except:
+            print(API_Data)
 
     # Returning values as a list of lists
     return value_table
