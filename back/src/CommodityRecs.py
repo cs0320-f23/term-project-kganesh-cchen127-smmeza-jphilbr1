@@ -1,4 +1,3 @@
-
 INDUSTRY_LIST = ["mining", "construction", "manufacturing", "tradetransportutilities", "information", "finance", "professionalservices", "educationandhealth", "leisureandhospitality", "otherservices"]
 
 
