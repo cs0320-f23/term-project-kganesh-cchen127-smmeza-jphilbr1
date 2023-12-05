@@ -33,6 +33,40 @@ export async function searchOverlayData(
 }
 
 
+var firstVisibility: string = "visible";
+function setFirstVisiblity(visiblity: string){
+  firstVisibility = visiblity;
+}
+
+var secondVisibility: string = "visible";
+function setSecondVisiblity(visiblity: string) {
+  secondVisibility = visiblity;
+}
+
+export function swtichVisibility( wantedLayer: string){
+  switch(wantedLayer){
+    case "Overlay 1":{
+      setFirstVisiblity("visible");
+      setSecondVisiblity("none")
+      break;
+    }
+    case "Overlay 2": {
+      setFirstVisiblity("none");
+      setSecondVisiblity("visible");
+      break;
+    }
+    default:{
+      setFirstVisiblity("none");
+      setSecondVisiblity("none");
+      break;
+    }
+
+
+  }
+}
+
+
+
 const propertyName = "holc_grade";
 export const geoLayer: FillLayer = {
   id: "geo_data",
