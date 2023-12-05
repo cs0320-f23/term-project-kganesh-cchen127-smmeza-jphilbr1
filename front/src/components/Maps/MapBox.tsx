@@ -18,15 +18,17 @@ import {
   searchOverlayData,
   countyLayer,
   selectedCountyLayer,
+  swtichVisibility
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
 import { TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
-import { RadioButtonGroup } from "../RadioButton.tsx";
+import { RadioButtonGroup } from "./RadioButton.tsx";
+import { MapsHistory } from "../Maps/MapsHistory.tsx";
 // import { county_data } from "../functions/CountyParse.ts";
-
+import { mockOverlayData, sectionMockOverlayData} from "../functions/MockOverlay.ts"
 
 interface LatLong {
   lat: number;
@@ -35,6 +37,8 @@ interface LatLong {
 
 interface MapBoxprops {
   updateHistory: (command: (string | string[][])[]) => void;
+  history: (string | string[][])[][];
+  mode: boolean;
 }
 
 // Both of these are variables used to set a new overlay from the 
@@ -56,11 +60,7 @@ export function setPopupCoords(
 // can be exported since search has to use it
 // this sets the search data to be the features gotten 
 // from the search function 
-export const handleSearch = (keyword: string[]) => {
-  searchOverlayData(keyword).then((data) => {
-    setSearchOverlay(data);
-  });
-};
+
 
 /**
  * Function that returns the information from the given feature
@@ -169,11 +169,16 @@ function MapBox(props: MapBoxprops) {
   );
   // is only used once for the redlining overlay data
   useEffect(() => {
-    overlayData().then((data) => {
+    mockOverlayData().then((data) => {
       setOverlay(data);
     });
   }, []);
 
+  useEffect(() => {
+    sectionMockOverlayData().then((data) => {
+      setSearchOverlay(data);
+    });
+  }, []);
   const mapRef = useRef<MapRef>(null);
 
   // items for the input
@@ -202,6 +207,9 @@ function MapBox(props: MapBoxprops) {
 
   return (
     <div className="maps-items">
+      <div className="left">
+        <RadioButtonGroup onChange={swtichVisibility}/>
+      </div>
       <div className="mapbox-container" aria-label="Map Container">
         <Map
           mapboxAccessToken={ACCESS_TOKEN}
@@ -236,7 +244,7 @@ function MapBox(props: MapBoxprops) {
         </Map>
       </div>
       <div className="right">
-        <RadioButtonGroup/>
+      <MapsHistory history={props.history} mode={props.mode}/>
       </div>
       <div className="bottom">
         <div className="maps-input">

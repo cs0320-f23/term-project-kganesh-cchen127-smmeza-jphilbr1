@@ -1,6 +1,5 @@
 import React, { useState, useRef} from "react";
 import "../styles/app.css";
-import { MapsHistory } from "./Maps/MapsHistory";
 import MapBox from "./Maps/MapBox";
 
 /* 
@@ -36,7 +35,7 @@ export default function Maps() {
   return (
     <div className="maps">
       <div className="left">
-        <MapBox updateHistory={updateHistory} />
+        <MapBox updateHistory={updateHistory} history={history} mode={mode} />
       </div>
       
       {/* Our input comes before our history so that users can scroll down
@@ -50,7 +49,7 @@ export default function Maps() {
           selectCounty={selectCounty}
           setSelectCounty={setSelectCounty}
         /> */}
-        <MapsHistory history={history} mode={mode} />
+        {/* <MapsHistory history={history} mode={mode} /> */}
       </div>
     </div>
   );

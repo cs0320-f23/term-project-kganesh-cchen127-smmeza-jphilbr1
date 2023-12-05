@@ -2,6 +2,8 @@ import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
 import { SearchOverLay } from "./Search";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
+import mapboxgl from "mapbox-gl";
+
 
 // makes sure that the json type is a feature collection
 function isFeatureCollection(json: any): json is GeoJSON.FeatureCollection {
@@ -33,42 +35,46 @@ export async function searchOverlayData(
 }
 
 
-var firstVisibility: string = "visible";
-function setFirstVisiblity(visiblity: string){
+var firstVisibility: mapboxgl.Visibility = "visible";
+function setFirstVisiblity(visiblity: mapboxgl.Visibility) {
   firstVisibility = visiblity;
 }
 
-var secondVisibility: string = "visible";
-function setSecondVisiblity(visiblity: string) {
+var secondVisibility: mapboxgl.Visibility = "none";
+function setSecondVisiblity(visiblity: mapboxgl.Visibility) {
   secondVisibility = visiblity;
 }
 
-export function swtichVisibility( wantedLayer: string){
+export function swtichVisibility(wantedLayer: string){
   switch(wantedLayer){
     case "Overlay 1":{
-      setFirstVisiblity("visible");
-      setSecondVisiblity("none")
+      setFirstVisiblity('visible');
+      setSecondVisiblity('none')
+      console.log("changed to overlay1");
+      console.log(geoLayer.layout?.visibility);
+      console.log(searchLayer.layout?.visibility);
       break;
     }
     case "Overlay 2": {
-      setFirstVisiblity("none");
-      setSecondVisiblity("visible");
+      setFirstVisiblity('none');
+      setSecondVisiblity('visible');
+      console.log("changed to overlay2");
+      console.log(searchLayer.layout?.visibility);
+      console.log(geoLayer.layout?.visibility);
       break;
     }
     default:{
-      setFirstVisiblity("none");
-      setSecondVisiblity("none");
+      setFirstVisiblity('none');
+      setSecondVisiblity('none');
       break;
     }
-
-
   }
 }
 
 
 
 const propertyName = "holc_grade";
-export const geoLayer: FillLayer = {
+export var geoLayer: FillLayer = {
   id: "geo_data",
   type: "fill",
   paint: {
@@ -87,15 +93,21 @@ export const geoLayer: FillLayer = {
     ],
     "fill-opacity": 0.2,
   },
+  layout: {
+    'visibility': firstVisibility,
+  },
 };
 
-export const searchLayer: FillLayer = {
+export var searchLayer: FillLayer = {
   id: "search_data",
   type: "fill",
   paint: {
     "fill-color": "#3604cc",
     "fill-opacity": 0.2,
-  },
+  }, 
+  layout:{
+    'visibility': secondVisibility
+  }
 };
 
 export const countyLayer: FillLayer = {

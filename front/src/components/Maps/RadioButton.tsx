@@ -1,10 +1,10 @@
 import React from "react";
-import "../styles/main.css";
+import "../../styles/main.css"
 
 // Input boxes contain state. We want to make sure React is managing that state,
 //   so we have a special component that wraps the input box.
-interface RadioButtonProps{
-   
+interface RadioButtonProps {
+  onChange: (string) => void;
 }
 
 export function RadioButtonGroup(props: RadioButtonProps) {
@@ -13,6 +13,7 @@ const [selectedOption, setSelectedOption] = React.useState("Overlay 1");
 
 function onValueChange(event){
   setSelectedOption(event.target.value);
+  props.onChange(event.target.value);
 }
 
 return (
@@ -30,12 +31,12 @@ return (
         value="Overlay 2"
         name="overlay"
       />
-      <RadioButton
+      {/* <RadioButton
         label="variable 3"
         checked={selectedOption === "Overlay 3"}
         value="Overlay 3"
         name="overlay"
-      />
+      /> */}
     </div>
     the selected overlay is : {selectedOption} 
   </div>
