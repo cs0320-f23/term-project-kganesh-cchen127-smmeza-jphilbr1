@@ -7,10 +7,11 @@ import Map, {
   MapRef,
   PointLike,
   Popup,
+  LngLatLike,
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState, useRef } from "react";
-import { ACCESS_TOKEN } from "../../private/API";
+import { ACCESS_TOKEN, COUNTY_API } from "../../private/API";
 import {
   geoLayer,
   searchLayer,
@@ -26,6 +27,12 @@ import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
 import { county_data } from "../functions/CountyParse.ts";
 
+
+interface CountyLoadResponse {
+  state: string;
+  latitude: number;
+  longitude: number;
+}
 
 interface LatLong {
   lat: number;
@@ -179,6 +186,7 @@ function MapBox(props: MapBoxprops) {
   const [commandString, setCommandList] = useState<string>("");
   const [selectedState, setSelectedState] = useState<string>("");
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
+  const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -197,7 +205,71 @@ function MapBox(props: MapBoxprops) {
     });
     console.log(features);
   })
+
+  async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
+    if (args.length === 2) {
+      const url: string = 
+      'https://api.api-ninjas.com/v1/geocoding?city=' + args[0];
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'X-Api-Key': COUNTY_API,
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        if (response.ok) {
+          const result = await response.json();
+          return result;
+        } else {
+          // console.error('Error:', response.status, response.statusText);
+        }
+      } catch (error) {
+        // console.error('Error:', error);
+      }
+    }
+    return "";
+  }
   
+  async function getCountyLatLon(args: Array<string>) {
+    let state = args[1];
+    let jsonResponse = getCountyLatLonAPI(args);
+    jsonResponse.then((responseObject) => {
+      for (const result of responseObject) {
+        if (isCountyLoadResponse(result)) {
+          if (result.state === state) {
+            let latLon: LngLatLike = [result.longitude, result.latitude]
+            setSelectedLatLong(latLon);
+          }
+      }
+      }
+    })
+  }
+
+  useEffect(() => {
+    mapRef.current?.flyTo({
+      center: selectedLatLong,
+      zoom: 8,
+      speed: 2,
+      essential: true,
+    })
+  }, [selectedLatLong])
+  
+  function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+    const stateAbbrv = convertToAbbreviation(selectedState);
+      const selectionArray = [
+        "all",
+        ["in", "COUNTYNAME", commandString],
+        ["in", "STATE", stateAbbrv],
+      ];
+      setFilterArray(selectionArray);
+      updateHistory(["state",selectedState])
+      setCommandString("");
+  
+      getCountyLatLon([commandString, selectedState])
+      console.log("county=" + commandString, selectedLatLong)
+  }
 
   return (
     <div className="maps-items">
@@ -264,24 +336,21 @@ function MapBox(props: MapBoxprops) {
 }
 
 
-function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){
-    const stateAbbrv = convertToAbbreviation(selectedState);
-    const selectionArray = [
-      "all",
-      ["in", "COUNTYNAME", commandString],
-      ["in", "STATE", stateAbbrv],
-    ];
-    setFilterArray(selectionArray);
-    updateHistory(["state",selectedState])
-    setCommandString("");
 
-    // mapRef.current?.flyTo({
-    //   center: [-74.492653, 40.572601],
-    //   zoom: 10,
-    //   speed: 2,
-    //   essential: true,
-    // })
-}
+
+
+
+  /**
+   * Function that checks whether the response is an CountyLoadResponse
+   * @param rjson any json file
+   * @returns boolean whether the response is an CountyLoadResponse
+   */
+  function isCountyLoadResponse(rjson: any): rjson is CountyLoadResponse {
+    if (!("state" in rjson)) return false;
+    if (!("latitude" in rjson)) return false;
+    if (!("longitude" in rjson)) return false;
+    return true;
+  }
 
 
 
