@@ -8,6 +8,7 @@ import Map, {
   PointLike,
   Popup,
   LngLatLike,
+  MapLayerTouchEvent,
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState, useRef } from "react";
@@ -19,10 +20,11 @@ import {
   searchOverlayData,
   countyLayer,
   selectedCountyLayer,
+  hoverCountyLayer,
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
-import { TILESET_ID } from "../../private/TilesetID.ts";
+import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
 import { county_data } from "../functions/CountyParse.ts";
@@ -165,6 +167,39 @@ function MapBox(props: MapBoxprops) {
     // sends the lat, lon, and other info to the history to be displayed
     props.updateHistory(["MapClick", newResponse]);
   }
+
+  async function onMouseMove(e: MapLayerMouseEvent) {
+    if (mapRef.current) {
+      mapRef.current.getCanvas().style.cursor = 'pointer';
+      const bbox: [PointLike, PointLike] = [
+        [e.point.x, e.point.y],
+        [e.point.x, e.point.y],
+      ];
+      const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+        var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
+        var hoveredState = selectedFeatures[0].properties.STATE
+      // console.log(mapRef.current.queryRenderedFeatures()[0])
+      // if (feature) {
+      //   // const feature = e.features[0];
+      //   // if (feature.properties) {
+      //   // const county = mapRef.current.querySourceFeatures('county-hovered', {
+      //   //   sourceLayer: SOURCE_LAYER_ID,
+      //   //   filter: ['all', 
+      //   //             ['in', 'COUNTYNAME', feature.properties.COUNTYNAME]]
+      //   // });
+        const selectedHoverArray = ['all', 
+        ['in', 'COUNTYNAME', hoveredCounty],
+        ['in', 'STATE', hoveredState]];
+        setHoverArray(selectedHoverArray)
+      }
+    }
+  }
+
+
+
+
+
   const [viewState, setViewState] = useState({
     longitude: ProvidenceLatLong.long,
     latitude: ProvidenceLatLong.lat,
@@ -186,6 +221,7 @@ function MapBox(props: MapBoxprops) {
   const [commandString, setCommandList] = useState<string>("");
   const [selectedState, setSelectedState] = useState<string>("");
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
+  const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
 
   useEffect(() => {
@@ -282,6 +318,7 @@ function MapBox(props: MapBoxprops) {
           // theme of map
           mapStyle={"mapbox://styles/mapbox/streets-v12"}
           onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+          onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
           ref={mapRef}
         >
           <Source id="geo_data" type="geojson" data={overlay}>
@@ -292,6 +329,10 @@ function MapBox(props: MapBoxprops) {
           </Source>
           <Source id="county-data" type="vector" url={TILESET_ID}>
             <Layer {...countyLayer} />
+            <Layer 
+              {...hoverCountyLayer}
+              filter={hoverArray}
+            />
             <Layer
               {...selectedCountyLayer}
               filter={filterArray}
