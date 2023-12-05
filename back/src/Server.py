@@ -46,7 +46,7 @@ def employment_endpoint():
 # Industry Employment Endpoint 
 @app.route('/industry_employment')
 def industry_employment_endpoint():
-    return industry_endpoint()
+    return coords_industry_data_endpoint()
 
 
 

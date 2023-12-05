@@ -2,8 +2,6 @@ from flask import Flask, render_template, request, jsonify
 import requests
 import json
 
-# TODO: Talk about inputs to this funciton. Should be make the function itself take in a lat and long param, or do it through a call to the server?
-
 # Given latitude and longitude, returns a map of useful location information for those coords, including fips codes, county name, and state name
 def coordToStateAndCountyConversion():
     # Ex (Prov, RI): https://geo.fcc.gov/api/census/area?lat=41.8240&lon=-71.4128
@@ -31,4 +29,17 @@ def coordToStateAndCountyConversion():
 
     return location_info
 
-# print(coordToStateAndCountyConversion(41.8240, -71.4128))
+    # print(coordToStateAndCountyConversion(41.8240, -71.4128))
+
+# Given a lat and long, will return the fips code of that location
+def coord_to_fips(latitude, longitude):
+    lat = latitude
+    long = longitude
+    # Calling API with lat and long inputs
+    url = f"https://geo.fcc.gov/api/census/area?lat={lat}&lon={long}"
+
+    # Getting and storing data from API
+    response = requests.get(url)
+    data = response.json()
+
+    return data["results"][0]["county_fips"]
