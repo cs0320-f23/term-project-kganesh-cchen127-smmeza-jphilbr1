@@ -42,10 +42,10 @@ def generic_bls_endpoint(data_name, measure_code):
     # return message
 
 
-
-def industry_endpoint():
-    state_fips = request.args.get('state_fips')
-    county_fips = request.args.get('county_fips')
+# Given a full fips code (5 digits), will return a json of BLS employment by
+# industry data for that location
+def fips_to_industry_breakdown(fips_code):
+    fips = fips_code
 
     api_url = 'https://api.bls.gov/publicAPI/v2/timeseries/data/'
 
@@ -56,16 +56,16 @@ def industry_endpoint():
     payload = {
         "seriesid":
         [
-            f"ENU{state_fips}{county_fips}1051011", 
-            f"ENU{state_fips}{county_fips}1051012",
-            f"ENU{state_fips}{county_fips}1051013",
-            f"ENU{state_fips}{county_fips}1051021",
-            f"ENU{state_fips}{county_fips}1051022",
-            f"ENU{state_fips}{county_fips}1051023",
-            f"ENU{state_fips}{county_fips}1051024",
-            f"ENU{state_fips}{county_fips}1051025",
-            f"ENU{state_fips}{county_fips}1051026",
-            f"ENU{state_fips}{county_fips}1051027"
+            f"ENU{fips}1051011", 
+            f"ENU{fips}1051012",
+            f"ENU{fips}1051013",
+            f"ENU{fips}1051021",
+            f"ENU{fips}1051022",
+            f"ENU{fips}1051023",
+            f"ENU{fips}1051024",
+            f"ENU{fips}1051025",
+            f"ENU{fips}1051026",
+            f"ENU{fips}1051027"
         ],
         "startyear":"2023", 
         "endyear":"2023",   
@@ -87,7 +87,7 @@ def industry_endpoint():
         "employees_construction":API_Data["Results"]["series"][1]["data"][0]["value"],
         "employees_manufacturing":API_Data["Results"]["series"][2]["data"][0]["value"],
         "employees_tradetransportutilities":API_Data["Results"]["series"][3]["data"][0]["value"],
-        "employees_imformation":API_Data["Results"]["series"][4]["data"][0]["value"],
+        "employees_information":API_Data["Results"]["series"][4]["data"][0]["value"],
         "employees_finance":API_Data["Results"]["series"][5]["data"][0]["value"],
         "employees_professionalservices":API_Data["Results"]["series"][6]["data"][0]["value"],
         "employees_educationandhealth":API_Data["Results"]["series"][7]["data"][0]["value"],
@@ -104,7 +104,20 @@ def industry_endpoint():
     response_json = json.dumps(response_map)
 
     return response_json
-    # return message
+
+
+# Sets up an enpoint to get lat and long and will return json of breakdown of 
+# employment by industry for that location
+def coords_industry_data_endpoint():
+    # Getting lat and long data from parameters
+    lat = request.args.get('latitude')
+    long = request.args.get('longitude')
+    
+    # Converting lat and long to fips code
+    fips = coord_to_fips(lat, long)
+
+    # Returning breakdown information
+    return fips_to_industry_breakdown(fips)
 
 
 # Given a var_name (ex: unemployment_rate) and a list of fips (len <=50), will return a list of pairs, where each pair[0] is a fips code and pair[1] is its corresponding value for var_name
