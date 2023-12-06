@@ -55,3 +55,12 @@ US_STATE_FIPS = {
     'Wisconsin': '55',
     'Wyoming': '56'
 }
+
+'''
+We want a way to go from "Count, ST" to coordinate"
+
+1. Given county_name and state_name
+2. Use map to go from county name to state fips
+3. For each 
+
+'''
