@@ -5,6 +5,8 @@ from CoordToFips import *
 from ApiBLS import *
 from FullData import *
 from Name_To_Coords import *
+from BLS_mocks import *
+
 
 app = Flask(__name__)
 
@@ -53,6 +55,12 @@ def industry_employment_endpoint():
 @app.route('/zoom')
 def zooming_endpoint():
     return zooming_function()
+
+
+# -------------- Mock endpoint ---------
+@app.route('/mock')
+def mock():
+    return mock_function()
 
 
 
