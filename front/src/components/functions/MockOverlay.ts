@@ -15,6 +15,12 @@ export async function mockOverlayData(): Promise<
   return Promise.resolve(geoJSONData);
 }
 
+export async function sectionMockOverlayData(): Promise<
+  GeoJSON.FeatureCollection | undefined
+> {
+  return Promise.resolve(SectionData);
+}
+
 /**
  * 'searches' for the mocked data wth the keyword
  *  and returns the mocked data if the keyword is in the map
@@ -24,6 +30,8 @@ export async function searchMockedOverlayData(
 ): Promise<GeoJSON.FeatureCollection | undefined> {
   return Promise.resolve(searchMap.get(keyword[0]));
 }
+
+
 /**
  * creates a map to search for certain words that correpsond to 
  * certain mocked data 

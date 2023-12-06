@@ -1,7 +1,7 @@
 import { REPLFunction } from "./REPLFunctionInterface";
 import { searchOverlayData } from "./overlay";
 // import { setKeyword, keyword} from "../Maps";
-import { handleSearch } from "../Maps/MapBox";
+// import { handleSearch } from "../Maps/MapBox";
 /**
  * This file represents the keyword command
  * @param args an array of strings which represents the commands input
@@ -66,7 +66,7 @@ export const SearchHistory: REPLFunction = async (
       // lets the map know that the user is searching for 
       // area, so that it can make an api call as well for the 
       // features
-      handleSearch([fullSearchString]);
+      // handleSearch([fullSearchString]);
       const geoData: GeoJSON.FeatureCollection = json.areas;
       // gets the info from the first feature in the collection
       if (geoData.features.length !== 0) {

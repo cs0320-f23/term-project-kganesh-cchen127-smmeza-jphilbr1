@@ -56,7 +56,7 @@ export function MapsInput(props: MapsInputProps) {
                             ['in', 'COUNTYNAME', commandString],
                             ['in', 'STATE', stateAbbrv]];
     console.log(selectionArray);
-    props.setSelectCounty(selectionArray);          
+    // props.setSelectCounty(selectionArray);          
     console.log(props.selectCounty)          
 
     setCommandList("");

@@ -20,6 +20,7 @@ import {
   searchOverlayData,
   countyLayer,
   selectedCountyLayer,
+  // swtichVisibility
   hoverCountyLayer,
 } from "../functions/overlay.js";
 import "../../styles/main.css";
@@ -27,8 +28,11 @@ import { Broadband } from "../functions/Broadband";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
-import { county_data } from "../functions/CountyParse.ts";
-
+import { RadioButtonGroup } from "./RadioButton.tsx";
+import { MapsHistory } from "../Maps/MapsHistory.tsx";
+// import { county_data } from "../functions/CountyParse.ts";
+import { mockOverlayData, sectionMockOverlayData} from "../functions/MockOverlay.ts"
+import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
   state: string;
@@ -41,8 +45,14 @@ interface LatLong {
   long: number;
 }
 
+interface Layout{
+  visibility : mapboxgl.Visibility;
+}
+
 interface MapBoxprops {
   updateHistory: (command: (string | string[][])[]) => void;
+  history: (string | string[][])[][];
+  mode: boolean;
 }
 
 // Both of these are variables used to set a new overlay from the 
@@ -54,6 +64,12 @@ export function setSearchOverlay(
   searchOverlay = newData;
 }
 
+
+
+
+
+
+
 export var popupCoords: LatLong = { long: -71.4128, lat: 41.824 };
 export function setPopupCoords(
   newCoords: LatLong
@@ -64,11 +80,7 @@ export function setPopupCoords(
 // can be exported since search has to use it
 // this sets the search data to be the features gotten 
 // from the search function 
-export const handleSearch = (keyword: string[]) => {
-  searchOverlayData(keyword).then((data) => {
-    setSearchOverlay(data);
-  });
-};
+
 
 /**
  * Function that returns the information from the given feature
@@ -168,6 +180,45 @@ function MapBox(props: MapBoxprops) {
     props.updateHistory(["MapClick", newResponse]);
   }
 
+  const [firstVisibility, setFirstVisiblity] =
+    useState<mapboxgl.Visibility>("visible");
+  const [secondVisibility, setSecondVisiblity] =
+    useState<mapboxgl.Visibility>("none");
+  var visibilityOne: Layout = {
+    visibility: firstVisibility,
+  };
+
+  var visibilityTwo: Layout = {
+    visibility: secondVisibility,
+  };
+
+  function swtichVisibility(wantedLayer: string) {
+    switch (wantedLayer) {
+      case "Overlay 1": {
+        setFirstVisiblity("visible");
+        setSecondVisiblity("none");
+        console.log("changed to overlay1");
+        console.log(geoLayer.layout?.visibility);
+        console.log(searchLayer.layout?.visibility);
+        break;
+      }
+      case "Overlay 2": {
+        setFirstVisiblity("none");
+        setSecondVisiblity("visible");
+        console.log("changed to overlay2");
+        console.log(searchLayer.layout?.visibility);
+        console.log(geoLayer.layout?.visibility);
+        break;
+      }
+      default: {
+        setFirstVisiblity("none");
+        setSecondVisiblity("none");
+        break;
+      }
+    }
+  }
+
+
   async function onMouseMove(e: MapLayerMouseEvent) {
     if (mapRef.current) {
       mapRef.current.getCanvas().style.cursor = 'pointer';
@@ -197,9 +248,6 @@ function MapBox(props: MapBoxprops) {
   }
 
 
-
-
-
   const [viewState, setViewState] = useState({
     longitude: ProvidenceLatLong.long,
     latitude: ProvidenceLatLong.lat,
@@ -210,11 +258,16 @@ function MapBox(props: MapBoxprops) {
   );
   // is only used once for the redlining overlay data
   useEffect(() => {
-    overlayData().then((data) => {
+    mockOverlayData().then((data) => {
       setOverlay(data);
     });
   }, []);
 
+  useEffect(() => {
+    sectionMockOverlayData().then((data) => {
+      setSearchOverlay(data);
+    });
+  }, []);
   const mapRef = useRef<MapRef>(null);
 
   // items for the input
@@ -309,6 +362,9 @@ function MapBox(props: MapBoxprops) {
 
   return (
     <div className="maps-items">
+      <div className="left">
+        <RadioButtonGroup onChange={swtichVisibility}/>
+      </div>
       <div className="mapbox-container" aria-label="Map Container">
         <Map
           mapboxAccessToken={ACCESS_TOKEN}
@@ -322,10 +378,18 @@ function MapBox(props: MapBoxprops) {
           ref={mapRef}
         >
           <Source id="geo_data" type="geojson" data={overlay}>
-            <Layer {...geoLayer} />
+            <Layer 
+            id={geoLayer.id}
+            type={geoLayer.type}
+            paint={geoLayer.paint}
+            layout={visibilityOne} />
           </Source>
           <Source id="search_data" type="geojson" data={searchOverlay}>
-            <Layer {...searchLayer} />
+            <Layer 
+            id={searchLayer.id}
+            type={searchLayer.type}
+            paint={searchLayer.paint}
+            layout={visibilityTwo} />
           </Source>
           <Source id="county-data" type="vector" url={TILESET_ID}>
             <Layer {...countyLayer} />
@@ -346,6 +410,9 @@ function MapBox(props: MapBoxprops) {
             Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
           </Popup>
         </Map>
+      </div>
+      <div className="right">
+      <MapsHistory history={props.history} mode={props.mode}/>
       </div>
       <div className="bottom">
         <div className="maps-input">
