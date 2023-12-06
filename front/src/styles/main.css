@@ -94,10 +94,12 @@ td {
 }
 
 .mapbox-container {
+  position: relative;
   height: 65vh;
   width: 110vh;
   overflow: auto;
   border: 2px solid #FFC0CB;
+  margin-bottom: 10vh;
 }
 
 .left{
@@ -181,6 +183,41 @@ td {
   border-color: aqua;
   color: black;
   background: #FFC0CB;
+}
+
+/* @keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.text-container {
+  text-align: center;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+.text-container.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+} */
+
+.county-overlay {
+  font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  background-color: #FFFFFF;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  position: absolute;
+  height: auto;
+  width: 25%;
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  display: none;
+  /* z-index: 1; */
 }
 
 

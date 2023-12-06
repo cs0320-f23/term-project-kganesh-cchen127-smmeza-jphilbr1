@@ -64,13 +64,8 @@ export function setSearchOverlay(
   searchOverlay = newData;
 }
 
-
-
-
-
-
-
 export var popupCoords: LatLong = { long: -71.4128, lat: 41.824 };
+
 export function setPopupCoords(
   newCoords: LatLong
 ) {
@@ -127,9 +122,12 @@ function getFeatureInfo(feature: GeoJSON.Feature): string[][] {
 }
 
 function MapBox(props: MapBoxprops) {
+
   // Items for Map box
-  let ProvidenceLatLong: LatLong = { long: -71.4128, lat: 41.824 };
-  let initialZoom = 12;
+  // let ProvidenceLatLong: LatLong = { long: -71.4128, lat: 41.824 };
+  let initialZoom = 4;
+
+  const mapOverlay = document.getElementById('county-overlay');
 
   async function onMapClick(e: MapLayerMouseEvent) {
     // gets lat and long from mouse click and turns it into a string
@@ -148,7 +146,7 @@ function MapBox(props: MapBoxprops) {
       ["latitude: ", latitude],
       ["longitude: ", longitude],
     ];
-    var broadbandArray: Array<string> = [latitude, longitude];
+    // var broadbandArray: Array<string> = [latitude, longitude];
     if (mapRef.current) {
       const bbox: [PointLike, PointLike] = [
         [e.point.x, e.point.y],
@@ -161,21 +159,21 @@ function MapBox(props: MapBoxprops) {
         newResponse = newResponse.concat(featureInfo);
       }
     }
-    // gets the broadbad from the broadband fuction to return with 
-    // the info from the bbox
-    var broadbandPercent = await Broadband(broadbandArray);
-    // checks to be sure that the wanted information is in the form of an array
-    if (Array.isArray(broadbandPercent)) {
+    // // gets the broadbad from the broadband fuction to return with 
+    // // the info from the bbox
+    // var broadbandPercent = await Broadband(broadbandArray);
+    // // checks to be sure that the wanted information is in the form of an array
+    // if (Array.isArray(broadbandPercent)) {
 
-      if(broadbandPercent.length > 4){
-        // adds only the percent and the date/time the broadband was received
-        newResponse.push(broadbandPercent[0]);
-        newResponse.push(broadbandPercent[1]);
-      }else{
-        // if the response from broadband was an error returns the error
-        newResponse = newResponse.concat(broadbandPercent);
-      }
-    }
+    //   if(broadbandPercent.length > 4){
+    //     // adds only the percent and the date/time the broadband was received
+    //     newResponse.push(broadbandPercent[0]);
+    //     newResponse.push(broadbandPercent[1]);
+    //   }else{
+    //     // if the response from broadband was an error returns the error
+    //     newResponse = newResponse.concat(broadbandPercent);
+    //   }
+    // }
     // sends the lat, lon, and other info to the history to be displayed
     props.updateHistory(["MapClick", newResponse]);
   }
@@ -227,7 +225,7 @@ function MapBox(props: MapBoxprops) {
         [e.point.x, e.point.y],
       ];
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
-      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties && mapOverlay) {
         var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
         var hoveredState = selectedFeatures[0].properties.STATE
       // console.log(mapRef.current.queryRenderedFeatures()[0])
@@ -239,18 +237,66 @@ function MapBox(props: MapBoxprops) {
       //   //   filter: ['all', 
       //   //             ['in', 'COUNTYNAME', feature.properties.COUNTYNAME]]
       //   // }); 
+      if (hoveredCounty === undefined) {
+        const blankHoverArray = ['all', ['in', 'COUNTYNAME', '']]
+        setHoverArray(blankHoverArray)
+        mapOverlay.style.display = 'none';
+        console.log("help me")
+      }
+
+      else {
         const selectedHoverArray = ['all', 
         ['in', 'COUNTYNAME', hoveredCounty],
         ['in', 'STATE', hoveredState]];
         setHoverArray(selectedHoverArray)
+
+        const title = document.createElement('strong');
+
+        if (hoveredState === "LA") {
+          title.textContent = hoveredCounty + " Parish";
+        }
+        else if (hoveredState === "AK") {
+          title.textContent = hoveredCounty + " Borough";
+        }
+        else {
+          title.textContent = hoveredCounty + " County";
+        }
+        const state = document.createElement('div');
+        state.textContent = hoveredState;
+
+        mapOverlay.innerHTML = '';
+        mapOverlay.style.display = 'block';
+
+        mapOverlay.appendChild(title);
+        mapOverlay.appendChild(state);
+      }
+    }
+    }
+  }
+
+  function onMouseOut(e: MapLayerMouseEvent) {
+    if (mapRef.current && mapOverlay) {
+      mapRef.current.getCanvas().style.cursor = '';
+      const bbox: [PointLike, PointLike] = [
+        [e.point.x, e.point.y],
+        [e.point.x, e.point.y],
+      ];
+      const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties && mapOverlay) {
+        var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
+        console.log(hoveredCounty)
+        const blankHoverArray = ['all', ['in', 'COUNTYNAME', '']]
+        setHoverArray(blankHoverArray)
+        mapOverlay.style.display = 'none';
+        console.log("help me")
       }
     }
   }
 
 
   const [viewState, setViewState] = useState({
-    longitude: ProvidenceLatLong.long,
-    latitude: ProvidenceLatLong.lat,
+    longitude: -95.7129,
+    latitude: 37.0902,
     zoom: initialZoom,
   });
   const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
@@ -276,6 +322,7 @@ function MapBox(props: MapBoxprops) {
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
   const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -343,6 +390,10 @@ function MapBox(props: MapBoxprops) {
       speed: 2,
       essential: true,
     })
+    const timeoutId = setTimeout(() => {
+      setIsVisible(true);
+    }, 3000);
+    return () => clearTimeout(timeoutId);
   }, [selectedLatLong])
   
   function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
@@ -375,6 +426,7 @@ function MapBox(props: MapBoxprops) {
           mapStyle={"mapbox://styles/mapbox/streets-v12"}
           onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
           onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
+          onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
           ref={mapRef}
         >
           <Source id="geo_data" type="geojson" data={overlay}>
@@ -402,17 +454,22 @@ function MapBox(props: MapBoxprops) {
               filter={filterArray}
             />
           </Source>
-          <Popup
+          {/* <Popup
             longitude={popupCoords.long}
             latitude={popupCoords.lat}
             closeOnClick={false}
           >
             Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
-          </Popup>
+          </Popup> */}
         </Map>
+        <div id="county-overlay" className="county-overlay"></div>
       </div>
       <div className="right">
       <MapsHistory history={props.history} mode={props.mode}/>
+      </div>
+      <div style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
+            key={isVisible ? 'visible': 'hidden'}>
+        County highlighted!
       </div>
       <div className="bottom">
         <div className="maps-input">
