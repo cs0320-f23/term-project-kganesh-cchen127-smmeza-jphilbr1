@@ -35,44 +35,6 @@ export async function searchOverlayData(
 }
 
 
-var firstVisibility: mapboxgl.Visibility = "visible";
-function setFirstVisiblity(visiblity: mapboxgl.Visibility) {
-  firstVisibility = visiblity;
-}
-
-var secondVisibility: mapboxgl.Visibility = "none";
-function setSecondVisiblity(visiblity: mapboxgl.Visibility) {
-  secondVisibility = visiblity;
-}
-
-export function swtichVisibility(wantedLayer: string){
-  switch(wantedLayer){
-    case "Overlay 1":{
-      setFirstVisiblity('visible');
-      setSecondVisiblity('none')
-      console.log("changed to overlay1");
-      console.log(geoLayer.layout?.visibility);
-      console.log(searchLayer.layout?.visibility);
-      break;
-    }
-    case "Overlay 2": {
-      setFirstVisiblity('none');
-      setSecondVisiblity('visible');
-      console.log("changed to overlay2");
-      console.log(searchLayer.layout?.visibility);
-      console.log(geoLayer.layout?.visibility);
-      break;
-    }
-    default:{
-      setFirstVisiblity('none');
-      setSecondVisiblity('none');
-      break;
-    }
-  }
-}
-
-
-
 const propertyName = "holc_grade";
 export var geoLayer: FillLayer = {
   id: "geo_data",
@@ -93,9 +55,6 @@ export var geoLayer: FillLayer = {
     ],
     "fill-opacity": 0.2,
   },
-  layout: {
-    'visibility': firstVisibility,
-  },
 };
 
 export var searchLayer: FillLayer = {
@@ -105,9 +64,6 @@ export var searchLayer: FillLayer = {
     "fill-color": "#3604cc",
     "fill-opacity": 0.2,
   }, 
-  layout:{
-    'visibility': secondVisibility
-  }
 };
 
 export const countyLayer: FillLayer = {

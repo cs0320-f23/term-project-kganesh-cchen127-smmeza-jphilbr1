@@ -18,7 +18,7 @@ import {
   searchOverlayData,
   countyLayer,
   selectedCountyLayer,
-  swtichVisibility
+  // swtichVisibility
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
@@ -29,10 +29,15 @@ import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 // import { county_data } from "../functions/CountyParse.ts";
 import { mockOverlayData, sectionMockOverlayData} from "../functions/MockOverlay.ts"
+import mapboxgl from "mapbox-gl";
 
 interface LatLong {
   lat: number;
   long: number;
+}
+
+interface Layout{
+  visibility : mapboxgl.Visibility;
 }
 
 interface MapBoxprops {
@@ -49,6 +54,12 @@ export function setSearchOverlay(
 ) {
   searchOverlay = newData;
 }
+
+
+
+
+
+
 
 export var popupCoords: LatLong = { long: -71.4128, lat: 41.824 };
 export function setPopupCoords(
@@ -159,6 +170,47 @@ function MapBox(props: MapBoxprops) {
     // sends the lat, lon, and other info to the history to be displayed
     props.updateHistory(["MapClick", newResponse]);
   }
+
+  const [firstVisibility, setFirstVisiblity] =
+    useState<mapboxgl.Visibility>("visible");
+  const [secondVisibility, setSecondVisiblity] =
+    useState<mapboxgl.Visibility>("none");
+  var visibilityOne: Layout = {
+    visibility: firstVisibility,
+  };
+
+  var visibilityTwo: Layout = {
+    visibility: secondVisibility,
+  };
+
+  function swtichVisibility(wantedLayer: string) {
+    switch (wantedLayer) {
+      case "Overlay 1": {
+        setFirstVisiblity("visible");
+        setSecondVisiblity("none");
+        console.log("changed to overlay1");
+        console.log(geoLayer.layout?.visibility);
+        console.log(searchLayer.layout?.visibility);
+        break;
+      }
+      case "Overlay 2": {
+        setFirstVisiblity("none");
+        setSecondVisiblity("visible");
+        console.log("changed to overlay2");
+        console.log(searchLayer.layout?.visibility);
+        console.log(geoLayer.layout?.visibility);
+        break;
+      }
+      default: {
+        setFirstVisiblity("none");
+        setSecondVisiblity("none");
+        break;
+      }
+    }
+  }
+
+
+
   const [viewState, setViewState] = useState({
     longitude: ProvidenceLatLong.long,
     latitude: ProvidenceLatLong.lat,
@@ -222,10 +274,18 @@ function MapBox(props: MapBoxprops) {
           ref={mapRef}
         >
           <Source id="geo_data" type="geojson" data={overlay}>
-            <Layer {...geoLayer} />
+            <Layer 
+            id={geoLayer.id}
+            type={geoLayer.type}
+            paint={geoLayer.paint}
+            layout={visibilityOne} />
           </Source>
           <Source id="search_data" type="geojson" data={searchOverlay}>
-            <Layer {...searchLayer} />
+            <Layer 
+            id={searchLayer.id}
+            type={searchLayer.type}
+            paint={searchLayer.paint}
+            layout={visibilityTwo} />
           </Source>
           <Source id="county-data" type="vector" url={TILESET_ID}>
             <Layer {...countyLayer} />
