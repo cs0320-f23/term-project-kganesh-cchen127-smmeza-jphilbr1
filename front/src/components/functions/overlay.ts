@@ -87,9 +87,16 @@ export const selectedCountyLayer: FillLayer = {
     'fill-color': '#ff59c7',
     'fill-opacity': 0.75
   },
-  layout:{
-    'visibility': 'visible'
-  }
 }
 
-
+export const hoverCountyLayer: FillLayer = {
+  id: "county-hovered",
+  type: "fill",
+  source: "counties",
+  "source-layer": SOURCE_LAYER_ID,
+  paint: {
+    'fill-outline-color': '#484896',
+    'fill-color': '#000000',
+    'fill-opacity': 0.5
+  },
+}

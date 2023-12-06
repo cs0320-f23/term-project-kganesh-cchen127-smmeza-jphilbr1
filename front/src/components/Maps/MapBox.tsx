@@ -7,10 +7,12 @@ import Map, {
   MapRef,
   PointLike,
   Popup,
+  LngLatLike,
+  MapLayerTouchEvent,
 } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState, useRef } from "react";
-import { ACCESS_TOKEN } from "../../private/API";
+import { ACCESS_TOKEN, COUNTY_API } from "../../private/API";
 import {
   geoLayer,
   searchLayer,
@@ -19,10 +21,11 @@ import {
   countyLayer,
   selectedCountyLayer,
   // swtichVisibility
+  hoverCountyLayer,
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
-import { TILESET_ID } from "../../private/TilesetID.ts";
+import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations";
 import { RadioButtonGroup } from "./RadioButton.tsx";
@@ -30,6 +33,12 @@ import { MapsHistory } from "../Maps/MapsHistory.tsx";
 // import { county_data } from "../functions/CountyParse.ts";
 import { mockOverlayData, sectionMockOverlayData} from "../functions/MockOverlay.ts"
 import mapboxgl from "mapbox-gl";
+
+interface CountyLoadResponse {
+  state: string;
+  latitude: number;
+  longitude: number;
+}
 
 interface LatLong {
   lat: number;
@@ -210,6 +219,34 @@ function MapBox(props: MapBoxprops) {
   }
 
 
+  async function onMouseMove(e: MapLayerMouseEvent) {
+    if (mapRef.current) {
+      mapRef.current.getCanvas().style.cursor = 'pointer';
+      const bbox: [PointLike, PointLike] = [
+        [e.point.x, e.point.y],
+        [e.point.x, e.point.y],
+      ];
+      const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+        var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
+        var hoveredState = selectedFeatures[0].properties.STATE
+      // console.log(mapRef.current.queryRenderedFeatures()[0])
+      // if (feature) {
+      //   // const feature = e.features[0];
+      //   // if (feature.properties) {
+      //   // const county = mapRef.current.querySourceFeatures('county-hovered', {
+      //   //   sourceLayer: SOURCE_LAYER_ID,
+      //   //   filter: ['all', 
+      //   //             ['in', 'COUNTYNAME', feature.properties.COUNTYNAME]]
+      //   // });
+        const selectedHoverArray = ['all', 
+        ['in', 'COUNTYNAME', hoveredCounty],
+        ['in', 'STATE', hoveredState]];
+        setHoverArray(selectedHoverArray)
+      }
+    }
+  }
+
 
   const [viewState, setViewState] = useState({
     longitude: ProvidenceLatLong.long,
@@ -237,6 +274,8 @@ function MapBox(props: MapBoxprops) {
   const [commandString, setCommandList] = useState<string>("");
   const [selectedState, setSelectedState] = useState<string>("");
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
+  const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
+  const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -255,7 +294,71 @@ function MapBox(props: MapBoxprops) {
     });
     console.log(features);
   })
+
+  async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
+    if (args.length === 2) {
+      const url: string = 
+      'https://api.api-ninjas.com/v1/geocoding?city=' + args[0];
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'X-Api-Key': COUNTY_API,
+            'Content-Type': 'application/json',
+          },
+        });
+    
+        if (response.ok) {
+          const result = await response.json();
+          return result;
+        } else {
+          // console.error('Error:', response.status, response.statusText);
+        }
+      } catch (error) {
+        // console.error('Error:', error);
+      }
+    }
+    return "";
+  }
   
+  async function getCountyLatLon(args: Array<string>) {
+    let state = args[1];
+    let jsonResponse = getCountyLatLonAPI(args);
+    jsonResponse.then((responseObject) => {
+      for (const result of responseObject) {
+        if (isCountyLoadResponse(result)) {
+          if (result.state === state) {
+            let latLon: LngLatLike = [result.longitude, result.latitude]
+            setSelectedLatLong(latLon);
+          }
+      }
+      }
+    })
+  }
+
+  useEffect(() => {
+    mapRef.current?.flyTo({
+      center: selectedLatLong,
+      zoom: 8,
+      speed: 2,
+      essential: true,
+    })
+  }, [selectedLatLong])
+  
+  function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+    const stateAbbrv = convertToAbbreviation(selectedState);
+      const selectionArray = [
+        "all",
+        ["in", "COUNTYNAME", commandString],
+        ["in", "STATE", stateAbbrv],
+      ];
+      setFilterArray(selectionArray);
+      updateHistory(["state",selectedState])
+      setCommandString("");
+  
+      getCountyLatLon([commandString, selectedState])
+      console.log("county=" + commandString, selectedLatLong)
+  }
 
   return (
     <div className="maps-items">
@@ -271,6 +374,7 @@ function MapBox(props: MapBoxprops) {
           // theme of map
           mapStyle={"mapbox://styles/mapbox/streets-v12"}
           onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+          onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
           ref={mapRef}
         >
           <Source id="geo_data" type="geojson" data={overlay}>
@@ -289,6 +393,10 @@ function MapBox(props: MapBoxprops) {
           </Source>
           <Source id="county-data" type="vector" url={TILESET_ID}>
             <Layer {...countyLayer} />
+            <Layer 
+              {...hoverCountyLayer}
+              filter={hoverArray}
+            />
             <Layer
               {...selectedCountyLayer}
               filter={filterArray}
@@ -336,24 +444,21 @@ function MapBox(props: MapBoxprops) {
 }
 
 
-function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){
-    const stateAbbrv = convertToAbbreviation(selectedState);
-    const selectionArray = [
-      "all",
-      ["in", "COUNTYNAME", commandString],
-      ["in", "STATE", stateAbbrv],
-    ];
-    setFilterArray(selectionArray);
-    updateHistory(["state",selectedState])
-    setCommandString("");
 
-    // mapRef.current?.flyTo({
-    //   center: [-74.492653, 40.572601],
-    //   zoom: 10,
-    //   speed: 2,
-    //   essential: true,
-    // })
-}
+
+
+
+  /**
+   * Function that checks whether the response is an CountyLoadResponse
+   * @param rjson any json file
+   * @returns boolean whether the response is an CountyLoadResponse
+   */
+  function isCountyLoadResponse(rjson: any): rjson is CountyLoadResponse {
+    if (!("state" in rjson)) return false;
+    if (!("latitude" in rjson)) return false;
+    if (!("longitude" in rjson)) return false;
+    return true;
+  }
 
 
 
