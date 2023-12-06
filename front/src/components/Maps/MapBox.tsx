@@ -361,58 +361,56 @@ function MapBox(props: MapBoxprops) {
   }
 
   return (
-    <div className="maps-items">
-      <div className="left">
-        <RadioButtonGroup onChange={swtichVisibility}/>
-      </div>
-      <div className="mapbox-container" aria-label="Map Container">
-        <Map
-          mapboxAccessToken={ACCESS_TOKEN}
-          {...viewState}
-          // for moving the map
-          onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
-          // theme of map
-          mapStyle={"mapbox://styles/mapbox/streets-v12"}
-          onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
-          onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
-          ref={mapRef}
-        >
-          <Source id="geo_data" type="geojson" data={overlay}>
-            <Layer 
-            id={geoLayer.id}
-            type={geoLayer.type}
-            paint={geoLayer.paint}
-            layout={visibilityOne} />
-          </Source>
-          <Source id="search_data" type="geojson" data={searchOverlay}>
-            <Layer 
-            id={searchLayer.id}
-            type={searchLayer.type}
-            paint={searchLayer.paint}
-            layout={visibilityTwo} />
-          </Source>
-          <Source id="county-data" type="vector" url={TILESET_ID}>
-            <Layer {...countyLayer} />
-            <Layer 
-              {...hoverCountyLayer}
-              filter={hoverArray}
-            />
-            <Layer
-              {...selectedCountyLayer}
-              filter={filterArray}
-            />
-          </Source>
-          <Popup
-            longitude={popupCoords.long}
-            latitude={popupCoords.lat}
-            closeOnClick={false}
+    <div className="maps">
+      <div className="map-items">
+        <div className="left">
+          <RadioButtonGroup onChange={swtichVisibility} />
+        </div>
+        <div className="mapbox-container center" aria-label="Map Container">
+          <Map
+            mapboxAccessToken={ACCESS_TOKEN}
+            {...viewState}
+            // for moving the map
+            onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+            // theme of map
+            mapStyle={"mapbox://styles/mapbox/streets-v12"}
+            onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+            onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
+            ref={mapRef}
           >
-            Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
-          </Popup>
-        </Map>
-      </div>
-      <div className="right">
-      <MapsHistory history={props.history} mode={props.mode}/>
+            <Source id="geo_data" type="geojson" data={overlay}>
+              <Layer
+                id={geoLayer.id}
+                type={geoLayer.type}
+                paint={geoLayer.paint}
+                layout={visibilityOne}
+              />
+            </Source>
+            <Source id="search_data" type="geojson" data={searchOverlay}>
+              <Layer
+                id={searchLayer.id}
+                type={searchLayer.type}
+                paint={searchLayer.paint}
+                layout={visibilityTwo}
+              />
+            </Source>
+            <Source id="county-data" type="vector" url={TILESET_ID}>
+              <Layer {...countyLayer} />
+              <Layer {...hoverCountyLayer} filter={hoverArray} />
+              <Layer {...selectedCountyLayer} filter={filterArray} />
+            </Source>
+            <Popup
+              longitude={popupCoords.long}
+              latitude={popupCoords.lat}
+              closeOnClick={false}
+            >
+              Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
+            </Popup>
+          </Map>
+        </div>
+        <div className="right">
+          <MapsHistory history={props.history} mode={props.mode} />
+        </div>
       </div>
       <div className="bottom">
         <div className="maps-input">
@@ -422,16 +420,42 @@ function MapBox(props: MapBoxprops) {
             selectedState={selectedState}
             setSelectedState={setSelectedState}
             ariaLabel={"Command input"}
-            onKeyDown={()=>handleButtonClick(commandString, selectedState,props.updateHistory, setCommandList, setFilterArray, mapRef)}
+            onKeyDown={() =>
+              handleButtonClick(
+                commandString,
+                selectedState,
+                props.updateHistory,
+                setCommandList,
+                setFilterArray,
+                mapRef
+              )
+            }
           />
           <button
             className="submit-button"
             aria-label="Submit Button"
             aria-roledescription="Click or press Enter to submit"
-            onClick={()=>handleButtonClick(commandString, selectedState, props.updateHistory,setCommandList, setFilterArray, mapRef)}
+            onClick={() =>
+              handleButtonClick(
+                commandString,
+                selectedState,
+                props.updateHistory,
+                setCommandList,
+                setFilterArray,
+                mapRef
+              )
+            }
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                ()=>handleButtonClick(commandString, selectedState, props.updateHistory, setCommandList, setFilterArray, mapRef);
+                () =>
+                  handleButtonClick(
+                    commandString,
+                    selectedState,
+                    props.updateHistory,
+                    setCommandList,
+                    setFilterArray,
+                    mapRef
+                  );
               }
             }}
           >

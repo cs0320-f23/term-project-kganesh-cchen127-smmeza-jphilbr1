@@ -10,6 +10,10 @@
   display: flex;
   flex-direction: column;
 }
+.map-items{
+  min-height: 60vh;
+  display: flex;
+}
 
 .maps-history {
   height: 65vh;
@@ -26,6 +30,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .bottom{
   /* height: 10vh;
   margin: 5vh;
