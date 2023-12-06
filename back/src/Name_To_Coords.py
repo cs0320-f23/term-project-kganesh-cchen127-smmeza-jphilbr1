@@ -1,5 +1,6 @@
 import json
 from CONSTANTS import *
+from flask import *
 
 
 # Gets county name from feature
@@ -23,7 +24,12 @@ def feature_to_first_coord(feature):
 
 # Gets state fips code from state name
 def name_to_state_fips(state_name):
-    return US_STATE_FIPS[state_name]
+    # Checks if key exists
+    if state_name in US_STATE_FIPS:
+        return US_STATE_FIPS[state_name]
+    else:
+        raise ValueError("State not found. Please ensure state name is typed correctly with first letter capitalized")
+
 
 
 
@@ -72,8 +78,36 @@ def representative_coord(county_name, state_name):
     # raising error if no county is found in state
     raise ValueError("County not found.")
 
-print(representative_coord("Orange", "California"))
-print(representative_coord("Bristol", "Massachusetts"))
+# print(representative_coord("Orange", "California"))
+# print(representative_coord("Bristol", "Massachusetts"))
+
+def zooming_function():
+    try:
+        # Parameters
+        county = request.args.get('county')
+        state = request.args.get('state')
+
+        # Getting representative coord
+        coord = representative_coord(county, state)
+
+
+        # Json that will be returned
+        response_map = {
+            "status": "success",
+            "data": coord
+        }
+
+        response_json = json.dumps(response_map)
+
+        return response_json
+    except ValueError as e:
+        response_map = {
+            "status": "error",
+            "message": "Error was encounted. Please ensure that county and state name were spelled correctly. Also please ensure first letter of state is capitalized. For ex: 'county=Orange&state=California'"
+        }
+        return json.dumps(response_map)
+
+
 
 
 

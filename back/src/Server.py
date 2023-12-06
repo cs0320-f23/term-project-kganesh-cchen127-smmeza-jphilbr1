@@ -4,6 +4,7 @@ import json
 from CoordToFips import *
 from ApiBLS import *
 from FullData import *
+from Name_To_Coords import *
 
 app = Flask(__name__)
 
@@ -47,6 +48,12 @@ def employment_endpoint():
 @app.route('/industry_employment')
 def industry_employment_endpoint():
     return coords_industry_data_endpoint()
+
+# Endpoint to get coordinate to zoom in on
+@app.route('/zoom')
+def zooming_endpoint():
+    return zooming_function()
+
 
 
 
