@@ -9,6 +9,15 @@ from CONSTANTS import *
 #    (ex: 03), and it will return a return a response_map json for that type of 
 #    data
 def generic_bls_endpoint(data_name, measure_code):
+    # Ensuring parameters are correct
+    if ('state_fips' not in request.args and 'county_fips' not in request.args) or len(request.args) != 2:
+        response_map = {
+            "status": "error",
+            "message": "Incorrect parameters. Please ensure the only parameters are 'state_fips' and 'county_fips'"
+        }
+        return json.dumps(response_map)
+
+
     state_fips = request.args.get('state_fips')
     county_fips = request.args.get('county_fips')
     # EXAMPLE: http://127.0.0.1:5000/unemployment_rate?state_fips=01&county_fips=001
@@ -107,6 +116,15 @@ def fips_to_industry_breakdown(fips_code):
 # Sets up an enpoint to get lat and long and will return json of breakdown of 
 # employment by industry for that location
 def coords_industry_data_endpoint():
+    # Ensuring parameters are correct
+    if ('latitude' not in request.args and 'longitude' not in request.args) or len(request.args) != 2:
+        response_map = {
+            "status": "error",
+            "message": "Incorrect parameters. Please ensure the only parameters are 'latitude' and 'longitude'"
+        }
+        return json.dumps(response_map)
+
+
     # Getting lat and long data from parameters
     lat = request.args.get('latitude')
     long = request.args.get('longitude')
