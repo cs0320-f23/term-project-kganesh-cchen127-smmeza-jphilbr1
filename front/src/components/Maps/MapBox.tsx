@@ -187,7 +187,7 @@ function MapBox(props: MapBoxprops) {
       //   //   sourceLayer: SOURCE_LAYER_ID,
       //   //   filter: ['all', 
       //   //             ['in', 'COUNTYNAME', feature.properties.COUNTYNAME]]
-      //   // });
+      //   // }); 
         const selectedHoverArray = ['all', 
         ['in', 'COUNTYNAME', hoveredCounty],
         ['in', 'STATE', hoveredState]];

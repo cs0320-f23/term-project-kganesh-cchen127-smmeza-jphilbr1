@@ -52,7 +52,7 @@ export function ControlledInput({
               }
              }}>
       </input>
-      <label className="label">Enter command here!</label>
+      <label className="label">County</label>
       <label className="state-label" htmlFor="state">State:</label>
       <select 
         name="state" 
