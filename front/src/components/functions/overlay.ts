@@ -2,6 +2,8 @@ import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
 import { SearchOverLay } from "./Search";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
+import mapboxgl from "mapbox-gl";
+
 
 // makes sure that the json type is a feature collection
 function isFeatureCollection(json: any): json is GeoJSON.FeatureCollection {
@@ -34,7 +36,7 @@ export async function searchOverlayData(
 
 
 const propertyName = "holc_grade";
-export const geoLayer: FillLayer = {
+export var geoLayer: FillLayer = {
   id: "geo_data",
   type: "fill",
   paint: {
@@ -55,13 +57,13 @@ export const geoLayer: FillLayer = {
   },
 };
 
-export const searchLayer: FillLayer = {
+export var searchLayer: FillLayer = {
   id: "search_data",
   type: "fill",
   paint: {
     "fill-color": "#3604cc",
     "fill-opacity": 0.2,
-  },
+  }, 
 };
 
 export const countyLayer: FillLayer = {
