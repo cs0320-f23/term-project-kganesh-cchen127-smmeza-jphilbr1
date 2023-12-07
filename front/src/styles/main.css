@@ -67,12 +67,6 @@
   border: 2px solid #8C8A93;
 }
 
-/* button {
-  margin: auto;
-  margin-top: 1vh;
-  display: block;
-} */
-
 table {
   margin-top: 1vh;
   width: auto;
@@ -114,6 +108,8 @@ td {
   font-size: 1.25rem;
   position: relative;
   --primary: #FFC0CB;
+  display: flex;
+  align-items: center;
 }
 
 .input {
@@ -187,5 +183,52 @@ td {
   color: black;
   background: #FFC0CB;
 }
+
+/* these are the items for the select */
+
+select{
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  width: 100%;
+  font-size: 1.15rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 0.25rem;
+  color: black;
+  cursor: pointer;
+}
+
+select::selection{
+  color:pink;
+}
+
+.state-select::before,
+.state-select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+
+.state-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.state-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
+
+
 
 

@@ -39,33 +39,40 @@ export function ControlledInput({
     //   }}
     // ></input>
     <div className="input-group">
-      <input className="input" 
-             required type="text" 
-             id="maps-command-box"
-             value={value}
-             onChange={(ev) => setValue(ev.target.value)}
-             aria-label={ariaLabel}
-             aria-roledescription="Click the enter button or press enter to submit"
-             onKeyUp={(e) => {
-              if (e.key === "Enter") {
-                onKeyDown();
-              }
-             }}>
-      </input>
+      <input
+        className="input"
+        required
+        type="text"
+        id="maps-command-box"
+        value={value}
+        onChange={(ev) => setValue(ev.target.value)}
+        aria-label={ariaLabel}
+        aria-roledescription="Click the enter button or press enter to submit"
+        onKeyUp={(e) => {
+          if (e.key === "Enter") {
+            onKeyDown();
+          }
+        }}
+      ></input>
       <label className="label">County</label>
-      <label className="state-label" htmlFor="state">State:</label>
-      <select 
-        name="state" 
-        id="state"
-        onChange={(e) => setSelectedState(e.target.value)}
+
+      <label className="state-label" htmlFor="state">
+        State:
+      </label>
+      <div className="state-select">
+        <select
+          name="state"
+          id="state"
+          onChange={(e) => setSelectedState(e.target.value)}
         >
-        <option value="no state">Select a state:</option>
-        {statesList.map((state, index) => (
-          <option key={index} value={state}>
-            {state}
-          </option>
-        ))}
-      </select>
+          <option value="no state">Select a state:</option>
+          {statesList.map((state, index) => (
+            <option key={index} value={state}>
+              {state}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   );
 }
