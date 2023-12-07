@@ -175,15 +175,14 @@ td {
 }
 
 .submit-button{
+  height: 4.5vh;
+  width: 8vh;
   border-radius: 10px;
-  /* padding: 2vh; */
-  /* margin: auto; */
   background: #FFC0CB;
   border: none;
   font-size: 1rem;
   margin-top: 3rem;
-  width: 10vh;
-  height: 6vh;
+  
 }
 .submit-button:hover{
   border-radius: 10px;
@@ -218,7 +217,7 @@ select{
   padding: 0.675em 6em 0.675em 1em;
   background-color: #fff;
   border: 1px solid #caced1;
-  border-radius: 0.25rem;
+  border-radius: 10px;
   color: black;
   cursor: pointer;
 }
