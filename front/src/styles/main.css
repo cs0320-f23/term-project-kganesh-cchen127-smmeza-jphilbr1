@@ -6,22 +6,43 @@
 
 .maps {
   /* position: relative; */
+  margin-top: 1%;
   min-height: 60vh;
   display: flex;
   flex-direction: column;
 }
+.map-items{
+  min-height: 60vh;
+  display: flex;
+}
 
 .maps-history {
-  height: 65vh;
   /* margin: auto; */
   display: flex;
   /* overflow: scroll; */
   justify-content: center;
-  background-color: #000000;
+  height: 60vh;
 }
+
+.left{
+  display: flex;
+  width: 100px;
+  margin: 2.5%;
+  padding: 1.5%;
+  align-items: center;
+  justify-content: space-around
+}
+
+
+/* .center{
+  width: 400px;
+} */
+
 .right{
-  height: 80vh;
-  /* margin-left: 3.5vh; */
+  margin-left: 20px;
+  margin-right: 2.5%;
+  padding-left: 1.5%;
+  width: 500px;
   display: flex;
   /* overflow: scroll; */
   justify-content: center;
@@ -29,13 +50,19 @@
   width: 30vh;
   float: right;
 }
+
 .bottom{
+  display: flex;
   /* height: 10vh;
   margin: 5vh;
   display: flex;
   overflow: scroll; */
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
+  /* margin-bottom: 0.1%; */
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .maps-element {
@@ -47,29 +74,23 @@
 
 .maps-input {
   display: flex;
-  margin-top: 1px;
+  margin-top: 3rem;
   padding-bottom: 1vh;
   overflow: auto;
   align-items: center;
 }
 
 .maps-command-box {
-  width: 50%;
+  /* width: 50%; */
   margin: auto;
   display: block;
   padding: 1vh;
   color: #FFC0CB;
-  width: 800px;
+  /* width: 800px; */
   height: 7px;
   border-radius: 10px;
   border: 2px solid #8C8A93;
 }
-
-/* button {
-  margin: auto;
-  margin-top: 1vh;
-  display: block;
-} */
 
 table {
   margin-top: 1vh;
@@ -80,14 +101,9 @@ table {
 td,
 th {
   text-align: center;
-  width: 10%;
+  /* width: 10%; */
 }
 
-thead {
-  width: 100%;
-  font-weight: bold;
-  background-color: #d7ffe8;
-}
 
 table,
 th,
@@ -97,36 +113,36 @@ td {
 }
 
 .mapbox-container {
-  position: relative;
-  height: 65vh;
-  width: 110vh;
+  height: 60vh;
+  width: 800px;
   overflow: auto;
   border: 2px solid #FFC0CB;
   margin-bottom: 10vh;
 }
 
-.left{
-  margin: 2vh;
-}
 
 .input-group {
-  margin-top: 10px;
-  font-size: 1.25rem;
+  margin-top: 2rem;
+  font-size: 1rem;
   position: relative;
   --primary: #FFC0CB;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .input {
   all: unset;
   color: #000000;
-  padding: 1rem;
+  padding: 10px;
   margin-right: 5px;
   border: 1px solid #9e9e9e;
   border-radius: 10px;
-  width: 100vh;
+  width: 50vh;
   transition: 150ms
     cubic-bezier(0.4, 0, 0.2, 1);
-    
+  height: 2vh;
 }
 
 .state-label {
@@ -139,6 +155,7 @@ td {
   position: absolute;
   top: 1rem;
   left: 1rem;
+  font-size: 1rem;
   /* right: 1rem; */
   color: #d4d4d4;
   pointer-events: none;
@@ -161,21 +178,24 @@ td {
 }
 
 .submit-button{
+  height: 4.5vh;
+  width: 8vh;
   border-radius: 10px;
-  padding: 2vh;
-  margin: auto;
   background: #FFC0CB;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1rem;
+  margin-top: 3rem;
+  
 }
 .submit-button:hover{
   border-radius: 10px;
-  padding: 2vh;
-  margin: auto;
+  /* padding: 2vh;
+  margin: auto; */
   background: #FFFFFF;
   color: #FFC0CB;
-  font-size: 1.25rem;
+  font-size: 1rem;
   border: 2px solid #FFC0CB;
+  margin-top: 3rem;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -188,6 +208,120 @@ td {
   background: #FFC0CB;
 }
 
+/* these are the items for the select */
+
+select{
+  appearance: none;
+  /* safari */
+  -webkit-appearance: none;
+  /* other styles for aesthetics */
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.675em 6em 0.675em 1em;
+  background-color: #fff;
+  border: 1px solid #caced1;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+select::selection{
+  color:pink;
+}
+
+.state-select::before,
+.state-select::after {
+  --size: 0.3rem;
+  position: absolute;
+  content: "";
+  right: 1rem;
+  pointer-events: none;
+}
+
+
+.state-select::before {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-bottom: var(--size) solid black;
+  top: 40%;
+}
+
+.state-select::after {
+  border-left: var(--size) solid transparent;
+  border-right: var(--size) solid transparent;
+  border-top: var(--size) solid black;
+  top: 55%;
+}
+
+:root {
+  --form-control-color: pink;
+}
+
+.form-control {
+  /* font-family: system-ui, sans-serif; */
+  font-size: 1rem;
+  /* font-weight: bold; */
+  line-height: 1.1;
+  display: grid;
+  grid-template-columns: 1em auto;
+  gap: 0.5em;
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
+}
+
+.form-control:focus-within {
+  color: var(--form-control-color);
+}
+
+.form-control:focus-within {
+  color: var(--form-control-color);
+}
+
+
+input[type="radio"] {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: var(--form-background);
+  /* Not removed via appearance */
+  margin: 0;
+
+  font: inherit;
+  color: pink;
+  width: 1.15em;
+  height: 1.15em;
+  border: 0.15em solid black;
+  border-radius: 50%;
+  transform: translateY(-0.075em);
+
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--form-control-color);
+  /* Windows High Contrast Mode */
+  background-color: CanvasText;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+input[type="radio"]:focus {
+  outline: max(2px, 0.15em) solid pink;
+  outline-offset: max(2px, 0.15em);
+}
 .visible {
   visibility: visible;
   opacity: 1;

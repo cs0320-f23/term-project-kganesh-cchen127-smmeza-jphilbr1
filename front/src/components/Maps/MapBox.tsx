@@ -494,16 +494,42 @@ function MapBox(props: MapBoxprops) {
             selectedState={selectedState}
             setSelectedState={setSelectedState}
             ariaLabel={"Command input"}
-            onKeyDown={()=>handleButtonClick(commandString, selectedState,props.updateHistory, setCommandList, setFilterArray, mapRef)}
+            onKeyDown={() =>
+              handleButtonClick(
+                commandString,
+                selectedState,
+                props.updateHistory,
+                setCommandList,
+                setFilterArray,
+                mapRef
+              )
+            }
           />
           <button
             className="submit-button"
             aria-label="Submit Button"
             aria-roledescription="Click or press Enter to submit"
-            onClick={()=>handleButtonClick(commandString, selectedState, props.updateHistory,setCommandList, setFilterArray, mapRef)}
+            onClick={() =>
+              handleButtonClick(
+                commandString,
+                selectedState,
+                props.updateHistory,
+                setCommandList,
+                setFilterArray,
+                mapRef
+              )
+            }
             onKeyDown={(e) => {
               if (e.key === "Enter") {
-                ()=>handleButtonClick(commandString, selectedState, props.updateHistory, setCommandList, setFilterArray, mapRef);
+                () =>
+                  handleButtonClick(
+                    commandString,
+                    selectedState,
+                    props.updateHistory,
+                    setCommandList,
+                    setFilterArray,
+                    mapRef
+                  );
               }
             }}
           >
