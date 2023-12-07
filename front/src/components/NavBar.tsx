@@ -74,20 +74,6 @@ function NavBar() {
                   Map
                 </Link>
               </li>
-              <li className="nav-menu-item">
-                <Link
-                  to="maps-history"
-                  spy={true}
-                  smooth={true}
-                  offset={-100}
-                  duration={500}
-                  onClick={() => {
-                    setIsNavExpanded(!isNavExpanded);
-                  }}
-                >
-                  History
-                </Link>
-              </li>
             </ul>
           </nav>
         </div>
