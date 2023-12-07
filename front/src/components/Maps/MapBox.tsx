@@ -322,7 +322,8 @@ function MapBox(props: MapBoxprops) {
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
   const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
-  const [isVisible, setIsVisible] = useState<boolean>(false);
+  const [classVisible, setClassVisible] = useState<string>("hidden");
+  const [searchNotiText, setSearchNotiText] = useState<string>("");
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -390,10 +391,6 @@ function MapBox(props: MapBoxprops) {
       speed: 2,
       essential: true,
     })
-    const timeoutId = setTimeout(() => {
-      setIsVisible(true);
-    }, 3000);
-    return () => clearTimeout(timeoutId);
   }, [selectedLatLong])
   
   function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
@@ -409,12 +406,25 @@ function MapBox(props: MapBoxprops) {
   
       getCountyLatLon([commandString, selectedState])
       console.log("county=" + commandString, selectedLatLong)
+      
+      setSearchNotiText(commandString + " highlighted!")
+      setClassVisible("visible");
+
+      setTimeout(() => {
+        setClassVisible("hidden");
+      }, 3000)
   }
 
   return (
     <div className="maps-items">
       <div className="left">
         <RadioButtonGroup onChange={swtichVisibility}/>
+      </div>
+      <div className="right">
+      {/* <MapsHistory history={props.history} mode={props.mode}/> */}
+      <div className="side-panel">
+
+      </div>
       </div>
       <div className="mapbox-container" aria-label="Map Container">
         <Map
@@ -464,12 +474,8 @@ function MapBox(props: MapBoxprops) {
         </Map>
         <div id="county-overlay" className="county-overlay"></div>
       </div>
-      <div className="right">
-      <MapsHistory history={props.history} mode={props.mode}/>
-      </div>
-      <div style={{ opacity: isVisible ? 1 : 0, transition: 'opacity 1s ease-in-out' }}
-            key={isVisible ? 'visible': 'hidden'}>
-        County highlighted!
+      <div className='visible'>
+        {searchNotiText}
       </div>
       <div className="bottom">
         <div className="maps-input">

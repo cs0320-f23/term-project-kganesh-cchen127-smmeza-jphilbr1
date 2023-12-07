@@ -97,6 +97,6 @@ export const hoverCountyLayer: FillLayer = {
   paint: {
     'fill-outline-color': '#484896',
     'fill-color': '#F8C8DC',
-    'fill-opacity': 0.5
+    'fill-opacity': 0.7
   },
 }

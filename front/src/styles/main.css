@@ -15,16 +15,19 @@
   height: 65vh;
   /* margin: auto; */
   display: flex;
-  overflow: scroll;
+  /* overflow: scroll; */
   justify-content: center;
+  background-color: #000000;
 }
 .right{
   height: 80vh;
   /* margin-left: 3.5vh; */
   display: flex;
-  overflow: scroll;
+  /* overflow: scroll; */
   justify-content: center;
   align-items: center;
+  width: 30vh;
+  float: right;
 }
 .bottom{
   /* height: 10vh;
@@ -185,25 +188,17 @@ td {
   background: #FFC0CB;
 }
 
-/* @keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
 }
 
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-.text-container {
-  text-align: center;
+.hidden {
+  visibility: hidden;
   opacity: 0;
-  animation: fadeIn 1s ease-in-out forwards;
+  transition: visibility 0s 1s, opacity 1s linear;
 }
-
-.text-container.fade-out {
-  animation: fadeOut 1s ease-in-out forwards;
-} */
 
 .county-overlay {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -220,4 +215,19 @@ td {
   /* z-index: 1; */
 }
 
+.side-panel {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: -300px;
+  height: 65vh;
+  width: 100vh;
+  margin-bottom: 14.5vh;
+  display: flex;
+  /* overflow: scroll; */
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: 2px solid #FFC0CB;
+  margin-left: 10vh;
+}
 
