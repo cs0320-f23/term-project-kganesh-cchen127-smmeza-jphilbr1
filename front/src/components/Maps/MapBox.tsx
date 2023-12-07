@@ -426,7 +426,7 @@ function MapBox(props: MapBoxprops) {
 
   return (
     <div className="maps">
-      <div className="maps-items">
+      <div className="map-items">
         <div className="left">
           <RadioButtonGroup onChange={swtichVisibility} />
         </div>
