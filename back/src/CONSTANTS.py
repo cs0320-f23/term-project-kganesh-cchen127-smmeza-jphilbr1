@@ -1,3 +1,6 @@
+from Name_To_Coords import st_fips_to_county_name_and_coord
+
+
 API_KEY = "8e005747a44f4542965de8c1051a83f6" # Jay's API Key
 # API_KEY = "464996beb3b343948b7f9f91fb3b7797" # Kylash's API Key
 
@@ -55,6 +58,7 @@ US_STATE_FIPS = {
     'Wisconsin': '55',
     'Wyoming': '56'
 }
+
 
 '''
 We want a way to go from "Count, ST" to coordinate"
