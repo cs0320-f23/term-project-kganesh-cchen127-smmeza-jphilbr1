@@ -34,7 +34,7 @@ export default function Maps() {
 
   return (
     <div className="maps">
-      <div className="left">
+      <div>
         <MapBox updateHistory={updateHistory} history={history} mode={mode} />
       </div>
       

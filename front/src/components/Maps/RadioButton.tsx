@@ -18,7 +18,7 @@ function onValueChange(event){
 
 return (
   <div>
-    <div onChange={onValueChange}>
+    <div className="all-radio-buttons" onChange={onValueChange}>
       <RadioButton
         label="variable 1"
         checked={selectedOption === "Overlay 1"}
@@ -38,14 +38,13 @@ return (
         name="overlay"
       /> */}
     </div>
-    the selected overlay is : {selectedOption} 
   </div>
 );
 }
 
 const RadioButton = ({ label, checked, value, name }) => {
   return (
-    <label>
+    <label className="form-control">
       <input type="radio" checked={checked} value={value} name={name} />
       {label}
     </label>
