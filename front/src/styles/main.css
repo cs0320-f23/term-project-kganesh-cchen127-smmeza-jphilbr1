@@ -19,7 +19,7 @@
 .maps-history {
   /* margin: auto; */
   display: flex;
-  /* overflow: scroll; */
+  overflow: scroll;
   justify-content: center;
   height: 60vh;
 }
@@ -44,11 +44,9 @@
   padding-left: 1.5%;
   width: 500px;
   display: flex;
-  /* overflow: scroll; */
+  overflow: scroll;
   justify-content: center;
   align-items: center;
-  width: 30vh;
-  float: right;
 }
 
 .bottom{
@@ -117,7 +115,6 @@ td {
   width: 800px;
   overflow: auto;
   border: 2px solid #FFC0CB;
-  margin-bottom: 10vh;
 }
 
 
@@ -351,7 +348,7 @@ input[type="radio"]:focus {
   /* z-index: 1; */
 }
 
-.side-panel {
+/* .side-panel {
   position: relative;
   top: 0;
   bottom: 0;
@@ -359,13 +356,13 @@ input[type="radio"]:focus {
   height: 65vh;
   width: 100vh;
   margin-bottom: 14.5vh;
-  display: flex;
+  display: flex; */
   /* overflow: scroll; */
-  justify-content: center;
+  /* justify-content: center;
   background-color: #FFFFFF;
   border: 2px solid #FFC0CB;
   margin-left: 10vh;
-}
+} */
 
 .error-notification {
   color: red;

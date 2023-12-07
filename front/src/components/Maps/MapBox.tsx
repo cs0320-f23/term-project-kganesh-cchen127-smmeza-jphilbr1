@@ -425,66 +425,63 @@ function MapBox(props: MapBoxprops) {
   }
 
   return (
-    <div className="maps-items">
-      <div className="left">
-        <RadioButtonGroup onChange={swtichVisibility}/>
-      </div>
-      <div className="right">
-      {/* <MapsHistory history={props.history} mode={props.mode}/> */}
-      <div className="side-panel">
+    <div className="maps">
+      <div className="maps-items">
+        <div className="left">
+          <RadioButtonGroup onChange={swtichVisibility} />
+        </div>
 
-      </div>
-      </div>
-      <div className="mapbox-container" aria-label="Map Container">
-        <Map
-          mapboxAccessToken={ACCESS_TOKEN}
-          {...viewState}
-          // for moving the map
-          onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
-          // theme of map
-          mapStyle={"mapbox://styles/mapbox/streets-v12"}
-          onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
-          onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
-          onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
-          ref={mapRef}
-        >
-          <Source id="geo_data" type="geojson" data={overlay}>
-            <Layer 
-            id={geoLayer.id}
-            type={geoLayer.type}
-            paint={geoLayer.paint}
-            layout={visibilityOne} />
-          </Source>
-          <Source id="search_data" type="geojson" data={searchOverlay}>
-            <Layer 
-            id={searchLayer.id}
-            type={searchLayer.type}
-            paint={searchLayer.paint}
-            layout={visibilityTwo} />
-          </Source>
-          <Source id="county-data" type="vector" url={TILESET_ID}>
-            <Layer {...countyLayer} />
-            <Layer 
-              {...hoverCountyLayer}
-              filter={hoverArray}
-            />
-            <Layer
-              {...selectedCountyLayer}
-              filter={filterArray}
-            />
-          </Source>
-          {/* <Popup
+        <div className="mapbox-container center" aria-label="Map Container">
+          <Map
+            mapboxAccessToken={ACCESS_TOKEN}
+            {...viewState}
+            // for moving the map
+            onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+            // theme of map
+            mapStyle={"mapbox://styles/mapbox/streets-v12"}
+            onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+            onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
+            onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
+            ref={mapRef}
+          >
+            <Source id="geo_data" type="geojson" data={overlay}>
+              <Layer
+                id={geoLayer.id}
+                type={geoLayer.type}
+                paint={geoLayer.paint}
+                layout={visibilityOne}
+              />
+            </Source>
+            <Source id="search_data" type="geojson" data={searchOverlay}>
+              <Layer
+                id={searchLayer.id}
+                type={searchLayer.type}
+                paint={searchLayer.paint}
+                layout={visibilityTwo}
+              />
+            </Source>
+            <Source id="county-data" type="vector" url={TILESET_ID}>
+              <Layer {...countyLayer} />
+              <Layer {...hoverCountyLayer} filter={hoverArray} />
+              <Layer {...selectedCountyLayer} filter={filterArray} />
+            </Source>
+            {/* <Popup
             longitude={popupCoords.long}
             latitude={popupCoords.lat}
             closeOnClick={false}
           >
             Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
           </Popup> */}
-        </Map>
-        <div id="county-overlay" className="county-overlay"></div>
-      </div>
-      <div className={classVisible}>
-        <p className={notificationColor}>{searchNotiText}</p>
+          </Map>
+          <div id="county-overlay" className="county-overlay"></div>
+        </div>
+        <div className={classVisible}>
+          <p className={notificationColor}>{searchNotiText}</p>
+        </div>
+        <div className="right">
+          <MapsHistory history={props.history} mode={props.mode} />
+          <div className="side-panel"></div>
+        </div>
       </div>
       <div className="bottom">
         <div className="maps-input">
