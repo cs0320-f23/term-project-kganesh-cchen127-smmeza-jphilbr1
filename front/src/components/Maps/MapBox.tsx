@@ -238,6 +238,7 @@ function MapBox(props: MapBoxprops) {
       //   //             ['in', 'COUNTYNAME', feature.properties.COUNTYNAME]]
       //   // }); 
       if (hoveredCounty === undefined) {
+        mapRef.current.getCanvas().style.cursor = '';
         const blankHoverArray = ['all', ['in', 'COUNTYNAME', '']]
         setHoverArray(blankHoverArray)
         mapOverlay.style.display = 'none';
@@ -324,6 +325,7 @@ function MapBox(props: MapBoxprops) {
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
   const [classVisible, setClassVisible] = useState<string>("hidden");
   const [searchNotiText, setSearchNotiText] = useState<string>("");
+  const [notificationColor, setNotificationColor] = useState<string>("success-notification");
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -405,9 +407,16 @@ function MapBox(props: MapBoxprops) {
       setCommandString("");
   
       getCountyLatLon([commandString, selectedState])
-      console.log("county=" + commandString, selectedLatLong)
-      
-      setSearchNotiText(commandString + " highlighted!")
+      // console.log("county=" + commandString, selectedLatLong)
+      // console.log("state", selectedState.length);
+      if (selectedState.length === 0) {
+        setNotificationColor("error-notification")
+        setSearchNotiText("Please select a state!")
+      }
+      else {
+        setNotificationColor("success-notification")
+        setSearchNotiText(commandString + " highlighted!")
+      }
       setClassVisible("visible");
 
       setTimeout(() => {
@@ -475,7 +484,7 @@ function MapBox(props: MapBoxprops) {
         <div id="county-overlay" className="county-overlay"></div>
       </div>
       <div className={classVisible}>
-        {searchNotiText}
+        <p className={notificationColor}>{searchNotiText}</p>
       </div>
       <div className="bottom">
         <div className="maps-input">

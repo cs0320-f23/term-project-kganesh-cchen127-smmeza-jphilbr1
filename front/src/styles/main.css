@@ -367,4 +367,11 @@ input[type="radio"]:focus {
   margin-left: 10vh;
 }
 
+.error-notification {
+  color: red;
+}
+
+.success-notification {
+  color: black;
+}
 
