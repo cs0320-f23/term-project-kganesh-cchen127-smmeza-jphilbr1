@@ -474,7 +474,7 @@ function MapBox(props: MapBoxprops) {
         </Map>
         <div id="county-overlay" className="county-overlay"></div>
       </div>
-      <div className='visible'>
+      <div className={classVisible}>
         {searchNotiText}
       </div>
       <div className="bottom">
