@@ -431,9 +431,9 @@ function MapBox(props: MapBoxprops) {
       </div>
       <div className="right">
       {/* <MapsHistory history={props.history} mode={props.mode}/> */}
-      <div className="side-panel">
+      {/* <div className="side-panel">
 
-      </div>
+      </div> */}
       </div>
       <div className="mapbox-container" aria-label="Map Container">
         <Map
@@ -473,15 +473,8 @@ function MapBox(props: MapBoxprops) {
               filter={filterArray}
             />
           </Source>
-          {/* <Popup
-            longitude={popupCoords.long}
-            latitude={popupCoords.lat}
-            closeOnClick={false}
-          >
-            Long: {popupCoords.long} <br></br> Lat: {popupCoords.lat}
-          </Popup> */}
+          <div id="county-overlay" className="county-overlay"></div>
         </Map>
-        <div id="county-overlay" className="county-overlay"></div>
       </div>
       <div className={classVisible}>
         <p className={notificationColor}>{searchNotiText}</p>
