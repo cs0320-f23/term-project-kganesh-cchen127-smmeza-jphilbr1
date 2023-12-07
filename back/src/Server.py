@@ -4,6 +4,9 @@ import json
 from CoordToFips import *
 from ApiBLS import *
 from FullData import *
+from Name_To_Coords import *
+from BLS_mocks import *
+
 
 app = Flask(__name__)
 
@@ -46,7 +49,19 @@ def employment_endpoint():
 # Industry Employment Endpoint 
 @app.route('/industry_employment')
 def industry_employment_endpoint():
-    return industry_endpoint()
+    return coords_industry_data_endpoint()
+
+# Endpoint to get coordinate to zoom in on
+@app.route('/zoom')
+def zooming_endpoint():
+    return zooming_function()
+
+
+# -------------- Mock endpoint ---------
+@app.route('/mock')
+def mock():
+    return mock_function()
+
 
 
 

@@ -1,4 +1,9 @@
-us_state_fips = {
+API_KEY = "8e005747a44f4542965de8c1051a83f6" # Jay's API Key
+# API_KEY = "464996beb3b343948b7f9f91fb3b7797" # Kylash's API Key
+
+INDUSTRY_LIST = ["mining", "construction", "manufacturing", "tradetransportutilities", "information", "finance", "professionalservices", "educationandhealth", "leisureandhospitality", "otherservices"]
+
+US_STATE_FIPS = {
     'Alabama': '01',
     'Alaska': '02',
     'Arizona': '04',
@@ -50,3 +55,12 @@ us_state_fips = {
     'Wisconsin': '55',
     'Wyoming': '56'
 }
+
+'''
+We want a way to go from "Count, ST" to coordinate"
+
+1. Given county_name and state_name
+2. Use map to go from county name to state fips
+3. For each 
+
+'''
