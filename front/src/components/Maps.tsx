@@ -33,14 +33,14 @@ export default function Maps() {
   };
 
   return (
-    <div className="maps">
+    <div >
       <div>
         <MapBox updateHistory={updateHistory} history={history} mode={mode} />
       </div>
       
       {/* Our input comes before our history so that users can scroll down
       to view the history */}
-      <div className="bottom">
+      <div>
         <hr aria-hidden="true"></hr>
         {/* <MapsInput
           updateHistory={updateHistory}

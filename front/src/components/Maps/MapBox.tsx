@@ -425,17 +425,13 @@ function MapBox(props: MapBoxprops) {
   }
 
   return (
-    <div className="maps-items">
+    <div className="maps">
+    <div className="map-items">
       <div className="left">
         <RadioButtonGroup onChange={swtichVisibility}/>
       </div>
-      <div className="right">
-      {/* <MapsHistory history={props.history} mode={props.mode}/> */}
-      {/* <div className="side-panel">
-
-      </div> */}
-      </div>
-      <div className="mapbox-container" aria-label="Map Container">
+      
+      <div className="mapbox-container center" aria-label="Map Container">
         <Map
           mapboxAccessToken={ACCESS_TOKEN}
           {...viewState}
@@ -476,8 +472,15 @@ function MapBox(props: MapBoxprops) {
           <div id="county-overlay" className="county-overlay"></div>
         </Map>
       </div>
+      <div className="right">
+      {/* <MapsHistory history={props.history} mode={props.mode}/> */}
+      {/* <div className="side-panel">
+
+      </div> */}
+      </div>
       <div className={classVisible}>
         <p className={notificationColor}>{searchNotiText}</p>
+      </div>
       </div>
       <div className="bottom">
         <div className="maps-input">
