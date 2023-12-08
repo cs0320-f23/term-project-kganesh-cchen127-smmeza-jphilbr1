@@ -79,6 +79,7 @@
   padding-bottom: 1vh;
   overflow: auto;
   align-items: center;
+  margin-bottom: 3vh;
 }
 
 .maps-command-box {
@@ -187,8 +188,8 @@ td {
   border: none;
   font-size: 1rem;
   margin-top: 2rem;
-  margin-left: 3vh;
-  
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
 .submit-button:hover{
   border-radius: 10px;
@@ -198,9 +199,11 @@ td {
   color: #FFC0CB;
   font-size: 1rem;
   border: 2px solid #FFC0CB;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .mapboxgl-popup-content {
