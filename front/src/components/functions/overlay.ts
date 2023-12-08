@@ -112,6 +112,7 @@ export const employmentLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#943462",
-    "fill-opacity": ["to-number",["get", employment]],
+    // "fill-opacity" : 0.43
+    "fill-opacity":['*', 0.1, ["to-number",["get", employment]]] ,
   },
 };
