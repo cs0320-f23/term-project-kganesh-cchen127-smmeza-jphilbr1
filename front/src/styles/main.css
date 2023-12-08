@@ -14,6 +14,7 @@
 .map-items{
   min-height: 60vh;
   display: flex;
+  margin-bottom: -6vh;
 }
 
 .maps-history {
@@ -74,7 +75,7 @@
 
 .maps-input {
   display: flex;
-  margin-top: 3rem;
+  /* margin-top: 3rem; */
   padding-bottom: 1vh;
   overflow: auto;
   align-items: center;
@@ -136,7 +137,7 @@ td {
   all: unset;
   color: #000000;
   padding: 10px;
-  margin-right: 5px;
+  margin-right: 20px;
   border: 1px solid #9e9e9e;
   border-radius: 10px;
   width: 50vh;
@@ -149,11 +150,12 @@ td {
   color:#FFC0CB;
   font-size: small;
   margin-left: 1vh;
+  margin-right: 1vh;
 }
 
-.label {
+.county-label {
   position: absolute;
-  top: 1rem;
+  top: 0.5rem;
   left: 1rem;
   font-size: 1rem;
   /* right: 1rem; */
@@ -168,9 +170,9 @@ td {
   var(--primary);
 }
 
-.input:is(:focus, :valid) ~ label {
+.input:is(:focus, :valid) ~ .county-label {
   transform:
-    translateY(-120%)
+    translateY(-90%)
     scale(0.7);
   background-color: #FFFFFF;
   padding-inline: 0.3rem;
@@ -184,7 +186,8 @@ td {
   background: #FFC0CB;
   border: none;
   font-size: 1rem;
-  margin-top: 3rem;
+  margin-top: 2rem;
+  margin-left: 3vh;
   
 }
 .submit-button:hover{

@@ -76,7 +76,7 @@ export const countyLayer: FillLayer = {
   source: "counties",
   "source-layer": SOURCE_LAYER_ID,
   paint: {
-    "fill-outline-color": 'rgba(0,0,0,1)',
+    "fill-outline-color": 'rgba(0,0,0,0.3)',
     "fill-color": 'rgba(0,0,0,0.0)'
   }
 };

@@ -54,7 +54,7 @@ export function ControlledInput({
           }
         }}
       ></input>
-      <label className="label">County</label>
+      <label className="county-label">Enter a county name!</label>
 
       <label className="state-label" htmlFor="state">
         State:
