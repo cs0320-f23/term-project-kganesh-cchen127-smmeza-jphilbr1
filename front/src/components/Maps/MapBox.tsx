@@ -22,6 +22,7 @@ import {
   selectedCountyLayer,
   // swtichVisibility
   hoverCountyLayer,
+  employmentLayer
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
@@ -31,7 +32,7 @@ import { convertToAbbreviation } from "../stateAbbreviations";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
-import { mockOverlayData, sectionMockOverlayData} from "../functions/MockOverlay.ts"
+import { mockOverlayData, sectionMockOverlayData, employmentMockOverlayData} from "../functions/MockOverlay.ts"
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
@@ -303,6 +304,10 @@ function MapBox(props: MapBoxprops) {
   const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
+
+  const [employmentOverlay, setEmploymentOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
+    undefined
+  );
   // is only used once for the redlining overlay data
   useEffect(() => {
     mockOverlayData().then((data) => {
@@ -313,6 +318,12 @@ function MapBox(props: MapBoxprops) {
   useEffect(() => {
     sectionMockOverlayData().then((data) => {
       setSearchOverlay(data);
+    });
+  }, []);
+
+  useEffect(() => {
+    employmentMockOverlayData().then((data) => {
+      setEmploymentOverlay(data);
     });
   }, []);
   const mapRef = useRef<MapRef>(null);
@@ -426,61 +437,65 @@ function MapBox(props: MapBoxprops) {
 
   return (
     <div className="maps">
-    <div className="map-items">
-      <div className="left">
-        <RadioButtonGroup onChange={swtichVisibility}/>
-      </div>
-      
-      <div className="mapbox-container center" aria-label="Map Container">
-        <Map
-          mapboxAccessToken={ACCESS_TOKEN}
-          {...viewState}
-          // for moving the map
-          onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
-          // theme of map
-          mapStyle={"mapbox://styles/mapbox/streets-v12"}
-          onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
-          onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
-          onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
-          ref={mapRef}
-        >
-          <Source id="geo_data" type="geojson" data={overlay}>
-            <Layer 
-            id={geoLayer.id}
-            type={geoLayer.type}
-            paint={geoLayer.paint}
-            layout={visibilityOne} />
-          </Source>
-          <Source id="search_data" type="geojson" data={searchOverlay}>
-            <Layer 
-            id={searchLayer.id}
-            type={searchLayer.type}
-            paint={searchLayer.paint}
-            layout={visibilityTwo} />
-          </Source>
-          <Source id="county-data" type="vector" url={TILESET_ID}>
-            <Layer {...countyLayer} />
-            <Layer 
-              {...hoverCountyLayer}
-              filter={hoverArray}
-            />
-            <Layer
-              {...selectedCountyLayer}
-              filter={filterArray}
-            />
-          </Source>
-          <div id="county-overlay" className="county-overlay"></div>
-        </Map>
-      </div>
-      <div className="right">
-      {/* <MapsHistory history={props.history} mode={props.mode}/> */}
-      {/* <div className="side-panel">
+      <div className="map-items">
+        <div className="left">
+          <RadioButtonGroup onChange={swtichVisibility} />
+        </div>
+
+        <div className="mapbox-container center" aria-label="Map Container">
+          <Map
+            mapboxAccessToken={ACCESS_TOKEN}
+            {...viewState}
+            // for moving the map
+            onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+            // theme of map
+            mapStyle={"mapbox://styles/mapbox/streets-v12"}
+            onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
+            onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
+            onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
+            ref={mapRef}
+          >
+            <Source id="geo_data" type="geojson" data={overlay}>
+              <Layer
+                id={geoLayer.id}
+                type={geoLayer.type}
+                paint={geoLayer.paint}
+                layout={visibilityOne}
+              />
+            </Source>
+            <Source id="search_data" type="geojson" data={searchOverlay}>
+              <Layer
+                id={searchLayer.id}
+                type={searchLayer.type}
+                paint={searchLayer.paint}
+                layout={visibilityTwo}
+              />
+            </Source>
+            <Source id="county-data" type="vector" url={TILESET_ID}>
+              <Layer {...countyLayer} />
+              <Layer {...hoverCountyLayer} filter={hoverArray} />
+              <Layer {...selectedCountyLayer} filter={filterArray} />
+            </Source>
+            <Source id="em_data" type="geojson" data={employmentOverlay}>
+              <Layer
+                id={employmentLayer.id}
+                type={employmentLayer.type}
+                paint={employmentLayer.paint}
+                layout={visibilityOne}
+              />
+            </Source>
+            <div id="county-overlay" className="county-overlay"></div>
+          </Map>
+        </div>
+        <div className="right">
+          {/* <MapsHistory history={props.history} mode={props.mode}/> */}
+          {/* <div className="side-panel">
 
       </div> */}
-      </div>
-      <div className={classVisible}>
-        <p className={notificationColor}>{searchNotiText}</p>
-      </div>
+        </div>
+        <div className={classVisible}>
+          <p className={notificationColor}>{searchNotiText}</p>
+        </div>
       </div>
       <div className="bottom">
         <div className="maps-input">

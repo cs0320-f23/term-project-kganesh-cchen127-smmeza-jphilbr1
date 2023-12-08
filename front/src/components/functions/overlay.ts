@@ -2,6 +2,10 @@ import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
 import { SearchOverLay } from "./Search";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
+
+
+
+
 import mapboxgl from "mapbox-gl";
 
 
@@ -100,3 +104,14 @@ export const hoverCountyLayer: FillLayer = {
     'fill-opacity': 0.7
   },
 }
+
+
+const employment = "unemployment_rate";
+export const employmentLayer: FillLayer = {
+  id: "county-employment-layer",
+  type: "fill",
+  paint: {
+    "fill-color": "#943462",
+    "fill-opacity": ["to-number",["get", employment]],
+  },
+};

@@ -3,6 +3,7 @@ import {
   MediocreData,
   geoJSONData,
 } from "../mockedData/mockedData";
+import{data} from "../mockedData/byte-sizedMockedData";
 
 /**
  * This is the function that will check if the mocked data
@@ -19,6 +20,12 @@ export async function sectionMockOverlayData(): Promise<
   GeoJSON.FeatureCollection | undefined
 > {
   return Promise.resolve(SectionData);
+}
+
+export async function employmentMockOverlayData(): Promise<
+  GeoJSON.FeatureCollection | undefined
+> {
+  return Promise.resolve(data);
 }
 
 /**
