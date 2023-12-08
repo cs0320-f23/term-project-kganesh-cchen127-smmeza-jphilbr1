@@ -22,7 +22,8 @@ import {
   selectedCountyLayer,
   // swtichVisibility
   hoverCountyLayer,
-  employmentLayer
+  employmentLayer,
+  laborLayer
 } from "../functions/overlay.js";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
@@ -308,6 +309,12 @@ function MapBox(props: MapBoxprops) {
   const [employmentOverlay, setEmploymentOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
+
+  const [laborOverlay, setLaborOverlay] = useState<
+    GeoJSON.FeatureCollection | undefined
+  >(undefined);
+
+  
   // is only used once for the redlining overlay data
   useEffect(() => {
     mockOverlayData().then((data) => {
@@ -326,6 +333,13 @@ function MapBox(props: MapBoxprops) {
       setEmploymentOverlay(data);
     });
   }, []);
+
+  useEffect(() => {
+    employmentMockOverlayData().then((data) => {
+      setLaborOverlay(data);
+    });
+  }, []);
+
   const mapRef = useRef<MapRef>(null);
 
   // items for the input
@@ -482,6 +496,14 @@ function MapBox(props: MapBoxprops) {
                 type={employmentLayer.type}
                 paint={employmentLayer.paint}
                 layout={visibilityOne}
+              />
+            </Source>
+            <Source id="labor_data" type="geojson" data={laborOverlay}>
+              <Layer
+                id={laborLayer.id}
+                type={laborLayer.type}
+                paint={laborLayer.paint}
+                layout={visibilityTwo}
               />
             </Source>
             <div id="county-overlay" className="county-overlay"></div>
