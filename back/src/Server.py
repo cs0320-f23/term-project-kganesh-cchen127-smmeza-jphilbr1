@@ -29,27 +29,37 @@ def coord_to_fips_endpoint():
 # Unemployment Endpoint 
 @app.route('/unemployment_rate')
 def unemployment_rate_endpoint():
-    return generic_bls_endpoint("unemployment rate", "03")
+    state_fips = request.args.get('state_fips')
+    county_fips = request.args.get('county_fips')
+    return generic_bls_endpoint("unemployment rate", "03", state_fips, county_fips)
 
 # Labor Force Endpoint 
 @app.route('/labor_force')
 def lab_for_endpoint():
-    return generic_bls_endpoint("labor force", "06")
+    state_fips = request.args.get('state_fips')
+    county_fips = request.args.get('county_fips')
+    return generic_bls_endpoint("labor force", "06", state_fips, county_fips)
 
 # Unemployment Endpoint 
 @app.route('/unemployed')
 def unemployment_endpoint():
-    return generic_bls_endpoint("unemployed", "04")
+    state_fips = request.args.get('state_fips')
+    county_fips = request.args.get('county_fips')
+    return generic_bls_endpoint("unemployed", "04", state_fips, county_fips)
 
 # Employment Endpoint 
 @app.route('/employed')
 def employment_endpoint():
-    return generic_bls_endpoint("employed", "05")
+    state_fips = request.args.get('state_fips')
+    county_fips = request.args.get('county_fips')
+    return generic_bls_endpoint("employed", "05", state_fips, county_fips)
 
 # Industry Employment Endpoint 
 @app.route('/industry_employment')
 def industry_employment_endpoint():
-    return coords_industry_data_endpoint()
+    lat = request.args.get('latitude')
+    long = request.args.get('longitude')
+    return coords_industry_data_endpoint(lat, long)
 
 # Endpoint to get coordinate to zoom in on
 @app.route('/zoom')
