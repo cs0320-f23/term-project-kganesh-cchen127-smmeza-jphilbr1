@@ -47,4 +47,3 @@ def recommendCommodities(responseJson):
     data = {"shorts":shorts, "longs":longs}
     data = json.dumps(data)
     return data
-    
