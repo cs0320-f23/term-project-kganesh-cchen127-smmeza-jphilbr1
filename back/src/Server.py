@@ -5,7 +5,12 @@ from CoordToFips import *
 from ApiBLS import *
 from FullData import *
 from Name_To_Coords import *
-from BLS_mocks import *
+import sys
+
+
+sys.path.insert(0, '../test')
+
+from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
