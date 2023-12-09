@@ -58,6 +58,37 @@ US_STATE_FIPS = {
 }
 
 
+TRADES_FOR_INDUSTRIES  = {"mining":
+                              {"inputs":[], 
+                               "outputs":["copper", "iron"]}, 
+                               "construction":
+                              {"inputs":["timber", "copper"], 
+                               "outputs":["interest_rates"]}, 
+                               "manufacturing": 
+                               {"inputs":["iron"], 
+                               "outputs":["TEMP_1"]}, 
+                               "tradetransportutilities": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_2"]}, 
+                               "information": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_3"]}, 
+                               "finance": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_4"]}, 
+                               "professionalservices": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_5"]}, 
+                               "educationandhealth": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_6"]}, 
+                               "leisureandhospitality": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_7"]}, 
+                               "otherservices": 
+                               {"inputs":[], 
+                               "outputs":["TEMP_8"]}}
+
 '''
 We want a way to go from "Count, ST" to coordinate"
 
