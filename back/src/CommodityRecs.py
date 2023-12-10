@@ -12,6 +12,10 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     
     return important_industries_list
 
+
+# WAIT: super cool way to do this would actually be to calculate most important industries by threshold: then use https://apps.bea.gov/iTable/?reqid=150&step=3&isuri=1&table_list=6007&categories=io&_gl=1*1a5u7rm*_ga*MjAyMTUyMTU3NC4xNzAyMTg2NzI5*_ga_J4698JNNFT*MTcwMjE4NjcyOC4xLjAuMTcwMjE4NjcyOC4wLjAuMA..#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1sidGFibGVfbGlzdCIsIjYwMTAiXSxbImNhdGVnb3JpZXMiLCJHZHB4SW5kIl1dfQ==
+# to determine commodities, apply a decay term, iterate until you reach 0, cancel out conflicting trades, done! Feasible?
+
 def recommendCommodities(responseJson):
     print(responseJson)
     responseJson = json.loads(responseJson)
