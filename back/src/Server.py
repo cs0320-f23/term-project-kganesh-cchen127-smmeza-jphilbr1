@@ -81,13 +81,16 @@ def detailed_data_endpoint():
 # Endpoint to get coordinate to zoom in on
 @app.route('/zoom')
 def zooming_endpoint():
-    return zooming_function()
+    county = request.args.get('county')
+    state = request.args.get('state')
+    return zooming_function(county, state)
 
 
 # -------------- Mock endpoint ---------
 @app.route('/mock')
 def mock():
-    return mock_function()
+    data = request.args.get("data")
+    return mock_function(data)
 
 
 
