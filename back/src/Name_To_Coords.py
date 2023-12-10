@@ -91,20 +91,18 @@ def representative_coord(county_name, state_name):
 # print(representative_coord("Orange", "California"))
 # print(representative_coord("Bristol", "Massachusetts"))
 
-def zooming_function():
+def zooming_function(county, state):
     try:
         # Ensuring parameters are correct
-        if ('county' not in request.args and 'state' not in request.args) or len(request.args) != 2:
-            response_map = {
-                "status": "error",
-                "message": "Incorrect parameters. Please ensure the only parameters are 'county' and 'state'"
-            }
+        # if ('county' not in request.args and 'state' not in request.args) or len(request.args) != 2:
+        #     response_map = {
+        #         "status": "error",
+        #         "message": "Incorrect parameters. Please ensure the only parameters are 'county' and 'state'"
+        #     }
 
-            return json.dumps(response_map)
+        #     return json.dumps(response_map)
 
         # Parameters
-        county = request.args.get('county')
-        state = request.args.get('state')
 
         # Getting representative coord
         coord = representative_coord(county, state)

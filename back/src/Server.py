@@ -3,10 +3,11 @@ import requests
 import json
 from CoordToFips import *
 from ApiBLS import *
-from DeteailedRecs import detailed_data
+from DetailedRecs import detailed_data
 from FullData import *
 from Name_To_Coords import *
 import sys
+from flask_cors import CORS
 
 
 sys.path.insert(0, '../test')
@@ -15,6 +16,7 @@ from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
@@ -79,13 +81,16 @@ def detailed_data_endpoint():
 # Endpoint to get coordinate to zoom in on
 @app.route('/zoom')
 def zooming_endpoint():
-    return zooming_function()
+    county = request.args.get('county')
+    state = request.args.get('state')
+    return zooming_function(county, state)
 
 
 # -------------- Mock endpoint ---------
 @app.route('/mock')
 def mock():
-    return mock_function()
+    data = request.args.get("data")
+    return mock_function(data)
 
 
 
