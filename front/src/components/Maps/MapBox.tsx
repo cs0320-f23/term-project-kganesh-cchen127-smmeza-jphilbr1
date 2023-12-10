@@ -24,16 +24,16 @@ import {
   hoverCountyLayer,
   employmentLayer,
   laborLayer
-} from "../functions/overlay.js";
+} from "../functions/overlay.ts";
 import "../../styles/main.css";
-import { Broadband } from "../functions/Broadband";
+import { Broadband } from "../functions/Broadband.ts";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
-import { convertToAbbreviation } from "../stateAbbreviations";
+import { convertToAbbreviation } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
-import { mockOverlayData, sectionMockOverlayData, employmentMockOverlayData} from "../functions/MockOverlay.ts"
+import { mockOverlayData, sectionMockOverlayData, byteMockOverlayData} from "../functions/MockOverlay.ts"
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
@@ -302,40 +302,38 @@ function MapBox(props: MapBoxprops) {
     latitude: 37.0902,
     zoom: initialZoom,
   });
-  const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
-    undefined
-  );
+  // const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
+  //   undefined
+  // );
 
   const [employmentOverlay, setEmploymentOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
 
-  const [laborOverlay, setLaborOverlay] = useState<
-    GeoJSON.FeatureCollection | undefined
-  >(undefined);
+  const [laborOverlay, setLaborOverlay] = useState<GeoJSON.FeatureCollection | undefined>(undefined);
 
   
   // is only used once for the redlining overlay data
-  useEffect(() => {
-    mockOverlayData().then((data) => {
-      setOverlay(data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   mockOverlayData().then((data) => {
+  //     setOverlay(data);
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   sectionMockOverlayData().then((data) => {
+  //     setSearchOverlay(data);
+  //   });
+  // }, []);
 
   useEffect(() => {
-    sectionMockOverlayData().then((data) => {
-      setSearchOverlay(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    employmentMockOverlayData().then((data) => {
+    byteMockOverlayData().then((data) => {
       setEmploymentOverlay(data);
     });
   }, []);
 
   useEffect(() => {
-    employmentMockOverlayData().then((data) => {
+    byteMockOverlayData().then((data) => {
       setLaborOverlay(data);
     });
   }, []);
@@ -469,7 +467,7 @@ function MapBox(props: MapBoxprops) {
             onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
             ref={mapRef}
           >
-            <Source id="geo_data" type="geojson" data={overlay}>
+            {/* <Source id="geo_data" type="geojson" data={overlay}>
               <Layer
                 id={geoLayer.id}
                 type={geoLayer.type}
@@ -484,12 +482,8 @@ function MapBox(props: MapBoxprops) {
                 paint={searchLayer.paint}
                 layout={visibilityTwo}
               />
-            </Source>
-            <Source id="county-data" type="vector" url={TILESET_ID}>
-              <Layer {...countyLayer} />
-              <Layer {...hoverCountyLayer} filter={hoverArray} />
-              <Layer {...selectedCountyLayer} filter={filterArray} />
-            </Source>
+            </Source> */}
+
             <Source id="em_data" type="geojson" data={employmentOverlay}>
               <Layer
                 id={employmentLayer.id}
@@ -503,8 +497,14 @@ function MapBox(props: MapBoxprops) {
                 id={laborLayer.id}
                 type={laborLayer.type}
                 paint={laborLayer.paint}
-                layout={visibilityTwo}
+                // layout={visibilityTwo}
               />
+            </Source>
+
+            <Source id="county-data" type="vector" url={TILESET_ID}>
+              <Layer {...countyLayer} />
+              <Layer {...hoverCountyLayer} filter={hoverArray} />
+              <Layer {...selectedCountyLayer} filter={filterArray} />
             </Source>
             <div id="county-overlay" className="county-overlay"></div>
           </Map>
@@ -513,13 +513,13 @@ function MapBox(props: MapBoxprops) {
           {/* <MapsHistory history={props.history} mode={props.mode}/> */}
           {/* <div className="side-panel">
 
-      </div> */}
-        </div>
-        <div className={classVisible}>
-          <p className={notificationColor}>{searchNotiText}</p>
+          </div> */}
         </div>
       </div>
       <div className="bottom">
+        <div className={classVisible}>
+          <p className={notificationColor}>{searchNotiText}</p>
+        </div>
         <div className="maps-input">
           <ControlledInput
             value={commandString}
