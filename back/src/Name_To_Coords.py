@@ -115,7 +115,7 @@ def zooming_function(county, state):
         }
 
         response_json = json.dumps(response_map)
-
+        response_json.headers.add('Access-Control-Allow-Origin', '*')
         return response_json
     
     except ValueError as e:
