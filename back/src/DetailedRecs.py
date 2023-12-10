@@ -1,6 +1,7 @@
 import json
 from flask import Flask, render_template, request, jsonify
 from ApiBLS import fips_to_industry_breakdown
+from CommodityRecs import recommendCommodities
 
 from CoordToFips import coord_to_fips
 
@@ -11,6 +12,8 @@ def detailed_data(lat, long):
     breakdown = fips_to_industry_breakdown(fips)
     rec = recommendCommodities(breakdown)
 
+    breakdown = json.loads(breakdown)
+    rec = json.loads(rec)
 
     return_json: json = {
         "lat": lat,
