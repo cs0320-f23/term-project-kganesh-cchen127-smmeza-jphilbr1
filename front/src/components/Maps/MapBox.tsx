@@ -24,12 +24,12 @@ import {
   hoverCountyLayer,
   employmentLayer,
   laborLayer
-} from "../functions/overlay.js";
+} from "../functions/overlay.ts";
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
-import { convertToAbbreviation } from "../stateAbbreviations";
+import { convertToAbbreviation } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
@@ -372,7 +372,10 @@ function MapBox(props: MapBoxprops) {
     if (args.length === 2) {
       const url: string = 
       "http://127.0.0.1:5000/zoom?county=" + args[0] + "&state=" + args[1];
-      const result = await fetch(url).then((response) => response.json());
+      const response = await fetch(url);
+      // const result = await fetch(url, { mode: "no-cors" })
+      // .then((response) => response.json());
+      const result = await response.json();
       return result;
     }
     return "";

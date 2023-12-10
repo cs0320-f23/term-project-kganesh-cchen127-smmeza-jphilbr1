@@ -2,11 +2,11 @@ import React from "react";
 import "../../styles/main.css";
 import { useState, SetStateAction, Dispatch } from "react";
 import { ControlledInput } from "./ControlledInput";
-import { REPLFunction } from "../functions/REPLFunctionInterface";
-import { Mode } from "../functions/Mode";
+import { REPLFunction } from "../functions/REPLFunctionInterface.tsx";
+import { Mode } from "../functions/Mode.ts";
 import { Broadband } from "../functions/Broadband";
-import { SearchHistory } from "../functions/Search";
-import { convertToAbbreviation } from "../stateAbbreviations";
+import { SearchHistory } from "../functions/Search.ts";
+import { convertToAbbreviation } from "../stateAbbreviations.ts";
 import { MapRef } from "react-map-gl";
 
 interface MapsInputProps {
