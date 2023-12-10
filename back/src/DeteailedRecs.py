@@ -1,6 +1,7 @@
 import json
 from flask import Flask, render_template, request, jsonify
 from ApiBLS import fips_to_industry_breakdown
+from CommodityRecs import recommendCommodities
 
 from CoordToFips import coord_to_fips
 
