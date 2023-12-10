@@ -1,3 +1,19 @@
+body {
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+  --color-text:#1f2023;
+  --color-accent: #FECEE9;
+  --color-header-accent: #EB9FEF;
+}
+body.dark {
+  --color-background: rgb(80, 72, 72);
+  --color-text:#efefef;
+  --color-foreground: #efefef;
+  --color-accent: #cb93b2;
+  --color-accent: rgb(237, 134, 151);
+}
+
+
 .navbar-wrapper {
   position: fixed;
   left: 0;
@@ -28,7 +44,7 @@
 /* adds extra height to active menu item */
 .nav-menu .active {
   font-weight: 600;
-  border-bottom: 3px solid black;
+  /* border-bottom: 3px solid black; */
   flex-shrink: 0;
 }
 
