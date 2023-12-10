@@ -7,6 +7,7 @@ from DeteailedRecs import detailed_data
 from FullData import *
 from Name_To_Coords import *
 import sys
+from flask_cors import CORS
 
 
 sys.path.insert(0, '../test')
@@ -15,6 +16,7 @@ from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/')
 def index():
