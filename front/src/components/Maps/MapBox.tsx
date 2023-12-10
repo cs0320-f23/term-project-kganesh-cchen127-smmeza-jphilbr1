@@ -24,7 +24,7 @@ import {
   hoverCountyLayer,
   employmentLayer,
   laborLayer
-} from "../functions/overlay.ts";
+} from "../functions/overlay.ts"
 import "../../styles/main.css";
 import { Broadband } from "../functions/Broadband";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
@@ -372,10 +372,8 @@ function MapBox(props: MapBoxprops) {
     if (args.length === 2) {
       const url: string = 
       "http://127.0.0.1:5000/zoom?county=" + args[0] + "&state=" + args[1];
-      const response = await fetch(url);
-      // const result = await fetch(url, { mode: "no-cors" })
-      // .then((response) => response.json());
-      const result = await response.json();
+      const result = await fetch(url)
+      .then((response) => response.json());
       return result;
     }
     return "";
