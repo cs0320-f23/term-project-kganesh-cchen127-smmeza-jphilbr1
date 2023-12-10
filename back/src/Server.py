@@ -3,7 +3,7 @@ import requests
 import json
 from CoordToFips import *
 from ApiBLS import *
-from DeteailedRecs import detailed_data
+from DetailedRecs import detailed_data
 from FullData import *
 from Name_To_Coords import *
 import sys
