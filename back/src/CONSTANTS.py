@@ -57,18 +57,19 @@ US_STATE_FIPS = {
     'Wyoming': '56'
 }
 
+# Data roughly sourced from: https://apps.bea.gov/iTable/?reqid=150&step=3&isuri=1&table_list=6007&categories=io&_gl=1*1a5u7rm*_ga*MjAyMTUyMTU3NC4xNzAyMTg2NzI5*_ga_J4698JNNFT*MTcwMjE4NjcyOC4xLjAuMTcwMjE4NjcyOC4wLjAuMA..#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1sidGFibGVfbGlzdCIsIjYwMTAiXSxbImNhdGVnb3JpZXMiLCJHZHB4SW5kIl1dfQ==
 
 TRADES_FOR_INDUSTRIES  = {"mining":
-                              {"inputs":[], 
+                              {"inputs":["oil", "coal"], 
                                "outputs":["copper", "iron"]}, 
                                "construction":
-                              {"inputs":["timber", "copper"], 
-                               "outputs":["interest_rates"]}, 
+                              {"inputs":["timber", "copper", "interest_rates"], 
+                               "outputs":[""]}, 
                                "manufacturing": 
                                {"inputs":["iron"], 
                                "outputs":["TEMP_1"]}, 
                                "tradetransportutilities": 
-                               {"inputs":[], 
+                               {"inputs":["oil"], 
                                "outputs":["TEMP_2"]}, 
                                "information": 
                                {"inputs":[], 
