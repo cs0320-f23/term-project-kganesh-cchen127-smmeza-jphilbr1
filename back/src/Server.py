@@ -16,7 +16,7 @@ from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, origins=["http://localhost:8000", "https://localhost:8000"])
 
 @app.route('/')
 def index():
