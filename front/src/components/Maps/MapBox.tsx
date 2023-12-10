@@ -37,9 +37,7 @@ import { mockOverlayData, sectionMockOverlayData, employmentMockOverlayData} fro
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
-  state: string;
-  latitude: number;
-  longitude: number;
+  data: any[]
 }
 
 interface LatLong {
@@ -373,43 +371,24 @@ function MapBox(props: MapBoxprops) {
   async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
     if (args.length === 2) {
       const url: string = 
-      'https://api.api-ninjas.com/v1/geocoding?city=' + args[0];
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'X-Api-Key': COUNTY_API,
-            'Content-Type': 'application/json',
-          },
-        });
-    
-        if (response.ok) {
-          const result = await response.json();
-          return result;
-        } else {
-          // console.error('Error:', response.status, response.statusText);
-        }
-      } catch (error) {
-        // console.error('Error:', error);
-      }
+      "http://127.0.0.1:5000/zoom?county=" + args[0] + "&state=" + args[1];
+      const result = await fetch(url).then((response) => response.json());
+      return result;
     }
     return "";
   }
+    
   
   async function getCountyLatLon(args: Array<string>) {
-    let state = args[1];
     let jsonResponse = getCountyLatLonAPI(args);
+    console.log("hi", jsonResponse);
     jsonResponse.then((responseObject) => {
-      for (const result of responseObject) {
-        if (isCountyLoadResponse(result)) {
-          if (result.state === state) {
-            let latLon: LngLatLike = [result.longitude, result.latitude]
-            setSelectedLatLong(latLon);
-          }
-      }
-      }
-    })
-  }
+      console.log('hi', isCountyLoadResponse(responseObject))
+      if (isCountyLoadResponse(responseObject)) {
+        let latLon: LngLatLike = [responseObject.data[0], responseObject.data[1]];
+        setSelectedLatLong(latLon);
+      }})
+    }
 
   useEffect(() => {
     mapRef.current?.flyTo({
@@ -421,6 +400,7 @@ function MapBox(props: MapBoxprops) {
   }, [selectedLatLong])
   
   function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+    const formattedState = selectedState.replace(/ /g, "%20")
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
         "all",
@@ -431,7 +411,7 @@ function MapBox(props: MapBoxprops) {
       updateHistory(["state",selectedState])
       setCommandString("");
   
-      getCountyLatLon([commandString, selectedState])
+      getCountyLatLon([commandString, formattedState])
       // console.log("county=" + commandString, selectedLatLong)
       // console.log("state", selectedState.length);
       if (selectedState.length === 0) {
