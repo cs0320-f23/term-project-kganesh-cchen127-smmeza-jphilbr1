@@ -33,7 +33,7 @@ import { convertToAbbreviation } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
-import { mockOverlayData, sectionMockOverlayData, byteMockOverlayData} from "../functions/MockOverlay.ts"
+import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData, secondMockOverlayData} from "../functions/MockOverlay.ts"
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
@@ -327,13 +327,13 @@ function MapBox(props: MapBoxprops) {
   // }, []);
 
   useEffect(() => {
-    byteMockOverlayData().then((data) => {
+    firstMockOverlayData().then((data) => {
       setEmploymentOverlay(data);
     });
   }, []);
 
   useEffect(() => {
-    byteMockOverlayData().then((data) => {
+    firstMockOverlayData().then((data) => {
       setLaborOverlay(data);
     });
   }, []);
@@ -497,7 +497,7 @@ function MapBox(props: MapBoxprops) {
                 id={laborLayer.id}
                 type={laborLayer.type}
                 paint={laborLayer.paint}
-                // layout={visibilityTwo}
+                layout={visibilityTwo}
               />
             </Source>
 

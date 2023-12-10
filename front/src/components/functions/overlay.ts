@@ -119,11 +119,12 @@ export const employmentLayer: FillLayer = {
 
 const labor = "labor_force";
 export const laborLayer: FillLayer = {
-  id: "county-employment-layer",
+  id: "county-labor-layer",
   type: "fill",
   paint: {
-    "fill-color": "#346994",
-    "fill-opacity" : 0.43
-    // "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
+    "fill-color": "#4287f5",
+    // "fill-opacity": 0.43,
+    // "fill-opacity": 0.06,
+    "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
   },
 };

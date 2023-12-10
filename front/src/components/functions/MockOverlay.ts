@@ -3,7 +3,7 @@ import {
   MediocreData,
   geoJSONData,
 } from "../mockedData/mockedData";
-import{ data } from "../mockedData/byte-sizedMockedData";
+import{ data, second_data} from "../mockedData/byte-sizedMockedData";
 
 /**
  * This is the function that will check if the mocked data
@@ -22,11 +22,18 @@ export async function sectionMockOverlayData(): Promise<
   return Promise.resolve(SectionData);
 }
 
-export async function byteMockOverlayData(): Promise<
+export async function firstMockOverlayData(): Promise<
   GeoJSON.FeatureCollection | undefined
 > {
   return Promise.resolve(data);
 }
+
+export async function secondMockOverlayData(): Promise<
+  GeoJSON.FeatureCollection | undefined
+> {
+  return Promise.resolve(second_data);
+}
+
 
 /**
  * 'searches' for the mocked data wth the keyword
