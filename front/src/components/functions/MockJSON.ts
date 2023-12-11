@@ -28,12 +28,25 @@ export async function firstMockOverlayData(): Promise<
   return Promise.resolve(data);
 }
 
-export async function secondMockOverlayData(): Promise<
-  GeoJSON.FeatureCollection | undefined
-> {
-  return Promise.resolve(second_data);
+export async function recommendationData(
+  status: number,
+  data?: {
+    [key: string]:
+      | string
+      | { [key: string]: string | string[] | { [key: string]: string } };
+  }
+) {
+  const response = { status, json: () => Promise.resolve(data) };
+  return response;
 }
 
+// function mockFetch(status: number, data?: { [key: string]: string }) {
+//   const response = { status, json: () => Promise.resolve(data) };
+
+//   window = jest.spyOn(misc, "getGlobalObject");
+
+//   window.mockReturnValue({ fetch: () => Promise.resolve(response) });
+// }
 
 /**
  * 'searches' for the mocked data wth the keyword

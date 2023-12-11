@@ -45,14 +45,13 @@ export const SearchOverLay: REPLFunction = async (
  */
 export const SearchHistory: REPLFunction = async (
   args: Array<string>
-): Promise<string | string[][]> => {
-  var newResponse:string[][] = [];
+): Promise<(string[] | string)[][]> => {
+  var newResponse: string[][] = [];
   var fullSearchString: string = "";
   // connects all the strings in the input so that
   // the server can actually use the whole keyword/words
   for (let i = 0; i < args.length; i++) {
     fullSearchString = fullSearchString + " " + args[i];
-
   }
   console.log(fullSearchString);
   // trys to access the server
@@ -63,14 +62,14 @@ export const SearchHistory: REPLFunction = async (
     const json = await website.json();
     const result: string = json.result;
     if (result === "success") {
-      // lets the map know that the user is searching for 
-      // area, so that it can make an api call as well for the 
+      // lets the map know that the user is searching for
+      // area, so that it can make an api call as well for the
       // features
       // handleSearch([fullSearchString]);
       const geoData: GeoJSON.FeatureCollection = json.areas;
       // gets the info from the first feature in the collection
       if (geoData.features.length !== 0) {
-        // checks to besure that there is at least one feature with 
+        // checks to besure that there is at least one feature with
         // the keyword
         newResponse = [
           ["target", args[0]],
@@ -80,11 +79,11 @@ export const SearchHistory: REPLFunction = async (
           ],
         ];
       } else {
-        // if the number of features is 0 then lets the user know 
+        // if the number of features is 0 then lets the user know
         // no areas were found
         newResponse = [["error", "no areas were found"]];
       }
-    } 
+    }
     // this is the catch for if the server is down
   } catch (err) {
     console.log(err);

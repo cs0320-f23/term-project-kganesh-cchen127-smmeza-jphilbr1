@@ -26,14 +26,14 @@ import {
   laborLayer
 } from "../functions/overlay.ts";
 import "../../styles/main.css";
-import { Broadband } from "../functions/Broadband.ts";
+import { Recommendation } from "../functions/Recommendation.ts";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
-import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData, secondMockOverlayData} from "../functions/MockOverlay.ts"
+import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "../functions/MockJSON.ts"
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
