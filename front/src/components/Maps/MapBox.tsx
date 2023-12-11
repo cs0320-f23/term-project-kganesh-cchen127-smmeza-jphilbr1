@@ -38,6 +38,7 @@ import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
   data: number[]
+  status: string;
 }
 
 interface LatLong {
@@ -380,16 +381,27 @@ function MapBox(props: MapBoxprops) {
   }
     
   
-  async function getCountyLatLon(args: Array<string>) {
-    let jsonResponse = getCountyLatLonAPI(args);
-    console.log("hi1", jsonResponse);
-    jsonResponse.then((responseObject) => {
-      console.log('hi2', isCountyLoadResponse(responseObject))
-      if (isCountyLoadResponse(responseObject)) {
-        let latLon: LngLatLike = [responseObject.data[0] + 0.22, responseObject.data[1] - 0.15];
-        setSelectedLatLong(latLon);
-      }})
+  async function getCountyLatLon(args: Array<string>): Promise<{ status: string, data?: any }> {
+    try {
+      const jsonResponse = await getCountyLatLonAPI(args);
+      console.log("hi1", jsonResponse);
+  
+      if (isCountyLoadResponse(jsonResponse)) {
+        if (jsonResponse.status === "success") {
+          let latLon: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
+          setSelectedLatLong(latLon)
+          return { status: "success", data: latLon };
+        } else {
+          return { status: "error" };
+        }
+      } else {
+        return { status: "error" };
+      }
+    } catch (error) {
+      return { status: "error" };
     }
+  }
+  
 
   useEffect(() => {
     mapRef.current?.flyTo({
@@ -399,29 +411,56 @@ function MapBox(props: MapBoxprops) {
       essential: true,
     })
   }, [selectedLatLong])
+
+  function formatCountyCommandString(commandString: string): string {
+    const words = commandString.toLowerCase().split(' ');
+    
+    const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    
+    const lastWord = capitalizedWords[capitalizedWords.length - 1];
+   
+    const suffixesToRemove = ['County', 'Parish', 'Borough'];
+    
+    if (suffixesToRemove.includes(lastWord)) {
+      capitalizedWords.pop();
+    }
+
+    const formattedString = capitalizedWords.join(' ');
+
+    return formattedString;
+  }
+
+
   
-  function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+  async function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+    const formattedCounty = formatCountyCommandString(commandString);
+    const formattedCountyURL = formattedCounty.replace(/ /g, "%20")
+    console.log("oh", formattedCounty)
     const formattedState = selectedState.replace(/ /g, "%20")
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
         "all",
-        ["in", "COUNTYNAME", commandString],
+        ["in", "COUNTYNAME", formattedCounty],
         ["in", "STATE", stateAbbrv],
       ];
       setFilterArray(selectionArray);
       updateHistory(["state",selectedState])
       setCommandString("");
   
-      getCountyLatLon([commandString, formattedState])
+      let zoomResult = await getCountyLatLon([formattedCountyURL, formattedState])
       // console.log("county=" + commandString, selectedLatLong)
       // console.log("state", selectedState.length);
-      if (selectedState.length === 0) {
+      if ((selectedState.length === 0)) {
         setNotificationColor("error-notification")
         setSearchNotiText("Please select a state!")
       }
+      else if (zoomResult.status === "error") {
+        setNotificationColor("error-notification")
+        setSearchNotiText('"' + commandString + '" ' + "not found!")
+      }
       else {
         setNotificationColor("success-notification")
-        setSearchNotiText(commandString + " highlighted!")
+        setSearchNotiText(formattedCounty + " highlighted!")
       }
       setClassVisible("visible");
 
@@ -496,10 +535,10 @@ function MapBox(props: MapBoxprops) {
 
       </div> */}
         </div>
-        <div className={classVisible}>
+      </div>
+      <div className={classVisible}>
           <p className={notificationColor}>{searchNotiText}</p>
         </div>
-      </div>
       <div className="bottom">
         <div className="maps-input">
           <ControlledInput
@@ -566,7 +605,7 @@ function MapBox(props: MapBoxprops) {
    * @returns boolean whether the response is an CountyLoadResponse
    */
   function isCountyLoadResponse(rjson: any): rjson is CountyLoadResponse {
-    if (!("data" in rjson)) return false;
+    if (!("status" in rjson)) return false;
     return true;
   }
 
