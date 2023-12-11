@@ -64,8 +64,12 @@ export function ControlledInput({
           name="state"
           id="state"
           onChange={(e) => setSelectedState(e.target.value)}
+          value={selectedState}
+          // defaultValue="no state"
         >
-          <option value="no state">Select a state:</option>
+          <option disabled value="no state">
+            Select a state:
+          </option>
           {statesList.map((state, index) => (
             <option key={index} value={state}>
               {state}

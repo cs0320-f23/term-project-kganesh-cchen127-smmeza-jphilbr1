@@ -343,7 +343,7 @@ function MapBox(props: MapBoxprops) {
 
   // items for the input
   const [commandString, setCommandList] = useState<string>("");
-  const [selectedState, setSelectedState] = useState<string>("");
+  const [selectedState, setSelectedState] = useState<string>("no state");
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
   const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
@@ -467,6 +467,7 @@ function MapBox(props: MapBoxprops) {
       setTimeout(() => {
         setClassVisible("hidden");
       }, 3000)
+      setSelectedState("no state");
   }
 
   return (
