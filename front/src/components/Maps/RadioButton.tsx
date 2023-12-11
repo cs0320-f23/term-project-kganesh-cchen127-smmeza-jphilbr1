@@ -38,7 +38,7 @@ return (
         name="overlay"
       />
       <RadioButton
-        label="Employed"
+        label="Number of Employed"
         checked={selectedOption === "Overlay 4"}
         value="Overlay 4"
         name="overlay"

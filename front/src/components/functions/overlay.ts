@@ -6,7 +6,7 @@ import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
 
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
 
 
 // makes sure that the json type is a feature collection
