@@ -37,7 +37,7 @@ import { mockOverlayData, sectionMockOverlayData, employmentMockOverlayData} fro
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
-  data: any[]
+  data: number[]
 }
 
 interface LatLong {
@@ -382,11 +382,11 @@ function MapBox(props: MapBoxprops) {
   
   async function getCountyLatLon(args: Array<string>) {
     let jsonResponse = getCountyLatLonAPI(args);
-    console.log("hi", jsonResponse);
+    console.log("hi1", jsonResponse);
     jsonResponse.then((responseObject) => {
-      console.log('hi', isCountyLoadResponse(responseObject))
+      console.log('hi2', isCountyLoadResponse(responseObject))
       if (isCountyLoadResponse(responseObject)) {
-        let latLon: LngLatLike = [responseObject.data[0], responseObject.data[1]];
+        let latLon: LngLatLike = [responseObject.data[0] + 0.22, responseObject.data[1] - 0.15];
         setSelectedLatLong(latLon);
       }})
     }
@@ -394,7 +394,7 @@ function MapBox(props: MapBoxprops) {
   useEffect(() => {
     mapRef.current?.flyTo({
       center: selectedLatLong,
-      zoom: 8,
+      zoom: 7,
       speed: 2,
       essential: true,
     })
@@ -566,9 +566,7 @@ function MapBox(props: MapBoxprops) {
    * @returns boolean whether the response is an CountyLoadResponse
    */
   function isCountyLoadResponse(rjson: any): rjson is CountyLoadResponse {
-    if (!("state" in rjson)) return false;
-    if (!("latitude" in rjson)) return false;
-    if (!("longitude" in rjson)) return false;
+    if (!("data" in rjson)) return false;
     return true;
   }
 
