@@ -7,7 +7,7 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     important_industries_list = []
 
     for i in range(len(employee_count_list)):
-        if (employee_count_list[i] / employed) >= 0.25:
+        if (employee_count_list[i] / employed) >= 0.18:
             important_industries_list.append(INDUSTRY_LIST[i])
     
     return important_industries_list
@@ -45,10 +45,11 @@ def recommendCommodities(responseJson):
     longs = []
     
     for industry in important_industries:
-        shorts.extend(TRADES_FOR_INDUSTRIES[industry]["inputs"])
-        longs.extend(TRADES_FOR_INDUSTRIES[industry]["outputs"])
+        shorts.extend(TRADES_FOR_INDUSTRIES[industry]["outputs"])
+        longs.extend(TRADES_FOR_INDUSTRIES[industry]["inputs"])
     
-
+    shorts = list(set(shorts))
+    longs = list(set(longs))
     data = {"shorts":shorts, "longs":longs}
     data = json.dumps(data)
     return data
