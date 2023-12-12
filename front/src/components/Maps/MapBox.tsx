@@ -419,7 +419,7 @@ function MapBox(props: MapBoxprops) {
 
     const formattedCounty = formatCountyCommandString(commandString);
     const formattedCountyURL = formattedCounty.replace(/ /g, "%20")
-    console.log("oh", formattedCounty)
+    console.log("oh", selectedState)
     const formattedState = selectedState.replace(/ /g, "%20")
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
@@ -428,11 +428,10 @@ function MapBox(props: MapBoxprops) {
         ["in", "STATE", stateAbbrv],
       ];
       setFilterArray(selectionArray);
-  
       let zoomResult = await getCountyLatLon([formattedCountyURL, formattedState])
       // console.log("county=" + commandString, selectedLatLong)
       // console.log("state", selectedState.length);
-      if ((selectedState.length === 0)) {
+      if ((selectedState === "no state")) {
         setNotificationColor("error-notification")
         setSearchNotiText("Please select a state!")
       }
@@ -442,7 +441,7 @@ function MapBox(props: MapBoxprops) {
       }
       else {
         setNotificationColor("success-notification")
-        setSearchNotiText(commandString + " highlighted!")
+        setSearchNotiText(formattedCounty + " highlighted!")
 
         var newResponse = await Recommendation([commandString, selectedState]);
         if(newResponse ){
