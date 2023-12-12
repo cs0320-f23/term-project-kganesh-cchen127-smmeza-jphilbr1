@@ -1,6 +1,5 @@
 import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
-import { SearchOverLay } from "./Search";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
@@ -25,18 +24,6 @@ export async function overlayData(): Promise<
   });
 }
 
-// This makes the api call for the features with the keyword
-// and then checks to be sure that the data is a FeatureCollection
-export async function searchOverlayData(
-  keyword: string[]
-): Promise<GeoJSON.FeatureCollection | undefined> {
-  return new Promise((resolve, reject) => {
-    SearchOverLay(keyword).then((data) => {
-      console.log(keyword);
-      resolve(isFeatureCollection(data) ? data : undefined);
-    });
-  });
-}
 
 
 const propertyName = "holc_grade";

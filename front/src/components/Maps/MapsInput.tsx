@@ -4,10 +4,8 @@ import { useState, SetStateAction, Dispatch } from "react";
 import { ControlledInput } from "./ControlledInput";
 import { REPLFunction } from "../functions/REPLFunctionInterface";
 import { Mode } from "../functions/Mode";
-import { Broadband } from "../functions/Broadband";
-import { SearchHistory } from "../functions/Search";
-import { convertToAbbreviation } from "../stateAbbreviations";
-import { MapRef } from "react-map-gl";
+import { Recommendation } from "../functions/Recommendation";
+import { convertToAbbreviation } from "../stateAbbreviations"; 
 
 interface MapsInputProps {
   // updateHistory: (command: (string | string[][])[]) => void;
@@ -30,8 +28,7 @@ export function unregister(key: string) {
 // this registers the functions to use in the input bar
 export function startFunctions() {
   register("mode", Mode);
-  register("broadband", Broadband);
-  register("search", SearchHistory);
+  register("broadband", Recommendation);
 }
 
 export function MapsInput(props: MapsInputProps) {

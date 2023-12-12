@@ -17,7 +17,6 @@ import {
   geoLayer,
   searchLayer,
   overlayData,
-  searchOverlayData,
   countyLayer,
   selectedCountyLayer,
   // swtichVisibility
@@ -144,11 +143,15 @@ function MapBox(props: MapBoxprops) {
 
     // begins the response so that even if an error occurs, 
     // the specific lat and lon from the map is still shown
-    var newResponse: string[][] = [
-      ["latitude: ", latitude],
-      ["longitude: ", longitude],
-    ];
+    // var newResponse: string[][] = [
+    //   ["latitude: ", latitude],
+    //   ["longitude: ", longitude],
+    // ];
     // var broadbandArray: Array<string> = [latitude, longitude];
+    var recommendationResponse:string[][] = [
+      ["recommendation", "omg"],
+      ["mouse click", "omg"]
+    ]
     if (mapRef.current) {
       const bbox: [PointLike, PointLike] = [
         [e.point.x, e.point.y],
@@ -157,27 +160,25 @@ function MapBox(props: MapBoxprops) {
       // Find features intersecting the bounding box.
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
       if (selectedFeatures && selectedFeatures[0]) {
-        var featureInfo = getFeatureInfo(selectedFeatures[0]);
-        newResponse = newResponse.concat(featureInfo);
-      }
-    }
-    // // gets the broadbad from the broadband fuction to return with 
-    // // the info from the bbox
-    // var broadbandPercent = await Broadband(broadbandArray);
-    // // checks to be sure that the wanted information is in the form of an array
-    // if (Array.isArray(broadbandPercent)) {
+        // var featureInfo = getFeatureInfo(selectedFeatures[0]);
+        // newResponse = newResponse.concat(featureInfo);
+        var awaitRecommendationResponse = await Recommendation([
+          latitude,
+          longitude,
+        ]);
 
-    //   if(broadbandPercent.length > 4){
-    //     // adds only the percent and the date/time the broadband was received
-    //     newResponse.push(broadbandPercent[0]);
-    //     newResponse.push(broadbandPercent[1]);
-    //   }else{
-    //     // if the response from broadband was an error returns the error
-    //     newResponse = newResponse.concat(broadbandPercent);
-    //   }
-    // }
-    // sends the lat, lon, and other info to the history to be displayed
-    props.updateHistory(["MapClick", newResponse]);
+        if (awaitRecommendationResponse) {
+          recommendationResponse = recommendationResponse.concat(awaitRecommendationResponse);
+          var history: (string | string[][])[] = [
+            "Mouse Click",
+            recommendationResponse,
+          ];
+          props.updateHistory(history);
+        }
+    }
+
+    
+    }
   }
 
   const [firstVisibility, setFirstVisiblity] =
@@ -302,9 +303,6 @@ function MapBox(props: MapBoxprops) {
     latitude: 37.0902,
     zoom: initialZoom,
   });
-  // const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
-  //   undefined
-  // );
 
   const [employmentOverlay, setEmploymentOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
@@ -312,19 +310,6 @@ function MapBox(props: MapBoxprops) {
 
   const [laborOverlay, setLaborOverlay] = useState<GeoJSON.FeatureCollection | undefined>(undefined);
 
-  
-  // is only used once for the redlining overlay data
-  // useEffect(() => {
-  //   mockOverlayData().then((data) => {
-  //     setOverlay(data);
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   sectionMockOverlayData().then((data) => {
-  //     setSearchOverlay(data);
-  //   });
-  // }, []);
 
   useEffect(() => {
     firstMockOverlayData().then((data) => {
@@ -418,7 +403,7 @@ function MapBox(props: MapBoxprops) {
     })
   }, [selectedLatLong])
   
-  function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+  async function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
         "all",
@@ -426,8 +411,6 @@ function MapBox(props: MapBoxprops) {
         ["in", "STATE", stateAbbrv],
       ];
       setFilterArray(selectionArray);
-      updateHistory(["state",selectedState])
-      setCommandString("");
   
       getCountyLatLon([commandString, selectedState])
       // console.log("county=" + commandString, selectedLatLong)
@@ -439,12 +422,22 @@ function MapBox(props: MapBoxprops) {
       else {
         setNotificationColor("success-notification")
         setSearchNotiText(commandString + " highlighted!")
+
+        var newResponse = await Recommendation([commandString, selectedState]);
+        if(newResponse ){
+          var history: (string | string[][])[] = ["Search bar entered", newResponse];
+          updateHistory(history);
+        }
+
+        
+      
       }
       setClassVisible("visible");
 
       setTimeout(() => {
         setClassVisible("hidden");
       }, 3000)
+      setCommandString("");
   }
 
   return (
@@ -453,7 +446,6 @@ function MapBox(props: MapBoxprops) {
         <div className="left">
           <RadioButtonGroup onChange={swtichVisibility} />
         </div>
-
         <div className="mapbox-container center" aria-label="Map Container">
           <Map
             mapboxAccessToken={ACCESS_TOKEN}
@@ -467,23 +459,6 @@ function MapBox(props: MapBoxprops) {
             onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
             ref={mapRef}
           >
-            {/* <Source id="geo_data" type="geojson" data={overlay}>
-              <Layer
-                id={geoLayer.id}
-                type={geoLayer.type}
-                paint={geoLayer.paint}
-                layout={visibilityOne}
-              />
-            </Source>
-            <Source id="search_data" type="geojson" data={searchOverlay}>
-              <Layer
-                id={searchLayer.id}
-                type={searchLayer.type}
-                paint={searchLayer.paint}
-                layout={visibilityTwo}
-              />
-            </Source> */}
-
             <Source id="em_data" type="geojson" data={employmentOverlay}>
               <Layer
                 id={employmentLayer.id}
@@ -510,7 +485,7 @@ function MapBox(props: MapBoxprops) {
           </Map>
         </div>
         <div className="right">
-          {/* <MapsHistory history={props.history} mode={props.mode}/> */}
+          <MapsHistory history={props.history} mode={props.mode}/>
           {/* <div className="side-panel">
 
           </div> */}

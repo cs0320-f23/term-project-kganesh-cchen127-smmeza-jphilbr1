@@ -16,7 +16,7 @@ function App() {
     } else if (event.code == "ControlRight" || event.code == "ControlLeft") {
       document.getElementById("submit-button")?.focus();
     } else{
-      console.log(event.code);
+      // console.log(event.code);
     }
   });
   return (

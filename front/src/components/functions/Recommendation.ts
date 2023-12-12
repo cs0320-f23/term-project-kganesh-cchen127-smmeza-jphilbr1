@@ -1,5 +1,4 @@
 import { REPLFunction } from "./REPLFunctionInterface";
-import { recommendationData } from "./MockJSON";
 import { second_data } from "../mockedData/byte-sizedMockedData"
 
 /**
@@ -9,8 +8,8 @@ import { second_data } from "../mockedData/byte-sizedMockedData"
  */
 export const Recommendation: REPLFunction = async (
   args: Array<string>
-): Promise<(string[] | string)[][]> =>{
-  var newResponse: (string[] | string)[][]  = [];
+): Promise<string[][]> =>{
+  var newResponse: string[][]  = [];
     // trys to access the server
     try {
       // removes the quotes from around the search terms (if they have them)
@@ -32,10 +31,28 @@ export const Recommendation: REPLFunction = async (
         // returns the broadband and all the corresponding data
         // if the user only clicks it should remove everything after
         // data/time in the click method in MapBox
+        var longRecList = json.rec.longs;
+        var longRec = " ";
+        if(longRecList.isEmpty()){
+          longRec = "No recommendations";
+        } else{
+          for(let i = 0; i < longRecList.size(); i ++){
+            longRec = longRec + longRecList[i] + ", ";
+          }
+        }
 
+        var shortRecList = json.reec.longs;
+        var shortRec = " ";
+        if (shortRecList.isEmpty()) {
+          shortRec = "No recommendations";
+        } else {
+          for (let i = 0; i < shortRecList.size(); i++) {
+            shortRec = shortRec + shortRecList[i] + ", ";
+          }
+        }
         newResponse = [
-          ["Hold this set of commodities ", json.rec.longs],
-          ["Short this set of commodities", json.rec.shorts],
+          ["Hold this set of commodities ", longRec],
+          ["Short this set of commodities", shortRec],
           [
             "Number of Construction employees",
             json.breakdown.data.employees_construction,
