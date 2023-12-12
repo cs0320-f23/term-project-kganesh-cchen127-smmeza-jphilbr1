@@ -24,8 +24,7 @@ mock_map = {
     "industry_employment_mock": ind_empl_mock
 }
 
-def mock_function():
-    data = request.args.get("data")
+def mock_function(data):
     return mock_map[data]
 
 

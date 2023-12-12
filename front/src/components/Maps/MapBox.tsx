@@ -36,9 +36,8 @@ import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "..
 import mapboxgl from "mapbox-gl";
 
 interface CountyLoadResponse {
-  state: string;
-  latitude: number;
-  longitude: number;
+  data: number[]
+  status: string;
 }
 
 interface LatLong {
@@ -327,7 +326,7 @@ function MapBox(props: MapBoxprops) {
 
   // items for the input
   const [commandString, setCommandList] = useState<string>("");
-  const [selectedState, setSelectedState] = useState<string>("");
+  const [selectedState, setSelectedState] = useState<string>("no state");
   const [filterArray, setFilterArray] = useState<(string | (string | undefined)[])[]>([]);
   const [hoverArray, setHoverArray] = useState<(string | (string | undefined)[])[]>([]);
   const [selectedLatLong, setSelectedLatLong] = useState<LngLatLike>();
@@ -356,68 +355,90 @@ function MapBox(props: MapBoxprops) {
   async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
     if (args.length === 2) {
       const url: string = 
-      'https://api.api-ninjas.com/v1/geocoding?city=' + args[0];
-      try {
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'X-Api-Key': COUNTY_API,
-            'Content-Type': 'application/json',
-          },
-        });
-    
-        if (response.ok) {
-          const result = await response.json();
-          return result;
-        } else {
-          // console.error('Error:', response.status, response.statusText);
-        }
-      } catch (error) {
-        // console.error('Error:', error);
-      }
+      "http://127.0.0.1:5000/zoom?county=" + args[0] + "&state=" + args[1];
+      const result = await fetch(url)
+      .then((response) => response.json());
+      return result;
     }
     return "";
   }
+    
   
-  async function getCountyLatLon(args: Array<string>) {
-    let state = args[1];
-    let jsonResponse = getCountyLatLonAPI(args);
-    jsonResponse.then((responseObject) => {
-      for (const result of responseObject) {
-        if (isCountyLoadResponse(result)) {
-          if (result.state === state) {
-            let latLon: LngLatLike = [result.longitude, result.latitude]
-            setSelectedLatLong(latLon);
-          }
+  async function getCountyLatLon(args: Array<string>): Promise<{ status: string, data?: any }> {
+    try {
+      const jsonResponse = await getCountyLatLonAPI(args);
+      console.log("hi1", jsonResponse);
+  
+      if (isCountyLoadResponse(jsonResponse)) {
+        if (jsonResponse.status === "success") {
+          let latLon: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
+          setSelectedLatLong(latLon)
+          return { status: "success", data: latLon };
+        } else {
+          return { status: "error" };
+        }
+      } else {
+        return { status: "error" };
       }
-      }
-    })
+    } catch (error) {
+      return { status: "error" };
+    }
   }
+  
 
   useEffect(() => {
     mapRef.current?.flyTo({
       center: selectedLatLong,
-      zoom: 8,
+      zoom: 7,
       speed: 2,
       essential: true,
     })
   }, [selectedLatLong])
+
+  function formatCountyCommandString(commandString: string): string {
+    const words = commandString.toLowerCase().split(' ');
+    
+    const capitalizedWords = words.map(word => word.charAt(0).toUpperCase() + word.slice(1));
+    
+    const lastWord = capitalizedWords[capitalizedWords.length - 1];
+   
+    const suffixesToRemove = ['County', 'Parish', 'Borough'];
+    
+    if (suffixesToRemove.includes(lastWord)) {
+      capitalizedWords.pop();
+    }
+
+    const formattedString = capitalizedWords.join(' ');
+
+    return formattedString;
+  }
+
+
   
   async function handleButtonClick(commandString: string, selectedState: string, updateHistory: (command: (string | string[][])[]) => void, setCommandString: React.Dispatch<React.SetStateAction<string>>, setFilterArray: React.Dispatch<React.SetStateAction<(string | (string | undefined)[])[]>>, mapRef: React.RefObject<MapRef>){  
+
+    const formattedCounty = formatCountyCommandString(commandString);
+    const formattedCountyURL = formattedCounty.replace(/ /g, "%20")
+    console.log("oh", formattedCounty)
+    const formattedState = selectedState.replace(/ /g, "%20")
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
         "all",
-        ["in", "COUNTYNAME", commandString],
+        ["in", "COUNTYNAME", formattedCounty],
         ["in", "STATE", stateAbbrv],
       ];
       setFilterArray(selectionArray);
   
-      getCountyLatLon([commandString, selectedState])
+      let zoomResult = await getCountyLatLon([formattedCountyURL, formattedState])
       // console.log("county=" + commandString, selectedLatLong)
       // console.log("state", selectedState.length);
-      if (selectedState.length === 0) {
+      if ((selectedState.length === 0)) {
         setNotificationColor("error-notification")
         setSearchNotiText("Please select a state!")
+      }
+      else if (zoomResult.status === "error") {
+        setNotificationColor("error-notification")
+        setSearchNotiText('"' + commandString + '" ' + "not found!")
       }
       else {
         setNotificationColor("success-notification")
@@ -430,7 +451,6 @@ function MapBox(props: MapBoxprops) {
         }
 
         
-      
       }
       setClassVisible("visible");
 
@@ -438,6 +458,7 @@ function MapBox(props: MapBoxprops) {
         setClassVisible("hidden");
       }, 3000)
       setCommandString("");
+      setSelectedState("no state");
   }
 
   return (
@@ -560,9 +581,7 @@ function MapBox(props: MapBoxprops) {
    * @returns boolean whether the response is an CountyLoadResponse
    */
   function isCountyLoadResponse(rjson: any): rjson is CountyLoadResponse {
-    if (!("state" in rjson)) return false;
-    if (!("latitude" in rjson)) return false;
-    if (!("longitude" in rjson)) return false;
+    if (!("status" in rjson)) return false;
     return true;
   }
 

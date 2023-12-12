@@ -3,12 +3,21 @@ import requests
 import json
 from CoordToFips import *
 from ApiBLS import *
+from DetailedRecs import detailed_data
 from FullData import *
 from Name_To_Coords import *
-from BLS_mocks import *
+import sys
+from flask_cors import CORS
+
+
+sys.path.insert(0, '../test')
+
+from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
+CORS(app, origins=["http://localhost:8000", "https://localhost:8000"])
+
 
 @app.route('/')
 def index():
@@ -61,51 +70,28 @@ def industry_employment_endpoint():
     long = request.args.get('longitude')
     return coords_industry_data_endpoint(lat, long)
 
+# Detailed Data endpoint
+@app.route('/detailed_data')
+def detailed_data_endpoint():
+    lat = request.args.get('latitude')
+    long = request.args.get('longitude')
+    return detailed_data(lat, long)
+
+
+
 # Endpoint to get coordinate to zoom in on
 @app.route('/zoom')
 def zooming_endpoint():
-    return zooming_function()
+    county = request.args.get('county')
+    state = request.args.get('state')
+    return zooming_function(county, state)
 
 
 # -------------- Mock endpoint ---------
 @app.route('/mock')
 def mock():
-    return mock_function()
-
-
-
-
-# ------------------ Old Code (kept if needed to revert back to) ------------------
-
-# Old non-generic style if needed
-'''
-def unemployment_rate_endpoint():
-    state_fips = request.args.get('state_fips')
-    county_fips = request.args.get('county_fips')
-    # EXAMPLE: http://127.0.0.1:5000/unemployment_rate?state_fips=01&county_fips=001
-    api_url = "https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN" + str(state_fips) + str(county_fips) + "0000000003"
-    print(api_url)
-
-    # Making a GET request
-    response = requests.get(api_url)    
-    API_Data = response.json()
-
-    # Parsing API_Data for unemployment rate and storing it
-    unemployment_rate = API_Data["Results"]["series"][0]["data"][0]["value"]
-    message = "The unemployment rate for FIPS code " + str(state_fips) + str(county_fips) + " is " + str(unemployment_rate) + "%"
-
-    # Json that will be returned
-    response_map = {
-        "status": "success",
-        "unemployment_rate": unemployment_rate,
-        "message": message
-    }
-
-    response_json = json.dumps(response_map)
-
-    return response_json
-    # return message
-'''
+    data = request.args.get("data")
+    return mock_function(data)
 
 
 
