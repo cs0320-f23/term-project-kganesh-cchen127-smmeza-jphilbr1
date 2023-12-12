@@ -1,12 +1,11 @@
 import { FillLayer } from "react-map-gl";
 import { ClickOverLay } from "./click";
-import { SearchOverLay } from "./Search";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
 
 
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
 
 
 // makes sure that the json type is a feature collection
@@ -25,18 +24,6 @@ export async function overlayData(): Promise<
   });
 }
 
-// This makes the api call for the features with the keyword
-// and then checks to be sure that the data is a FeatureCollection
-export async function searchOverlayData(
-  keyword: string[]
-): Promise<GeoJSON.FeatureCollection | undefined> {
-  return new Promise((resolve, reject) => {
-    SearchOverLay(keyword).then((data) => {
-      console.log(keyword);
-      resolve(isFeatureCollection(data) ? data : undefined);
-    });
-  });
-}
 
 
 const propertyName = "holc_grade";
@@ -119,11 +106,12 @@ export const employmentLayer: FillLayer = {
 
 const labor = "labor_force";
 export const laborLayer: FillLayer = {
-  id: "county-employment-layer",
+  id: "county-labor-layer",
   type: "fill",
   paint: {
-    "fill-color": "#346994",
-    "fill-opacity" : 0.43
-    // "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
+    "fill-color": "#4287f5",
+    // "fill-opacity": 0.43,
+    // "fill-opacity": 0.06,
+    "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
   },
 };

@@ -77,6 +77,7 @@ function NavBar() {
             </ul>
           </nav>
         </div>
+        
       </div>
     </div>
   );

@@ -2,8 +2,10 @@ import React from "react";
 import "../../styles/main.css";
 import { useState, SetStateAction, Dispatch } from "react";
 import { ControlledInput } from "./ControlledInput";
-import { REPLFunction } from "../functions/REPLFunctionInterface.tsx";
-import { Mode } from "../functions/Mode.ts";
+import { REPLFunction } from "../functions/REPLFunctionInterface";
+import { Mode } from "../functions/Mode";
+import { Recommendation } from "../functions/Recommendation";
+import { convertToAbbreviation } from "../stateAbbreviations"; 
 import { Broadband } from "../functions/Broadband";
 import { SearchHistory } from "../functions/Search.ts";
 import { convertToAbbreviation } from "../stateAbbreviations.ts";
@@ -30,8 +32,7 @@ export function unregister(key: string) {
 // this registers the functions to use in the input bar
 export function startFunctions() {
   register("mode", Mode);
-  register("broadband", Broadband);
-  register("search", SearchHistory);
+  register("broadband", Recommendation);
 }
 
 export function MapsInput(props: MapsInputProps) {

@@ -4,6 +4,23 @@
   give you this starter CSS. Feel free to modify it as you wish, though.
 */
 
+body {
+  --color-background: #fafafa;
+  --color-foreground: #1f2023;
+  --color-text:#1f2023;
+  --color-accent: #FECEE9;
+  --color-header-accent: #EB9FEF;
+}
+body.dark {
+  --color-background: rgb(80, 72, 72);
+  --color-text:#efefef;
+  --color-foreground: #efefef;
+  --color-accent: #cb93b2;
+  --color-accent: rgb(237, 134, 151);
+}
+
+
+
 .maps {
   /* position: relative; */
   margin-top: 1%;
@@ -56,14 +73,8 @@
 
 .bottom{
   display: flex;
-  /* height: 10vh;
-  margin: 5vh;
-  display: flex;
-  overflow: scroll; */
-  /* flex-direction: column; */
-  justify-content: center;
-  /* margin-bottom: 0.1%; */
-  justify-content: center;
+
+  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
   margin-top: -10px
@@ -90,7 +101,7 @@
   margin: auto;
   display: block;
   padding: 1vh;
-  color: #FFC0CB;
+  color: var(--color-accent);
   /* width: 800px; */
   height: 7px;
   border-radius: 10px;
@@ -121,7 +132,7 @@ td {
   height: 60vh;
   width: 800px;
   overflow: auto;
-  border: 2px solid #FFC0CB;
+  border: 2px solid --color-accent;
   margin-bottom: 10vh;
 }
 
@@ -130,7 +141,7 @@ td {
   margin-top: 2rem;
   font-size: 1rem;
   position: relative;
-  --primary: #FFC0CB;
+  --primary: var(--color-accent);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -151,7 +162,7 @@ td {
 }
 
 .state-label {
-  color:#FFC0CB;
+  color:var(--color-accent);
   font-size: small;
   margin-left: 1vh;
   margin-right: 1vh;
@@ -178,7 +189,7 @@ td {
   transform:
     translateY(-90%)
     scale(0.7);
-  background-color: #FFFFFF;
+  background-color: var(--color-background);
   padding-inline: 0.3rem;
   color: var(--primary);
 }
@@ -187,7 +198,7 @@ td {
   height: 4.5vh;
   width: 8vh;
   border-radius: 10px;
-  background: #FFC0CB;
+  background: var(--color-header-accent);
   border: none;
   font-size: 1rem;
   margin-top: 2rem;
@@ -198,10 +209,10 @@ td {
   border-radius: 10px;
   /* padding: 2vh;
   margin: auto; */
-  background: #FFFFFF;
-  color: #FFC0CB;
+  background: var(--color-background);
+  color: var(--color-header-accent);
   font-size: 1rem;
-  border: 2px solid #FFC0CB;
+  border: 2px solid var(--color-header-accent);
   margin-top: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
@@ -227,7 +238,7 @@ select{
   width: 100%;
   font-size: 1rem;
   padding: 0.675em 6em 0.675em 1em;
-  background-color: #fff;
+  background-color: var(--color-background);
   border: 1px solid #caced1;
   border-radius: 10px;
   color: black;
@@ -235,7 +246,7 @@ select{
 }
 
 select::selection{
-  color:pink;
+  color:var(--color-text);
 }
 
 .state-select::before,
@@ -258,12 +269,8 @@ select::selection{
 .state-select::after {
   border-left: var(--size) solid transparent;
   border-right: var(--size) solid transparent;
-  border-top: var(--size) solid black;
+  border-top: var(--size) solid var(--color-foreground);
   top: 55%;
-}
-
-:root {
-  --form-control-color: pink;
 }
 
 .form-control {
@@ -281,11 +288,7 @@ select::selection{
 }
 
 .form-control:focus-within {
-  color: var(--form-control-color);
-}
-
-.form-control:focus-within {
-  color: var(--form-control-color);
+  color: var(--color-accent);
 }
 
 
@@ -300,10 +303,10 @@ input[type="radio"] {
   margin: 0;
 
   font: inherit;
-  color: pink;
+  color: var(--color-text);
   width: 1.15em;
   height: 1.15em;
-  border: 0.15em solid black;
+  border: 0.15em solid var(--color-foreground);
   border-radius: 50%;
   transform: translateY(-0.075em);
 
@@ -318,7 +321,7 @@ input[type="radio"]::before {
   border-radius: 50%;
   transform: scale(0);
   transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em var(--form-control-color);
+  box-shadow: inset 1em 1em var(--color-accent);
   /* Windows High Contrast Mode */
   background-color: CanvasText;
 }
@@ -328,7 +331,7 @@ input[type="radio"]:checked::before {
 }
 
 input[type="radio"]:focus {
-  outline: max(2px, 0.15em) solid pink;
+  outline: max(2px, 0.15em) solid var(--color-accent);
   outline-offset: max(2px, 0.15em);
 }
 .visible {
@@ -385,6 +388,6 @@ input[type="radio"]:focus {
 }
 
 .right{
-    border: 10px solid pink;
+    border: 10px solid var(--color-accent);
 }
 

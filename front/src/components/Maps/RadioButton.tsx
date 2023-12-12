@@ -20,23 +20,29 @@ return (
   <div>
     <div className="all-radio-buttons" onChange={onValueChange}>
       <RadioButton
-        label="variable 1"
+        label="Unemployment Rate"
         checked={selectedOption === "Overlay 1"}
         value="Overlay 1"
         name="overlay"
       />
       <RadioButton
-        label="variable 2"
+        label="Labor Force"
         checked={selectedOption === "Overlay 2"}
         value="Overlay 2"
         name="overlay"
       />
-      {/* <RadioButton
-        label="variable 3"
+      <RadioButton
+        label="Unemployed"
         checked={selectedOption === "Overlay 3"}
         value="Overlay 3"
         name="overlay"
-      /> */}
+      />
+      <RadioButton
+        label="Number of Employed"
+        checked={selectedOption === "Overlay 4"}
+        value="Overlay 4"
+        name="overlay"
+      />
     </div>
   </div>
 );

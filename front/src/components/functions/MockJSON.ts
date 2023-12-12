@@ -3,7 +3,7 @@ import {
   MediocreData,
   geoJSONData,
 } from "../mockedData/mockedData";
-import{data} from "../mockedData/byte-sizedMockedData";
+import{ data, second_data} from "../mockedData/byte-sizedMockedData";
 
 /**
  * This is the function that will check if the mocked data
@@ -22,11 +22,31 @@ export async function sectionMockOverlayData(): Promise<
   return Promise.resolve(SectionData);
 }
 
-export async function employmentMockOverlayData(): Promise<
+export async function firstMockOverlayData(): Promise<
   GeoJSON.FeatureCollection | undefined
 > {
   return Promise.resolve(data);
 }
+
+export async function recommendationData(
+  status: number,
+  data?: {
+    [key: string]:
+      | string
+      | { [key: string]: string | string[] | { [key: string]: string } };
+  }
+) {
+  const response = { status, json: () => Promise.resolve(data) };
+  return response;
+}
+
+// function mockFetch(status: number, data?: { [key: string]: string }) {
+//   const response = { status, json: () => Promise.resolve(data) };
+
+//   window = jest.spyOn(misc, "getGlobalObject");
+
+//   window.mockReturnValue({ fetch: () => Promise.resolve(response) });
+// }
 
 /**
  * 'searches' for the mocked data wth the keyword

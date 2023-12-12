@@ -153,3 +153,34 @@ export const data: GeoJSON.FeatureCollection = {
     }
   ],
 };
+
+
+// export const second_data: { [key: string]: string |{[key: string]: string | string[] |{ [key: string]: string}} } = {
+//   result: "success",
+//   breakdown: {
+//     data: {
+//       employees_construction: "12435",
+//       employees_educationandhealth: "69431",
+//       employees_finance: "21573",
+//       employees_information: "2957",
+//       employees_leisureandhospitality: "30831",
+//       employees_manufacturing: "19585",
+//       employees_mining: "534",
+//       employees_otherservices: "10822",
+//       employees_professionalservices: "43110",
+//       employees_tradetransportutilities: "39520",
+//     },
+//     status: "success",
+//   },
+//   fips: "44007",
+//   lat: "41.825226",
+//   long: "71.418884",
+//   rec: {
+//     longs: ["TEMP_6"],
+//     shorts: [],
+//   } 
+// };
+
+const second =
+  '{"result" : "success", "breakdown":{"data":{"employees_construction":"12435","employees_educationandhealth":"69431","employees_finance":"21573","employees_information":"2957","employees_leisureandhospitality":"30831","employees_manufacturing":"19585","employees_mining":"534","employees_otherservices":"10822","employees_professionalservices":"43110","employees_tradetransportutilities":"39520"},"status":"success"},"fips":"44007","lat":"41.825226","long":"-71.418884","rec":{"longs":["TEMP_6"],"shorts":[]}}';
+export const second_data = JSON.parse(second);
