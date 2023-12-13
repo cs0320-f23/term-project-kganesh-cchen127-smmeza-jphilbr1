@@ -65,6 +65,11 @@ export function ControlledInput({
           id="state"
           onChange={(e) => setSelectedState(e.target.value)}
           value={selectedState}
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              onKeyDown();
+            }
+          }}
           // defaultValue="no state"
         >
           <option disabled value="no state">
