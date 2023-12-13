@@ -163,6 +163,20 @@ function MapBox(props: MapBoxprops) {
         setCountyState([selectedFeatures[0].properties.COUNTYNAME, convertToStateName(selectedFeatures[0].properties.STATE)])
         // var featureInfo = getFeatureInfo(selectedFeatures[0]);
         // newResponse = newResponse.concat(featureInfo);
+        const selectionArray = [
+          "all",
+          ["in", "COUNTYNAME", selectedFeatures[0].properties.COUNTYNAME],
+          ["in", "STATE", selectedFeatures[0].properties.STATE],
+        ];
+        setFilterArray(selectionArray);
+        setNotificationColor("success-notification")
+        setSearchNotiText(selectedFeatures[0].properties.COUNTYNAME + " highlighted!")
+        setClassVisible("visible");
+
+        setTimeout(() => {
+          setClassVisible("hidden");
+        }, 3000)
+        
         var awaitRecommendationResponse = await Recommendation([
           latitude,
           longitude,
@@ -338,23 +352,23 @@ function MapBox(props: MapBoxprops) {
   const [countyState, setCountyState] = useState<string[]>(["no-county", "no-state"]);
   const [infoLongLat, setInfoLongLat] = useState<number[]>();
 
-  useEffect(() => {
-    if (mapRef.current == null) {
-      return;
-    }
-    // const highlightedFeatures = mapRef.current.queryRenderedFeatures(undefined, { layers: ['counties-selected'] });
-    // console.log(highlightedFeatures)
+  // useEffect(() => {
+  //   if (mapRef.current == null) {
+  //     return;
+  //   }
+  //   // const highlightedFeatures = mapRef.current.queryRenderedFeatures(undefined, { layers: ['counties-selected'] });
+  //   // console.log(highlightedFeatures)
 
-    const features = mapRef.current.querySourceFeatures('county-data', {
-      sourceLayer: "c_19se23-4rtu37",
-      filter: [
-        "all",
-        ["in", "COUNTYNAME", "Middlesex"],
-        ["in", "STATE", "NJ"],
-      ],
-    });
-    console.log(features);
-  })
+  //   const features = mapRef.current.querySourceFeatures('county-data', {
+  //     sourceLayer: "c_19se23-4rtu37",
+  //     filter: [
+  //       "all",
+  //       ["in", "COUNTYNAME", "Middlesex"],
+  //       ["in", "STATE", "NJ"],
+  //     ],
+  //   });
+  //   console.log(features);
+  // })
 
   async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
     if (args.length === 2) {
@@ -425,7 +439,6 @@ function MapBox(props: MapBoxprops) {
 
     const formattedCounty = formatCountyCommandString(commandString);
     const formattedCountyURL = formattedCounty.replace(/ /g, "%20")
-    console.log("oh", selectedState)
     const formattedState = selectedState.replace(/ /g, "%20")
     const stateAbbrv = convertToAbbreviation(selectedState);
       const selectionArray = [
