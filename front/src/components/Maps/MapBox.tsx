@@ -28,7 +28,7 @@ import "../../styles/main.css";
 import { Recommendation } from "../functions/Recommendation.ts";
 import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
-import { convertToAbbreviation } from "../stateAbbreviations.ts";
+import { convertToAbbreviation, convertToStateName } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
@@ -137,8 +137,8 @@ function MapBox(props: MapBoxprops) {
     var lon = e.lngLat.lng;
     var longitude = String(lon);
 
-    var popupLatLon: LatLong = { long: lon, lat: lat };
-    setPopupCoords(popupLatLon);
+    var longLat = [lat, lon]
+    setInfoLongLat(longLat);
 
 
     // begins the response so that even if an error occurs, 
@@ -159,7 +159,8 @@ function MapBox(props: MapBoxprops) {
       ];
       // Find features intersecting the bounding box.
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
-      if (selectedFeatures && selectedFeatures[0]) {
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+        setCountyState([selectedFeatures[0].properties.COUNTYNAME, convertToStateName(selectedFeatures[0].properties.STATE)])
         // var featureInfo = getFeatureInfo(selectedFeatures[0]);
         // newResponse = newResponse.concat(featureInfo);
         var awaitRecommendationResponse = await Recommendation([
@@ -374,7 +375,7 @@ function MapBox(props: MapBoxprops) {
   
       if (isCountyLoadResponse(jsonResponse)) {
         if (jsonResponse.status === "success") {
-          let lonLatCounty: number[] = [jsonResponse.data[1], jsonResponse.data[0]]
+          let lonLatCounty: number[] = [jsonResponse.data[1] + 0.22, jsonResponse.data[0] + 0.22]
           let latLonCenter: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
           setInfoLongLat(lonLatCounty)
           setSelectedLatLong(latLonCenter)
@@ -511,6 +512,7 @@ function MapBox(props: MapBoxprops) {
           </Map>
         </div>
         <div className="right">
+          
           {/* <MapsHistory history={props.history} mode={props.mode}/> */}
           <MapsInfo
             countyState={countyState}

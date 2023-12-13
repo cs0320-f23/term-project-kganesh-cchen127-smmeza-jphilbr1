@@ -334,6 +334,7 @@ input[type="radio"]:focus {
   outline: max(2px, 0.15em) solid var(--color-accent);
   outline-offset: max(2px, 0.15em);
 }
+
 .visible {
   visibility: visible;
   opacity: 1;
@@ -395,6 +396,29 @@ input[type="radio"]:focus {
 .maps-info {
   margin-left: 150px;
 }
+
+.maps-info-container {
+  position: relative;
+}
+
+.loading-screen {
+  position: absolute;
+  top: 0;
+  left: 40%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  margin-right: 10px;
+}
+
+
+
+
 
 .chart {
   width: 600px;
@@ -481,8 +505,8 @@ input[type="radio"]:focus {
 }
 
 .bars .bar:hover{
-  background: #9e9e9e;
-  box-shadow: 0 0 10px 0 rgba(85, 239, 196, 0.5);
+  background: #FFC0CB;
+  box-shadow: 0 0 10px 0 rgba(228, 139, 241, 0.5);
   cursor: pointer;
 }
 

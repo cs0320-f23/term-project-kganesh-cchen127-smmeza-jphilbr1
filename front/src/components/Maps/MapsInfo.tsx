@@ -1,11 +1,8 @@
 import React from "react";
 import "../../styles/main.css";
-import { LngLatLike } from "mapbox-gl";
-import * as d3 from "d3";
+import { StageSpinner } from "react-spinners-kit";
 import { useRef, useEffect, useState } from "react";
-import { json } from "stream/consumers";
-import { Helmet } from "react-helmet";
-import $ from "jquery";
+
 
 interface MapsInfoProps {
     countyState: string[]
@@ -38,6 +35,7 @@ interface UnemploymentData {
 export function MapsInfo(props: MapsInfoProps) {
     const [unemploymentData, setUnemploymentData] = useState<UnemploymentData>({});
     const [maxValue, setMaxValue] = useState<number>(10000);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
@@ -59,6 +57,7 @@ export function MapsInfo(props: MapsInfoProps) {
     async function retrieveUnemploymentData(lngLat: number[] | undefined) {
         if (lngLat) {
             try {
+                setIsLoading(true);
                 const jsonResponse = await accessUnemploymentData(lngLat);
                 console.log("please", isUnemploymentLoadResopnse(jsonResponse))
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
@@ -67,6 +66,8 @@ export function MapsInfo(props: MapsInfoProps) {
                 }
             } catch (error) {
 
+            } finally {
+                setIsLoading(false);
             }
         }
     }
@@ -139,6 +140,18 @@ export function MapsInfo(props: MapsInfoProps) {
         tabIndex={0}
         aria-label="County information"
         >
+            <div className="maps-info-container">
+            {isLoading && (
+                <div className="loading-screen">
+                    <StageSpinner
+                        size="100"
+                        color="#EB9FEF"
+                        loading={isLoading}/>
+    
+                </div>
+            )}
+
+
             <b className="info-header">Information for {props.countyState[0]} County:</b>
 
 
@@ -162,6 +175,7 @@ export function MapsInfo(props: MapsInfoProps) {
                 </ul>
             </div>
 
+        </div>
         </div>
         </>
     )

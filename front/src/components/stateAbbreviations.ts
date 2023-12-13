@@ -56,3 +56,10 @@ const stateAbbreviations: StateAbbreviations = {
 export function convertToAbbreviation(stateName: string): string | undefined {
   return stateAbbreviations[stateName];
 }
+
+export function convertToStateName(abbreviation: string): string | undefined {
+  const stateName = Object.keys(stateAbbreviations).find(
+    (key) => stateAbbreviations[key] === abbreviation
+  );
+  return stateName;
+}
