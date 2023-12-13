@@ -6,9 +6,8 @@ import { REPLFunction } from "../functions/REPLFunctionInterface";
 import { Mode } from "../functions/Mode";
 import { Recommendation } from "../functions/Recommendation";
 import { convertToAbbreviation } from "../stateAbbreviations"; 
-import { Broadband } from "../functions/Broadband";
-import { SearchHistory } from "../functions/Search.ts";
-import { convertToAbbreviation } from "../stateAbbreviations.ts";
+// import { Broadband } from "../functions/Broadband";
+// import { SearchHistory } from "../functions/Search.ts";
 import { MapRef } from "react-map-gl";
 
 interface MapsInputProps {

@@ -34,6 +34,7 @@ import { MapsHistory } from "../Maps/MapsHistory.tsx";
 import { county_data } from "../functions/CountyParse.ts";
 import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "../functions/MockJSON.ts"
 import mapboxgl from "mapbox-gl";
+import { MapsInfo } from "../Maps/MapsInfo.tsx";
 
 interface CountyLoadResponse {
   data: number[]
@@ -333,6 +334,8 @@ function MapBox(props: MapBoxprops) {
   const [classVisible, setClassVisible] = useState<string>("hidden");
   const [searchNotiText, setSearchNotiText] = useState<string>("");
   const [notificationColor, setNotificationColor] = useState<string>("success-notification");
+  const [countyState, setCountyState] = useState<string[]>(["no-county", "no-state"]);
+  const [infoLongLat, setInfoLongLat] = useState<number[]>();
 
   useEffect(() => {
     if (mapRef.current == null) {
@@ -371,9 +374,11 @@ function MapBox(props: MapBoxprops) {
   
       if (isCountyLoadResponse(jsonResponse)) {
         if (jsonResponse.status === "success") {
-          let latLon: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
-          setSelectedLatLong(latLon)
-          return { status: "success", data: latLon };
+          let lonLatCounty: number[] = [jsonResponse.data[1], jsonResponse.data[0]]
+          let latLonCenter: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
+          setInfoLongLat(lonLatCounty)
+          setSelectedLatLong(latLonCenter)
+          return { status: "success", data: latLonCenter };
         } else {
           return { status: "error" };
         }
@@ -444,7 +449,7 @@ function MapBox(props: MapBoxprops) {
         setSearchNotiText(formattedCounty + " highlighted!")
 
         var newResponse = await Recommendation([commandString, selectedState]);
-        if(newResponse ){
+        if (newResponse) {
           var history: (string | string[][])[] = ["Search bar entered", newResponse];
           updateHistory(history);
         }
@@ -456,6 +461,7 @@ function MapBox(props: MapBoxprops) {
       setTimeout(() => {
         setClassVisible("hidden");
       }, 3000)
+      setCountyState([formattedCounty, selectedState])
       setCommandString("");
       setSelectedState("no state");
   }
@@ -505,11 +511,17 @@ function MapBox(props: MapBoxprops) {
           </Map>
         </div>
         <div className="right">
-          <MapsHistory history={props.history} mode={props.mode}/>
+          {/* <MapsHistory history={props.history} mode={props.mode}/> */}
+          <MapsInfo
+            countyState={countyState}
+            selectedLongLat={infoLongLat}></MapsInfo>
           {/* <div className="side-panel">
 
           </div> */}
         </div>
+        {/* <MapsInfo
+            countyState={countyState}
+            selectedLongLat={infoLongLat}></MapsInfo> */}
       </div>
       <div className="bottom">
         <div className={classVisible}>
