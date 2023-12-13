@@ -1,11 +1,13 @@
 import { FillLayer } from "react-map-gl";
-import { ClickOverLay } from "./click";
+import { FullOverLay } from "./FullOverlay";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
 
 
 // import mapboxgl from "mapbox-gl";
+
+
 
 
 // makes sure that the json type is a feature collection
@@ -18,7 +20,7 @@ export async function overlayData(): Promise<
   GeoJSON.FeatureCollection | undefined
 > {
   return new Promise((resolve, reject) => {
-    ClickOverLay(["", "", "", ""]).then((data) => {
+    FullOverLay().then((data) => {
       resolve(isFeatureCollection(data) ? data : undefined);
     });
   });

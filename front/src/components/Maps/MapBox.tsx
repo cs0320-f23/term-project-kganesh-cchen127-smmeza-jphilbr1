@@ -312,13 +312,13 @@ function MapBox(props: MapBoxprops) {
 
 
   useEffect(() => {
-    firstMockOverlayData().then((data) => {
+    overlayData().then((data) => {
       setEmploymentOverlay(data);
     });
   }, []);
 
   useEffect(() => {
-    firstMockOverlayData().then((data) => {
+    overlayData().then((data) => {
       setLaborOverlay(data);
     });
   }, []);
