@@ -74,7 +74,8 @@ def fips_to_industry_breakdown(fips_code):
             f"ENU{fips}1051024",
             f"ENU{fips}1051025",
             f"ENU{fips}1051026",
-            f"ENU{fips}1051027"
+            f"ENU{fips}1051027",
+            # f"ENU{fips}10511" # AGRICULTURE
         ],
         "startyear":"2023", 
         "endyear":"2023",   
@@ -86,6 +87,9 @@ def fips_to_industry_breakdown(fips_code):
     # Making a POST request
     response = requests.post(api_url, headers=headers, data=data)
     API_Data = response.json()
+
+    # print(API_Data)
+
 
     if API_Data["status"] == "REQUEST_NOT_PROCESSED":
         return "error occurred: " + API_Data["status"]
@@ -102,6 +106,7 @@ def fips_to_industry_breakdown(fips_code):
         "employees_educationandhealth":API_Data["Results"]["series"][7]["data"][0]["value"],
         "employees_leisureandhospitality":API_Data["Results"]["series"][8]["data"][0]["value"],
         "employees_otherservices":API_Data["Results"]["series"][9]["data"][0]["value"],
+        # "employees_agriculture":API_Data["Results"]["series"][10]["data"][0]["value"],
     }
 
     # Json that will be returned
