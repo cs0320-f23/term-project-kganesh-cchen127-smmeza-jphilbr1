@@ -11,6 +11,7 @@ interface MapsInfoProps {
 
 interface UnemploymentLoadResponse {
     breakdown: UnemploymentDataResponse;
+    rec: RecommendationData;
 }
 
 interface UnemploymentDataResponse {
@@ -31,11 +32,16 @@ interface UnemploymentData {
     // employees_tradetransportutilities: string;
     [key: string]: string;
 }
+interface RecommendationData {
+  longs: string[];
+  shorts: string[],
+}
 
 export function MapsInfo(props: MapsInfoProps) {
     const [unemploymentData, setUnemploymentData] = useState<UnemploymentData>({});
     const [maxValue, setMaxValue] = useState<number>(10000);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [recommendationData, setRecommendationData] = useState<RecommendationData>();
 
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
@@ -63,6 +69,8 @@ export function MapsInfo(props: MapsInfoProps) {
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
                     let data = jsonResponse.breakdown.data
                     setUnemploymentData(data);
+                    let rec = jsonResponse.rec;
+                    setRecommendationData(rec);
                 }
             } catch (error) {
 
@@ -151,8 +159,8 @@ export function MapsInfo(props: MapsInfoProps) {
               Information for {props.countyState[0]} County:
             </b>
             <p className="info-header">{props.selectedLongLat}</p>
-            <p>Hold Reccomendations: </p>
-            <p>Short Reccomendations: </p>
+            <p>Hold Reccomendations: {recommendationData?.longs}</p>
+            <p>Short Reccomendations: {recommendationData?.shorts}</p>
 
             <div className="chart">
               <ul className="numbers">
