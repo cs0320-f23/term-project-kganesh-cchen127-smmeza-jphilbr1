@@ -13,6 +13,13 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     return important_industries_list
 
 
+def number_check(val):
+    if val == "-":
+        return 0
+    else:
+        return int(val)
+
+
 # WAIT: super cool way to do this would actually be to calculate most important industries by threshold: then use https://apps.bea.gov/iTable/?reqid=150&step=3&isuri=1&table_list=6007&categories=io&_gl=1*1a5u7rm*_ga*MjAyMTUyMTU3NC4xNzAyMTg2NzI5*_ga_J4698JNNFT*MTcwMjE4NjcyOC4xLjAuMTcwMjE4NjcyOC4wLjAuMA..#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1sidGFibGVfbGlzdCIsIjYwMTAiXSxbImNhdGVnb3JpZXMiLCJHZHB4SW5kIl1dfQ==
 # to determine commodities, apply a decay term, iterate until you reach 0, cancel out conflicting trades, done! Feasible?
 
@@ -30,16 +37,16 @@ def recommendCommodities(responseJson):
     employees_leisureandhospitality = responseJson["data"]["employees_leisureandhospitality"]
     employees_otherservices = responseJson["data"]["employees_otherservices"]
 
-    important_industries = importantIndustries(int(employees_mining), 
-                                              int(employees_construction), 
-                                              int(employees_manufacturing), 
-                                              int(employees_tradetransportutilities), 
-                                              int(employees_information), 
-                                              int(employees_finance), 
-                                              int(employees_professionalservices), 
-                                              int(employees_educationandhealth), 
-                                              int(employees_leisureandhospitality), 
-                                              int(employees_otherservices))
+    important_industries = importantIndustries(number_check(employees_mining), 
+                                              number_check(employees_construction), 
+                                              number_check(employees_manufacturing), 
+                                              number_check(employees_tradetransportutilities), 
+                                              number_check(employees_information), 
+                                              number_check(employees_finance), 
+                                              number_check(employees_professionalservices), 
+                                              number_check(employees_educationandhealth), 
+                                              number_check(employees_leisureandhospitality), 
+                                              number_check(employees_otherservices))
     
     shorts = []
     longs = []
