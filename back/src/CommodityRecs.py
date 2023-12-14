@@ -12,6 +12,12 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     
     return important_industries_list
 
+def number_check(val):
+    if val == "-":
+        return 0
+    else:
+        return int(val)
+
 def recommendCommodities(responseJson):
     print(responseJson)
     responseJson = json.loads(responseJson)
@@ -26,16 +32,16 @@ def recommendCommodities(responseJson):
     employees_leisureandhospitality = responseJson["data"]["employees_leisureandhospitality"]
     employees_otherservices = responseJson["data"]["employees_otherservices"]
 
-    important_industries = importantIndustries(int(employees_mining), 
-                                              int(employees_construction), 
-                                              int(employees_manufacturing), 
-                                              int(employees_tradetransportutilities), 
-                                              int(employees_information), 
-                                              int(employees_finance), 
-                                              int(employees_professionalservices), 
-                                              int(employees_educationandhealth), 
-                                              int(employees_leisureandhospitality), 
-                                              int(employees_otherservices))
+    important_industries = importantIndustries(number_check(employees_mining), 
+                                              number_check(employees_construction), 
+                                              number_check(employees_manufacturing), 
+                                              number_check(employees_tradetransportutilities), 
+                                              number_check(employees_information), 
+                                              number_check(employees_finance), 
+                                              number_check(employees_professionalservices), 
+                                              number_check(employees_educationandhealth), 
+                                              number_check(employees_leisureandhospitality), 
+                                              number_check(employees_otherservices))
     
     shorts = []
     longs = []
