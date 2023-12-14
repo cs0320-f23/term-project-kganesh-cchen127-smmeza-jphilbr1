@@ -133,50 +133,84 @@ export function MapsInfo(props: MapsInfoProps) {
 
 
     return (
-        <>
+      <>
         <div
-        id="maps-info"
-        className="maps-info"
-        tabIndex={0}
-        aria-label="County information"
+          id="maps-info"
+          className="maps-info"
+          tabIndex={0}
+          aria-label="County information"
         >
-            <div className="maps-info-container">
+          <div className="maps-info-container">
             {isLoading && (
-                <div className="loading-screen">
-                    <StageSpinner
-                        size="100"
-                        color="#EB9FEF"
-                        loading={isLoading}/>
-    
-                </div>
+              <div className="loading-screen">
+                <StageSpinner size="100" color="#EB9FEF" loading={isLoading} />
+              </div>
             )}
 
-
-            <b className="info-header">Information for {props.countyState[0]} County:</b>
+            <b className="info-header">
+              Information for {props.countyState[0]} County:
+            </b>
             <p className="info-header">{props.selectedLongLat}</p>
+            <p>Hold Reccomendations: </p>
+            <p>Short Reccomendations: </p>
 
             <div className="chart">
-                <ul className="numbers">
-                    <li><span>{maxValue}</span></li>
-                    <li><span>{maxValue / 2}</span></li>
-                    <li><span>0</span></li>
-                </ul>
-                <ul className="bars">
-                    <li><div className="bar" unemp-amount={values[0]}></div><span>Construction</span></li>
-                    <li><div className="bar" unemp-amount={values[1]}></div><span>Education & Health</span></li>
-                    <li><div className="bar" unemp-amount={values[2]}></div><span>Finance</span></li>
-                    <li><div className="bar" unemp-amount={values[3]}></div><span>Information</span></li>
-                    <li><div className="bar" unemp-amount={values[4]}></div><span>Leisure & Hospitality</span></li>
-                    <li><div className="bar" unemp-amount={values[5]}></div><span>Manufacturing</span></li>
-                    <li><div className="bar" unemp-amount={values[6]}></div><span>Mining</span></li>
-                    <li><div className="bar" unemp-amount={values[7]}></div><span>Other services</span></li>
-                    <li><div className="bar" unemp-amount={values[8]}></div><span>Professional services</span></li>
-                    <li><div className="bar" unemp-amount={values[9]}></div><span>Trade, Transport & Utilities</span></li>
-                </ul>
+              <ul className="numbers">
+                <li>
+                  <span>{maxValue}</span>
+                </li>
+                <li>
+                  <span>{maxValue / 2}</span>
+                </li>
+                <li>
+                  <span>0</span>
+                </li>
+              </ul>
+              <ul className="bars">
+                <li>
+                  <div className="bar" unemp-amount={values[0]}></div>
+                  <span>Construction</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[1]}></div>
+                  <span>Education & Health</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[2]}></div>
+                  <span>Finance</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[3]}></div>
+                  <span>Information</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[4]}></div>
+                  <span>Leisure & Hospitality</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[5]}></div>
+                  <span>Manufacturing</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[6]}></div>
+                  <span>Mining</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[7]}></div>
+                  <span>Other services</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[8]}></div>
+                  <span>Professional services</span>
+                </li>
+                <li>
+                  <div className="bar" unemp-amount={values[9]}></div>
+                  <span>Trade, Transport & Utilities</span>
+                </li>
+              </ul>
             </div>
-
+          </div>
         </div>
-        </div>
-        </>
-    )
+      </>
+    );
 }

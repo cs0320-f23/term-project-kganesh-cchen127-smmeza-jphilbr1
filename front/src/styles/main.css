@@ -394,11 +394,13 @@ input[type="radio"]:focus {
 }
 
 .maps-info {
-  margin-left: 150px;
+  width:500px;
+  /* margin-left: 150px; */
 }
 
 .maps-info-container {
   position: relative;
+  width:500px;
 }
 
 .loading-screen {
