@@ -7,10 +7,14 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     important_industries_list = []
 
     for i in range(len(employee_count_list)):
-        if (employee_count_list[i] / employed) >= 0.25:
+        if (employee_count_list[i] / employed) >= 0.18:
             important_industries_list.append(INDUSTRY_LIST[i])
     
     return important_industries_list
+
+
+# WAIT: super cool way to do this would actually be to calculate most important industries by threshold: then use https://apps.bea.gov/iTable/?reqid=150&step=3&isuri=1&table_list=6007&categories=io&_gl=1*1a5u7rm*_ga*MjAyMTUyMTU3NC4xNzAyMTg2NzI5*_ga_J4698JNNFT*MTcwMjE4NjcyOC4xLjAuMTcwMjE4NjcyOC4wLjAuMA..#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1sidGFibGVfbGlzdCIsIjYwMTAiXSxbImNhdGVnb3JpZXMiLCJHZHB4SW5kIl1dfQ==
+# to determine commodities, apply a decay term, iterate until you reach 0, cancel out conflicting trades, done! Feasible?
 
 def recommendCommodities(responseJson):
     print(responseJson)
@@ -41,10 +45,11 @@ def recommendCommodities(responseJson):
     longs = []
     
     for industry in important_industries:
-        shorts.extend(TRADES_FOR_INDUSTRIES[industry]["inputs"])
-        longs.extend(TRADES_FOR_INDUSTRIES[industry]["outputs"])
+        shorts.extend(TRADES_FOR_INDUSTRIES[industry]["outputs"])
+        longs.extend(TRADES_FOR_INDUSTRIES[industry]["inputs"])
     
-
+    shorts = list(set(shorts))
+    longs = list(set(longs))
     data = {"shorts":shorts, "longs":longs}
     data = json.dumps(data)
     return data
