@@ -30,7 +30,7 @@ function NavBar() {
             className="logo-link"
           >
             <div className="logo">
-              <h1>Byte-sized commodities</h1>
+              <h1>dot.commodities</h1>
             </div>
           </Link>
 
