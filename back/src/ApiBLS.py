@@ -50,13 +50,6 @@ def generic_bls_endpoint(data_name, measure_code, state_fips, county_fips):
     return response_json
     # return message
 
-# Checking whether the value is a number or "-"
-def number_check(val):
-    if val == "-":
-        return "0"
-    else:
-        return val
-    
 # Given a full fips code (5 digits), will return a json of BLS employment by
 # industry data for that location
 def fips_to_industry_breakdown(fips_code):
@@ -102,16 +95,16 @@ def fips_to_industry_breakdown(fips_code):
     
     # Parsing API_Data for employment by industry and storing it
     value = {
-        "employees_mining":number_check(API_Data["Results"]["series"][0]["data"][0]["value"]),
-        "employees_construction":number_check(API_Data["Results"]["series"][1]["data"][0]["value"]),
-        "employees_manufacturing":number_check(API_Data["Results"]["series"][2]["data"][0]["value"]),
-        "employees_tradetransportutilities":number_check(API_Data["Results"]["series"][3]["data"][0]["value"]),
-        "employees_information":number_check(API_Data["Results"]["series"][4]["data"][0]["value"]),
-        "employees_finance":number_check(API_Data["Results"]["series"][5]["data"][0]["value"]),
-        "employees_professionalservices":number_check(API_Data["Results"]["series"][6]["data"][0]["value"]),
-        "employees_educationandhealth":number_check(API_Data["Results"]["series"][7]["data"][0]["value"]),
-        "employees_leisureandhospitality":number_check(API_Data["Results"]["series"][8]["data"][0]["value"]),
-        "employees_otherservices":number_check(API_Data["Results"]["series"][9]["data"][0]["value"]),
+        "employees_mining":API_Data["Results"]["series"][0]["data"][0]["value"],
+        "employees_construction":API_Data["Results"]["series"][1]["data"][0]["value"],
+        "employees_manufacturing":API_Data["Results"]["series"][2]["data"][0]["value"],
+        "employees_tradetransportutilities":API_Data["Results"]["series"][3]["data"][0]["value"],
+        "employees_information":API_Data["Results"]["series"][4]["data"][0]["value"],
+        "employees_finance":API_Data["Results"]["series"][5]["data"][0]["value"],
+        "employees_professionalservices":API_Data["Results"]["series"][6]["data"][0]["value"],
+        "employees_educationandhealth":API_Data["Results"]["series"][7]["data"][0]["value"],
+        "employees_leisureandhospitality":API_Data["Results"]["series"][8]["data"][0]["value"],
+        "employees_otherservices":API_Data["Results"]["series"][9]["data"][0]["value"],
     }
 
     # Json that will be returned
