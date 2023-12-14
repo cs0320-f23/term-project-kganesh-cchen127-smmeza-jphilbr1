@@ -88,7 +88,7 @@ def st_fips_to_county_name_and_coord():
         with open("../data/names_to_coords.json", "w") as fp:
             json.dump(big_map, fp)
 
-st_fips_to_county_name_and_coord()
+# st_fips_to_county_name_and_coord()
         
     # return big_map
 
