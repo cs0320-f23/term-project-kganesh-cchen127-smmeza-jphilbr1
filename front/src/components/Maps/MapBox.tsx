@@ -389,8 +389,8 @@ function MapBox(props: MapBoxprops) {
   
       if (isCountyLoadResponse(jsonResponse)) {
         if (jsonResponse.status === "success") {
-          let lonLatCounty: number[] = [jsonResponse.data[1] + 0.22, jsonResponse.data[0] + 0.22]
-          let latLonCenter: LngLatLike = [jsonResponse.data[0] + 0.22, jsonResponse.data[1] - 0.15];
+          let lonLatCounty: number[] = [jsonResponse.data[1], jsonResponse.data[0]]
+          let latLonCenter: LngLatLike = [jsonResponse.data[0], jsonResponse.data[1]];
           setInfoLongLat(lonLatCounty)
           setSelectedLatLong(latLonCenter)
           return { status: "success", data: latLonCenter };
