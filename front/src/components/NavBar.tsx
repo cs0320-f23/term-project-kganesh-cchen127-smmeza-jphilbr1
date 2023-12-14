@@ -1,6 +1,7 @@
 import "../styles/navBar.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
+import { DarkModeToggle } from "../darkModeComponents/Toggle"
 
 import Hamburger from "hamburger-react";
 
@@ -31,6 +32,7 @@ function NavBar() {
           >
             <div className="logo">
               <h1>dot.commodities</h1>
+              <DarkModeToggle/>
             </div>
           </Link>
 
