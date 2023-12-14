@@ -13,7 +13,8 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     return important_industries_list
 
 def recommendCommodities(responseJson):
-
+    print(responseJson)
+    responseJson = json.loads(responseJson)
     employees_mining = responseJson["data"]["employees_mining"]
     employees_construction = responseJson["data"]["employees_construction"]
     employees_manufacturing = responseJson["data"]["employees_manufacturing"]
@@ -25,21 +26,21 @@ def recommendCommodities(responseJson):
     employees_leisureandhospitality = responseJson["data"]["employees_leisureandhospitality"]
     employees_otherservices = responseJson["data"]["employees_otherservices"]
 
-    importantIndustries = importantIndustries(employees_mining, 
-                                              employees_construction, 
-                                              employees_manufacturing, 
-                                              employees_tradetransportutilities, 
-                                              employees_information, 
-                                              employees_finance, 
-                                              employees_professionalservices, 
-                                              employees_educationandhealth, 
-                                              employees_leisureandhospitality, 
-                                              employees_otherservices)
+    important_industries = importantIndustries(int(employees_mining), 
+                                              int(employees_construction), 
+                                              int(employees_manufacturing), 
+                                              int(employees_tradetransportutilities), 
+                                              int(employees_information), 
+                                              int(employees_finance), 
+                                              int(employees_professionalservices), 
+                                              int(employees_educationandhealth), 
+                                              int(employees_leisureandhospitality), 
+                                              int(employees_otherservices))
     
     shorts = []
     longs = []
     
-    for industry in importantIndustries:
+    for industry in important_industries:
         shorts.extend(TRADES_FOR_INDUSTRIES[industry]["inputs"])
         longs.extend(TRADES_FOR_INDUSTRIES[industry]["outputs"])
     

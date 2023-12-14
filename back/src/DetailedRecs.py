@@ -12,6 +12,8 @@ def detailed_data(lat, long):
     breakdown = fips_to_industry_breakdown(fips)
     rec = recommendCommodities(breakdown)
 
+    breakdown = json.loads(breakdown)
+    rec = json.loads(rec)
 
     return_json: json = {
         "lat": lat,
