@@ -35,6 +35,8 @@ import { county_data } from "../functions/CountyParse.ts";
 import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "../functions/MockJSON.ts"
 import mapboxgl from "mapbox-gl";
 import { MapsInfo } from "../Maps/MapsInfo.tsx";
+import { useColorScheme } from "../../darkModeComponents/usecolorScheme.ts";
+
 
 interface CountyLoadResponse {
   data: number[]
@@ -366,6 +368,7 @@ function MapBox(props: MapBoxprops) {
   const [notificationColor, setNotificationColor] = useState<string>("success-notification");
   const [countyState, setCountyState] = useState<string[]>(["no-county", "no-state"]);
   const [infoLongLat, setInfoLongLat] = useState<number[]>();
+  const { isDark, setIsDark } = useColorScheme();
 
   // useEffect(() => {
   //   if (mapRef.current == null) {

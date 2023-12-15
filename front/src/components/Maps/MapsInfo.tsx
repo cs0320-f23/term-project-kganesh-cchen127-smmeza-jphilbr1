@@ -101,7 +101,7 @@ export function MapsInfo(props: MapsInfoProps) {
     useEffect(() => {
         let maximum = findMaxValue(values);
         if (maximum) {
-            setMaxValue(maximum + 1000);
+            setMaxValue(maximum);
         }
     }, [unemploymentData])
 
@@ -111,7 +111,7 @@ export function MapsInfo(props: MapsInfoProps) {
         console.log("yo", values);
         let index = 0
         bars.forEach((bar) => {
-        let amount = (values[index] / maxValue) * 100; // Get the value dynamically
+        let amount = (values[index] / (maxValue * 1.1)) * 100; // Get the value dynamically
         console.log({index}, amount)
         console.log(maxValue);
         console.log("buh", amount)
@@ -127,11 +127,20 @@ export function MapsInfo(props: MapsInfoProps) {
                 fill: 'forwards',
             }
             );
+            bar.animate(
+                { opacity: [1, 1]},
+                {
+                    duration: 1000,
+                    easing: 'ease-out',
+                    fill: 'forwards',
+                }
+                );
+            
         }
         else if (values[index] === -1) {
             bar.style.height = "100%";
             bar.style.background = "repeating-linear-gradient(45deg,#e5cece,#ccbdbd 10px,#968f8f 10px,#7c7575 20px)";
-            // bar.style.opacity = "0.35";
+            bar.style.opacity = "0";
             bar.animate(
                 { opacity: [0, 0.35] },
                 {
@@ -179,7 +188,7 @@ export function MapsInfo(props: MapsInfoProps) {
             <b className="info-header">
               Information for {props.countyState[0]} County:
             </b>
-            <p className="info-header">{props.selectedLongLat}</p>
+            {/* <p className="info-header">{props.selectedLongLat}</p> */}
             <p>Hold Reccomendations: {recommendationData?.longs}</p>
             <p>Short Reccomendations: {recommendationData?.shorts}</p>
 

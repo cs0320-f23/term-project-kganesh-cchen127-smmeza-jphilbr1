@@ -5,7 +5,9 @@
     "d3": "^7.8.5",
     "jquery": "^3.7.1",
     "react-helmet": "^6.1.0",
+    "react-responsive": "^9.0.2",
     "react-spinners": "^0.13.8",
-    "react-spinners-kit": "^1.9.1"
+    "react-spinners-kit": "^1.9.1",
+    "react-toggle": "^4.1.3"
   }
 }
