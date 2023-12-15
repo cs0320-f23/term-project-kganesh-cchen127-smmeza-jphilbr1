@@ -68,29 +68,29 @@ TRADES_FOR_INDUSTRIES  = {"mining":
                               {"inputs":["timber", "copper", "interest_rates"], 
                                "outputs":[""]}, 
                                "manufacturing": 
-                               {"inputs":["iron"], 
-                               "outputs":["TEMP_1"]}, 
+                               {"inputs":["iron", "electricity", "steel", "aluminum"], 
+                               "outputs":[]}, 
                                "tradetransportutilities": 
-                               {"inputs":["oil"], 
-                               "outputs":["TEMP_2"]}, 
+                               {"inputs":["oil", "steel"], 
+                               "outputs":["electricity"]}, 
                                "information": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_3"]}, 
+                               {"inputs":["copper", "silicon"], 
+                               "outputs":[]}, 
                                "finance": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_4"]}, 
+                               {"inputs":["interest_rates"], 
+                               "outputs":[]}, 
                                "professionalservices": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_5"]}, 
+                               {"inputs":["interest_rates"], 
+                               "outputs":[]}, 
                                "educationandhealth": 
                                {"inputs":[], 
-                               "outputs":["TEMP_6"]}, 
+                               "outputs":[]}, 
                                "leisureandhospitality": 
                                {"inputs":[], 
-                               "outputs":["TEMP_7"]}, 
+                               "outputs":[]}, 
                                "otherservices": 
                                {"inputs":[], 
-                               "outputs":["TEMP_8"]}}
+                               "outputs":[]}}
 
 '''
 We want a way to go from "Count, ST" to coordinate"
