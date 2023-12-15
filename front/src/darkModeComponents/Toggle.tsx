@@ -8,12 +8,12 @@ import "react-toggle/style.css";
 export const DarkModeToggle = () => {
   const { isDark, setIsDark } = useColorScheme();
   return (
-    <Toggle
-      checked={isDark}
-      onChange={({ target }) => setIsDark(target.checked)}
-      icons={{ checked: "", unchecked: "" }}
-      aria-label="Dark mode toggle"
-    />
+      <Toggle
+        checked={isDark}
+        onChange={({ target }) => setIsDark(target.checked)}
+        icons={{ checked: "", unchecked: "" }}
+        aria-label="Dark mode toggle"
+      />
   );
 };
 

@@ -29,7 +29,8 @@ function App() {
         {/* </p> */}
       </div>
       <div className="Dark-Toggle">
-      <DarkModeToggle />
+        <DarkModeToggle />
+        <label>dark mode toggle</label>
       </div>
       <div id="info" className="section-header">
         <p className="section-text">INFO</p>
