@@ -111,6 +111,7 @@ def fips_to_industry_breakdown(fips_code):
     response_map = {
         "status": "success",
         "data" : value,
+        "fips" : fips
     }
 
     response_json = json.dumps(response_map)
