@@ -461,14 +461,7 @@ function MapBox(props: MapBoxprops) {
       else {
         setNotificationColor("success-notification")
         setSearchNotiText(formattedCounty + " highlighted!")
-
-        var newResponse = await Recommendation([commandString, selectedState]);
-        if (newResponse) {
-          var history: (string | string[][])[] = ["Search bar entered", newResponse];
-          updateHistory(history);
-        }
-
-        
+       
       }
       setClassVisible("visible");
 

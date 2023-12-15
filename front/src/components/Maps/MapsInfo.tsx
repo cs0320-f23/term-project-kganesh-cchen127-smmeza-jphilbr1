@@ -11,6 +11,7 @@ interface MapsInfoProps {
 
 interface UnemploymentLoadResponse {
     breakdown: UnemploymentDataResponse;
+    rec: RecommendationData;
 }
 
 interface UnemploymentDataResponse {
@@ -31,11 +32,16 @@ interface UnemploymentData {
     // employees_tradetransportutilities: string;
     [key: string]: string;
 }
+interface RecommendationData {
+  longs: string[];
+  shorts: string[],
+}
 
 export function MapsInfo(props: MapsInfoProps) {
     const [unemploymentData, setUnemploymentData] = useState<UnemploymentData>({});
     const [maxValue, setMaxValue] = useState<number>(10000);
     const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [recommendationData, setRecommendationData] = useState<RecommendationData>();
 
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
@@ -63,6 +69,8 @@ export function MapsInfo(props: MapsInfoProps) {
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
                     let data = jsonResponse.breakdown.data
                     setUnemploymentData(data);
+                    let rec = jsonResponse.rec;
+                    setRecommendationData(rec);
                 }
             } catch (error) {
 
@@ -154,27 +162,26 @@ export function MapsInfo(props: MapsInfoProps) {
 
 
     return (
-        <>
+      <>
         <div
-        id="maps-info"
-        className="maps-info"
-        tabIndex={0}
-        aria-label="County information"
+          id="maps-info"
+          className="maps-info"
+          tabIndex={0}
+          aria-label="County information"
         >
-            <div className="maps-info-container">
+          <div className="maps-info-container">
             {isLoading && (
-                <div className="loading-screen">
-                    <StageSpinner
-                        size="100"
-                        color="#EB9FEF"
-                        loading={isLoading}/>
-    
-                </div>
+              <div className="loading-screen">
+                <StageSpinner size="100" color="#EB9FEF" loading={isLoading} />
+              </div>
             )}
 
-
-            <b className="info-header">Information for {props.countyState[0]} County:</b>
+            <b className="info-header">
+              Information for {props.countyState[0]} County:
+            </b>
             <p className="info-header">{props.selectedLongLat}</p>
+            <p>Hold Reccomendations: {recommendationData?.longs}</p>
+            <p>Short Reccomendations: {recommendationData?.shorts}</p>
 
             <div className="chart">
                 <ul className="numbers">
@@ -195,9 +202,8 @@ export function MapsInfo(props: MapsInfoProps) {
                     <li><div className="bar" unemp-amount={values[9] === -1 ? "no unemployment data" : `${values[9]} unemployed`}></div><span>Trade, Transport & Utilities</span></li>
                 </ul>
             </div>
-
+          </div>
         </div>
-        </div>
-        </>
-    )
+      </>
+    );
 }
