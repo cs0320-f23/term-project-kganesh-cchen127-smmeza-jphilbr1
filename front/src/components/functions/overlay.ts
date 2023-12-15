@@ -4,12 +4,6 @@ import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
 
-
-// import mapboxgl from "mapbox-gl";
-
-
-
-
 // makes sure that the json type is a feature collection
 function isFeatureCollection(json: any): json is GeoJSON.FeatureCollection {
   return json.type === "FeatureCollection";
@@ -26,38 +20,6 @@ export async function overlayData(): Promise<
   });
 }
 
-
-
-const propertyName = "holc_grade";
-export var geoLayer: FillLayer = {
-  id: "geo_data",
-  type: "fill",
-  paint: {
-    "fill-color": [
-      "match",
-      ["get", propertyName],
-      "A",
-      "#5bcc04",
-      "B",
-      "#04b8cc",
-      "C",
-      "#e9ed0e",
-      "D",
-      "#d11d1d",
-      "#ccc",
-    ],
-    "fill-opacity": 0.2,
-  },
-};
-
-export var searchLayer: FillLayer = {
-  id: "search_data",
-  type: "fill",
-  paint: {
-    "fill-color": "#3604cc",
-    "fill-opacity": 0.2,
-  }, 
-};
 
 export const countyLayer: FillLayer = {
   id: "counties",
@@ -101,7 +63,6 @@ export const employmentLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#943462",
-    // "fill-opacity" : 0.43
     "fill-opacity":['*', 0.1, ["to-number",["get", employment]]] ,
   },
 };
@@ -112,8 +73,24 @@ export const laborLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#4287f5",
-    // "fill-opacity": 0.43,
-    // "fill-opacity": 0.06,
     "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
+  },
+};
+const unemployed = "unemployed";
+export const unemployedLayer: FillLayer = {
+  id: "county-unemployed-layer",
+  type: "fill",
+  paint: {
+    "fill-color": "#34bf3d",
+    "fill-opacity": ["/", ["to-number", ["get", unemployed]], 49775],
+  },
+};
+const employed = "employed";
+export const employedLayer: FillLayer = {
+  id: "county-employed-layer",
+  type: "fill",
+  paint: {
+    "fill-color": "#dade66",
+    "fill-opacity": ["/", ["to-number", ["get", employed]], 49775],
   },
 };

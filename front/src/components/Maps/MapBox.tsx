@@ -14,15 +14,15 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { useEffect, useState, useRef } from "react";
 import { ACCESS_TOKEN, COUNTY_API } from "../../private/API";
 import {
-  geoLayer,
-  searchLayer,
   overlayData,
   countyLayer,
   selectedCountyLayer,
   // swtichVisibility
   hoverCountyLayer,
   employmentLayer,
-  laborLayer
+  laborLayer,
+  employedLayer,
+  unemployedLayer
 } from "../functions/overlay.ts";
 import "../../styles/main.css";
 import { Recommendation } from "../functions/Recommendation.ts";
@@ -203,9 +203,18 @@ function MapBox(props: MapBoxprops) {
   var visibilityOne: Layout = {
     visibility: firstVisibility,
   };
-
   var visibilityTwo: Layout = {
     visibility: secondVisibility,
+  };
+  const [thirdVisibility, setThirdVisiblity] =
+    useState<mapboxgl.Visibility>("none");
+  const [fourthVisibility, setFourthVisiblity] =
+    useState<mapboxgl.Visibility>("none");
+  var visibilityThree: Layout = {
+    visibility: thirdVisibility,
+  };
+  var visibilityFour: Layout = {
+    visibility: fourthVisibility,
   };
 
   function swtichVisibility(wantedLayer: string) {
@@ -213,22 +222,37 @@ function MapBox(props: MapBoxprops) {
       case "Overlay 1": {
         setFirstVisiblity("visible");
         setSecondVisiblity("none");
+        setThirdVisiblity("none");
+        setFourthVisiblity("none");
         console.log("changed to overlay1");
-        console.log(geoLayer.layout?.visibility);
-        console.log(searchLayer.layout?.visibility);
         break;
       }
       case "Overlay 2": {
         setFirstVisiblity("none");
         setSecondVisiblity("visible");
-        console.log("changed to overlay2");
-        console.log(searchLayer.layout?.visibility);
-        console.log(geoLayer.layout?.visibility);
+        setThirdVisiblity("none");
+        setFourthVisiblity("none");
+        break;
+      }
+      case "Overlay 3": {
+        setFirstVisiblity("none");
+        setSecondVisiblity("none");
+        setThirdVisiblity("visible");
+        setFourthVisiblity("none");
+        break;
+      }
+      case "Overlay 4": {
+        setFirstVisiblity("none");
+        setSecondVisiblity("none");
+        setThirdVisiblity("none");
+        setFourthVisiblity("visible");
         break;
       }
       default: {
         setFirstVisiblity("none");
         setSecondVisiblity("none");
+        setThirdVisiblity("none");
+        setFourthVisiblity("none");
         break;
       }
     }
@@ -319,24 +343,15 @@ function MapBox(props: MapBoxprops) {
     zoom: initialZoom,
   });
 
-  const [employmentOverlay, setEmploymentOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
+  const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
-
-  const [laborOverlay, setLaborOverlay] = useState<GeoJSON.FeatureCollection | undefined>(undefined);
-
-
   useEffect(() => {
     overlayData().then((data) => {
-      setEmploymentOverlay(data);
+      setOverlay(data);
     });
   }, []);
 
-  useEffect(() => {
-    overlayData().then((data) => {
-      setLaborOverlay(data);
-    });
-  }, []);
 
   const mapRef = useRef<MapRef>(null);
 
@@ -492,20 +507,30 @@ function MapBox(props: MapBoxprops) {
             onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}
             ref={mapRef}
           >
-            <Source id="em_data" type="geojson" data={employmentOverlay}>
+            <Source id="number_data" type="geojson" data={overlay}>
               <Layer
                 id={employmentLayer.id}
                 type={employmentLayer.type}
                 paint={employmentLayer.paint}
                 layout={visibilityOne}
               />
-            </Source>
-            <Source id="labor_data" type="geojson" data={laborOverlay}>
               <Layer
                 id={laborLayer.id}
                 type={laborLayer.type}
                 paint={laborLayer.paint}
                 layout={visibilityTwo}
+              />
+              <Layer
+                id={unemployedLayer.id}
+                type={unemployedLayer.type}
+                paint={unemployedLayer.paint}
+                layout={visibilityThree}
+              />
+              <Layer
+                id={employedLayer.id}
+                type={employedLayer.type}
+                paint={employedLayer.paint}
+                layout={visibilityFour}
               />
             </Source>
 
@@ -518,11 +543,11 @@ function MapBox(props: MapBoxprops) {
           </Map>
         </div>
         <div className="right">
-          
           {/* <MapsHistory history={props.history} mode={props.mode}/> */}
           <MapsInfo
             countyState={countyState}
-            selectedLongLat={infoLongLat}></MapsInfo>
+            selectedLongLat={infoLongLat}
+          ></MapsInfo>
           {/* <div className="side-panel">
 
           </div> */}
