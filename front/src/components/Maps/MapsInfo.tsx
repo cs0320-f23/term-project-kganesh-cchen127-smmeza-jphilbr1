@@ -82,7 +82,12 @@ export function MapsInfo(props: MapsInfoProps) {
     let values: number[] = []
 
     keys.forEach((key) => {
-        values.push(parseInt(unemploymentData[key]))
+        if (!(unemploymentData[key] === "-")) {
+            values.push(parseInt(unemploymentData[key]))
+        }
+        else {
+            values.push(-1)
+        }
     })
 
     useEffect(() => {
@@ -95,14 +100,17 @@ export function MapsInfo(props: MapsInfoProps) {
 
     useEffect(() => {
         const bars = document.querySelectorAll('.bars li .bar') as NodeListOf<HTMLDivElement>;
-        console.log("yo", props.selectedLongLat);
+        console.log("yo", values);
         let index = 0
         bars.forEach((bar) => {
         let amount = (values[index] / maxValue) * 100; // Get the value dynamically
+        console.log({index}, amount)
         console.log(maxValue);
         console.log("buh", amount)
-        if (amount) {
+        if (!(values[index] === -1)) {
             bar.style.height = `${amount}%`;
+            bar.style.background = "#FFC0CB";
+            bar.style.opacity = "1";
             bar.animate(
             { height: [0, amount] },
             {
@@ -111,8 +119,21 @@ export function MapsInfo(props: MapsInfoProps) {
                 fill: 'forwards',
             }
             );
-            index ++
         }
+        else if (values[index] === -1) {
+            bar.style.height = "100%";
+            bar.style.background = "repeating-linear-gradient(45deg,#e5cece,#ccbdbd 10px,#968f8f 10px,#7c7575 20px)";
+            // bar.style.opacity = "0.35";
+            bar.animate(
+                { opacity: [0, 0.35] },
+                {
+                    duration: 1000,
+                    easing: 'ease-out',
+                    fill: 'forwards',
+                }
+                );
+        }
+        index ++
         });
 
       }, [maxValue]);
@@ -162,16 +183,16 @@ export function MapsInfo(props: MapsInfoProps) {
                     <li><span>0</span></li>
                 </ul>
                 <ul className="bars">
-                    <li><div className="bar" unemp-amount={values[0]}></div><span>Construction</span></li>
-                    <li><div className="bar" unemp-amount={values[1]}></div><span>Education & Health</span></li>
-                    <li><div className="bar" unemp-amount={values[2]}></div><span>Finance</span></li>
-                    <li><div className="bar" unemp-amount={values[3]}></div><span>Information</span></li>
-                    <li><div className="bar" unemp-amount={values[4]}></div><span>Leisure & Hospitality</span></li>
-                    <li><div className="bar" unemp-amount={values[5]}></div><span>Manufacturing</span></li>
-                    <li><div className="bar" unemp-amount={values[6]}></div><span>Mining</span></li>
-                    <li><div className="bar" unemp-amount={values[7]}></div><span>Other services</span></li>
-                    <li><div className="bar" unemp-amount={values[8]}></div><span>Professional services</span></li>
-                    <li><div className="bar" unemp-amount={values[9]}></div><span>Trade, Transport & Utilities</span></li>
+                    <li><div className="bar" unemp-amount={values[0] === -1 ? "no unemployment data" : `${values[0]} unemployed`}></div><span>Construction</span></li>
+                    <li><div className="bar" unemp-amount={values[1] === -1 ? "no unemployment data" : `${values[1]} unemployed`}></div><span>Education & Health</span></li>
+                    <li><div className="bar" unemp-amount={values[2] === -1 ? "no unemployment data" : `${values[2]} unemployed`}></div><span>Finance</span></li>
+                    <li><div className="bar" unemp-amount={values[3] === -1 ? "no unemployment data" : `${values[3]} unemployed`}></div><span>Information</span></li>
+                    <li><div className="bar" unemp-amount={values[4] === -1 ? "no unemployment data" : `${values[4]} unemployed`}></div><span>Leisure & Hospitality</span></li>
+                    <li><div className="bar" unemp-amount={values[5] === -1 ? "no unemployment data" : `${values[5]} unemployed`}></div><span>Manufacturing</span></li>
+                    <li><div className="bar" unemp-amount={values[6] === -1 ? "no unemployment data" : `${values[6]} unemployed`}></div><span>Mining</span></li>
+                    <li><div className="bar" unemp-amount={values[7] === -1 ? "no unemployment data" : `${values[7]} unemployed`}></div><span>Other services</span></li>
+                    <li><div className="bar" unemp-amount={values[8] === -1 ? "no unemployment data" : `${values[8]} unemployed`}></div><span>Professional services</span></li>
+                    <li><div className="bar" unemp-amount={values[9] === -1 ? "no unemployment data" : `${values[9]} unemployed`}></div><span>Trade, Transport & Utilities</span></li>
                 </ul>
             </div>
 

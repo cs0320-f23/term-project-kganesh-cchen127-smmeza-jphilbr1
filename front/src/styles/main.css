@@ -501,7 +501,8 @@ input[type="radio"]:focus {
   text-align: center;
   /* add a box shadow here lowkey */
   transition: 0.5s;
-  transition-property: background, box-shadow
+  transition-property: background, box-shadow;
+  opacity: 1;
 }
 
 .bars .bar:hover{
@@ -518,7 +519,7 @@ input[type="radio"]:focus {
 } */
 
 .bars .bar:hover::after {
-  content: attr(unemp-amount) "\A unemployed" ;
+  content: attr(unemp-amount);
   position: absolute;
   bottom: 100%;
   left: 50%;
