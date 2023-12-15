@@ -58,39 +58,39 @@ US_STATE_FIPS = {
 }
 
 # Data roughly sourced from: https://apps.bea.gov/iTable/?reqid=150&step=3&isuri=1&table_list=6007&categories=io&_gl=1*1a5u7rm*_ga*MjAyMTUyMTU3NC4xNzAyMTg2NzI5*_ga_J4698JNNFT*MTcwMjE4NjcyOC4xLjAuMTcwMjE4NjcyOC4wLjAuMA..#eyJhcHBpZCI6MTUwLCJzdGVwcyI6WzEsMiwzXSwiZGF0YSI6W1sidGFibGVfbGlzdCIsIjYwMTAiXSxbImNhdGVnb3JpZXMiLCJHZHB4SW5kIl1dfQ==
-
+#   Lists of specific commodities here: https://en.wikipedia.org/wiki/List_of_traded_commodities
 # AG: use a query like this https://api.bls.gov/publicAPI/v2/timeseries/data/ENU0100510511?annualaverage=true NEED ANNUAL AVERAGE!
 
 TRADES_FOR_INDUSTRIES  = {"mining":
                               {"inputs":["oil", "coal"], 
-                               "outputs":["copper", "iron"]}, 
+                               "outputs":[]}, 
                                "construction":
-                              {"inputs":["timber", "copper", "interest_rates"], 
+                              {"inputs":["timber", "copper", "interest_rates", "plastic", "propane"], 
                                "outputs":[""]}, 
                                "manufacturing": 
-                               {"inputs":["iron"], 
-                               "outputs":["TEMP_1"]}, 
+                               {"inputs":["molybdenum", "iron", "electricity", "steel", "aluminum"], 
+                               "outputs":[]}, 
                                "tradetransportutilities": 
-                               {"inputs":["oil"], 
-                               "outputs":["TEMP_2"]}, 
+                               {"inputs":["gasoline", "steel", "rubber", "ethanol"], 
+                               "outputs":["electricity"]}, 
                                "information": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_3"]}, 
+                               {"inputs":["copper", "silicon", "cobalt", "gold"], 
+                               "outputs":[]}, 
                                "finance": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_4"]}, 
+                               {"inputs":["interest_rates", "electricity"], 
+                               "outputs":[]}, 
                                "professionalservices": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_5"]}, 
+                               {"inputs":["interest_rates", "electricity"], 
+                               "outputs":[]}, 
                                "educationandhealth": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_6"]}, 
+                               {"inputs":["propane", "electricity"], 
+                               "outputs":[]}, 
                                "leisureandhospitality": 
-                               {"inputs":[], 
-                               "outputs":["TEMP_7"]}, 
+                               {"inputs":["propane"], 
+                               "outputs":[]}, 
                                "otherservices": 
                                {"inputs":[], 
-                               "outputs":["TEMP_8"]}}
+                               "outputs":[]}}
 
 '''
 We want a way to go from "Count, ST" to coordinate"
