@@ -24,6 +24,29 @@ class TestMocks(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
+        res = json.loads(mock_function("labor_force_mock"))
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(float(res["labor_force"]) >= 0)
+        self.assertEqual(res["state_fips"], "01")
+        self.assertEqual(res["county_fips"], "001")
+        self.assertTrue(len(res["message"]) > 0)
+
+
+        res = json.loads(mock_function("unemployment_mock"))
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(float(res["unemployed"]) >= 0)
+        self.assertEqual(res["state_fips"], "01")
+        self.assertEqual(res["county_fips"], "001")
+        self.assertTrue(len(res["message"]) > 0)
+
+
+        res = json.loads(mock_function("industry_employment_mock"))
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(float(res["employed"]) >= 0)
+        self.assertEqual(res["state_fips"], "01")
+        self.assertEqual(res["county_fips"], "001")
+        self.assertTrue(len(res["message"]) > 0)
+
 
 
 
