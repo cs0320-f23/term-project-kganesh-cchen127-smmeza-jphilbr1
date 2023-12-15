@@ -1,5 +1,5 @@
 import { FillLayer } from "react-map-gl";
-import { FullOverLay } from "./FullOverlay.ts";
+// import { FullOverLay } from "./FullOverlay.ts";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
@@ -73,7 +73,7 @@ export const laborLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#4287f5",
-    "fill-opacity": ["/", ["to-number", ["get", labor]], 4977558],
+    "fill-opacity": ["/", ["log", ["+",["to-number", ["get", labor], 1]]], ["log", ["+", 1, 4977558]]],
   },
 };
 const unemployed = "unemployed";
@@ -82,7 +82,7 @@ export const unemployedLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#34bf3d",
-    "fill-opacity": ["/", ["to-number", ["get", unemployed]], 49775],
+    "fill-opacity": ["/", ["to-number", ["get", unemployed]], 609830],
   },
 };
 const employed = "employed";
@@ -91,6 +91,32 @@ export const employedLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#dade66",
-    "fill-opacity": ["/", ["to-number", ["get", employed]], 49775],
+    "fill-opacity": ["/", ["to-number", ["get", employed]], 4730138],
   },
+};
+
+
+export const FullOverLay = async (): Promise<
+  GeoJSON.FeatureCollection | undefined
+> => {
+  var newResponse: undefined | GeoJSON.FeatureCollection = undefined;
+  // trys to access the server
+  try {
+    const website = await fetch("http://127.0.0.1:5000/full_data");
+    const json = await website.json();
+    const result = json.status;
+    // checks that there isn't an error
+    console.log("before succes");
+    if (result === "success") {
+      const overlayData: GeoJSON.FeatureCollection = json.data;
+      newResponse = overlayData;
+      console.log("should have overlay data");
+    }
+    // this is the catch for if the server is down
+  } catch (err) {
+    console.log(err);
+    newResponse = undefined;
+  }
+  // returns the server response
+  return newResponse;
 };
