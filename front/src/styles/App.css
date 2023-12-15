@@ -38,7 +38,7 @@ body.dark {
 
 .App-header {
   background-color: var(--color-accent);
-  min-height: 10vh;
+  min-height: 3vh;
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -68,7 +68,7 @@ body.dark {
   justify-content: center;
   /* margin-left: 50px; */
   margin: auto;
-  margin-top: 5vh;
+  /* margin-top: 5vh; */
 }
 
 .section-text {
@@ -84,4 +84,9 @@ body.dark {
   padding-bottom: 2.5%;
   line-height: 30px;
   border: 2px solid var(--color-accent);
+}
+
+.Dark-Toggle{
+  display:flex;
+  padding: 0.5%;
 }

@@ -28,7 +28,9 @@ function App() {
         {/* <h1 className="header">womp womp</h1> */}
         {/* </p> */}
       </div>
+      <div className="Dark-Toggle">
       <DarkModeToggle />
+      </div>
       <div id="info" className="section-header">
         <p className="section-text">INFO</p>
       </div>
