@@ -1,21 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Heebo:wght@500&family=Open+Sans:ital,wght@0,700;1,700&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700;9..40,800&family=Heebo:wght@500&family=Open+Sans:ital,wght@0,700;1,700&family=Song+Myung&display=swap');
+
+
 body {
+  /* font-family: 'DM Sans', sans-serif; */
+  /* font-family: 'Heebo', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Song Myung', serif; */
   --color-background: #fafafa;
   --color-foreground: #1f2023;
   --color-text:#1f2023;
   --color-accent: #FECEE9;
   --color-header-accent: #EB9FEF;
+  color: #1f2023;
 }
 body.dark {
+  /* font-family: 'DM Sans', sans-serif; */
+  /* font-family: 'Heebo', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Song Myung', serif; */
   --color-background: rgb(80, 72, 72);
   --color-text:#efefef;
   --color-foreground: #efefef;
-  --color-accent: #cb93b2;
+  --color-header-accent: #cb93b2;
   --color-accent: rgb(237, 134, 151);
+  color: #efefef;
 }
 
+.navbar{
+  background-color: var(--color-accent);
+/*   
+  background-color: "#FECEE9";
+  color: "white"; */
+  /* borderBottom: 1 solid #e4e4e4; */
+}
 
 .navbar-wrapper {
-  position: fixed;
+  position: fixed; 
   left: 0;
   top: 0;
   right: 0;

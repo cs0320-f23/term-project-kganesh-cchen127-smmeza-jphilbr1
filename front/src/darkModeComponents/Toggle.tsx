@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Toggle from "react-toggle";
 import { useColorScheme } from "./usecolorScheme";
+import "react-toggle/style.css"; 
 
 /** stolen from https://blog.logrocket.com/dark-mode-react-in-depth-guide/ */
 

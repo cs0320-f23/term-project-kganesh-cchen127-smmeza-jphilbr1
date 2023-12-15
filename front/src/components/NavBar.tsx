@@ -1,7 +1,7 @@
 import "../styles/navBar.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { DarkModeToggle } from "../darkModeComponents/Toggle"
+
 
 import Hamburger from "hamburger-react";
 
@@ -15,15 +15,15 @@ function NavBar() {
       <div
         className="navbar"
         style={{
-          backgroundColor: "#FECEE9",
-          color: "white",
-          top: true ? "0" : "-120px",
-          borderBottom: `${1} solid #e4e4e4`,
+          // backgroundColor: "#FECEE9",
+          // color: "white",
+          // top: true ? "0" : "-120px",
+          // borderBottom: `${1} solid #e4e4e4`,
         }}
       >
         <div id="navbar" className="navbar-fixed">
           <Link
-            to="landing"
+            to="App-header"
             spy={true}
             smooth={true}
             offset={0}
@@ -32,7 +32,6 @@ function NavBar() {
           >
             <div className="logo">
               <h1>dot.commodities</h1>
-              <DarkModeToggle/>
             </div>
           </Link>
 
@@ -42,9 +41,9 @@ function NavBar() {
           <nav
             className={isNavExpanded ? "nav-items expanded" : "nav-items"}
             style={{
-              backgroundColor:"#FECEE9",
-              top: isNavExpanded ? "0" : "-100%",
-              transitionDelay: isNavExpanded ? "0s" : "0s",
+              // backgroundColor:"#FECEE9",
+              // top: isNavExpanded ? "0" : "-100%",
+              // transitionDelay: isNavExpanded ? "0s" : "0s",
             }}
           >
             <ul className="nav-menu">

@@ -4,7 +4,15 @@
   give you this starter CSS. Feel free to modify it as you wish, though.
 */
 
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Heebo:wght@500&family=Open+Sans:ital,wght@0,700;1,700&family=Song+Myung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700;9..40,800&family=Heebo:wght@500&family=Open+Sans:ital,wght@0,700;1,700&family=Song+Myung&display=swap');
+
+
 body {
+  /* font-family: 'DM Sans', sans-serif; */
+  /* font-family: 'Heebo', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Song Myung', serif; */
   --color-background: #fafafa;
   --color-foreground: #1f2023;
   --color-text:#1f2023;
@@ -12,10 +20,14 @@ body {
   --color-header-accent: #EB9FEF;
 }
 body.dark {
+  /* font-family: 'DM Sans', sans-serif; */
+  /* font-family: 'Heebo', sans-serif; */
+  /* font-family: 'Open Sans', sans-serif; */
+  /* font-family: 'Song Myung', serif; */
   --color-background: rgb(80, 72, 72);
   --color-text:#efefef;
   --color-foreground: #efefef;
-  --color-accent: #cb93b2;
+  --color-header-accent: #cb93b2;
   --color-accent: rgb(237, 134, 151);
 }
 
@@ -150,7 +162,7 @@ td {
 
 .input {
   all: unset;
-  color: #000000;
+  color:var(--color-text);
   padding: 10px;
   margin-right: 20px;
   border: 1px solid #9e9e9e;
@@ -241,7 +253,7 @@ select{
   background-color: var(--color-background);
   border: 1px solid #caced1;
   border-radius: 10px;
-  color: black;
+  color: var(--color-text);
   cursor: pointer;
 }
 
@@ -381,11 +393,11 @@ input[type="radio"]:focus {
 } */
 
 .error-notification {
-  color: red;
+  color: var(--color-header-accent);
 }
 
 .success-notification {
-  color: black;
+  color:var(--color-text);
 }
 
 .right{
@@ -410,7 +422,7 @@ input[type="radio"]:focus {
   transform: translateX(-50%);
   width: 600px;
   height: 400px;
-  background: rgba(255, 255, 255, 1);
+  background: var(--color-background);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -440,7 +452,7 @@ input[type="radio"]:focus {
 }
 
 .numbers {
-  color: #EB9FEF;
+  color: var(--color-header-accent);
   margin: 0;
   padding: 0;
   width: 50px;
@@ -465,7 +477,7 @@ input[type="radio"]:focus {
 }
 
 .bars {
-  color: #000;
+  color: var(--color-text);
   font-size: 6px;
   font-weight: 600;
   background: #555;
@@ -494,7 +506,7 @@ input[type="radio"]:focus {
 
 .bars .bar{
   display: block;
-  background: #FFC0CB;
+  background: var(--color-accent);
   width: 20px;
   /* height: 100px; */
   position: absolute;
@@ -508,8 +520,8 @@ input[type="radio"]:focus {
 }
 
 .bars .bar:hover{
-  background: #FFC0CB;
-  box-shadow: 0 0 10px 0 rgba(228, 139, 241, 0.5);
+  background: var(--color-accent);
+  box-shadow: 0 0 10px 0 var(--color-header-accent);
   cursor: pointer;
 }
 
@@ -526,7 +538,7 @@ input[type="radio"]:focus {
   bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-background);
   padding: 5px;
   border-radius: 5px;
   white-space: nowrap;
