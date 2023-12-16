@@ -138,5 +138,6 @@ Acknowledgements:
 
 
 TODOs:
-1. Scheduler
 1. Deployment!
+1. Testing
+1. Return max values for Sydney
