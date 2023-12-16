@@ -24,7 +24,7 @@ export function useColorScheme() {
       document.body.classList.remove("dark");
     }
   }, [value]);
-
+  console.log("This is isDark right before it's returned: " + value);
   return {
     isDark: value,
     setIsDark,

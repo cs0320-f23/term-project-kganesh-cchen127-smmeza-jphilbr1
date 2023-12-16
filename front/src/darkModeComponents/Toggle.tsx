@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Toggle from "react-toggle";
-import { useColorScheme } from "./usecolorScheme";
+
 import "react-toggle/style.css"; 
 
 /** stolen from https://blog.logrocket.com/dark-mode-react-in-depth-guide/ */
 
-export const DarkModeToggle = () => {
-  const { isDark, setIsDark } = useColorScheme();
+interface ToggleProps {
+  isDark;
+  setIsDark;
+}
+
+export const DarkModeToggle = (props: ToggleProps) => {
   return (
-      <Toggle
-        checked={isDark}
-        onChange={({ target }) => setIsDark(target.checked)}
-        icons={{ checked: "", unchecked: "" }}
-        aria-label="Dark mode toggle"
-      />
+    <Toggle
+      checked={props.isDark}
+      onChange={({ target }) => props.setIsDark(target.checked)}
+      icons={{ checked: "", unchecked: "" }}
+      aria-label="Dark mode toggle"
+    />
   );
 };
 

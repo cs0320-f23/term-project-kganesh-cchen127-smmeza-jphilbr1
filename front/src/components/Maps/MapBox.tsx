@@ -56,6 +56,7 @@ interface MapBoxprops {
   updateHistory: (command: (string | string[][])[]) => void;
   history: (string | string[][])[][];
   mode: boolean;
+  isDark;
 }
 
 // Both of these are variables used to set a new overlay from the 
@@ -150,10 +151,10 @@ function MapBox(props: MapBoxprops) {
     //   ["longitude: ", longitude],
     // ];
     // var broadbandArray: Array<string> = [latitude, longitude];
-    var recommendationResponse:string[][] = [
-      ["recommendation", "omg"],
-      ["mouse click", "omg"]
-    ]
+    // var recommendationResponse:string[][] = [
+    //   ["recommendation", "omg"],
+    //   ["mouse click", "omg"]
+    // ]
     if (mapRef.current) {
       const bbox: [PointLike, PointLike] = [
         [e.point.x, e.point.y],
@@ -179,19 +180,19 @@ function MapBox(props: MapBoxprops) {
           setClassVisible("hidden");
         }, 3000)
         
-        var awaitRecommendationResponse = await Recommendation([
-          latitude,
-          longitude,
-        ]);
+        // var awaitRecommendationResponse = await Recommendation([
+        //   latitude,
+        //   longitude,
+        // ]);
 
-        if (awaitRecommendationResponse) {
-          recommendationResponse = recommendationResponse.concat(awaitRecommendationResponse);
-          var history: (string | string[][])[] = [
-            "Mouse Click",
-            recommendationResponse,
-          ];
-          props.updateHistory(history);
-        }
+        // if (awaitRecommendationResponse) {
+        //   recommendationResponse = recommendationResponse.concat(awaitRecommendationResponse);
+        //   var history: (string | string[][])[] = [
+        //     "Mouse Click",
+        //     recommendationResponse,
+        //   ];
+        //   props.updateHistory(history);
+        // }
     }
 
     
@@ -504,7 +505,11 @@ function MapBox(props: MapBoxprops) {
             // for moving the map
             onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
             // theme of map
-            mapStyle={"mapbox://styles/mapbox/streets-v12"}
+            mapStyle={
+              props.isDark
+                ? "mapbox://styles/mapbox/dark-v11"
+                : "mapbox://styles/mapbox/streets-v12"
+            }
             onClick={(ev: MapLayerMouseEvent) => onMapClick(ev)}
             onMouseMove={(ev: MapLayerMouseEvent) => onMouseMove(ev)}
             onMouseOut={(ev: MapLayerMouseEvent) => onMouseOut(ev)}

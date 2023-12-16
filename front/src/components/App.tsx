@@ -3,6 +3,7 @@ import "../styles/App.css";
 import Maps from "./Maps";
 import NavBar from "./NavBar";
 import { DarkModeToggle } from "../darkModeComponents/Toggle";
+import { useColorScheme } from "../darkModeComponents/usecolorScheme";
 // REMEMBER TO PUT YOUR API KEY IN A FOLDER THAT IS GITIGNORED!!
 // (for instance, /src/private/api_key.tsx)
 // import {API_KEY} from "./private/api_key"
@@ -20,6 +21,8 @@ function App() {
       // console.log(event.code);
     }
   });
+
+  const { isDark, setIsDark } = useColorScheme();
   return (
     <div className="App">
       <NavBar />
@@ -29,7 +32,7 @@ function App() {
         {/* </p> */}
       </div>
       <div className="Dark-Toggle">
-        <DarkModeToggle />
+        <DarkModeToggle isDark={isDark} setIsDark={setIsDark} />
         <label>dark mode toggle</label>
       </div>
       <div id="info" className="section-header">
@@ -41,7 +44,7 @@ function App() {
       <div id="map" className="section-header">
         <p className="section-text">MAP</p>
       </div>
-      <Maps />
+      <Maps isDark={isDark}/>
     </div>
   );
 }

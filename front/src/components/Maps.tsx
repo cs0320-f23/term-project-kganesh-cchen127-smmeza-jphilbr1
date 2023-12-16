@@ -16,9 +16,11 @@ export function setMode(newMode: boolean) {
 }
 export var mode: boolean = true;
 
+interface MapProps {
+  isDark;
+}
 
-
-export default function Maps() {
+export default function Maps(props: MapProps) {
   // history, and how to update it
   const [history, setHistory] = useState<(string | string[][])[][]>([]);
   const updateHistory = (command: (string | string[][])[]) => {
@@ -35,7 +37,7 @@ export default function Maps() {
   return (
     <div >
       <div>
-        <MapBox updateHistory={updateHistory} history={history} mode={mode} />
+        <MapBox updateHistory={updateHistory} history={history} mode={mode} isDark={props.isDark}/>
       </div>
       
       {/* Our input comes before our history so that users can scroll down
