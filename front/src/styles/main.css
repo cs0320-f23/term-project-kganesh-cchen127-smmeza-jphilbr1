@@ -120,26 +120,6 @@ body.dark {
   border: 2px solid #8C8A93;
 }
 
-/* table {
-  margin-top: 1vh;
-  width: auto;
-  border: 0;
-}
-
-td,
-th {
-  text-align: center;
-  width: 10%;
-} */
-
-
-/* table,
-th,
-td {
-  border: 1px solid hwb(0 0% 100%);
-  border-collapse: collapse;
-} */
-
 .mapbox-container {
   height: 60vh;
   width: 800px;
@@ -348,6 +328,16 @@ input[type="radio"]:focus {
   outline-offset: max(2px, 0.15em);
 }
 
+.all-radio-buttons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.single-radio-button{
+  padding: 5%;
+}
+
 .visible {
   visibility: visible;
   opacity: 1;
@@ -365,6 +355,7 @@ input[type="radio"]:focus {
 .county-overlay {
   font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
   background-color: #FFFFFF;
+  color: black;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   position: absolute;
@@ -377,21 +368,6 @@ input[type="radio"]:focus {
   /* z-index: 1; */
 }
 
-/* .side-panel {
-  position: relative;
-  top: 0;
-  bottom: 0;
-  left: -300px;
-  height: 65vh;
-  width: 100vh;
-  margin-bottom: 14.5vh;
-  display: flex;
-  overflow: scroll;
-  justify-content: center;
-  background-color: #FFFFFF;
-  border: 2px solid #FFC0CB;
-  margin-left: 10vh;
-} */
 
 .error-notification {
   color: var(--color-header-accent);
@@ -422,7 +398,7 @@ input[type="radio"]:focus {
   left: 40%;
   transform: translateX(-50%);
   width: 600px;
-  height: 400px;
+  height: 500px;
   background: var(--color-background);
   display: flex;
   justify-content: center;

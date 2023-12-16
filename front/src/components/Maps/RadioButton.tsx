@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/main.css"
+import Tooltip from '@mui/material/Tooltip';
 
 // Input boxes contain state. We want to make sure React is managing that state,
 //   so we have a special component that wraps the input box.
@@ -19,30 +20,46 @@ function onValueChange(event){
 return (
   <div>
     <div className="all-radio-buttons" onChange={onValueChange}>
-      <RadioButton
-        label="Unemployment Rate"
-        checked={selectedOption === "Overlay 1"}
-        value="Overlay 1"
-        name="overlay"
-      />
-      <RadioButton
-        label="Labor Force"
-        checked={selectedOption === "Overlay 2"}
-        value="Overlay 2"
-        name="overlay"
-      />
-      <RadioButton
-        label="Unemployed"
-        checked={selectedOption === "Overlay 3"}
-        value="Overlay 3"
-        name="overlay"
-      />
-      <RadioButton
-        label="Number of Employed"
-        checked={selectedOption === "Overlay 4"}
-        value="Overlay 4"
-        name="overlay"
-      />
+      <Tooltip title="Shows the unemployment rate ">
+        <div className="single-radio-button">
+          <RadioButton
+            label="Unemployment Rate"
+            checked={selectedOption === "Overlay 1"}
+            value="Overlay 1"
+            name="overlay"
+          />
+        </div>
+      </Tooltip>
+      <Tooltip title="Shows the unemployment rate ">
+        <div className="single-radio-button">
+          <RadioButton
+            label="Labor Force"
+            checked={selectedOption === "Overlay 2"}
+            value="Overlay 2"
+            name="overlay"
+          />
+        </div>
+      </Tooltip>
+      <Tooltip title="Shows the unemployment rate ">
+        <div className="single-radio-button">
+          <RadioButton
+            label="Unemployed"
+            checked={selectedOption === "Overlay 3"}
+            value="Overlay 3"
+            name="overlay"
+          />
+        </div>
+      </Tooltip>
+      <Tooltip title="Shows the unemployment rate ">
+        <div className="single-radio-button">
+          <RadioButton
+            label="Number of Employed"
+            checked={selectedOption === "Overlay 4"}
+            value="Overlay 4"
+            name="overlay"
+          />
+        </div>
+      </Tooltip>
     </div>
   </div>
 );
