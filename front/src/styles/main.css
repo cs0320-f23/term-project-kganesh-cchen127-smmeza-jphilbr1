@@ -120,7 +120,7 @@ body.dark {
   border: 2px solid #8C8A93;
 }
 
-table {
+/* table {
   margin-top: 1vh;
   width: auto;
   border: 0;
@@ -129,16 +129,16 @@ table {
 td,
 th {
   text-align: center;
-  /* width: 10%; */
-}
+  width: 10%;
+} */
 
 
-table,
+/* table,
 th,
 td {
   border: 1px solid hwb(0 0% 100%);
   border-collapse: collapse;
-}
+} */
 
 .mapbox-container {
   height: 60vh;
@@ -146,6 +146,7 @@ td {
   overflow: auto;
   border: 2px solid --color-accent;
   margin-bottom: 10vh;
+  color: black;
 }
 
 
