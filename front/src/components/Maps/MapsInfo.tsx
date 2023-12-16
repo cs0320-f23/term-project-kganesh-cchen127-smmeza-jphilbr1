@@ -188,7 +188,7 @@ export function MapsInfo(props: MapsInfoProps) {
             <b className="info-header">
               Information for {props.countyState[0]} County:
             </b>
-            {/* <p className="info-header">{props.selectedLongLat}</p> */}
+            <p className="info-header">{props.selectedLongLat}</p>
             <p>Hold Reccomendations: {recommendationData?.longs}</p>
             <p>Short Reccomendations: {recommendationData?.shorts}</p>
 
