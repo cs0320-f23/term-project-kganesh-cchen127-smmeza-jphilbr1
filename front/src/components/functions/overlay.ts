@@ -73,7 +73,7 @@ export const laborLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#4287f5",
-    "fill-opacity": ["/", ["log", ["+",["to-number", ["get", labor], 1]]], ["log", ["+", 1, 4977558]]],
+    "fill-opacity": ["/", ["ln", ["+",["to-number", ["get", labor], 1]]], ["ln", ["+", 1, 4977558]]],
   },
 };
 const unemployed = "unemployed";
@@ -82,7 +82,12 @@ export const unemployedLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#34bf3d",
-    "fill-opacity": ["/", ["to-number", ["get", unemployed]], 609830],
+    "fill-opacity": [
+      "/",
+      ["ln", ["+", ["to-number", ["get", unemployed], 1]]],
+      ["ln", ["+", 1, 609830]],
+    ],
+    // 4730138
   },
 };
 const employed = "employed";
@@ -91,7 +96,11 @@ export const employedLayer: FillLayer = {
   type: "fill",
   paint: {
     "fill-color": "#dade66",
-    "fill-opacity": ["/", ["to-number", ["get", employed]], 4730138],
+    "fill-opacity": [
+      "/",
+      ["ln", ["+", ["to-number", ["get", employed], 1]]],
+      ["ln", ["+", 1, 4730138]],
+    ],
   },
 };
 
