@@ -50,7 +50,6 @@ def generic_bls_endpoint(data_name, measure_code, state_fips, county_fips):
     return response_json
     # return message
 
-
 # Given a full fips code (5 digits), will return a json of BLS employment by
 # industry data for that location
 def fips_to_industry_breakdown(fips_code):
@@ -106,13 +105,13 @@ def fips_to_industry_breakdown(fips_code):
         "employees_educationandhealth":API_Data["Results"]["series"][7]["data"][0]["value"],
         "employees_leisureandhospitality":API_Data["Results"]["series"][8]["data"][0]["value"],
         "employees_otherservices":API_Data["Results"]["series"][9]["data"][0]["value"],
-        # "employees_agriculture":API_Data["Results"]["series"][10]["data"][0]["value"],
     }
 
     # Json that will be returned
     response_map = {
         "status": "success",
         "data" : value,
+        "fips" : fips
     }
 
     response_json = json.dumps(response_map)

@@ -7,7 +7,7 @@ def importantIndustries(employees_mining: int, employees_construction: int, empl
     important_industries_list = []
 
     for i in range(len(employee_count_list)):
-        if (employee_count_list[i] / employed) >= 0.18:
+        if (employee_count_list[i] / employed) >= INDUSTRY_SIGNIFICANCE_THRESHOLD:
             important_industries_list.append(INDUSTRY_LIST[i])
     
     return important_industries_list

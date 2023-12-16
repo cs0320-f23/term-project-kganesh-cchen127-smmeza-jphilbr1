@@ -8,6 +8,7 @@ from FullData import *
 from Name_To_Coords import *
 import sys
 from flask_cors import CORS
+from Scheduler import *
 
 
 sys.path.insert(0, '../test')
@@ -21,6 +22,7 @@ CORS(app, origins=["http://localhost:8000", "https://localhost:8000"])
 
 @app.route('/')
 def index():
+    scheduler_run()
     return "Hello World!"
 
 # --------------------- Primary Endpoints ---------------------------

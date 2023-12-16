@@ -137,7 +137,9 @@ def zooming_function(county, state):
         # Json that will be returned
         response_map = {
             "status": "success",
-            "data": coord
+            "data": coord,
+            "county" : county,
+            "state" : state
         }
 
         response_json = json.dumps(response_map)
