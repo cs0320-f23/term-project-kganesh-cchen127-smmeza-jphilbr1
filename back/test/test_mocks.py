@@ -17,6 +17,7 @@ class TestMocks(unittest.TestCase):
     # - non-empty response message
 
     def test_Mocks(self):
+        # Testing unemployment_rate_mock
         res = json.loads(mock_function("unemployment_rate_mock"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployment rate"]) >= 0)
@@ -24,6 +25,7 @@ class TestMocks(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
+        # Testing labor_force_mock
         res = json.loads(mock_function("labor_force_mock"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["labor force"]) >= 0)
@@ -31,7 +33,7 @@ class TestMocks(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
-
+        # Testing unemployment_mock
         res = json.loads(mock_function("unemployment_mock"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployed"]) >= 0)
@@ -39,13 +41,31 @@ class TestMocks(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
-
+        # Testing employment_mock
         res = json.loads(mock_function("employment_mock"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["employed"]) >= 0)
         self.assertEqual(res["state_fips"], "01")
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
+
+        # Testing industry_employment_mock
+        res = json.loads(mock_function("industry_employment_mock"))
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(res["data"]["employees_mining"] == "-" or int(res["data"]["employees_mining"]) >= 0)
+        self.assertTrue(res["data"]["employees_construction"] == "-" or int(res["data"]["employees_construction"]) >= 0)
+        self.assertTrue(res["data"]["employees_manufacturing"] == "-" or int(res["data"]["employees_manufacturing"]) >= 0)
+        self.assertTrue(res["data"]["employees_tradetransportutilities"] == "-" or int(res["data"]["employees_tradetransportutilities"]) >= 0)
+        self.assertTrue(res["data"]["employees_information"] == "-" or int(res["data"]["employees_information"]) >= 0)
+        self.assertTrue(res["data"]["employees_finance"] == "-" or int(res["data"]["employees_finance"]) >= 0)
+        self.assertTrue(res["data"]["employees_professionalservices"] == "-" or int(res["data"]["employees_professionalservices"]) >= 0)
+        self.assertTrue(res["data"]["employees_educationandhealth"] == "-" or int(res["data"]["employees_educationandhealth"]) >= 0)
+        self.assertTrue(res["data"]["employees_leisureandhospitality"] == "-" or int(res["data"]["employees_leisureandhospitality"]) >= 0)
+        self.assertTrue(res["data"]["employees_otherservices"] == "-" or int(res["data"]["employees_otherservices"]) >= 0)
+        self.assertTrue(int(res["fips"]) >= 0)
+
+
+
 
 
 
