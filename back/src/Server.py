@@ -11,9 +11,9 @@ from flask_cors import CORS
 from Scheduler import *
 
 
-sys.path.insert(0, '../test')
+# sys.path.insert(0, '../test')
 
-from BLS_mocks import mock_function
+import test
 
 
 app = Flask(__name__)

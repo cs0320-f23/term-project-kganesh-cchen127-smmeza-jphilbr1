@@ -1,4 +1,4 @@
-from BLS_mocks import *
+from .BLS_mocks import *
 
 import unittest
 import sys
