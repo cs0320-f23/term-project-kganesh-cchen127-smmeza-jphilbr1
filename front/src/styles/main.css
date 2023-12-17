@@ -558,23 +558,24 @@ input[type="radio"]:focus {
 }
 
 button {
-  margin: 5px;
-  padding: 5px;
+  /* margin: 5px;
+  padding: 5px; */
   cursor: pointer;
   border-radius: 20px;
   border: none;
   outline: none;
   font-size: 12px;
   background-color: transparent;
-  color: #FFFFFF
+  color:var(--color-text)
 }
 
 button:hover {
-  background-color: #FFC0CB;
+  background-color: var(--color-accent);
 }
 
 button.active {
-  background-color: #FFC0CB; 
+  background-color: var(--color-accent
+  ); 
 }
 
 .side-panels {
@@ -588,22 +589,27 @@ button.active {
 }
 
 .side-panel.active {
-  display: block;
+  display: flex;
 }
 
 .two-sided-table {
   display: flex;
-  margin: 20px;
-  background-color: #fff0fa;
-  position: absolute;
-  right: 120px;
-  bottom: -200px;
+  margin: 2%;
+  background-color: var(--color-background);
+  justify-content: center;
+  margin-left: 90%;
+  margin-top: 30%;
+  /* position: absolute; */
+  /* right: 120px; */
+  /* bottom: -200px; */
 }
 
 .table-section {
+ 
   flex: 1;
   margin-right: 20px;
-  color: #000;
+  color: var(--color-text);
+  background-color: var(--color-background);
 }
 
 table {
@@ -619,5 +625,5 @@ th, td {
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color:var(--color-background);
 }
