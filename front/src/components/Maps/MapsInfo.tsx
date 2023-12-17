@@ -60,6 +60,12 @@ export function MapsInfo(props: MapsInfoProps) {
         return "";
     }
 
+    const [selectedTab, setSelectedTab] = useState("recommendPanel");
+
+    const handleTabClick = (tab) => {
+        setSelectedTab(tab);
+    };
+
 
     async function retrieveUnemploymentData(lngLat: number[] | undefined) {
         if (lngLat) {
@@ -192,34 +198,86 @@ export function MapsInfo(props: MapsInfoProps) {
                 </div>
             )}
 
-            <b className="info-header">
-              Information for {props.countyState[0]} County:
-            </b>
-            <p className="info-header">{props.selectedLongLat}</p>
-            <p>Hold Reccomendations: {recommendationData?.longs}</p>
-            <p>Short Reccomendations: {recommendationData?.shorts}</p>
+            
+            {/* <p className="info-header">{props.selectedLongLat}</p> */}
+            
 
-            <div className="chart">
-                <ul className="numbers">
-                    <li><span>{maxValue}</span></li>
-                    <li><span>{maxValue / 2}</span></li>
-                    <li><span>0</span></li>
-                </ul>
-                <ul className="bars">
-                    <li><div className="bar" unemp-amount={values[0] === -1 ? "no unemployment data" : `${values[0]} unemployed`}></div><span>Construction</span></li>
-                    <li><div className="bar" unemp-amount={values[1] === -1 ? "no unemployment data" : `${values[1]} unemployed`}></div><span>Education & Health</span></li>
-                    <li><div className="bar" unemp-amount={values[2] === -1 ? "no unemployment data" : `${values[2]} unemployed`}></div><span>Finance</span></li>
-                    <li><div className="bar" unemp-amount={values[3] === -1 ? "no unemployment data" : `${values[3]} unemployed`}></div><span>Information</span></li>
-                    <li><div className="bar" unemp-amount={values[4] === -1 ? "no unemployment data" : `${values[4]} unemployed`}></div><span>Leisure & Hospitality</span></li>
-                    <li><div className="bar" unemp-amount={values[5] === -1 ? "no unemployment data" : `${values[5]} unemployed`}></div><span>Manufacturing</span></li>
-                    <li><div className="bar" unemp-amount={values[6] === -1 ? "no unemployment data" : `${values[6]} unemployed`}></div><span>Mining</span></li>
-                    <li><div className="bar" unemp-amount={values[7] === -1 ? "no unemployment data" : `${values[7]} unemployed`}></div><span>Other services</span></li>
-                    <li><div className="bar" unemp-amount={values[8] === -1 ? "no unemployment data" : `${values[8]} unemployed`}></div><span>Professional services</span></li>
-                    <li><div className="bar" unemp-amount={values[9] === -1 ? "no unemployment data" : `${values[9]} unemployed`}></div><span>Trade, Transport & Utilities</span></li>
-                </ul>
+            <div className="side-panels">
+                <b className="info-header">
+              {props.countyState[0]} County
+            </b>
+            <p className="info-subheader">
+                {props.countyState[1]}
+            </p>
+            <div className="tab-container">
+                <button
+                    className={selectedTab === "recommendPanel" ? "active" : ""}
+                    onClick={() => handleTabClick("recommendPanel")}
+                >
+                    Recommendations
+                </button>
+                <button
+                    className={selectedTab === "unempPanel" ? "active" : ""}
+                    onClick={() => handleTabClick("unempPanel")}
+                >
+                    Unemployment Data
+                </button>
+            </div>
+                <div className={`side-panel ${selectedTab === "recommendPanel" ? "active" : ""}`}>
+                <div className="two-sided-table">
+                    <div className="table-section">
+                        <h2>Hold</h2>
+                        <table>
+                        <tbody>
+                            {recommendationData?.longs.map((cellData, index) => (
+                                <tr key={index}>
+                                    <td>{cellData}</td>
+                                </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div className="table-section">
+                        <h2>Short</h2>
+                        <table>
+                        <tbody>
+                            {recommendationData?.shorts.map((cellData, index) => (
+                                    <tr key={index}>
+                                        <td>{cellData}</td>
+                                    </tr>
+                                    ))}
+                        </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+            <div className={`side-panel ${selectedTab === "unempPanel" ? "active" : ""}`}>
+
+                <div className="chart">
+                    <ul className="numbers">
+                        <li><span>{maxValue}</span></li>
+                        <li><span>{maxValue / 2}</span></li>
+                        <li><span>0</span></li>
+                    </ul>
+                    <ul className="bars">
+                        <li><div className="bar" unemp-amount={values[0] === -1 ? "no unemployment data" : `${values[0]} unemployed`}></div><span>Construction</span></li>
+                        <li><div className="bar" unemp-amount={values[1] === -1 ? "no unemployment data" : `${values[1]} unemployed`}></div><span>Education & Health</span></li>
+                        <li><div className="bar" unemp-amount={values[2] === -1 ? "no unemployment data" : `${values[2]} unemployed`}></div><span>Finance</span></li>
+                        <li><div className="bar" unemp-amount={values[3] === -1 ? "no unemployment data" : `${values[3]} unemployed`}></div><span>Information</span></li>
+                        <li><div className="bar" unemp-amount={values[4] === -1 ? "no unemployment data" : `${values[4]} unemployed`}></div><span>Leisure & Hospitality</span></li>
+                        <li><div className="bar" unemp-amount={values[5] === -1 ? "no unemployment data" : `${values[5]} unemployed`}></div><span>Manufacturing</span></li>
+                        <li><div className="bar" unemp-amount={values[6] === -1 ? "no unemployment data" : `${values[6]} unemployed`}></div><span>Mining</span></li>
+                        <li><div className="bar" unemp-amount={values[7] === -1 ? "no unemployment data" : `${values[7]} unemployed`}></div><span>Other services</span></li>
+                        <li><div className="bar" unemp-amount={values[8] === -1 ? "no unemployment data" : `${values[8]} unemployed`}></div><span>Professional services</span></li>
+                        <li><div className="bar" unemp-amount={values[9] === -1 ? "no unemployment data" : `${values[9]} unemployed`}></div><span>Trade, Transport & Utilities</span></li>
+                    </ul>
+                </div>
+                </div>
             </div>
           </div>
         </div>
+
       </>
     );
 }

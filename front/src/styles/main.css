@@ -425,7 +425,18 @@ input[type="radio"]:focus {
 }
 
 .info-header {
-  margin-left: 120px;
+  position: absolute;
+  margin-left: 12px;
+  font-size: 30px;
+  top: -50px;
+}
+
+.info-subheader {
+  position: absolute;
+  margin-left: 14px;
+  font-size: 14px;
+  margin-top: -22px;
+  top: 10px;
 }
 
 .numbers {
@@ -530,11 +541,83 @@ input[type="radio"]:focus {
   left: 0;
   width: 100%;
   height: 120%;
-  background: #ffffff; /* Background color */
+  background: #fff0fa; 
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 20px;
-  color: #333; /* Text color */
+  color: #333; 
   z-index: 9999;
+}
+
+.tab-container {
+  display: flex;
+  position: absolute;
+  margin: 10px;
+  right: 120px;
+}
+
+button {
+  margin: 5px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  background-color: transparent;
+  color: #FFFFFF
+}
+
+button:hover {
+  background-color: #FFC0CB;
+}
+
+button.active {
+  background-color: #FFC0CB; 
+}
+
+.side-panels {
+  display: flex;
+  /* Add other styles as needed */
+}
+
+.side-panel {
+  display: none;
+  /* Add other styles as needed */
+}
+
+.side-panel.active {
+  display: block;
+}
+
+.two-sided-table {
+  display: flex;
+  margin: 20px;
+  background-color: #fff0fa;
+  position: absolute;
+  right: 120px;
+  bottom: -200px;
+}
+
+.table-section {
+  flex: 1;
+  margin-right: 20px;
+  color: #000;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
 }
