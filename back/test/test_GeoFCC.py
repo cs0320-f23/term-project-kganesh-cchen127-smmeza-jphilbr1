@@ -1,9 +1,8 @@
 import unittest
 import sys
 
-sys.path.insert(0, '../src')
-
-from ApiBLS import * 
+sys.path.insert(0, '../')
+from src.production import *
 
 
 class TestGeoFCC(unittest.TestCase):

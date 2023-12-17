@@ -1,19 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 import json
-from CoordToFips import *
-from ApiBLS import *
-from DetailedRecs import detailed_data
-from FullData import *
-from Name_To_Coords import *
+from src.production import *
+from test import *
 import sys
 from flask_cors import CORS
-from Scheduler import *
 
-
-# sys.path.insert(0, '../test')
-
-import test
 
 
 app = Flask(__name__)

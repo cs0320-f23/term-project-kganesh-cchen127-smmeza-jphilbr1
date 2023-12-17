@@ -1,9 +1,9 @@
 import json
 import math
-from ApiBLS import * 
+from .ApiBLS import * 
 
 def update_geojson():
-    f = open('../data/all_county_geojson.json')
+    f = open('./data/all_county_geojson.json')
     data = json.load(f)
     f.close
 
@@ -37,7 +37,7 @@ def update_geojson():
             for j in range(len(retVal)):
                 data["features"][50*i+j]["properties"].update({var_name:retVal[j][1]})
 
-    with open("../data/all_county_geojson_with_data.json", "w") as fp:
+    with open("./data/all_county_geojson_with_data.json", "w") as fp:
         json.dump(data, fp)
 
     return data
@@ -45,7 +45,7 @@ def update_geojson():
 # Returns contents of GEOJson file with all geo-tagged data
 def full_data_retrieval():
 
-    f = open('../data/all_county_geojson_with_data.json')
+    f = open('./data/all_county_geojson_with_data.json')
     data = json.load(f)
     f.close
 
