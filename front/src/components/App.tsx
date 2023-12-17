@@ -39,7 +39,11 @@ function App() {
         <p className="section-text">INFO</p>
       </div>
       <div className="Info">
-        <p>click on the toggling thing womp womp</p>
+        <p className="Info-paragraph">
+          <b>dot.commodities</b> simplifies the economic data viewing experience, and
+          uses data to generate commodity futures trading recommendations for
+          local financial institutions to hedge deposit risk.{" "}
+        </p>
       </div>
       <div id="map" className="section-header">
         <p className="section-text">MAP</p>
