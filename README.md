@@ -142,3 +142,4 @@ TODOs:
 1. Testing
 1. Return max values for Sydney
 1. Fix FCC api not working some time -- try catch block.loop?
+1. Add error checking to Server.py for presence/form factor of args
