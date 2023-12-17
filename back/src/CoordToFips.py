@@ -17,6 +17,7 @@ def coordToStateAndCountyConversion():
     response = requests.get(url)
     data = response.json()
 
+
     # Putting data into a dictionary
     location_info = {}
     location_info["lat"] = data["input"]["lat"]
@@ -27,7 +28,7 @@ def coordToStateAndCountyConversion():
     location_info["county_name"] = data["results"][0]["county_name"]
     location_info["state_abbr"] = data["results"][0]["state_code"]
 
-    return location_info
+    return json.dumps(location_info)
 
     # print(coordToStateAndCountyConversion(41.8240, -71.4128))
 
