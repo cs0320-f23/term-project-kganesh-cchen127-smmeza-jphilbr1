@@ -45,6 +45,13 @@ def zooming_endpoint():
     state = request.args.get('state')
     return zooming_function(county, state)
 
+# Coordinates to FIPS Code Endpoint
+@app.route('/coord_to_fips')
+def coord_to_fips_endpoint():
+    lat = request.args.get('lat')
+    long = request.args.get('long')
+    return coordToStateAndCountyConversion(lat, long)
+
 
 # -------------- Mock Endpoints --------------
 @app.route('/mock')
@@ -59,11 +66,6 @@ def mock():
 def test():
     fips = request.args.get("fips")
     return fips_to_industry_breakdown(fips)
-
-# Coordinates to FIPS Code Endpoint
-@app.route('/coord_to_fips')
-def coord_to_fips_endpoint():
-    return coordToStateAndCountyConversion()
 
 # Unemployment Endpoint 
 @app.route('/unemployment_rate')

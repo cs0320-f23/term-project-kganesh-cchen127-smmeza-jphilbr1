@@ -3,10 +3,9 @@ import requests
 import json
 
 # Given latitude and longitude, returns a map of useful location information for those coords, including fips codes, county name, and state name
-def coordToStateAndCountyConversion():
+def coordToStateAndCountyConversion(lat, long):
     # Ex (Prov, RI): https://geo.fcc.gov/api/census/area?lat=41.8240&lon=-71.4128
-    lat = request.args.get('lat')
-    long = request.args.get('long')
+
     '''
     {"input":{"lat":41.824,"lon":-71.4128,"censusYear":"2020"},"results":[{"block_fips":"440070008003031","bbox":[-71.413399,41.823669,-71.412354,41.824448],"county_fips":"44007","county_name":"Providence County","state_fips":"44","state_code":"RI","state_name":"Rhode Island","block_pop_2020":3,"amt":"AMT001","bea":"BEA003","bta":"BTA364","cma":"CMA038","eag":"EAG701","ivm":"IVM038","mea":"MEA001","mta":"MTA008","pea":"PEA007","rea":"REA001","rpc":"RPC001","vpc":"VPC001"}]}
     '''
