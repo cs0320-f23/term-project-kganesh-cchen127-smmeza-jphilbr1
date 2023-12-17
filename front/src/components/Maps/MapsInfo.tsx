@@ -42,6 +42,7 @@ export function MapsInfo(props: MapsInfoProps) {
     const [maxValue, setMaxValue] = useState<number>(10000);
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [recommendationData, setRecommendationData] = useState<RecommendationData>();
+    const [initialLoad, setInitialLoad] = useState<boolean>(true);
 
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
@@ -63,6 +64,7 @@ export function MapsInfo(props: MapsInfoProps) {
     async function retrieveUnemploymentData(lngLat: number[] | undefined) {
         if (lngLat) {
             try {
+                setInitialLoad(false);
                 setIsLoading(true);
                 const jsonResponse = await accessUnemploymentData(lngLat);
                 console.log("please", isUnemploymentLoadResopnse(jsonResponse))
@@ -183,6 +185,11 @@ export function MapsInfo(props: MapsInfoProps) {
               <div className="loading-screen">
                 <StageSpinner size="100" color="#EB9FEF" loading={isLoading} />
               </div>
+            )}
+            {initialLoad && (
+                <div className="default-screen">
+                    Select a county on the map to view data!
+                </div>
             )}
 
             <b className="info-header">
