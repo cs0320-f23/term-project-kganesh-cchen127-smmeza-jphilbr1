@@ -10,6 +10,9 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.0",
     "hamburger-react": "^2.5.0",
     "mapbox-gl": "^2.15.0",
     "playwright": "^1.39.0",

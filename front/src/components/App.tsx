@@ -44,7 +44,26 @@ function App() {
       <div id="map" className="section-header">
         <p className="section-text">MAP</p>
       </div>
-      <Maps isDark={isDark}/>
+      <Maps isDark={isDark} />
+      <div className="disclosure">
+        <p className="disclosure">
+          While dot.commodities strives to provide accurate and timely
+          information, there may be inadvertent inaccuracies, errors and
+          omissions, for which we apologize and expressly disclaim any
+          liability. We reserve the right to make changes and corrections at any
+          time, without notice. The content is provided on an "AS IS," "AS
+          AVAILABLE" Basis. Any information denoting past or historical
+          performance is not indicative of future performance and no reliance
+          shall be placed on such information. Investing in commodity futures
+          involves risk and may not be appropriate for all. Members risk losing
+          their cost to enter any transaction, including fees. You should
+          carefully consider whether taking recommendations from dot.commodities
+          is appropriate for you in light of your investment experience and
+          financial resources. Any trading decisions you make are solely your
+          responsibility and at your own risk. Past performance is not
+          necessarily indicative of future results.
+        </p>
+      </div>
     </div>
   );
 }
