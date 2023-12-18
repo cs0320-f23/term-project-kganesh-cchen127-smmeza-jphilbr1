@@ -231,7 +231,7 @@ export function MapsInfo(props: MapsInfoProps) {
                         <tbody>
                             {recommendationData?.longs.map((cellData, index) => (
                                 <tr key={index}>
-                                    <td>{cellData}</td>
+                                    <td>{cellData.charAt(0).toUpperCase() + cellData.slice(1)}</td>
                                 </tr>
                                 ))}
                             </tbody>
@@ -244,7 +244,7 @@ export function MapsInfo(props: MapsInfoProps) {
                         <tbody>
                             {recommendationData?.shorts.map((cellData, index) => (
                                     <tr key={index}>
-                                        <td>{cellData}</td>
+                                        <td>{cellData.charAt(0).toUpperCase() + cellData.slice(1)}</td>
                                     </tr>
                                     ))}
                         </tbody>
