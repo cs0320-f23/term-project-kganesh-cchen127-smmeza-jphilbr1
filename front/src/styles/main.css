@@ -380,6 +380,7 @@ input[type="radio"]:focus {
 .right{
     border: 10px solid var(--color-accent);
     overflow-x: hidden;
+    overflow-y: scroll;
 }
 
 .maps-info {
@@ -580,7 +581,7 @@ button.active {
 
 .side-panels {
   display: flex;
-  /* Add other styles as needed */
+  justify-content: space-between;
 }
 
 .side-panel {
@@ -593,23 +594,46 @@ button.active {
 }
 
 .two-sided-table {
-  display: flex;
+  /* display: flex;
   margin: 2%;
   background-color: var(--color-background);
   justify-content: center;
   margin-left: 90%;
-  margin-top: 30%;
+  margin-top: 30%; */
+  /*
   /* position: absolute; */
   /* right: 120px; */
   /* bottom: -200px; */
+  width: 600px;
+  /* width: 60%; */
+  height: 300px;
+  display: flex;
+  /* margin-left: 90px; */
+  /* background-color: #000; */
+  /* padding-left: 5px; */
+  margin-top: 50px;
+  margin-right: 50px;
+  padding-right: 0px;
 }
 
-.table-section {
- 
+.table-section-left {
   flex: 1;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   color: var(--color-text);
-  background-color: var(--color-background);
+  background-color: #655953;
+  margin-left: 30px;
+  max-width: 190px;
+  padding-left: 10px;
+}
+
+.table-section-right {
+  flex: 1;
+  /* margin-right: 20px; */
+  color: var(--color-text);
+  background-color: #817878;
+  margin-left: 20px;
+  max-width: 190px;
+  padding-left: 10px;
 }
 
 table {
@@ -619,11 +643,10 @@ table {
 }
 
 th, td {
-  border: 1px solid #ddd;
-  padding: 10px;
+  border: none;
+  padding: 3px;
   text-align: left;
+  max-width: 10px;
 }
 
-th {
-  background-color:var(--color-background);
-}
+

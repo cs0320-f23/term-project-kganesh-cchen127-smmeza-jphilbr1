@@ -198,17 +198,6 @@ export function MapsInfo(props: MapsInfoProps) {
                 </div>
             )}
 
-            
-            {/* <p className="info-header">{props.selectedLongLat}</p> */}
-            
-
-            <div className="side-panels">
-                <b className="info-header">
-              {props.countyState[0]} County
-            </b>
-            <p className="info-subheader">
-                {props.countyState[1]}
-            </p>
             <div className="tab-container">
                 <button
                     className={selectedTab === "recommendPanel" ? "active" : ""}
@@ -223,9 +212,20 @@ export function MapsInfo(props: MapsInfoProps) {
                     Unemployment Data
                 </button>
             </div>
+            {/* <p className="info-header">{props.selectedLongLat}</p> */}
+            
+
+            <div className="side-panels">
                 <div className={`side-panel ${selectedTab === "recommendPanel" ? "active" : ""}`}>
+                <div className="info-header">
+                    <b>{props.countyState[0]} County</b>
+                </div>
+                <div className="info-subheader">
+                    {props.countyState[1]}
+                </div>
+    
                 <div className="two-sided-table">
-                    <div className="table-section">
+                    <div className="table-section-left">
                         <h2>Hold</h2>
                         <table>
                         <tbody>
@@ -238,7 +238,7 @@ export function MapsInfo(props: MapsInfoProps) {
                         </table>
                     </div>
 
-                    <div className="table-section">
+                    <div className="table-section-right">
                         <h2>Short</h2>
                         <table>
                         <tbody>
@@ -252,8 +252,14 @@ export function MapsInfo(props: MapsInfoProps) {
                     </div>
                     </div>
                 </div>
-            <div className={`side-panel ${selectedTab === "unempPanel" ? "active" : ""}`}>
 
+            <div className={`side-panel ${selectedTab === "unempPanel" ? "active" : ""}`}>
+            <div className="info-header">
+                <b>{props.countyState[0]} County </b>
+            </div>
+            <div className="info-subheader">
+                {props.countyState[1]}
+            </div>
                 <div className="chart">
                     <ul className="numbers">
                         <li><span>{maxValue}</span></li>

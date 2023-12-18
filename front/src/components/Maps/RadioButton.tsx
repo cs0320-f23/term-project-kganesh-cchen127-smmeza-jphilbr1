@@ -30,7 +30,7 @@ return (
           />
         </div>
       </Tooltip>
-      <Tooltip title="Shows the unemployment rate ">
+      <Tooltip title="Shows the labor force rate ">
         <div className="single-radio-button">
           <RadioButton
             label="Labor Force"
@@ -40,7 +40,7 @@ return (
           />
         </div>
       </Tooltip>
-      <Tooltip title="Shows the unemployment rate ">
+      <Tooltip title="Shows the number unemployed">
         <div className="single-radio-button">
           <RadioButton
             label="Unemployed"
@@ -50,7 +50,7 @@ return (
           />
         </div>
       </Tooltip>
-      <Tooltip title="Shows the unemployment rate ">
+      <Tooltip title="Shows the number of employed ">
         <div className="single-radio-button">
           <RadioButton
             label="Number of Employed"
