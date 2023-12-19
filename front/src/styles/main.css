@@ -398,7 +398,8 @@ input[type="radio"]:focus {
   position: absolute;
   top: 0;
   left: 40%;
-  transform: translateX(-50%);
+  transform: translateX(-43%);
+  top: -20%;
   width: 600px;
   height: 500px;
   background: var(--color-background);
@@ -539,10 +540,10 @@ input[type="radio"]:focus {
 
 .default-screen {
   position: absolute;
-  top: -50px;
-  left: 0;
+  top: -90px;
+  left: -2%;
   width: 100%;
-  height: 120%;
+  height: 150%;
   background: #fff0fa; 
   display: flex;
   justify-content: center;
@@ -550,6 +551,7 @@ input[type="radio"]:focus {
   font-size: 20px;
   color: #333; 
   z-index: 9999;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .tab-container {
@@ -661,4 +663,6 @@ h2 {
   margin-top: 10px;
 }
 
-
+.icon {
+  margin-right: 5px;
+}

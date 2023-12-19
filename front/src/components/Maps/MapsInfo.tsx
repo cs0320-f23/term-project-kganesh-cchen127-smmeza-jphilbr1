@@ -2,6 +2,9 @@ import React from "react";
 import "../../styles/main.css";
 import { StageSpinner } from "react-spinners-kit";
 import { useRef, useEffect, useState } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
+
 
 
 interface MapsInfoProps {
@@ -43,9 +46,16 @@ export function MapsInfo(props: MapsInfoProps) {
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [recommendationData, setRecommendationData] = useState<RecommendationData>();
     const [initialLoad, setInitialLoad] = useState<boolean>(true);
+    const [county, setCounty] = useState<string>("no county");
+    const [state, setState] = useState<string>("no state");
 
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
+        setTimeout(() => {
+            setCounty(props.countyState[0]);
+            setState(props.countyState[1]);
+        }, 100)
+        console.log("whaddup", state);
     }, [props.countyState])
 
 
@@ -76,16 +86,14 @@ export function MapsInfo(props: MapsInfoProps) {
                 console.log("please", isUnemploymentLoadResopnse(jsonResponse))
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
                     let data = jsonResponse.breakdown.data
-                    setUnemploymentData(data);
                     let rec = jsonResponse.rec;
+                    setUnemploymentData(data);
                     setRecommendationData(rec);
+                    setIsLoading(false);
                 }
             } catch (error) {
-
-            } finally {
-                setIsLoading(false);
-            }
         }
+    }
     }
 
     function isUnemploymentLoadResopnse(rjson: any): rjson is UnemploymentLoadResponse {
@@ -194,7 +202,7 @@ export function MapsInfo(props: MapsInfoProps) {
             )}
             {initialLoad && (
                 <div className="default-screen">
-                    Select a county on the map to view data!
+                    <i>Select a county on the map to view data!</i>
                 </div>
             )}
 
@@ -218,10 +226,10 @@ export function MapsInfo(props: MapsInfoProps) {
             <div className="side-panels">
                 <div className={`side-panel ${selectedTab === "recommendPanel" ? "active" : ""}`}>
                 <div className="info-header">
-                    <b>{props.countyState[0]} County</b>
+                    <b>{county} {state === "Louisiana" ? "Parish" : state === "Alaska" ? "Borough": "County"} </b>
                 </div>
                 <div className="info-subheader">
-                    {props.countyState[1]}
+                    {state}
                 </div>
     
                 <div className="two-sided-table">
@@ -231,7 +239,10 @@ export function MapsInfo(props: MapsInfoProps) {
                         <tbody>
                             {recommendationData?.longs.map((cellData, index) => (
                                 <tr key={index}>
-                                    <td>{cellData.charAt(0).toUpperCase() + cellData.slice(1)}</td>
+                                    <td>
+                                    <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />                                        
+                                    {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
+                                    </td>
                                 </tr>
                                 ))}
                             </tbody>
@@ -243,8 +254,11 @@ export function MapsInfo(props: MapsInfoProps) {
                         <table>
                         <tbody>
                             {recommendationData?.shorts.map((cellData, index) => (
-                                    <tr key={index}>
-                                        <td>{cellData.charAt(0).toUpperCase() + cellData.slice(1)}</td>
+                                    <tr key={index}>                                      
+                                        <td>
+                                            <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />  
+                                            {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
+                                        </td>
                                     </tr>
                                     ))}
                         </tbody>
@@ -255,10 +269,10 @@ export function MapsInfo(props: MapsInfoProps) {
 
             <div className={`side-panel ${selectedTab === "unempPanel" ? "active" : ""}`}>
             <div className="info-header">
-                <b>{props.countyState[0]} County </b>
+                <b>{county} {state === "Louisiana" ? "Parish" : state === "Alaska" ? "Borough": "County"} </b>
             </div>
             <div className="info-subheader">
-                {props.countyState[1]}
+                {state}
             </div>
                 <div className="chart">
                     <ul className="numbers">
@@ -286,4 +300,48 @@ export function MapsInfo(props: MapsInfoProps) {
 
       </>
     );
+}
+
+function chooseIcon(commodity: string): IconDefinition {
+    switch (commodity) {
+        case "oil":
+            return faOilWell;
+        case "coal":
+            return faFire;
+        case "timber":
+            return faTree;
+        case "copper":
+            return faCoins;
+        case "interest_rates":
+            return faPercent;
+        case "plastic":
+            return faBottleWater;
+        case "propane":
+            return faDroplet;
+        case "molybdenum":
+            return faAtom;
+        case "iron":
+            return faCube;
+        case "electricity":
+            return faBolt;
+        case "steel":
+            return faIndustry;
+        case "aluminum":
+            return faCubes;
+        case "gasoline":
+            return faGasPump;
+        case "ethanol":
+            return faSeedling;
+        case "silicon":
+            return faMicrochip;
+        case "cobalt":
+            return faBattery;
+        case "gold":
+            return faRing;
+        case "rubber":
+            return faEraser;
+    default:
+        return faQuestion
+    }
+ 
 }
