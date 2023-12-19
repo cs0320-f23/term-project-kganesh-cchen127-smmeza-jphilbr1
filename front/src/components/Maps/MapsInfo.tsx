@@ -343,5 +343,13 @@ function chooseIcon(commodity: string): IconDefinition {
     default:
         return faQuestion
     }
- 
+}
+
+function commodityHover(commodity: string): string {
+    switch (commodity) {
+        case "oil":
+            return "Oil commodities include West Texas Intermediate Crude and Brent Crude. Additional due diligence should be performed to verify precise commodity exposure."
+    default:
+        return "no info"
+    }
 }
