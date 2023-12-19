@@ -4,6 +4,7 @@ import { StageSpinner } from "react-spinners-kit";
 import { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -240,7 +241,9 @@ export function MapsInfo(props: MapsInfoProps) {
                             {recommendationData?.longs.map((cellData, index) => (
                                 <tr key={index}>
                                     <td>
-                                    <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />                                        
+                                    <Tooltip title={commodityHover(cellData)}>
+                                    <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />     
+                                    </Tooltip>                                   
                                     {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
                                     </td>
                                 </tr>
