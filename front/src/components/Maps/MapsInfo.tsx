@@ -241,7 +241,7 @@ export function MapsInfo(props: MapsInfoProps) {
                             {recommendationData?.longs.map((cellData, index) => (
                                 <tr key={index}>
                                     <td>
-                                    <Tooltip title={commodityHover(cellData)}>
+                                    <Tooltip arrow placement="top" title={commodityHover(cellData)}>
                                     <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />     
                                     </Tooltip>                                   
                                     {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
@@ -259,8 +259,11 @@ export function MapsInfo(props: MapsInfoProps) {
                             {recommendationData?.shorts.map((cellData, index) => (
                                     <tr key={index}>                                      
                                         <td>
+                                            <Tooltip arrow placement="top" title={commodityHover(cellData)}>
                                             <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />  
+                                            </Tooltip>
                                             {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
+                                            
                                         </td>
                                     </tr>
                                     ))}
@@ -351,8 +354,42 @@ function chooseIcon(commodity: string): IconDefinition {
 function commodityHover(commodity: string): string {
     switch (commodity) {
         case "oil":
-            return "Oil commodities include West Texas Intermediate Crude and Brent Crude. Additional due diligence should be performed to verify precise commodity exposure."
-    default:
-        return "no info"
+            return "Oil commodities include West Texas Intermediate Crude, Brent Crude, Light Crude, Middle East Sour Crude, MACI Crude, BCI Crude, Oman Crude, and JADE Palm Crude. Additional due diligence should be performed to verify precise commodity exposure."
+        case "coal":
+            return "Coal commodities include Rotterdam Coal and Richard Bay Coal. Additional due diligence should be performed to verify precise commodity exposure.";
+        case "timber":
+            return "Timber commodities include Random Length Lumber, Hardwood Pulp, and Softwood Pulp. Additional due diligence should be performed to verify precise commodity exposure."
+        case "copper":
+            return "Copper commodities include Copper, High Grade Copper, and GradeA Copper. Additional due diligence should be performed to verify precise commodity exposure."
+        case "plastic":
+            return "Plastic is traded as a commodity. Additional due diligence should be performed to verify precise commodity.";
+        case "propane":
+            return "Propane is traded as a commodity. Additional due diligence should be performed to verify precise commodity.";
+        case "molybdenum":
+            return "Molybdenum is traded as a commodity. Additional due diligence should be performed to verify precise commodity exposure."
+        case "iron":
+            return "Iron is traded as a commodity. Additional due diligence should be performed to verify precise commodity exposure.";
+        case "electricity":
+            return "Electricity is traded as a commodity. Additional due diligence should be performed to verify precise commodity exposure.";
+        case "steel":
+            return "Steel is traded as a commodity. Additional due diligence should be performed to verify precise commodity.";
+        case "aluminum":
+            return "Aluminum is traded as a commodity. Additional due diligence should be performed to verify precise commodity.";
+        case "gasoline":
+            return "Gasoline commodities include Gasoline RBOB, Gasoline Gulf Coast, and Gasoline Unleaded. Additional due diligence should be performed to verify precise commodity.";
+        case "rubber":
+            return "Rubber commodities include JADE TSR 20 Rubber. Additional due diligence should be performed to verify precise commodity.";
+        case "ethanol":
+            return "Ethanol commodities include Ethanol Gulf Coast, Ethanol Los Angeles, and Ethanol New York. Additional due diligence should be performed to verify precise commodity.";
+        case "silicon":
+            return "Silicon is traded as a commodity. Additional due diligence should be performed to verify precise commodity.";
+        case "gold":
+            return "Gold commodities include Mini-Sized Gold, 100 oz CBOT Gold, Gold TRAKRS Index, Gold, and Gold Asian. Additional due diligence should be performed to verify precise commodity exposure."
+        case "cobalt":
+            return "Cobalt is traded as a commodity. Additional due diligence should be performed to verify precise commodity exposure."
+        case "interest_rates":
+            return "Interest rate commodities include differing durations of interest rate swaps, differing durations of US Dollar and other sovereign bonds, and differing durations of Eurodollar deposits. Additional due diligence should be performed to verify precise commodity.";
+        default:
+            return "no info"
     }
 }
