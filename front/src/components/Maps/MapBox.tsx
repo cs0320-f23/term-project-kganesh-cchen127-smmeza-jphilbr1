@@ -389,7 +389,7 @@ function MapBox(props: MapBoxprops) {
   async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
     if (args.length === 2) {
       const url: string = 
-      "http://127.0.0.1:5000/zoom?county=" + args[0] + "&state=" + args[1];
+      "https://csci-term-project-backend.onrender.com/zoom?county=" + args[0] + "&state=" + args[1];
       const result = await fetch(url)
       .then((response) => response.json());
       return result;
