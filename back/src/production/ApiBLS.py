@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 import json
-from CoordToFips import *
-from CONSTANTS import *
+from .CoordToFips import *
+from .CONSTANTS import *
 
 # --------------- Generic Endpoint Function------------------------
 # Enter a data_name (ex: unemployment rate) and the corresponding measure code 

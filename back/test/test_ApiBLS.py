@@ -1,9 +1,8 @@
 import unittest
 import sys
 
-sys.path.insert(0, '../src')
-
-from ApiBLS import * 
+sys.path.insert(0, '../')
+from src.production import *
 
 
 class TestApiBLS(unittest.TestCase):
@@ -39,14 +38,20 @@ class TestApiBLS(unittest.TestCase):
         self.assertTrue(len(res["message"]) > 0)
 
 
-        res = json.loads(generic_bls_endpoint("employed", "05", "01", "001"))
+        res = json.loads(coords_industry_data_endpoint(32.5353, -86.6423))
         self.assertEqual(res["status"], "success")
-        self.assertTrue(float(res["employed"]) >= 0)
-        self.assertEqual(res["state_fips"], "01")
-        self.assertEqual(res["county_fips"], "001")
-        self.assertTrue(len(res["message"]) > 0)
+        self.assertTrue(float(res["data"]["employees_mining"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_construction"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_manufacturing"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_tradetransportutilities"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_information"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_finance"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_professionalservices"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_educationandhealth"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_leisureandhospitality"]) >= 0)
+        self.assertTrue(float(res["data"]["employees_otherservices"]) >= 0)
+        self.assertEqual(res["fips"], "01001")
         
-
 
 
 if __name__ == '__main__':

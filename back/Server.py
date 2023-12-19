@@ -1,19 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import requests
 import json
-from CoordToFips import *
-from ApiBLS import *
-from DetailedRecs import detailed_data
-from FullData import *
-from Name_To_Coords import *
+from src.production import *
+from test import *
 import sys
 from flask_cors import CORS
-from Scheduler import *
 
-
-sys.path.insert(0, '../test')
-
-from BLS_mocks import mock_function
 
 
 app = Flask(__name__)
@@ -46,6 +38,13 @@ def zooming_endpoint():
     state = request.args.get('state')
     return zooming_function(county, state)
 
+# Coordinates to FIPS Code Endpoint
+@app.route('/coord_to_fips')
+def coord_to_fips_endpoint():
+    lat = request.args.get('lat')
+    long = request.args.get('long')
+    return coordToStateAndCountyConversion(lat, long)
+
 
 # -------------- Mock Endpoints --------------
 @app.route('/mock')
@@ -60,11 +59,6 @@ def mock():
 def test():
     fips = request.args.get("fips")
     return fips_to_industry_breakdown(fips)
-
-# Coordinates to FIPS Code Endpoint
-@app.route('/coord_to_fips')
-def coord_to_fips_endpoint():
-    return coordToStateAndCountyConversion()
 
 # Unemployment Endpoint 
 @app.route('/unemployment_rate')
