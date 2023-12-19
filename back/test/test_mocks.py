@@ -1,7 +1,7 @@
 import unittest
 import sys
 import json
-import BLS_mocks
+from .BLS_mocks import *
 
 
 
@@ -14,14 +14,14 @@ class TestMocks(unittest.TestCase):
     # - non-empty response message
 
     def test_Mocks(self):
-        res = BLS_mocks.mock_function("unemployment_rate_mock")
+        res = mock_function("unemployment_rate_mock")
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployment_rate"]) >= 0)
         # self.assertEqual(res["state_fips"], "01")
         # self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
-        res = BLS_mocks.mock_function("labor_force_mock")
+        res = mock_function("labor_force_mock")
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["labor_force"]) >= 0)
         # self.assertEqual(res["state_fips"], "01")
@@ -29,7 +29,7 @@ class TestMocks(unittest.TestCase):
         self.assertTrue(len(res["message"]) > 0)
 
 
-        res = BLS_mocks.mock_function("unemployment_mock")
+        res = mock_function("unemployment_mock")
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployed"]) >= 0)
         # self.assertEqual(res["state_fips"], "01")
@@ -37,7 +37,7 @@ class TestMocks(unittest.TestCase):
         self.assertTrue(len(res["message"]) > 0)
 
 
-        res = BLS_mocks.mock_function("employment_mock")
+        res = mock_function("employment_mock")
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["employed"]) >= 0)
         # self.assertEqual(res["state_fips"], "01")
