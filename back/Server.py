@@ -11,6 +11,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:8000", "https://localhost:8000"])
 
+
 @app.route('/')
 def index():
     scheduler_run()
