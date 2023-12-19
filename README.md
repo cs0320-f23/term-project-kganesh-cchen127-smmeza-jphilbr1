@@ -94,13 +94,11 @@ This searches the redlined data's area description variable for the given search
 
 ## Run the Tests
 
-### Backend Tests
+### Backend Python Unittest Tests
 
-In IntelliJ, run any file in (or any file in any subfolder of):
-maps-dlauerma-jphilbr1\back\src\test\java\edu\brown\cs\student\CSV
-or in:
-maps-dlauerma-jphilbr1\back\src\test\java\edu\brown\cs\student\Server
-or in:
+Change directory into ./test folder.
+
+For each testing filename: `python -m unittest filename`
 
 ### Frontend Playwright Tests
 
@@ -139,7 +137,6 @@ Acknowledgements:
 
 TODOs:
 1. Rewrite data imports as variable imports
-1. Deployment!
 1. Testing
 1. Return max values for Sydney
 1. Fix FCC api not working some time -- try/catch block or loop?
