@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/main.css";
-import { StageSpinner } from "react-spinners-kit";
+import { StageSpinner } from "react-spinners-kit"
 import { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
