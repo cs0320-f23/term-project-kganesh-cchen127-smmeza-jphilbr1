@@ -1,6 +1,6 @@
 import schedule
 import time
-from FullData import * 
+from .FullData import * 
 
 def scheduler_job():
     print("Update scheduled: updating full data GeoJSON")

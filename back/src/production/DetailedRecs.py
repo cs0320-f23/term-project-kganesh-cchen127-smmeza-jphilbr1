@@ -1,9 +1,9 @@
 import json
 from flask import Flask, render_template, request, jsonify
-from ApiBLS import fips_to_industry_breakdown
-from CommodityRecs import recommendCommodities
+from .ApiBLS import *
+from .CommodityRecs import *
 
-from CoordToFips import coord_to_fips
+from .CoordToFips import *
 
 # coords --> fips --> uenmployment breakdown --> rec
 
