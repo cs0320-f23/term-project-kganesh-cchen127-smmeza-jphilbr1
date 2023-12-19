@@ -44,6 +44,24 @@ class TestMocks(unittest.TestCase):
         # self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
+        # Testing industry_employment_mock
+        res = json.loads(mock_function("industry_employment_mock"))
+        self.assertEqual(res["status"], "success")
+        self.assertTrue(res["data"]["employees_mining"] == "-" or int(res["data"]["employees_mining"]) >= 0)
+        self.assertTrue(res["data"]["employees_construction"] == "-" or int(res["data"]["employees_construction"]) >= 0)
+        self.assertTrue(res["data"]["employees_manufacturing"] == "-" or int(res["data"]["employees_manufacturing"]) >= 0)
+        self.assertTrue(res["data"]["employees_tradetransportutilities"] == "-" or int(res["data"]["employees_tradetransportutilities"]) >= 0)
+        self.assertTrue(res["data"]["employees_information"] == "-" or int(res["data"]["employees_information"]) >= 0)
+        self.assertTrue(res["data"]["employees_finance"] == "-" or int(res["data"]["employees_finance"]) >= 0)
+        self.assertTrue(res["data"]["employees_professionalservices"] == "-" or int(res["data"]["employees_professionalservices"]) >= 0)
+        self.assertTrue(res["data"]["employees_educationandhealth"] == "-" or int(res["data"]["employees_educationandhealth"]) >= 0)
+        self.assertTrue(res["data"]["employees_leisureandhospitality"] == "-" or int(res["data"]["employees_leisureandhospitality"]) >= 0)
+        self.assertTrue(res["data"]["employees_otherservices"] == "-" or int(res["data"]["employees_otherservices"]) >= 0)
+        self.assertTrue(int(res["fips"]) >= 0)
+
+
+
+
 
 
 
