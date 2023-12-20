@@ -1,10 +1,8 @@
 import unittest
 import sys
 
-sys.path.insert(0, '../src')
-
-from ApiBLS import * 
-from Name_To_Coords import *
+sys.path.insert(0, '../')
+from src.production import *
 
 
 class TestZoom(unittest.TestCase):
