@@ -2,7 +2,9 @@ import json
 from flask import Flask, render_template, request, jsonify
 
 # unemployment rate mock
+
 unemp_rate_mock: json = {"status": "success", "unemployment rate": "2.1", "message": "The unemployment rate for FIPS code 01001 is 2.1", "state_fips": "01", "county_fips": "001"}
+
 
 # employed mock
 unemp_mock: json = {"status": "success", "unemployed": "569", "message": "The unemployed for FIPS code 01001 is 569", "state_fips": "01", "county_fips": "001"}
