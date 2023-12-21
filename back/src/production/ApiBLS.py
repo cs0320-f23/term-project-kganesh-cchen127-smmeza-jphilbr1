@@ -9,7 +9,7 @@ from .CONSTANTS import *
 #    (ex: 03), and it will return a return a response_map json for that type of 
 #    data
 def generic_bls_endpoint(data_name, measure_code, state_fips, county_fips):
-    # Ensuring parameters are correct
+    # # Ensuring parameters are correct
     # if ('state_fips' not in request.args and 'county_fips' not in request.args) or len(request.args) != 2:
     #     response_map = {
     #         "status": "error",

@@ -58,7 +58,7 @@ def name_to_state_fips(state_name):
 # Create a function that iterates through the geojson and create list of [county name, fips code]
 def st_fips_to_county_name_and_coord():
     # Loading data from geojson
-    f = open('../data/all_county_geojson.json')
+    f = open('../back/data/all_county_geojson.json')
     data = json.load(f)
     f.close
 
@@ -85,7 +85,7 @@ def st_fips_to_county_name_and_coord():
 
     # return big_map
 
-        with open("../data/names_to_coords.json", "w") as fp:
+        with open("../back/data/names_to_coords.json", "w") as fp:
             json.dump(big_map, fp)
 
 # st_fips_to_county_name_and_coord()
@@ -99,7 +99,7 @@ def representative_coord(county_name, state_name):
 
     # Generating dict of {st_fips: [[county1, coord], [county2, coord], ...]}
     # if not generated already
-    f = open('../data/names_to_coords.json')
+    f = open('../back/data/names_to_coords.json')
     data = json.load(f)
     f.close
     important_map = data # -------------> need to change because generated this time everytime (should only be once)
