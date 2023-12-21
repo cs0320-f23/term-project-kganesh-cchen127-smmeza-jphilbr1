@@ -1,8 +1,7 @@
 import "../styles/navBar.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-import { DarkModeToggle } from "../darkModeComponents/Toggle";
-
+import { DarkModeToggle } from "./darkModeComponents/Toggle"
 
 import Hamburger from "hamburger-react";
 
@@ -12,7 +11,6 @@ interface NavBarProps {
 }
 
 function NavBar(props: NavBarProps) {
-
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (

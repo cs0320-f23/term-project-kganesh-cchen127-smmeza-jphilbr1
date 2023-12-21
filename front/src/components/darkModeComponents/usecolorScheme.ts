@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-// import createPersistedState from "use-persisted-state";
-// const useColorSchemeState = createPersistedState("colorScheme");
 
 export function useColorScheme() {
   const systemPrefersDark = useMediaQuery(

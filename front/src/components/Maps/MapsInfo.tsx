@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/main.css";
 import { StageSpinner } from "react-spinners-kit"
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 
@@ -23,16 +23,6 @@ interface UnemploymentDataResponse {
 }
 
 interface UnemploymentData {
-    // employees_construction: string;
-    // employees_educationandhealth: string;
-    // employees_finance: string;
-    // employees_information: string;
-    // employees_leisureandhospiatlity: string;
-    // employees_manufacturing: string;
-    // employees_mining: string;
-    // employees_otherservices: string;
-    // employees_professionalservices: string;
-    // employees_tradetransportutilities: string;
     [key: string]: string;
 }
 interface RecommendationData {
@@ -87,7 +77,7 @@ export function MapsInfo(props: MapsInfoProps) {
                 setInitialLoad(false);
                 setIsLoading(true);
                 const jsonResponse = await accessUnemploymentData(lngLat);
-                console.log("please", isUnemploymentLoadResopnse(jsonResponse))
+                // console.log("please", isUnemploymentLoadResopnse(jsonResponse))
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
                     let data = jsonResponse.breakdown.data
                     let rec = jsonResponse.rec;
@@ -205,103 +195,240 @@ export function MapsInfo(props: MapsInfoProps) {
               </div>
             )}
             {initialLoad && (
-                <div className="default-screen">
-                    <i>Select a US county on the map to view data!</i>
-                </div>
+              <div className="default-screen">
+                <i>Select a US county on the map to view data!</i>
+              </div>
             )}
 
             <div className="tab-container">
-                <button
-                    className={selectedTab === "recommendPanel" ? "active" : ""}
-                    onClick={() => handleTabClick("recommendPanel")}
-                >
-                    Recommendations
-                </button>
-                <button
-                    className={selectedTab === "unempPanel" ? "active" : ""}
-                    onClick={() => handleTabClick("unempPanel")}
-                >
-                    Unemployment Data
-                </button>
+              <button
+                className={selectedTab === "recommendPanel" ? "active" : ""}
+                onClick={() => handleTabClick("recommendPanel")}
+                aria-label="Recommendation Button"
+                aria-roledescription="Click here to see the hold and short recommendations for the county"
+              >
+                Recommendations
+              </button>
+              <button
+                className={selectedTab === "unempPanel" ? "active" : ""}
+                onClick={() => handleTabClick("unempPanel")}
+                aria-label="Unemployment Button"
+                aria-roledescription="Click here to see the unemployment data for the county"
+              >
+                Unemployment Data
+              </button>
             </div>
-            {/* <p className="info-header">{props.selectedLongLat}</p> */}
-            
 
             <div className="side-panels">
-                <div className={`side-panel ${selectedTab === "recommendPanel" ? "active" : ""}`}>
+              <div
+                className={`side-panel ${
+                  selectedTab === "recommendPanel" ? "active" : ""
+                }`}
+              >
                 <div className="info-header">
-                    <b>{county} {state === "Louisiana" ? "Parish" : state === "Alaska" ? "Borough": "County"} </b>
+                  <b>
+                    {county}{" "}
+                    {state === "Louisiana"
+                      ? "Parish"
+                      : state === "Alaska"
+                      ? "Borough"
+                      : "County"}{" "}
+                  </b>
                 </div>
-                <div className="info-subheader">
-                    {state}
-                </div>
-    
+                <div className="info-subheader">{state}</div>
+
                 <div className="two-sided-table">
-                    <div className="table-section-left">
-                        <h2>Hold</h2>
-                        <table>
-                        <tbody>
-                            {recommendationData?.longs.map((cellData, index) => (
-                                <tr key={index}>
-                                    <td>
-                                    <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />                                        
-                                    {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
-                                    </td>
-                                </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                  <div className="table-section-left" aria-label="Hold recommendations">
+                    <h2>Hold</h2>
+                    <table>
+                      <tbody>
+                        {recommendationData?.longs.map((cellData, index) => (
+                          <tr key={index}>
+                            <td>
+                              <FontAwesomeIcon
+                                className="icon"
+                                icon={chooseIcon(cellData)}
+                              />
+                              {(
+                                cellData.charAt(0).toUpperCase() +
+                                cellData.slice(1)
+                              ).replace(/_/g, " ")}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
 
-                    <div className="table-section-right">
-                        <h2>Short</h2>
-                        <table>
-                        <tbody>
-                            {recommendationData?.shorts.map((cellData, index) => (
-                                    <tr key={index}>                                      
-                                        <td>
-                                            <FontAwesomeIcon className="icon" icon={chooseIcon(cellData)} />  
-                                            {(cellData.charAt(0).toUpperCase() + cellData.slice(1)).replace(/_/g, ' ')}
-                                        </td>
-                                    </tr>
-                                    ))}
-                        </tbody>
-                        </table>
-                    </div>
-                    </div>
+                  <div className="table-section-right" aria-label="Short recommendations">
+                    <h2>Short</h2>
+                    <table>
+                      <tbody>
+                        {recommendationData?.shorts.map((cellData, index) => (
+                          <tr key={index}>
+                            <td>
+                              <FontAwesomeIcon
+                                className="icon"
+                                icon={chooseIcon(cellData)}
+                              />
+                              {(
+                                cellData.charAt(0).toUpperCase() +
+                                cellData.slice(1)
+                              ).replace(/_/g, " ")}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
+              </div>
 
-            <div className={`side-panel ${selectedTab === "unempPanel" ? "active" : ""}`}>
-            <div className="info-header">
-                <b>{county} {state === "Louisiana" ? "Parish" : state === "Alaska" ? "Borough": "County"} </b>
-            </div>
-            <div className="info-subheader">
-                {state}
-            </div>
+              <div
+                className={`side-panel ${
+                  selectedTab === "unempPanel" ? "active" : ""
+                }`}
+              >
+                <div className="info-header">
+                  <b>
+                    {county}{" "}
+                    {state === "Louisiana"
+                      ? "Parish"
+                      : state === "Alaska"
+                      ? "Borough"
+                      : "County"}{" "}
+                  </b>
+                </div>
+                <div className="info-subheader">{state}</div>
                 <div className="chart">
-                    <ul className="numbers">
-                        <li><span>{maxValue}</span></li>
-                        <li><span>{maxValue / 2}</span></li>
-                        <li><span>0</span></li>
-                    </ul>
-                    <ul className="bars">
-                        <li><div className="bar" unemp-amount={values[0] === -1 ? "no unemployment data" : `${values[0]} unemployed`}></div><span>Construction</span></li>
-                        <li><div className="bar" unemp-amount={values[1] === -1 ? "no unemployment data" : `${values[1]} unemployed`}></div><span>Education & Health</span></li>
-                        <li><div className="bar" unemp-amount={values[2] === -1 ? "no unemployment data" : `${values[2]} unemployed`}></div><span>Finance</span></li>
-                        <li><div className="bar" unemp-amount={values[3] === -1 ? "no unemployment data" : `${values[3]} unemployed`}></div><span>Information</span></li>
-                        <li><div className="bar" unemp-amount={values[4] === -1 ? "no unemployment data" : `${values[4]} unemployed`}></div><span>Leisure & Hospitality</span></li>
-                        <li><div className="bar" unemp-amount={values[5] === -1 ? "no unemployment data" : `${values[5]} unemployed`}></div><span>Manufacturing</span></li>
-                        <li><div className="bar" unemp-amount={values[6] === -1 ? "no unemployment data" : `${values[6]} unemployed`}></div><span>Mining</span></li>
-                        <li><div className="bar" unemp-amount={values[7] === -1 ? "no unemployment data" : `${values[7]} unemployed`}></div><span>Other services</span></li>
-                        <li><div className="bar" unemp-amount={values[8] === -1 ? "no unemployment data" : `${values[8]} unemployed`}></div><span>Professional services</span></li>
-                        <li><div className="bar" unemp-amount={values[9] === -1 ? "no unemployment data" : `${values[9]} unemployed`}></div><span>Trade, Transport & Utilities</span></li>
-                    </ul>
+                  <ul className="numbers">
+                    <li>
+                      <span>{maxValue}</span>
+                    </li>
+                    <li>
+                      <span>{maxValue / 2}</span>
+                    </li>
+                    <li>
+                      <span>0</span>
+                    </li>
+                  </ul>
+                  <ul className="bars">
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[0] === -1
+                            ? "no unemployment data"
+                            : `${values[0]} unemployed`
+                        }
+                      ></div>
+                      <span>Construction</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[1] === -1
+                            ? "no unemployment data"
+                            : `${values[1]} unemployed`
+                        }
+                      ></div>
+                      <span>Education & Health</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[2] === -1
+                            ? "no unemployment data"
+                            : `${values[2]} unemployed`
+                        }
+                      ></div>
+                      <span>Finance</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[3] === -1
+                            ? "no unemployment data"
+                            : `${values[3]} unemployed`
+                        }
+                      ></div>
+                      <span>Information</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[4] === -1
+                            ? "no unemployment data"
+                            : `${values[4]} unemployed`
+                        }
+                      ></div>
+                      <span>Leisure & Hospitality</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[5] === -1
+                            ? "no unemployment data"
+                            : `${values[5]} unemployed`
+                        }
+                      ></div>
+                      <span>Manufacturing</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[6] === -1
+                            ? "no unemployment data"
+                            : `${values[6]} unemployed`
+                        }
+                      ></div>
+                      <span>Mining</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[7] === -1
+                            ? "no unemployment data"
+                            : `${values[7]} unemployed`
+                        }
+                      ></div>
+                      <span>Other services</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[8] === -1
+                            ? "no unemployment data"
+                            : `${values[8]} unemployed`
+                        }
+                      ></div>
+                      <span>Professional services</span>
+                    </li>
+                    <li>
+                      <div
+                        className="bar"
+                        unemp-amount={
+                          values[9] === -1
+                            ? "no unemployment data"
+                            : `${values[9]} unemployed`
+                        }
+                      ></div>
+                      <span>Trade, Transport & Utilities</span>
+                    </li>
+                  </ul>
                 </div>
-                </div>
+              </div>
             </div>
           </div>
         </div>
-
       </>
     );
 }

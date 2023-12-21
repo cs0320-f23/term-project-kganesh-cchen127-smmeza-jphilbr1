@@ -2,42 +2,34 @@ import React from "react";
 import "../styles/App.css";
 import Maps from "./Maps";
 import NavBar from "./NavBar";
-import { DarkModeToggle } from "../darkModeComponents/Toggle";
-import { useColorScheme } from "../darkModeComponents/usecolorScheme";
-// REMEMBER TO PUT YOUR API KEY IN A FOLDER THAT IS GITIGNORED!!
-// (for instance, /src/private/api_key.tsx)
-// import {API_KEY} from "./private/api_key"
+import { useColorScheme } from "./darkModeComponents/usecolorScheme";
+
 
 function App() {
-  // keyboard shortcuts 
+  // keyboard shortcuts
   document.addEventListener("keydown", (event: KeyboardEvent) => {
     if (event.code == "MetaRight" || event.code == "MetaLeft") {
       document.getElementById("maps-command-box")?.focus();
     } else if (event.code == "Escape") {
-      document.getElementById("maps-history")?.focus();
+      document.getElementById("right")?.focus();
     } else if (event.code == "ControlRight" || event.code == "ControlLeft") {
       document.getElementById("submit-button")?.focus();
-    } else{
-      // console.log(event.code);
-    }
+    } 
   });
 
   const { isDark, setIsDark } = useColorScheme();
   return (
     <div className="App">
-      <NavBar isDark={isDark} setIsDark={setIsDark}/>
-      {/* <div className="Dark-Toggle">
-        <DarkModeToggle isDark={isDark} setIsDark={setIsDark} />
-        <label>dark mode toggle</label>
-      </div> */}
+      <NavBar isDark={isDark} setIsDark={setIsDark} />
       <div id="info" className="section-header">
         <p className="section-text">INFO</p>
       </div>
       <div className="Info">
         <p className="Info-paragraph">
-          <b>dot.commodities</b> simplifies the economic data viewing experience, and
-          uses data to generate commodity futures trading recommendations for
-          local financial institutions to hedge deposit risk.{" "}
+          <b>dot.commodities</b> simplifies the economic data viewing
+          experience, and uses data to generate commodity futures trading
+          recommendations for local financial institutions to hedge deposit
+          risk.
         </p>
       </div>
       <div id="map" className="section-header">
@@ -45,7 +37,7 @@ function App() {
       </div>
       <Maps isDark={isDark} />
       <div className="disclosure">
-        <p >
+        <p>
           While dot.commodities strives to provide accurate and timely
           information, there may be inadvertent inaccuracies, errors and
           omissions, for which we apologize and expressly disclaim any
