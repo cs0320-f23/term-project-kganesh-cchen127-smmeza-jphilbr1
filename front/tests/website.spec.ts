@@ -20,10 +20,11 @@ test("dark mode toggling works", async ({ page }) => {
 test("submit button works", async ({ page }) => {
   await page.goto(url);
   await page
-    .getByPlaceholder("Enter a county name!")
+    .getByLabel("Command input")
     .fill("Summit");
+  await page.locator("Select a state!").selectOption("Utah");
   await page.getByLabel("Submit Button").click();
-  await expect(page.getByLabel("botom")).toContainText(
+  await expect(page.locator("botom")).toContainText(
     "highlighted!"
   );
 });
