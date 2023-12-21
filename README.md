@@ -213,9 +213,13 @@ Packages:
 1. Spark
 1. JUnit
 1. Playwright
+2. React Spinners
+3. Tooltips
+4. Fontawesome
 
 APIs:
 1. Census API
+2. Census Shapefile
 
 # TODOs:
 1. Double check data updating/timezone for updates
