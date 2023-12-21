@@ -423,7 +423,6 @@ export function MapsInfo(props: MapsInfoProps) {
               </div>
             </div>
           </div>
-        </div>
       </>
     );
 }

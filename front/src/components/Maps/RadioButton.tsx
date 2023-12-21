@@ -34,7 +34,7 @@ return (
           />
         </div>
       </Tooltip>
-      <Tooltip title="Shows the labor force rate ">
+      <Tooltip title="Shows the labor force count ">
         <div
           className="single-radio-button"
           aria-label="Labor force radio button"
