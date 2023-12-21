@@ -19,6 +19,13 @@ test("dark mode toggling works", async ({ page }) => {
 })
 test("submit button works", async ({ page }) => {
   await page.goto(url);
+  await page
+    .getByPlaceholder("Enter a county name!")
+    .fill("Summit");
+  await page.getByLabel("Submit Button").click();
+  await expect(page.getByLabel("botom")).toContainText(
+    "highlighted!"
+  );
 });
 
 test("wrong county input", async ({ page }) => {
