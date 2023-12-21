@@ -1,7 +1,3 @@
-
-API_KEY = "8e005747a44f4542965de8c1051a83f6" # Jay's API Key
-# API_KEY = "464996beb3b343948b7f9f91fb3b7797" # Kylash's API Key
-
 # Threshold we set to determine if an industry employment is significant
 INDUSTRY_SIGNIFICANCE_THRESHOLD = 0.18
 
