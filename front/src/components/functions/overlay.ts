@@ -57,6 +57,9 @@ export const hoverCountyLayer: FillLayer = {
 }
 
 
+/**
+ * This colors each county with an opacity that relates to the unemployment rate
+ */
 const employment = "unemployment_rate";
 export const employmentLayer: FillLayer = {
   id: "county-employment-layer",
@@ -67,6 +70,11 @@ export const employmentLayer: FillLayer = {
   },
 };
 
+/**
+ * this collors each county with an opacity that relates 
+ * to the labor force in each county, wich is calculated using the 
+ * largest labor force
+ */
 const labor = "labor_force";
 export const laborLayer: FillLayer = {
   id: "county-labor-layer",
@@ -76,6 +84,11 @@ export const laborLayer: FillLayer = {
     "fill-opacity": ["/", ["ln", ["+",["to-number", ["get", labor], 1]]], ["ln", ["+", 1, 4977558]]],
   },
 };
+/**
+ * this collors each county with an opacity that relates 
+ * to the unemployment in each county, wich is calculated using the 
+ * largest unemployed county
+ */
 const unemployed = "unemployed";
 export const unemployedLayer: FillLayer = {
   id: "county-unemployed-layer",
@@ -87,9 +100,14 @@ export const unemployedLayer: FillLayer = {
       ["ln", ["+", ["to-number", ["get", unemployed], 1]]],
       ["ln", ["+", 1, 609830]],
     ],
-    // 4730138
+
   },
 };
+/**
+ * this collors each county with an opacity that relates 
+ * to the employment in each county, wich is calculated using the 
+ * largest employed county
+ */
 const employed = "employed";
 export const employedLayer: FillLayer = {
   id: "county-employed-layer",
@@ -104,22 +122,28 @@ export const employedLayer: FillLayer = {
   },
 };
 
-
+/**
+ * This gets the full data from the backend to use for each
+ * overlay that uses the data from the backend
+ * @returns a GeoJSON that contains shapes for each county along with
+ * employment data from each county
+ */
 export const FullOverLay = async (): Promise<
   GeoJSON.FeatureCollection | undefined
 > => {
   var newResponse: undefined | GeoJSON.FeatureCollection = undefined;
-  // trys to access the server
+
   try {
-    const website = await fetch("http://127.0.0.1:5000/full_data");
+    // trys to access the server
+    const website = await fetch(
+      "https://csci-term-project-backend.onrender.com/full_data"
+    );
     const json = await website.json();
     const result = json.status;
     // checks that there isn't an error
-    console.log("before succes");
     if (result === "success") {
       const overlayData: GeoJSON.FeatureCollection = json.data;
       newResponse = overlayData;
-      console.log("should have overlay data");
     }
     // this is the catch for if the server is down
   } catch (err) {

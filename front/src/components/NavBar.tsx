@@ -1,13 +1,16 @@
 import "../styles/navBar.css";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-scroll";
-
+import { DarkModeToggle } from "./darkModeComponents/Toggle"
 
 import Hamburger from "hamburger-react";
 
+interface NavBarProps {
+  isDark;
+  setIsDark;
+}
 
-function NavBar() {
-
+function NavBar(props: NavBarProps) {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
 
   return (
@@ -17,8 +20,8 @@ function NavBar() {
         style={{
           // backgroundColor: "#FECEE9",
           // color: "white",
-          // top: true ? "0" : "-120px",
-          // borderBottom: `${1} solid #e4e4e4`,
+          top: true ? "0" : "-120px",
+          borderBottom: `${1} solid #e4e4e4`,
         }}
       >
         <div id="navbar" className="navbar-fixed">
@@ -38,14 +41,7 @@ function NavBar() {
           <div className="mobile-menu">
             <Hamburger toggled={isNavExpanded} toggle={setIsNavExpanded} />
           </div>
-          <nav
-            className={isNavExpanded ? "nav-items expanded" : "nav-items"}
-            style={{
-              // backgroundColor:"#FECEE9",
-              // top: isNavExpanded ? "0" : "-100%",
-              // transitionDelay: isNavExpanded ? "0s" : "0s",
-            }}
-          >
+          <nav className={isNavExpanded ? "nav-items expanded" : "nav-items"}>
             <ul className="nav-menu">
               <li className="nav-menu-item">
                 <Link
@@ -77,8 +73,8 @@ function NavBar() {
               </li>
             </ul>
           </nav>
+          <DarkModeToggle isDark={props.isDark} setIsDark={props.setIsDark} />
         </div>
-        
       </div>
     </div>
   );

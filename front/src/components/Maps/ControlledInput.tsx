@@ -1,7 +1,7 @@
 import React from "react";
-import "../../styles/main.css"
+import "../../styles/main.css";
 import { Dispatch, SetStateAction } from "react";
-import statesList from "../statesList";
+import statesList from "../functions/statesList";
 
 interface ControlledInputProps {
   value: string;
@@ -12,8 +12,15 @@ interface ControlledInputProps {
   setSelectedState: Dispatch<SetStateAction<string>>;
 }
 
-// Input boxes contain state. We want to make sure React is managing that state,
-//   so we have a special component that wraps the input box.
+/**
+ * This is our controlled input which is similar to a form
+ * as it has components for the input box and a dropdown for uses to
+ * input info in.
+ * @param param0
+ * @returns html components that can be used specifically for our app
+ * these components include a input box and a dropdown that contains
+ * all the states in the United States
+ */
 export function ControlledInput({
   value,
   setValue,
@@ -23,21 +30,6 @@ export function ControlledInput({
   setSelectedState,
 }: ControlledInputProps) {
   return (
-    // <input
-    //   type="text"
-    //   id="maps-command-box"
-    //   className="maps-command-box"
-    //   value={value}
-    //   placeholder="Enter command here!"
-    //   onChange={(ev) => setValue(ev.target.value)}
-    //   aria-label={ariaLabel}
-    //   aria-roledescription="Click the enter button or press enter to submit"
-    //   onKeyUp={(e) => {
-    //     if (e.key === "Enter") {
-    //       onKeyDown();
-    //     }
-    //   }}
-    // ></input>
     <div className="input-group">
       <input
         className="input"
@@ -70,7 +62,6 @@ export function ControlledInput({
               onKeyDown();
             }
           }}
-          // defaultValue="no state"
         >
           <option disabled value="no state">
             Select a state:
