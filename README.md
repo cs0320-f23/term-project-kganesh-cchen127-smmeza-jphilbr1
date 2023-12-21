@@ -1,4 +1,4 @@
-# term-project-kganesh-cchen127-smmeza-jphilbr1
+# dot.commodities
 
 ## Team Members and Contributions
 
