@@ -2,6 +2,8 @@ import schedule
 import time
 from .FullData import * 
 
+# This re-compiles our all_county_geojson_with_data.json every
+# week at Sunday 2am so that the data is always updated
 def scheduler_job():
     print("Update scheduled: updating full data GeoJSON")
     update_geojson()
