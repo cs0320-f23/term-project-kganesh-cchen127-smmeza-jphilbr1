@@ -1,6 +1,5 @@
-# dot.commodities
 ### CS0320 Term Project
-
+# dot.commodities
 ## Team Members and Contributions
 
 Connor Chen - cchen127
