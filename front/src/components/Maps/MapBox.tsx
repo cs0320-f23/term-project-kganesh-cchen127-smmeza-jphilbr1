@@ -530,8 +530,11 @@ function MapBox(props: MapBoxprops) {
               <Layer id={countyLayer.id}
                 type={countyLayer.type}
                 source={countyLayer.source}
-                paint={paint: {
+                paint={props.isDark? {
     "fill-outline-color": 'rgba(0,0,0,0.3)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  }: {
+    "fill-outline-color": 'rgba(250, 245, 250,0.3)',
     "fill-color": 'rgba(0,0,0,0.0)'
   }} 
                 />
