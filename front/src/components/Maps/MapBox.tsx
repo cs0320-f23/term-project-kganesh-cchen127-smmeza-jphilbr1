@@ -31,12 +31,15 @@ import {
 import { RadioButtonGroup } from "./RadioButton.tsx";
 import mapboxgl from "mapbox-gl";
 import { MapsInfo } from "../Maps/MapsInfo.tsx";
-// import { useColorScheme } from "../darkModeComponents/usecolorScheme.ts";
 
+/**
+ * Interface for a call to the backend for a county
+ */
 interface CountyLoadResponse {
   data: number[];
   status: string;
 }
+
 
 interface LatLong {
   lat: number;
@@ -61,6 +64,7 @@ function MapBox(props: MapBoxprops) {
   // Items for Map box
   let initialZoom = 4;
 
+  // Retreive the map overlay component
   const mapOverlay = document.getElementById("county-overlay");
 
   async function onMapClick(e: MapLayerMouseEvent) {
@@ -69,6 +73,8 @@ function MapBox(props: MapBoxprops) {
     var lon = e.lngLat.lng;
 
     var longLat = [lat, lon];
+    
+    // Sets the long lat of the mouse click that will be sent to the mapsInfo component
     setInfoLongLat(longLat);
 
     if (mapRef.current) {
@@ -84,19 +90,20 @@ function MapBox(props: MapBoxprops) {
         selectedFeatures[0].properties &&
         mapRef.current.getZoom() > 2.979504743200094
       ) {
-        console.log("asdfasdfasdfas", mapRef.current.getZoom());
         setCountyState([
           selectedFeatures[0].properties.COUNTYNAME,
           convertToStateName(selectedFeatures[0].properties.STATE),
         ]);
-        // var featureInfo = getFeatureInfo(selectedFeatures[0]);
-        // newResponse = newResponse.concat(featureInfo);
+
+        // Constructs a filter array for the overlay to highlight the selected county outline on the map
         const selectionArray = [
           "all",
           ["in", "COUNTYNAME", selectedFeatures[0].properties.COUNTYNAME],
           ["in", "STATE", selectedFeatures[0].properties.STATE],
         ];
         setFilterArray(selectionArray);
+
+        // Sets the notification for the county that was selected
         setNotificationColor("success-notification");
 
         if (!(selectedFeatures[0].properties.COUNTYNAME === undefined)) {
@@ -106,6 +113,7 @@ function MapBox(props: MapBoxprops) {
           setClassVisible("visible");
         }
 
+        // Hides the notification after a short delay
         setTimeout(() => {
           setClassVisible("hidden");
         }, 3000);
@@ -176,6 +184,9 @@ function MapBox(props: MapBoxprops) {
     }
   }
 
+  /**
+   * Function that handles the hovering of the mouse over the map
+   */
   async function onMouseMove(e: MapLayerMouseEvent) {
     if (mapRef.current) {
       mapRef.current.getCanvas().style.cursor = "pointer";
@@ -183,6 +194,8 @@ function MapBox(props: MapBoxprops) {
         [e.point.x, e.point.y],
         [e.point.x, e.point.y],
       ];
+
+      // Queries the current features of the map
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
       if (
         selectedFeatures &&
@@ -193,6 +206,7 @@ function MapBox(props: MapBoxprops) {
         var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
         var hoveredState = selectedFeatures[0].properties.STATE;
 
+        // Generates the appropriate filter array for the overlay to highlight the county that was selected on the map
         if (hoveredCounty === undefined) {
           mapRef.current.getCanvas().style.cursor = "";
           const blankHoverArray = ["all", ["in", "COUNTYNAME", ""]];
@@ -207,6 +221,7 @@ function MapBox(props: MapBoxprops) {
           ];
           setHoverArray(selectedHoverArray);
 
+          // Construct the overlay to display in the top left of the map detailing the county and state that is currently being hovered over
           const title = document.createElement("strong");
 
           if (hoveredState === "LA") {
@@ -229,6 +244,9 @@ function MapBox(props: MapBoxprops) {
     }
   }
 
+  /**
+   * Function that handles what should happen when the user's cursor leaves the map
+   */
   function onMouseOut(e: MapLayerMouseEvent) {
     if (mapRef.current && mapOverlay) {
       mapRef.current.getCanvas().style.cursor = "";
@@ -253,6 +271,7 @@ function MapBox(props: MapBoxprops) {
     }
   }
 
+  // Sets the initial state of the map
   const [viewState, setViewState] = useState({
     longitude: -95.7129,
     latitude: 37.0902,
@@ -262,6 +281,8 @@ function MapBox(props: MapBoxprops) {
   const [overlay, setOverlay] = useState<GeoJSON.FeatureCollection | undefined>(
     undefined
   );
+
+  // Initializes the overlay
   useEffect(() => {
     overlayData().then((data) => {
       setOverlay(data);
@@ -291,6 +312,7 @@ function MapBox(props: MapBoxprops) {
   ]);
   const [infoLongLat, setInfoLongLat] = useState<number[]>();
 
+  // Helper function that creates the request to the backend with the selected county and state and returns the result
   async function getCountyLatLonAPI(args: Array<string>): Promise<string> {
     if (args.length === 2) {
       const url: string =
@@ -304,6 +326,7 @@ function MapBox(props: MapBoxprops) {
     return "";
   }
 
+  // Helper function that utilizes the backend to retrieve the lat-lon coordinates of a selected county
   async function getCountyLatLon(
     args: Array<string>
   ): Promise<{ status: string; data?: any }> {
@@ -335,6 +358,7 @@ function MapBox(props: MapBoxprops) {
     }
   }
 
+  // Effect that pan the map over to the selected county that the user entered through the search bar
   useEffect(() => {
     mapRef.current?.flyTo({
       center: selectedLatLong,
@@ -344,6 +368,7 @@ function MapBox(props: MapBoxprops) {
     });
   }, [selectedLatLong]);
 
+  // Helper function that formats the command string to the county we want
   function formatCountyCommandString(commandString: string): string {
     const words = commandString.toLowerCase().split(" ");
 
@@ -364,6 +389,9 @@ function MapBox(props: MapBoxprops) {
     return formattedString;
   }
 
+  /**
+   * Function that handles search bar functionality
+   */
   async function handleButtonClick(
     commandString: string,
     selectedState: string,
@@ -373,22 +401,27 @@ function MapBox(props: MapBoxprops) {
     >,
     mapRef: React.RefObject<MapRef>
   ) {
+    // Standardizes the command string/dropdown selected state in order to use later on
     const formattedCounty = formatCountyCommandString(commandString);
     const formattedCountyURL = formattedCounty.replace(/ /g, "%20");
     const formattedState = selectedState.replace(/ /g, "%20");
     const stateAbbrv = convertToAbbreviation(selectedState);
+
+    // Generate the filter array
     const selectionArray = [
       "all",
       ["in", "COUNTYNAME", formattedCounty],
       ["in", "STATE", stateAbbrv],
     ];
     setFilterArray(selectionArray);
+
+    // Get the lat-long result from the call to the backend with the help of this helper function
     let zoomResult = await getCountyLatLon([
       formattedCountyURL,
       formattedState,
     ]);
-    // console.log("county=" + commandString, selectedLatLong)
-    // console.log("state", selectedState.length);
+
+    // Prepares the notification to be shown depending on the result
     if (selectedState === "no state") {
       setNotificationColor("error-notification");
       setSearchNotiText("Please select a state!");

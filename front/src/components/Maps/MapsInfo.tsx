@@ -6,18 +6,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
 import Tooltip from '@mui/material/Tooltip';
 
-
-
 interface MapsInfoProps {
     countyState: string[]
     selectedLongLat: number[] | undefined;
 }
 
+/**
+ * Interface that defines the shape of the result from the call to the backend
+ */
 interface UnemploymentLoadResponse {
     breakdown: UnemploymentDataResponse;
     rec: RecommendationData;
 }
 
+/**
+ * Interface defining one of the properties of the UnemploymentLoadResponse
+ */
 interface UnemploymentDataResponse {
     data: UnemploymentData;
     status: string;
@@ -26,6 +30,10 @@ interface UnemploymentDataResponse {
 interface UnemploymentData {
     [key: string]: string;
 }
+
+/**
+ * Interface defining one of the properties of the UnemploymentLoadResponse
+ */
 interface RecommendationData {
   longs: string[];
   shorts: string[],
@@ -40,6 +48,7 @@ export function MapsInfo(props: MapsInfoProps) {
     const [county, setCounty] = useState<string>("no county");
     const [state, setState] = useState<string>("no state");
 
+    // Whenever a new county + state is selected by the user, activate this effect
     useEffect(() => {
         retrieveUnemploymentData(props.selectedLongLat);
         setTimeout(() => {
@@ -49,13 +58,16 @@ export function MapsInfo(props: MapsInfoProps) {
         console.log("whaddup", state);
     }, [props.countyState])
 
-
+    /**
+     * Function that generates the request to the backend for data on the selected lat and long.
+     */
     async function accessUnemploymentData(args: number[]): Promise<string> {
         if (args.length === 2) {
             const url: string =
             "https://csci-term-project-backend.onrender.com/detailed_data?latitude=" + args[0] + "&longitude=" + args[1];
             const result = await fetch(url);
             if (result.status === 500) {
+                // Handles the default load screen on start up
                 setInitialLoad(true);
             } 
             else {
@@ -72,16 +84,21 @@ export function MapsInfo(props: MapsInfoProps) {
     };
 
 
+    /**
+     * Function that handles the request to the backend
+     */
     async function retrieveUnemploymentData(lngLat: number[] | undefined) {
         if (lngLat) {
             try {
+                // Activate hte loading screen
                 setInitialLoad(false);
                 setIsLoading(true);
                 const jsonResponse = await accessUnemploymentData(lngLat);
-                // console.log("please", isUnemploymentLoadResopnse(jsonResponse))
                 if (isUnemploymentLoadResopnse(jsonResponse)) {
                     let data = jsonResponse.breakdown.data
                     let rec = jsonResponse.rec;
+
+                    // Set the data and deactivate the loading screen
                     setUnemploymentData(data);
                     setRecommendationData(rec);
                     setIsLoading(false);
@@ -100,6 +117,7 @@ export function MapsInfo(props: MapsInfoProps) {
     let keys = Object.keys(unemploymentData);
     let values: number[] = []
 
+    // Consolidates all of the resulting values into an array
     keys.forEach((key) => {
         if (!(unemploymentData[key] === "-")) {
             values.push(parseInt(unemploymentData[key]))
@@ -109,6 +127,7 @@ export function MapsInfo(props: MapsInfoProps) {
         }
     })
 
+    // Finds the maximum value of the data
     useEffect(() => {
         let maximum = findMaxValue(values);
         if (maximum) {
@@ -117,15 +136,13 @@ export function MapsInfo(props: MapsInfoProps) {
     }, [unemploymentData])
 
 
+    // Effect that sets the height of all the bars in the bar group as well as creating the animation
     useEffect(() => {
         const bars = document.querySelectorAll('.bars li .bar') as NodeListOf<HTMLDivElement>;
-        console.log("yo", values);
         let index = 0
         bars.forEach((bar) => {
         let amount = (values[index] / (maxValue * 1.1)) * 100; // Get the value dynamically
-        console.log({index}, amount)
-        console.log(maxValue);
-        console.log("buh", amount)
+
         if (!(values[index] === -1)) {
             bar.style.height = `${amount}%`;
             bar.style.background = "#FFC0CB";
@@ -148,6 +165,7 @@ export function MapsInfo(props: MapsInfoProps) {
                 );
             
         }
+        // Handles the case if there is no employment data provided
         else if (values[index] === -1) {
             bar.style.height = "100%";
             bar.style.background = "repeating-linear-gradient(45deg,#e5cece,#ccbdbd 10px,#968f8f 10px,#7c7575 20px)";
@@ -214,9 +232,9 @@ export function MapsInfo(props: MapsInfoProps) {
                 className={selectedTab === "unempPanel" ? "active" : ""}
                 onClick={() => handleTabClick("unempPanel")}
                 aria-label="Unemployment Button"
-                aria-roledescription="Click here to see the unemployment data for the county"
+                aria-roledescription="Click here to see the employment data for the county"
               >
-                Unemployment Data
+                Employment Data
               </button>
             </div>
 
@@ -313,8 +331,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[0] === -1
-                            ? "no unemployment data"
-                            : `${values[0]} unemployed`
+                            ? "no employment data"
+                            : `${values[0]} employed`
                         }
                       ></div>
                       <span>Construction</span>
@@ -324,8 +342,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[1] === -1
-                            ? "no unemployment data"
-                            : `${values[1]} unemployed`
+                            ? "no employment data"
+                            : `${values[1]} employed`
                         }
                       ></div>
                       <span>Education & Health</span>
@@ -335,8 +353,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[2] === -1
-                            ? "no unemployment data"
-                            : `${values[2]} unemployed`
+                            ? "no employment data"
+                            : `${values[2]} employed`
                         }
                       ></div>
                       <span>Finance</span>
@@ -346,8 +364,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[3] === -1
-                            ? "no unemployment data"
-                            : `${values[3]} unemployed`
+                            ? "no employment data"
+                            : `${values[3]} employed`
                         }
                       ></div>
                       <span>Information</span>
@@ -357,8 +375,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[4] === -1
-                            ? "no unemployment data"
-                            : `${values[4]} unemployed`
+                            ? "no employment data"
+                            : `${values[4]} employed`
                         }
                       ></div>
                       <span>Leisure & Hospitality</span>
@@ -368,8 +386,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[5] === -1
-                            ? "no unemployment data"
-                            : `${values[5]} unemployed`
+                            ? "no employment data"
+                            : `${values[5]} employed`
                         }
                       ></div>
                       <span>Manufacturing</span>
@@ -379,8 +397,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[6] === -1
-                            ? "no unemployment data"
-                            : `${values[6]} unemployed`
+                            ? "no employment data"
+                            : `${values[6]} employed`
                         }
                       ></div>
                       <span>Mining</span>
@@ -390,8 +408,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[7] === -1
-                            ? "no unemployment data"
-                            : `${values[7]} unemployed`
+                            ? "no employment data"
+                            : `${values[7]} employed`
                         }
                       ></div>
                       <span>Other services</span>
@@ -401,8 +419,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[8] === -1
-                            ? "no unemployment data"
-                            : `${values[8]} unemployed`
+                            ? "no employment data"
+                            : `${values[8]} employed`
                         }
                       ></div>
                       <span>Professional services</span>
@@ -412,8 +430,8 @@ export function MapsInfo(props: MapsInfoProps) {
                         className="bar"
                         unemp-amount={
                           values[9] === -1
-                            ? "no unemployment data"
-                            : `${values[9]} unemployed`
+                            ? "no employment data"
+                            : `${values[9]} employed`
                         }
                       ></div>
                       <span>Trade, Transport & Utilities</span>
@@ -427,6 +445,9 @@ export function MapsInfo(props: MapsInfoProps) {
     );
 }
 
+/**
+ * Function that sets the icon for the appropriate commodity
+ */
 function chooseIcon(commodity: string): IconDefinition {
     switch (commodity) {
         case "oil":
@@ -470,6 +491,9 @@ function chooseIcon(commodity: string): IconDefinition {
     }
 }
 
+/**
+ * Function that sets the proper tooltip description for the appropriate commodity
+ */
 function commodityHover(commodity: string): string {
     switch (commodity) {
         case "oil":
