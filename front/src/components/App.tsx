@@ -25,16 +25,11 @@ function App() {
   const { isDark, setIsDark } = useColorScheme();
   return (
     <div className="App">
-      <NavBar />
-      <div className="App-header">
-        {/* <p className="App-header"> */}
-        {/* <h1 className="header">womp womp</h1> */}
-        {/* </p> */}
-      </div>
-      <div className="Dark-Toggle">
+      <NavBar isDark={isDark} setIsDark={setIsDark}/>
+      {/* <div className="Dark-Toggle">
         <DarkModeToggle isDark={isDark} setIsDark={setIsDark} />
         <label>dark mode toggle</label>
-      </div>
+      </div> */}
       <div id="info" className="section-header">
         <p className="section-text">INFO</p>
       </div>

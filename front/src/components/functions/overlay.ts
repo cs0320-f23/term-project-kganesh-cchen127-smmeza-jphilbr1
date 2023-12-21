@@ -111,7 +111,7 @@ export const FullOverLay = async (): Promise<
   var newResponse: undefined | GeoJSON.FeatureCollection = undefined;
   // trys to access the server
   try {
-    const website = await fetch("http://127.0.0.1:5000/full_data");
+    const website = await fetch("https://csci-term-project-backend.onrender.com/full_data");
     const json = await website.json();
     const result = json.status;
     // checks that there isn't an error

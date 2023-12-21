@@ -1,6 +1,6 @@
 import React from "react";
 import "../../styles/main.css";
-import { StageSpinner } from "react-spinners-kit";
+import { StageSpinner } from "react-spinners-kit"
 import { useRef, useEffect, useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEraser, faQuestion, faOilWell, faFire, faTree, faCubes, faPercent, faBottleWater, faDroplet, faAtom, faCube, faBolt, faIndustry, faCoins, faGasPump, faSeedling, faMicrochip, faBattery, faRing, IconDefinition } from '@fortawesome/free-solid-svg-icons'
@@ -63,9 +63,13 @@ export function MapsInfo(props: MapsInfoProps) {
         if (args.length === 2) {
             const url: string =
             "https://csci-term-project-backend.onrender.com/detailed_data?latitude=" + args[0] + "&longitude=" + args[1];
-            const result = await fetch(url)
-            .then((response) => response.json());
-            return result;
+            const result = await fetch(url);
+            if (result.status === 500) {
+                setInitialLoad(true);
+            } 
+            else {
+               return result.json();
+            }
         }
         return "";
     }
@@ -202,7 +206,7 @@ export function MapsInfo(props: MapsInfoProps) {
             )}
             {initialLoad && (
                 <div className="default-screen">
-                    <i>Select a county on the map to view data!</i>
+                    <i>Select a US county on the map to view data!</i>
                 </div>
             )}
 

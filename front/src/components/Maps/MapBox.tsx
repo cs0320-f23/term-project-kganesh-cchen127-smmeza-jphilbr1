@@ -125,7 +125,6 @@ function getFeatureInfo(feature: GeoJSON.Feature): string[][] {
 function MapBox(props: MapBoxprops) {
 
   // Items for Map box
-  // let ProvidenceLatLong: LatLong = { long: -71.4128, lat: 41.824 };
   let initialZoom = 4;
 
   const mapOverlay = document.getElementById('county-overlay');
@@ -159,7 +158,8 @@ function MapBox(props: MapBoxprops) {
       ];
       // Find features intersecting the bounding box.
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
-      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties && mapRef.current.getZoom() > 2.979504743200094) {
+        console.log("asdfasdfasdfas", mapRef.current.getZoom());
         setCountyState([selectedFeatures[0].properties.COUNTYNAME, convertToStateName(selectedFeatures[0].properties.STATE)])
         // var featureInfo = getFeatureInfo(selectedFeatures[0]);
         // newResponse = newResponse.concat(featureInfo);
@@ -170,32 +170,23 @@ function MapBox(props: MapBoxprops) {
         ];
         setFilterArray(selectionArray);
         setNotificationColor("success-notification")
-        setSearchNotiText(selectedFeatures[0].properties.COUNTYNAME + " highlighted!")
-        setClassVisible("visible");
+
+        if (!(selectedFeatures[0].properties.COUNTYNAME === undefined)) {
+          setSearchNotiText(selectedFeatures[0].properties.COUNTYNAME + " highlighted!")
+          setClassVisible("visible");
+        }
 
         setTimeout(() => {
           setClassVisible("hidden");
         }, 3000)
         
-        // var awaitRecommendationResponse = await Recommendation([
-        //   latitude,
-        //   longitude,
-        // ]);
-
-        // if (awaitRecommendationResponse) {
-        //   recommendationResponse = recommendationResponse.concat(awaitRecommendationResponse);
-        //   var history: (string | string[][])[] = [
-        //     "Mouse Click",
-        //     recommendationResponse,
-        //   ];
-        //   props.updateHistory(history);
-        // }
     }
 
     
     }
   }
 
+  // this is for setting the visibililities of each layer for the radio buttons 
   const [firstVisibility, setFirstVisiblity] =
     useState<mapboxgl.Visibility>("visible");
   const [secondVisibility, setSecondVisiblity] =
@@ -540,7 +531,14 @@ function MapBox(props: MapBoxprops) {
             </Source>
 
             <Source id="county-data" type="vector" url={TILESET_ID}>
-              <Layer {...countyLayer} />
+              <Layer {...countyLayer} paint={props.isDark? {
+    "fill-outline-color": 'rgba(0,0,0,0.3)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  }: {
+    "fill-outline-color": 'rgba(250, 245, 250,0.3)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  }} 
+                />
               <Layer {...hoverCountyLayer} filter={hoverArray} />
               <Layer {...selectedCountyLayer} filter={filterArray} />
             </Source>
