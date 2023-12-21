@@ -34,13 +34,28 @@ We outline below our frontend and backend design choices.
 
 ## Frontend
 
-Our frontend consists of an interactive Mapbox map and a command entry bar. The map is overlaid with redlining data and income data. Additionally, when a user types a string into the command entry bar, any geographies in the redlining data that contain this keyword are highlighted in dark purple on the map.
+Our frontend consists of an interactive Mapbox map, a command entry bar, a dropdown, multiple radio buttons, and a side bar that contains history and such. The map is overlaid with data received from the back end, the overlays can be switched between using the radiobuttons. A user can either click a certain county on the map or input 
 
-Each of the redlining data, income data, and search results are overlaid as Layers of the Mapbox map. 
+The darkModeComponents folder contains the code for the dark mode toggle. 
+- The Toggle file contains the information for a toggle component, which depends on the isDark and setIsDark. 
+- The usecolorScheme file contains the code that switches isDark and setIsDark to actually make the changes to the webpage.
 
-The frontend server is hosted on Port 5173.
+The functions folder contains differnet functions that are used in our other components of the webpage
+- The CountyParse file uses different imports to parse a CSV file used for the Map
+- The overlay file contains different data needed for each of the overlays that the map will use. It also contains a function that retrieves data from the backend to use for a few of the overlays
+- stateAbbreviations contains a map for each state name and their abbreviation. It also contains a couple functions that converts each state to it's abbreviation or vice versa
+- statesList contains a list of all the United States states
 
-The webapp is structured as an App component, displaying a ControlledInput and a REPLInput component. Map Layers are contained in overlays.ts. 
+The Maps folder contains most of the components used for the map portion of our webapp
+- ControlledInput is a wrapper class for an input bar and the dropdown to select a state.
+- Mapbox contains most of the code for the functions that our map has. 
+- MapsInfo contains most of the code that displays the data for a given county from the backend. It first retrieves the backend data using the accessUnemploymentData function. It then stores the data in two separate hashmaps. Each hashmap is then used in a function that sorts through the data to display. One hashmap is displayed in a bar chart, the other in two separate tables.
+- RadioButton is a wrapper class for the radiobutton input. It also contains a function that is used to switch between each overlay of the map. 
+
+
+The frontend server is hosted on Port 8000.
+
+The webapp is structured as an App component, . Map Layers are contained in overlays.ts. 
 
 ## Backend
 
@@ -67,6 +82,7 @@ DetailedRecs.py sets up an endpoint that returns industry employment data and co
 There are several primary data structures in our program.
 
 ### Frontend
+We store the states and their abbreviations in a hashmap 
 
 ### Backend
 
@@ -101,9 +117,9 @@ We include both unit testing of single commands as well as integration testing o
 
 ### Frontend
 
-The frontend server by navigating is started with the terminal command npm run dev. The backend server is started by opening back/src/main/java/edu/brown/cs/student/main/Server/Classes/Server.java in Intellij, then hitting run. 
+The frontend server by navigating is started with the terminal command npm run start. 
 
-From there, navigating to the URL http://localhost:5173/ loads the web interface. Commands can be issued into the text box provided by typing them, then clicking the submit button.
+From there, navigating to the URL http://localhost:8000/ loads the web interface. 
 
 ### Backend
 
@@ -187,5 +203,4 @@ APIs:
 # TODOs:
 1. Double check data updating/timezone for updates
 1. Testing
-1. Return max values for Sydney
 1. Frontend deployment

@@ -46,7 +46,7 @@ export function MapsInfo(props: MapsInfoProps) {
             setCounty(props.countyState[0]);
             setState(props.countyState[1]);
         }, 100)
-        console.log("whaddup", state);
+        // console.log("whaddup", state);
     }, [props.countyState])
 
 
