@@ -1,4 +1,5 @@
 # dot.commodities
+### CS0320 Term Project
 
 ## Team Members and Contributions
 
