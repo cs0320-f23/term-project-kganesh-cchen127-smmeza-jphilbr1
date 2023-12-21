@@ -16,5 +16,4 @@ test("navbar navigation works on clicks", async ({ page }) => {
 test("dark mode toggling works", async ({ page }) => {
     await page.goto(url);
 
-    
 })
