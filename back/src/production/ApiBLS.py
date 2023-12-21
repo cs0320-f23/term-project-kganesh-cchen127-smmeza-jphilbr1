@@ -9,19 +9,6 @@ from .CONSTANTS import *
 #    (ex: 03), and it will return a return a response_map json for that type of 
 #    data
 def generic_bls_endpoint(data_name, measure_code, state_fips, county_fips):
-    # Ensuring parameters are correct
-    # if ('state_fips' not in request.args and 'county_fips' not in request.args) or len(request.args) != 2:
-    #     response_map = {
-    #         "status": "error",
-    #         "message": "Incorrect parameters. Please ensure the only parameters are 'state_fips' and 'county_fips'"
-    #     }
-    #     return json.dumps(response_map)
-
-
-    # state_fips = request.args.get('state_fips')
-    # county_fips = request.args.get('county_fips')
-    # EXAMPLE: http://127.0.0.1:5000/unemployment_rate?state_fips=01&county_fips=001
-    # api_url = "https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN" + str(state_fips) + str(county_fips) + "00000000" + measure_code
     api_url = f"https://api.bls.gov/publicAPI/v2/timeseries/data/LAUCN{state_fips}{county_fips}00000000{measure_code}?latest=true&registrationkey={API_KEY}"
     # print(api_url)
 
@@ -48,7 +35,6 @@ def generic_bls_endpoint(data_name, measure_code, state_fips, county_fips):
     response_json = json.dumps(response_map)
 
     return response_json
-    # return message
 
 # Given a full fips code (5 digits), will return a json of BLS employment by
 # industry data for that location
@@ -87,11 +73,15 @@ def fips_to_industry_breakdown(fips_code):
     response = requests.post(api_url, headers=headers, data=data)
     API_Data = response.json()
 
-    # print(API_Data)
-
 
     if API_Data["status"] == "REQUEST_NOT_PROCESSED":
-        return "error occurred: " + API_Data["status"]
+        response_map = {
+            "status": "error",
+            "message": "error occurred: " + API_Data["status"]
+        }
+
+        response_json = json.dumps(response_map)
+        return response_json
     
     # Parsing API_Data for employment by industry and storing it
     value = {
@@ -114,27 +104,14 @@ def fips_to_industry_breakdown(fips_code):
         "fips" : fips
     }
 
+    # Returning json
     response_json = json.dumps(response_map)
-
     return response_json
 
 
 # Sets up an enpoint to get lat and long and will return json of breakdown of 
 # employment by industry for that location
 def coords_industry_data_endpoint(lat, long):
-    # Ensuring parameters are correct
-    # if ('latitude' not in request.args and 'longitude' not in request.args) or len(request.args) != 2:
-    #     response_map = {
-    #         "status": "error",
-    #         "message": "Incorrect parameters. Please ensure the only parameters are 'latitude' and 'longitude'"
-    #     }
-    #     return json.dumps(response_map)
-
-
-    # Getting lat and long data from parameters
-    # lat = request.args.get('latitude')
-    # long = request.args.get('longitude')
-    
     # Converting lat and long to fips code
     fips = coord_to_fips(lat, long)
 
@@ -142,7 +119,9 @@ def coords_industry_data_endpoint(lat, long):
     return fips_to_industry_breakdown(fips)
 
 
-# Given a var_name (ex: unemployment_rate) and a list of fips (len <=50), will return a list of pairs, where each pair[0] is a fips code and pair[1] is its corresponding value for var_name
+# Given a var_name (ex: unemployment_rate) and a list of fips (len <=50), will 
+# return a list of pairs, where each pair[0] is a fips code and pair[1] is its 
+# corresponding value for var_name
 def fips_to_data(var_name, fips_list):
     # ensuring list is not too large
     if len(fips_list) > 50:

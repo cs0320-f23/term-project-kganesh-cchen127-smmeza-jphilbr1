@@ -3,6 +3,7 @@ import math
 from .ApiBLS import * 
 
 def update_geojson():
+    # Loading in all_county_geojson data
     f = open('./data/all_county_geojson.json')
     data = json.load(f)
     f.close
