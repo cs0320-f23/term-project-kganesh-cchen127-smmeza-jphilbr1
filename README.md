@@ -93,6 +93,14 @@ There are several primary data structures in our program.
 ### Frontend
 We store the states and their abbreviations in a hashmap 
 
+We store the state and county selected in a 2D array
+
+We store the recommendation data and the employment data each in a hashmap
+
+We store the different county suffixes in an array
+
+We store the overlay .json file recieved from the backend as a GeoJSON.FeatureCollection
+
 ### Backend
 
 We store the industry list as a list. 
