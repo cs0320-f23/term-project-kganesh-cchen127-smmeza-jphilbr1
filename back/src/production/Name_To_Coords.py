@@ -26,23 +26,22 @@ def feature_to_coord_list(feature):
     else:
         return feature["geometry"]["coordinates"][0][0]
 
-# Finds the central coordinate given a list of coordinates
+# Finds the central coordinate given a list of coordinates by summing all lat
+# coords and summing all y coords, then returning their respective averages
 def avg_coord(coord_list: list):
+    # Initializing sum variables and length of list
     x_sum = 0
     y_sum = 0
     length = len(coord_list)
 
+    # Summing total for x and y (lat and long)
     for coord in coord_list:
         x_sum += coord[0]
         y_sum += coord[1]
 
+    # Returning average -- central point
     return [x_sum / length, y_sum / length]
 
-
-
-# # Gets list of coords from feature ----------> need to fix bc doesnt work with diff poly vs multiploy
-# def feature_to_list_of_coords(feature):
-#     return feature["geometry"]["coordinates"][0]
 
 # Gets state fips code from state name
 def name_to_state_fips(state_name):
@@ -51,7 +50,6 @@ def name_to_state_fips(state_name):
         return US_STATE_FIPS[state_name]
     else:
         raise ValueError("State not found. Please ensure state name is typed correctly with first letter capitalized")
-
 
 
 
@@ -83,56 +81,39 @@ def st_fips_to_county_name_and_coord():
         else:
             big_map[st_fips].append(pair)
 
-    # return big_map
-
-        with open("../back/data/names_to_coords.json", "w") as fp:
-            json.dump(big_map, fp)
-
-# st_fips_to_county_name_and_coord()
-        
-    # return big_map
+    # Writing data to name_to_coords file
+    with open("../back/data/names_to_coords.json", "w") as fp:
+        json.dump(big_map, fp)
 
 
+# Given a county name and state, it will return a coordinate pair that 
+# within that county (the coord will be near the center of the county)
 def representative_coord(county_name, state_name):
     # Converting state name to state fips code
     st_fips = name_to_state_fips(state_name)
 
-    # Generating dict of {st_fips: [[county1, coord], [county2, coord], ...]}
-    # if not generated already
+    # Loading in names_to_coords and converting into a json
     f = open('../back/data/names_to_coords.json')
     data = json.load(f)
     f.close
-    important_map = data # -------------> need to change because generated this time everytime (should only be once)
+    important_map = data
     
     
-    # Iterating through the counties in the given state
+    # Iterating through the counties in the given state to find given county
     for county in important_map[st_fips]:
-        # print(important_map[st_fips])
-        # Returning first corner of polygon of given county, state
+        # Returning representing coord of county given
         if county[0].lower() == county_name.lower():
             return county[1]
     # raising error if no county is found in state
     raise ValueError("County not found.")
 
-# print(representative_coord("Orange", "California"))
-# print(representative_coord("Bristol", "Massachusetts"))
 
+# Given a county and state, this will return a json containing a coordinate
+# pair within the center of that county
 def zooming_function(county, state):
     try:
-        # Ensuring parameters are correct
-        # if ('county' not in request.args and 'state' not in request.args) or len(request.args) != 2:
-        #     response_map = {
-        #         "status": "error",
-        #         "message": "Incorrect parameters. Please ensure the only parameters are 'county' and 'state'"
-        #     }
-
-        #     return json.dumps(response_map)
-
-        # Parameters
-
         # Getting representative coord
         coord = representative_coord(county, state)
-
 
         # Json that will be returned
         response_map = {
@@ -142,10 +123,11 @@ def zooming_function(county, state):
             "state" : state
         }
 
+        # Returning json
         response_json = json.dumps(response_map)
-        # response_json.headers.add('Access-Control-Allow-Origin', '*')
         return response_json
     
+    # Catching error
     except ValueError as e:
         response_map = {
             "status": "error",
