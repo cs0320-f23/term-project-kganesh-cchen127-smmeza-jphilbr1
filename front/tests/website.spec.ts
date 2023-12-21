@@ -17,3 +17,24 @@ test("dark mode toggling works", async ({ page }) => {
     await page.goto(url);
 
 })
+test("submit button works", async ({ page }) => {
+  await page.goto(url);
+});
+
+test("wrong county input", async ({ page }) => {
+  await page.goto(url);
+});
+
+test("wrong state input", async ({ page }) => {
+  await page.goto(url);
+});
+
+
+test("recommendation button", async ({ page }) => {
+  await page.goto(url);
+});
+
+test("unemployment data button", async ({ page }) => {
+  await page.goto(url);
+});
+
