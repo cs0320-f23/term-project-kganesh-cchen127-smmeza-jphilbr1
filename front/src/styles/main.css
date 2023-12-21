@@ -445,7 +445,7 @@ input[type="radio"]:focus {
   width: 50px;
   height: 100%;
   display: inline-block;
-  float: left;
+  /* float: left; */
 }
 
 .numbers li{
@@ -661,4 +661,8 @@ h2 {
 
 .icon {
   margin-right: 5px;
+}
+
+hr{
+  margin: 0;
 }

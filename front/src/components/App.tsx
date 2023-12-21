@@ -45,7 +45,7 @@ function App() {
       </div>
       <Maps isDark={isDark} />
       <div className="disclosure">
-        <p className="disclosure">
+        <p >
           While dot.commodities strives to provide accurate and timely
           information, there may be inadvertent inaccuracies, errors and
           omissions, for which we apologize and expressly disclaim any

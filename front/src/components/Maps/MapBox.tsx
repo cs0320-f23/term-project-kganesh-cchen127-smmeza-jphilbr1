@@ -28,8 +28,8 @@ import { SOURCE_LAYER_ID, TILESET_ID } from "../../private/TilesetID.ts";
 import { ControlledInput } from "../Maps/ControlledInput.tsx";
 import { convertToAbbreviation, convertToStateName } from "../stateAbbreviations.ts";
 import { RadioButtonGroup } from "./RadioButton.tsx";
-import { county_data } from "../functions/CountyParse.ts";
-import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "../functions/MockJSON.ts"
+// import { county_data } from "../functions/CountyParse.ts";
+// import { mockOverlayData, sectionMockOverlayData, firstMockOverlayData} from "../functions/MockJSON.ts"
 import mapboxgl from "mapbox-gl";
 import { MapsInfo } from "../Maps/MapsInfo.tsx";
 import { useColorScheme } from "../../darkModeComponents/usecolorScheme.ts";
@@ -532,12 +532,12 @@ function MapBox(props: MapBoxprops) {
 
             <Source id="county-data" type="vector" url={TILESET_ID}>
               <Layer {...countyLayer} paint={props.isDark? {
-    "fill-outline-color": 'rgba(0,0,0,0.3)',
-    "fill-color": 'rgba(0,0,0,0.0)'
-  }: {
     "fill-outline-color": 'rgba(250, 245, 250,0.3)',
     "fill-color": 'rgba(0,0,0,0.0)'
-  }} 
+  }: {
+    "fill-outline-color": 'rgba(0,0,0,0.3)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  } } 
                 />
               <Layer {...hoverCountyLayer} filter={hoverArray} />
               <Layer {...selectedCountyLayer} filter={filterArray} />
