@@ -465,7 +465,7 @@ input[type="radio"]:focus {
 
 .bars {
   color: var(--color-text);
-  font-size: 6px;
+  font-size: 7px;
   font-weight: 600;
   background: #555;
   margin: 0;
@@ -565,7 +565,7 @@ button {
   /* margin: 5px;
   padding: 5px; */
   cursor: pointer;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: none;
   outline: none;
   font-size: 12px;
@@ -663,6 +663,9 @@ h2 {
   margin-right: 5px;
 }
 
+.icon:hover{
+  cursor: help;
+}
 hr{
   margin: 0;
 }
