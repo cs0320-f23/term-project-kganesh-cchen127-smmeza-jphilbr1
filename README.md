@@ -41,7 +41,7 @@ The darkModeComponents folder contains the code for the dark mode toggle.
 - The usecolorScheme file contains the code that switches isDark and setIsDark to actually make the changes to the webpage.
 
 The functions folder contains differnet functions that are used in our other components of the webpage
-- The CountyParse file uses different imports to parse a CSV file used for the Map
+- The CountyParse file uses different imports to parse a CSV file used for the Map's county overlay
 - The overlay file contains different data needed for each of the overlays that the map will use. It also contains a function that retrieves data from the backend to use for a few of the overlays
 - stateAbbreviations contains a map for each state name and their abbreviation. It also contains a couple functions that converts each state to it's abbreviation or vice versa
 - statesList contains a list of all the United States states
@@ -49,13 +49,22 @@ The functions folder contains differnet functions that are used in our other com
 The Maps folder contains most of the components used for the map portion of our webapp
 - ControlledInput is a wrapper class for an input bar and the dropdown to select a state.
 - Mapbox contains most of the code for the functions that our map has. 
+    - onMapClick is the function that will highlight the county and then do the things that MapInfo needs from the map
+    - OnMouseMove highlights the county the map is on, and it will do the things for stuff
+    - OnMouseOut
+    - Visibilities for the ddifferent overlays, it contains the functions needed to switch visibilities with the radio buttons
 - MapsInfo contains most of the code that displays the data for a given county from the backend. It first retrieves the backend data using the accessUnemploymentData function. It then stores the data in two separate hashmaps. Each hashmap is then used in a function that sorts through the data to display. One hashmap is displayed in a bar chart, the other in two separate tables.
 - RadioButton is a wrapper class for the radiobutton input. It also contains a function that is used to switch between each overlay of the map. 
 
+The mockedData file contains a mocked GeoJSON object that contains the same data that the backend data contains
+
+The Maps file and the Navbar file are both key components of our webapp. The Navbar file contains the code that is used to create the navigation bar at the top of the page using React Links, and it also is where the darkModeToggle is located.
+The Maps file purely holds the components for the map and it's functions
+
+The App file is where most of our app is rendered. It contains different components such as the navBar, the maps, and it also contains other information such as the page headers and other information that the users need. 
 
 The frontend server is hosted on Port 8000.
 
-The webapp is structured as an App component, . Map Layers are contained in overlays.ts. 
 
 ## Backend
 
