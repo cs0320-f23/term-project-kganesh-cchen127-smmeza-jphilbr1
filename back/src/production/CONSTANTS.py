@@ -2,10 +2,13 @@
 API_KEY = "8e005747a44f4542965de8c1051a83f6" # Jay's API Key
 # API_KEY = "464996beb3b343948b7f9f91fb3b7797" # Kylash's API Key
 
+# Threshold we set to determine if an industry employment is significant
 INDUSTRY_SIGNIFICANCE_THRESHOLD = 0.18
 
+# List of industries
 INDUSTRY_LIST = ["mining", "construction", "manufacturing", "tradetransportutilities", "information", "finance", "professionalservices", "educationandhealth", "leisureandhospitality", "otherservices"]
 
+# Dict of U.S states to their corresponding state fips codes
 US_STATE_FIPS = {
     'Alabama': '01',
     'Alaska': '02',
@@ -63,6 +66,7 @@ US_STATE_FIPS = {
 #   Lists of specific commodities here: https://en.wikipedia.org/wiki/List_of_traded_commodities
 # AG: use a query like this https://api.bls.gov/publicAPI/v2/timeseries/data/ENU0100510511?annualaverage=true NEED ANNUAL AVERAGE!
 
+# Dict of industries to their inputs and outputs
 TRADES_FOR_INDUSTRIES  = {"mining":
                               {"inputs":["oil", "coal"], 
                                "outputs":[]}, 

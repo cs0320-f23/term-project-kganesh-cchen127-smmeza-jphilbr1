@@ -43,10 +43,7 @@ function NavBar(props: NavBarProps) {
           <div className="mobile-menu">
             <Hamburger toggled={isNavExpanded} toggle={setIsNavExpanded} />
           </div>
-          <nav
-            className={isNavExpanded ? "nav-items expanded" : "nav-items"}
-
-          >
+          <nav className={isNavExpanded ? "nav-items expanded" : "nav-items"}>
             <ul className="nav-menu">
               <li className="nav-menu-item">
                 <Link
@@ -78,8 +75,8 @@ function NavBar(props: NavBarProps) {
               </li>
             </ul>
           </nav>
+          <DarkModeToggle isDark={props.isDark} setIsDark={props.setIsDark} />
         </div>
-        <DarkModeToggle isDark={props.isDark} setIsDark={props.setIsDark}  />
       </div>
     </div>
   );

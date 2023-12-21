@@ -12,11 +12,21 @@ Jay Philbrick - jphilbr1
 
 ### Contributions:
 
+Jay and Kylash developed the backend, Sydney and Connor developed the frontned.
+
 ### Total Estimated Time for Completion
+
+28 hours each
 
 ## Repository Link
 
 https://github.com/cs0320-f23/term-project-kganesh-cchen127-smmeza-jphilbr1
+
+## Backend Deployment Link
+
+https://csci-term-project-backend.onrender.com/
+
+(remember to navigate to an appropriate endpoint, e.g. /full_data)
 
 # Design Choices
 
@@ -34,23 +44,23 @@ The webapp is structured as an App component, displaying a ControlledInput and a
 
 ## Backend
 
-The Server class creates the Server, and has it listen on Port 3232. It also calls the Handler functions in Parser, Viewer, Searcher, and for the Census to route requests appropriately. 
+Server.py creates the Server, and has it listen on http://127.0.0.1:5000. It also calls the Handler functions in ApiBLS, CoordToFips, and other files as appropriate. 
 
-Parser implements a handler to load a CSV, placing its data in memory into an object that persists across loadcsv, viewcsv, and searchcsv. It takes parameters corresponding to the filepath of the data to load and whether or not the file has headers. The CSVDataSource Interface, implemented by the CSVData class, outlines getters and setters for CSV data. 
+ApiBLS.py implements a handler that calls the BLS API to pull industry employment data, as well as the simple data suite including unemployment rate, labor force size, unemployed persons, and employed persons for a given county or set of counties.
 
-Viewer implements a handler that displays the contents (headers, if applicable, and data) of the previously parsed CSV file to users. 
+FullData.py calls functions from ApiBLS.py to update the full basic data file for all counties, and implements the handler that serves the file to the frontend.
 
-Searcher implements a handler that searches through a previously parsed CSV file and prints the output for users. It takes parameters corresponding to the type of the search, (optionally) the column name or index to search by, and the keyword to search for.
+Scheduler.py makes an update call to FullData.py every Sunday at 2 AM to fetch the lastest BLS data.
 
-CensusHandler implements a handler that calls the CensusAPI to pull broadband coverage data for a provided county and state and prints it to the user. The CensusDataSource Interface, implemented by the CensusData record, as well as the Geolocation record are used to represent different data types within CensusAPI. 
+Name_To_Coords.py fetches county names and FIPS codes from the all_county_geojson.json file in order to generate a map from FIPS to county name, and also returns a representative coordinate to zoom to upon a frontend user searching for a given county. 
 
-BroadbandHandler implements a handler that pulls all broadband data. GeoBroadbandHandler combines and returns this with GEOJson data. 
+CommodityRecs.py contains the algorithm to recommend commodity longs and shorts based on industry employment counts and an I/O table contained in CONSTANTS.py
 
-RedlineHandler implements a handler that pulls and returns redlining data given a bounding box. SearchReadline data returns redlining data given a search term to look up.
+CONSTANTS.py contains important constants, including a list of state fips, the industry significance threshold for the commodity recommendation algorithm, the list of industries for which we have data, and an I/O table relating commodity inputs and outputs to each industry
 
-The DatasourceException class is thrown by handlers in response to specific errors. 
+CoordToFips.py sets up an endpoint to convert coordinates to state and county FIPS and names by accessing the FCC Geo API
 
-The CensusCache, partially written before being abandoned due to the project specifications changing, would be used to cache queried data from the CensusAPI to reduce calls to the CensusAPI. 
+DetailedRecs.py sets up an endpoint that returns industry employment data and commodity recommendations for a given county
 
 ## Data Structures
 
@@ -60,11 +70,20 @@ There are several primary data structures in our program.
 
 ### Backend
 
-We store a Map with both keys and values being strings to represent the correspondence between state names and state IDs from the CensusAPI. 
+We store the industry list as a list. 
 
-We store CensusData and Geolocations as records. 
+We store the map from state names to FIPS as a hashmap from string to string.
 
-We store CSV data as a List of String Lists and CSV headers as a List of Strings. 
+We store the map from industries to input and output commodities as a hashmap from string to hashmap from string to list. 
+
+We store the full GeoJSON as a .json file
+
+We store the full GeoJSON with basic economic data as a .json file
+
+We store the map from counties to a representative coordinate as a .json file
+
+We store a CSV mapping from US counties to longitude and latitude as a .csv file
+
 
 # Errors/Bugs
 
@@ -80,27 +99,57 @@ We include both unit testing of single commands as well as integration testing o
 
 ## Run the Program
 
+### Frontend
+
 The frontend server by navigating is started with the terminal command npm run dev. The backend server is started by opening back/src/main/java/edu/brown/cs/student/main/Server/Classes/Server.java in Intellij, then hitting run. 
 
 From there, navigating to the URL http://localhost:5173/ loads the web interface. Commands can be issued into the text box provided by typing them, then clicking the submit button.
 
-Supported commands are:
+### Backend
 
-### search
+In order to run the backend, navigate to the \term-project-kganesh-cchen127-smmeza-jphilbr1\back directory and run `python -m flask --app Server run`
 
-Syntax: search_query
+Or, to see the deployed version, navigate to:
 
-This searches the redlined data's area description variable for the given search_query, then overlays this data on the current map in dark purple. Entering any other search term replaces the current query. 
+https://csci-term-project-backend.onrender.com/
+
+Supported endpoints are:
+
+#### full_data
+
+Returns the full GeoJSON file with 4 basic economic variables.
+
+Syntax:
+`/full_data`
+
+#### detailed_data
+
+Returns industry employment and commodity holding recommendations for a specific county.
+
+`/detailed_data?latitude={latitude}&longitude={longitude}`
+
+
+#### zoom
+
+Returns a representative coordiante for a particular coordinate.
+
+`/zoom?county={county_name}&state={state_name}`
+
+
+#### coord_to_fips
+
+Converts from a latitude and longitude to a FIPS code and county information.
+
+`/coord_to_fips?lat={latitude}&long={longitude}`
+
 
 ## Run the Tests
 
-### Backend Tests
+### Backend Python Unittest Tests
 
-In IntelliJ, run any file in (or any file in any subfolder of):
-maps-dlauerma-jphilbr1\back\src\test\java\edu\brown\cs\student\CSV
-or in:
-maps-dlauerma-jphilbr1\back\src\test\java\edu\brown\cs\student\Server
-or in:
+Change directory into ./test folder.
+
+For each testing filename: `python -m unittest filename`
 
 ### Frontend Playwright Tests
 
@@ -112,6 +161,8 @@ To run tests in UI mode: `npx playwright test --ui`
 To run tests: `npm run jest-w`
 
 # Whose Labor
+
+Acknowledgements -- we think the developers behind the following technologies:
 
 Programming Languages:
 1. Typescript
@@ -133,14 +184,8 @@ Packages:
 APIs:
 1. Census API
 
-Acknowledgements:
-
-
-
-TODOs:
-1. Rewrite data imports as variable imports
-1. Deployment!
+# TODOs:
+1. Double check data updating/timezone for updates
 1. Testing
 1. Return max values for Sydney
-1. Fix FCC api not working some time -- try/catch block or loop?
-1. Add error checking to Server.py for presence/form factor of args
+1. Frontend deployment

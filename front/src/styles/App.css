@@ -81,7 +81,6 @@ body.dark {
   padding: 1.5%;
   margin: 2.5%;
   margin-bottom: 5%;
-  padding-bottom: 2.5%;
   line-height: 30px;
   border: 2px solid var(--color-accent);
 }
@@ -101,6 +100,10 @@ body.dark {
   color: var(--color-text);
   margin-bottom: 0;
   margin-top: 0;
-  padding: 1%;
+  padding: 0.7%;
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+  font-size:small;
 }
+
 
