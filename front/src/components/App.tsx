@@ -11,7 +11,7 @@ function App() {
     if (event.code == "MetaRight" || event.code == "MetaLeft") {
       document.getElementById("maps-command-box")?.focus();
     } else if (event.code == "Escape") {
-      document.getElementById("submit-button")?.focus();
+      document.getElementById("right")?.focus();
     } else if (event.code == "ControlRight" || event.code == "ControlLeft") {
       document.getElementById("submit-button")?.focus();
     } 
