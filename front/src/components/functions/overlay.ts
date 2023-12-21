@@ -26,10 +26,10 @@ export const countyLayer: FillLayer = {
   type: "fill",
   source: "counties",
   "source-layer": SOURCE_LAYER_ID,
-  paint: {
-    "fill-outline-color": 'rgba(0,0,0,0.3)',
-    "fill-color": 'rgba(0,0,0,0.0)'
-  }
+  // paint: {
+  //   "fill-outline-color": 'rgba(0,0,0,0.3)',
+  //   "fill-color": 'rgba(0,0,0,0.0)'
+  // }
 };
 
 export const selectedCountyLayer: FillLayer = {
