@@ -34,13 +34,37 @@ We outline below our frontend and backend design choices.
 
 ## Frontend
 
-Our frontend consists of an interactive Mapbox map and a command entry bar. The map is overlaid with redlining data and income data. Additionally, when a user types a string into the command entry bar, any geographies in the redlining data that contain this keyword are highlighted in dark purple on the map.
+Our frontend consists of an interactive Mapbox map, a command entry bar, a dropdown, multiple radio buttons, and a side bar that contains history and such. The map is overlaid with data received from the back end, the overlays can be switched between using the radiobuttons. A user can either click a certain county on the map or input 
 
-Each of the redlining data, income data, and search results are overlaid as Layers of the Mapbox map. 
+The darkModeComponents folder contains the code for the dark mode toggle. 
+- The Toggle file contains the information for a toggle component, which depends on the isDark and setIsDark. 
+- The usecolorScheme file contains the code that switches isDark and setIsDark to actually make the changes to the webpage.
 
-The frontend server is hosted on Port 5173.
+The functions folder contains differnet functions that are used in our other components of the webpage
+- The CountyParse file uses different imports to parse a CSV file used for the Map's county overlay
+- The overlay file contains different data needed for each of the overlays that the map will use. It also contains a function that retrieves data from the backend to use for a few of the overlays
+- stateAbbreviations contains a map for each state name and their abbreviation. It also contains a couple functions that converts each state to it's abbreviation or vice versa
+- statesList contains a list of all the United States states
 
-The webapp is structured as an App component, displaying a ControlledInput and a REPLInput component. Map Layers are contained in overlays.ts. 
+The Maps folder contains most of the components used for the map portion of our webapp
+- ControlledInput is a wrapper class for an input bar and the dropdown to select a state.
+- Mapbox contains most of the code for the functions that our map has. 
+    - onMapClick is the function that will highlight the county and then do the things that MapInfo needs from the map. The function starts out by retrieving the longitude and latitude of the map click which will be sent to the MapsInfo class. The function then retrieves the selected features of the Mapbox with the help of a bounding box, and sets a constant with the county and state that the user clicked on that will also be sent to the MapsInfo class. A filter array is also constructed with the selected information that will be passed to the overlay components in MapBox in order to highlight the selected county. Finally, the function ends by generating the on-screen notification to let the user know that the county has been selected properly.
+    - OnMouseMove is utilized whenever the user hovers his/her mouse over the map on top of a valid US county. This functionality utilizes a similar methodology as the onMapClick function in terms of constructing and using a filter array for the overlay. However, we also implement the use of an updating overlay on the top left of the map that displays the county name and state for the county that the user is currently hovering over. We also took into account the edge cases when the user hovered over the ocean, an invalid country (like Canada or Mexico), and when the user moused away from the map as a whole, which is also incorporated in the OnMouseOut function.
+    - handleButtonClick is the function that handles the user manually entering a desired county into the search bar. We first formatted the command string provided to the function by the user in order to ensure that it fit the format of what we needed it to be (we replaced spaces with "%20" when preparing to use that string in a URL, as well as converting the state provided from the value of the dropdown box into its appropriate abbreviation. We then call our backend server with the getCountyLatLon helper function, which returns the lat-long of the provided county in order for the map to pan to those coordinates. We also implemented the same notification handling as we did in onMapClick.
+    - Visibilities for the different overlays, it contains the functions needed to switch visibilities with the radio buttons
+- MapsInfo contains most of the code that displays the data for a given county from the backend. It first retrieves the backend data using the accessUnemploymentData function. It then stores the data in two separate hashmaps. Each hashmap is then used in a function that sorts through the data to display. One hashmap is displayed in a bar chart, the other in two separate tables. For the commodity recommendations, there are two helper functions with logic that sets icons and tooltip descriptions depending on the commodity. And for the bar chart, there is an animation that occurs whenever new data is being used by the frontend. The bar is grayed out if there is no information provided from the census API.
+- RadioButton is a wrapper class for the radiobutton input. It also contains a function that is used to switch between each overlay of the map. 
+
+The mockedData file contains a mocked GeoJSON object that contains the same data that the backend data contains
+
+The Maps file and the Navbar file are both key components of our webapp. The Navbar file contains the code that is used to create the navigation bar at the top of the page using React Links, and it also is where the darkModeToggle is located.
+The Maps file purely holds the components for the map and it's functions
+
+The App file is where most of our app is rendered. It contains different components such as the navBar, the maps, and it also contains other information such as the page headers and other information that the users need. 
+
+The frontend server is hosted on Port 8000.
+
 
 ## Backend
 
@@ -67,6 +91,15 @@ DetailedRecs.py sets up an endpoint that returns industry employment data and co
 There are several primary data structures in our program.
 
 ### Frontend
+We store the states and their abbreviations in a hashmap 
+
+We store the state and county selected in a 2D array
+
+We store the recommendation data and the employment data each in a hashmap
+
+We store the different county suffixes in an array
+
+We store the overlay .json file recieved from the backend as a GeoJSON.FeatureCollection
 
 ### Backend
 
@@ -101,9 +134,9 @@ We include both unit testing of single commands as well as integration testing o
 
 ### Frontend
 
-The frontend server by navigating is started with the terminal command npm run dev. The backend server is started by opening back/src/main/java/edu/brown/cs/student/main/Server/Classes/Server.java in Intellij, then hitting run. 
+The frontend server by navigating is started with the terminal command npm run start. 
 
-From there, navigating to the URL http://localhost:5173/ loads the web interface. Commands can be issued into the text box provided by typing them, then clicking the submit button.
+From there, navigating to the URL http://localhost:8000/ loads the web interface. 
 
 ### Backend
 
@@ -180,12 +213,15 @@ Packages:
 1. Spark
 1. JUnit
 1. Playwright
+2. React Spinners
+3. Tooltips
+4. Fontawesome
 
 APIs:
 1. Census API
+2. Census Shapefile
 
 # TODOs:
 1. Double check data updating/timezone for updates
 1. Testing
-1. Return max values for Sydney
 1. Frontend deployment

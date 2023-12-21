@@ -1,5 +1,4 @@
 import { FillLayer } from "react-map-gl";
-// import { FullOverLay } from "./FullOverlay.ts";
 import { SOURCE_LAYER_ID } from "../../private/TilesetID";
 
 
