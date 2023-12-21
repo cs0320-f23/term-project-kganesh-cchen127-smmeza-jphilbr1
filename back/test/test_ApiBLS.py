@@ -13,7 +13,9 @@ class TestApiBLS(unittest.TestCase):
     # - matching state and county fips as the ones that were queried
     # - non-empty response message
 
+    # Tests generic_bls_endpoint
     def test_ApiBLS(self):
+        # Testing unemployment_rate endpoint
         res = json.loads(generic_bls_endpoint("unemployment_rate", "03", "01", "001"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployment_rate"]) >= 0)
@@ -21,7 +23,7 @@ class TestApiBLS(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
-
+        # Testing labor_force endpoint
         res = json.loads(generic_bls_endpoint("labor_force", "06", "01", "001"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["labor_force"]) >= 0)
@@ -30,6 +32,7 @@ class TestApiBLS(unittest.TestCase):
         self.assertTrue(len(res["message"]) > 0)
 
 
+        # Testing unemployed endpoint
         res = json.loads(generic_bls_endpoint("unemployed", "04", "01", "001"))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["unemployed"]) >= 0)
@@ -37,7 +40,7 @@ class TestApiBLS(unittest.TestCase):
         self.assertEqual(res["county_fips"], "001")
         self.assertTrue(len(res["message"]) > 0)
 
-
+        # Testing coords_industry_data_endpoint endpoint
         res = json.loads(coords_industry_data_endpoint(32.5353, -86.6423))
         self.assertEqual(res["status"], "success")
         self.assertTrue(float(res["data"]["employees_mining"]) >= 0)

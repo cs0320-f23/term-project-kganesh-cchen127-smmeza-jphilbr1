@@ -6,8 +6,9 @@ from src.production import *
 
 
 class TestGeoFCC(unittest.TestCase):
-
+    # Tests API calls to the GeoFCC
     def test_GeoFCC(self):
+        # Tests converstion for Autauga County, AL
         res = coordToStateAndCountyConversion(32.5353, -86.6423)
         self.assertEqual(float(res["lat"]), 32.5353)
         self.assertEqual(float(res["long"]), -86.6423)
@@ -17,7 +18,7 @@ class TestGeoFCC(unittest.TestCase):
         self.assertEqual(res["state_fips"], "01")
         self.assertEqual(res["county_fips"], "01001")
 
-
+        # Tests conversion for Providence County, RI
         res = coordToStateAndCountyConversion(41.8882, -71.4774)
         self.assertEqual(float(res["lat"]), 41.8882)
         self.assertEqual(float(res["long"]), -71.4774)
