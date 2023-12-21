@@ -26,10 +26,10 @@ export const countyLayer: FillLayer = {
   type: "fill",
   source: "counties",
   "source-layer": SOURCE_LAYER_ID,
-  // paint: {
-  //   "fill-outline-color": 'rgba(0,0,0,0.3)',
-  //   "fill-color": 'rgba(0,0,0,0.0)'
-  // }
+  paint: {
+    "fill-outline-color": 'rgba(0,0,0,0.3)',
+    "fill-color": 'rgba(0,0,0,0.0)'
+  }
 };
 
 export const selectedCountyLayer: FillLayer = {
@@ -111,7 +111,7 @@ export const FullOverLay = async (): Promise<
   var newResponse: undefined | GeoJSON.FeatureCollection = undefined;
   // trys to access the server
   try {
-    const website = await fetch("http://127.0.0.1:5000/full_data");
+    const website = await fetch("https://csci-term-project-backend.onrender.com/full_data");
     const json = await website.json();
     const result = json.status;
     // checks that there isn't an error

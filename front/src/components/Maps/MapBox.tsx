@@ -158,7 +158,8 @@ function MapBox(props: MapBoxprops) {
       ];
       // Find features intersecting the bounding box.
       const selectedFeatures = mapRef.current.queryRenderedFeatures(bbox);
-      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties) {
+      if (selectedFeatures && selectedFeatures[0] && selectedFeatures[0].properties && mapRef.current.getZoom() > 2.979504743200094) {
+        console.log("asdfasdfasdfas", mapRef.current.getZoom());
         setCountyState([selectedFeatures[0].properties.COUNTYNAME, convertToStateName(selectedFeatures[0].properties.STATE)])
         // var featureInfo = getFeatureInfo(selectedFeatures[0]);
         // newResponse = newResponse.concat(featureInfo);
@@ -169,8 +170,11 @@ function MapBox(props: MapBoxprops) {
         ];
         setFilterArray(selectionArray);
         setNotificationColor("success-notification")
-        setSearchNotiText(selectedFeatures[0].properties.COUNTYNAME + " highlighted!")
-        setClassVisible("visible");
+
+        if (!(selectedFeatures[0].properties.COUNTYNAME === undefined)) {
+          setSearchNotiText(selectedFeatures[0].properties.COUNTYNAME + " highlighted!")
+          setClassVisible("visible");
+        }
 
         setTimeout(() => {
           setClassVisible("hidden");
@@ -527,10 +531,7 @@ function MapBox(props: MapBoxprops) {
             </Source>
 
             <Source id="county-data" type="vector" url={TILESET_ID}>
-              <Layer id={countyLayer.id}
-                type={countyLayer.type}
-                source={countyLayer.source}
-                paint={props.isDark? {
+              <Layer {...countyLayer} paint={props.isDark? {
     "fill-outline-color": 'rgba(0,0,0,0.3)',
     "fill-color": 'rgba(0,0,0,0.0)'
   }: {
