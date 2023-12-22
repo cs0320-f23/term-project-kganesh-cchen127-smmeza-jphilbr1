@@ -3,10 +3,6 @@
 
 
 body {
-  /* font-family: 'DM Sans', sans-serif; */
-  /* font-family: 'Heebo', sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: 'Song Myung', serif; */
   --color-background: #fafafa;
   --color-foreground: #1f2023;
   --color-text:#1f2023;
@@ -17,10 +13,7 @@ body {
   color: #1f2023;
 }
 body.dark {
-  /* font-family: 'DM Sans', sans-serif; */
-  /* font-family: 'Heebo', sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
-  /* font-family: 'Song Myung', serif; */
+
   --color-background: rgb(80, 72, 72);
   --color-text:#efefef;
   --color-foreground: #efefef;
@@ -34,10 +27,6 @@ body.dark {
 .navbar{
   background-color: var(--color-accent);
   margin-bottom: 2%;
-/*   
-  background-color: "#FECEE9";
-  color: "white"; */
-  /* borderBottom: 1 solid #e4e4e4; */
 }
 
 .navbar-wrapper {
@@ -53,12 +42,10 @@ body.dark {
   padding: 0px 20px;
   font-size: 20px;
   width: 100%;
-  /* color: #fafafa; */
 }
 
 .navbar-fixed {
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   margin-right: auto;
   margin-left: auto;
@@ -71,15 +58,11 @@ body.dark {
 /* adds extra height to active menu item */
 .nav-menu .active {
   font-weight: 600;
-  /* border-bottom: 3px solid black; */
   flex-shrink: 0;
 }
 
 .logo {
-  /* margin-right: auto;
-  margin-left: 20px; */
   display: flex;
-  /* padding: 5px; */
 }
 
 .logo-link {
@@ -101,7 +84,6 @@ body.dark {
   margin-bottom: 0;
   margin-top: 0;
   padding-left: 0;
-  /* font-family: "neue-haas-grotesk-display", sans-serif; */
   font-weight: 500;
   text-transform: uppercase;
   width: 100%;
@@ -200,7 +182,6 @@ body.dark {
 
 
 .dark-mode-toggle.react-toggle--checked .react-toggle-thumb {
-  /* left: 27px; */
   border-color: var(--color-pink-one);
 }
 

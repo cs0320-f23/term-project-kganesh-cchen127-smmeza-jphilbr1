@@ -60,11 +60,25 @@ test("state input with no county", async ({ page }) => {
 });
 
 
+// tried to test the buttons but the info won't load in the time that playwright will check
+// will try to modify at a later time
 test("recommendation button", async ({ page }) => {
   await page.goto(url);
+  await page.getByLabel("Command input").fill("Summit");
+  await page.getByLabel("state").selectOption("Utah");
+  await page.getByLabel("Submit Button").click();
+  const table2 = await page.locator(`table`);
+  const totalRows = await table2.locator("tr").count();
+  await expect(totalRows).toEqual(3);
+
 });
 
 test("unemployment data button", async ({ page }) => {
   await page.goto(url);
+  await page.getByLabel("Command input").fill("Summit");
+  await page.getByLabel("state").selectOption("Utah");
+  await page.getByLabel("Submit Button").click();
+  await page.getByLabel("Employment Data").click();
+
 });
 

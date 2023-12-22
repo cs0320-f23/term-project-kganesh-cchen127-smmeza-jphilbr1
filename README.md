@@ -189,10 +189,6 @@ For each testing filename: `python -m unittest filename`
 To run tests: `npx playwright test`
 To run tests in UI mode: `npx playwright test --ui`
 
-### Frontend Jest Tests
-
-To run tests: `npm run jest-w`
-
 # Whose Labor
 
 Acknowledgements -- we think the developers behind the following technologies:

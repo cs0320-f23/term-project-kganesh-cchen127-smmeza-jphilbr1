@@ -4,7 +4,7 @@ import Toggle from "react-toggle";
 import "react-toggle/style.css"; 
 import "../../styles/navBar.css"
 
-/** stolen from https://blog.logrocket.com/dark-mode-react-in-depth-guide/ */
+/** used from https://blog.logrocket.com/dark-mode-react-in-depth-guide/ */
 
 interface ToggleProps {
   isDark;
