@@ -143,6 +143,10 @@ function MapBox(props: MapBoxprops) {
     visibility: fourthVisibility,
   };
 
+  /**
+   * Function that switches the visibitlitye of each employment/labor data layer 
+   * @param wantedLayer the layer that should have the visible layer
+   */
   function swtichVisibility(wantedLayer: string) {
     switch (wantedLayer) {
       case "Overlay 1": {
@@ -150,7 +154,6 @@ function MapBox(props: MapBoxprops) {
         setSecondVisiblity("none");
         setThirdVisiblity("none");
         setFourthVisiblity("none");
-        console.log("changed to overlay1");
         break;
       }
       case "Overlay 2": {
@@ -212,7 +215,6 @@ function MapBox(props: MapBoxprops) {
           const blankHoverArray = ["all", ["in", "COUNTYNAME", ""]];
           setHoverArray(blankHoverArray);
           mapOverlay.style.display = "none";
-          console.log("help me");
         } else {
           const selectedHoverArray = [
             "all",
@@ -262,11 +264,9 @@ function MapBox(props: MapBoxprops) {
         mapOverlay
       ) {
         var hoveredCounty = selectedFeatures[0].properties.COUNTYNAME;
-        console.log(hoveredCounty);
         const blankHoverArray = ["all", ["in", "COUNTYNAME", ""]];
         setHoverArray(blankHoverArray);
         mapOverlay.style.display = "none";
-        console.log("help me");
       }
     }
   }
@@ -332,7 +332,6 @@ function MapBox(props: MapBoxprops) {
   ): Promise<{ status: string; data?: any }> {
     try {
       const jsonResponse = await getCountyLatLonAPI(args);
-      // console.log("hi1", jsonResponse);
 
       if (isCountyLoadResponse(jsonResponse)) {
         if (jsonResponse.status === "success") {

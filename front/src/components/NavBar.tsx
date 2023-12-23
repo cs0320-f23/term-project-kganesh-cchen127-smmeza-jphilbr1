@@ -1,5 +1,5 @@
 import "../styles/navBar.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { DarkModeToggle } from "./darkModeComponents/Toggle"
 
@@ -18,8 +18,6 @@ function NavBar(props: NavBarProps) {
       <div
         className="navbar"
         style={{
-          // backgroundColor: "#FECEE9",
-          // color: "white",
           top: true ? "0" : "-120px",
           borderBottom: `${1} solid #e4e4e4`,
         }}

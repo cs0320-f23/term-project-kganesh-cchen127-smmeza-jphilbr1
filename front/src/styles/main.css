@@ -30,7 +30,6 @@ body.dark {
 
 
 .maps {
-  /* position: relative; */
   margin-top: 1%;
   min-height: 60vh;
   display: flex;
@@ -43,9 +42,7 @@ body.dark {
 }
 
 .maps-history {
-  /* margin: auto; */
   display: flex;
-  /* overflow: scroll; */
   justify-content: center;
   height: 60vh;
 }
@@ -59,11 +56,6 @@ body.dark {
   justify-content: space-around
 }
 
-
-/* .center{
-  width: 400px;
-} */
-
 .right{
   margin-left: 20px;
   margin-right: 2.5%;
@@ -73,15 +65,12 @@ body.dark {
   overflow: scroll;
   justify-content: center;
   align-items: center;
-  /* width: 30vh; */
-  /* float: right; */
   height: 60vh;
   margin-bottom: 10vh;
 }
 
 .bottom{
   display: flex;
-
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
@@ -97,7 +86,6 @@ body.dark {
 
 .maps-input {
   display: flex;
-  /* margin-top: 3rem; */
   padding-bottom: 1vh;
   overflow: auto;
   align-items: center;
@@ -105,12 +93,10 @@ body.dark {
 }
 
 .maps-command-box {
-  /* width: 50%; */
   margin: auto;
   display: block;
   padding: 1vh;
   color: var(--color-accent);
-  /* width: 800px; */
   height: 7px;
   border-radius: 10px;
   border: 2px solid #8C8A93;
@@ -196,8 +182,6 @@ body.dark {
 }
 .submit-button:hover{
   border-radius: 10px;
-  /* padding: 2vh;
-  margin: auto; */
   background: var(--color-background);
   color: var(--color-header-accent);
   font-size: 1rem;
@@ -206,12 +190,10 @@ body.dark {
   margin-left: 2rem;
   margin-right: 2rem;
   cursor: pointer;
-  /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 }
 
 .mapboxgl-popup-content {
   width: 180px;
-  /* background-color: aqua; */
   border-color: aqua;
   color: black;
   background: #FFC0CB;
@@ -263,9 +245,7 @@ select::selection{
 }
 
 .form-control {
-  /* font-family: system-ui, sans-serif; */
   font-size: 1rem;
-  /* font-weight: bold; */
   line-height: 1.1;
   display: grid;
   grid-template-columns: 1em auto;
@@ -355,13 +335,11 @@ input[type="radio"]:focus {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
   position: absolute;
-  /* height: auto; */
   width: 25%;
   top: 10px;
   left: 10px;
   padding: 10px;
   display: none;
-  /* z-index: 1; */
 }
 
 
@@ -381,7 +359,6 @@ input[type="radio"]:focus {
 
 .maps-info {
   width:500px;
-  /* margin-left: 150px; */
 }
 
 .maps-info-container {
@@ -412,12 +389,8 @@ input[type="radio"]:focus {
 
 .chart {
   width: 600px;
-  /* width: 60%; */
   height: 300px;
   display: block;
-  /* margin-left: 90px; */
-  /* background-color: #000; */
-  /* padding-left: 5px; */
   margin-top: 50px;
   margin-right: 50px;
   padding-right: 0px;
@@ -512,12 +485,6 @@ input[type="radio"]:focus {
   cursor: pointer;
 }
 
-/* .bars .bar:before{
-  color: #fff;
-  content: attr(unemp-amount);
-  position: relative;
-  bottom: 20px;
-} */
 
 .bars .bar:hover::after {
   content: attr(unemp-amount);
@@ -562,10 +529,7 @@ input[type="radio"]:focus {
 }
 
 button {
-  /* margin: 5px;
-  padding: 5px; */
   cursor: pointer;
-  /* border-radius: 20px; */
   border: none;
   outline: none;
   font-size: 12px;
@@ -590,7 +554,6 @@ button.active {
 
 .side-panel {
   display: none;
-  /* Add other styles as needed */
 }
 
 .side-panel.active {
@@ -598,23 +561,9 @@ button.active {
 }
 
 .two-sided-table {
-  /* display: flex;
-  margin: 2%;
-  background-color: var(--color-background);
-  justify-content: center;
-  margin-left: 90%;
-  margin-top: 30%; */
-  /*
-  /* position: absolute; */
-  /* right: 120px; */
-  /* bottom: -200px; */
   width: 600px;
-  /* width: 60%; */
   height: 300px;
   display: flex;
-  /* margin-left: 90px; */
-  /* background-color: #000; */
-  /* padding-left: 5px; */
   margin-top: 50px;
   margin-right: 50px;
   padding-right: 0px;
@@ -622,7 +571,6 @@ button.active {
 
 .table-section-left {
   flex: 1;
-  /* margin-right: 20px; */
   color: var(--color-text);
   background-color: var(--color-pink-one);
   margin-left: 30px;
@@ -633,7 +581,6 @@ button.active {
 
 .table-section-right {
   flex: 1;
-  /* margin-right: 20px; */
   color: var(--color-text);
   background-color: var(--color-pink-two);
   margin-left: 20px;

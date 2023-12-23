@@ -70,7 +70,7 @@ export const employmentLayer: FillLayer = {
 };
 
 /**
- * this collors each county with an opacity that relates 
+ * this colors each county with an opacity that relates 
  * to the labor force in each county, wich is calculated using the 
  * largest labor force
  */
@@ -84,7 +84,7 @@ export const laborLayer: FillLayer = {
   },
 };
 /**
- * this collors each county with an opacity that relates 
+ * this colors each county with an opacity that relates 
  * to the unemployment in each county, wich is calculated using the 
  * largest unemployed county
  */
@@ -103,7 +103,7 @@ export const unemployedLayer: FillLayer = {
   },
 };
 /**
- * this collors each county with an opacity that relates 
+ * this colors each county with an opacity that relates 
  * to the employment in each county, wich is calculated using the 
  * largest employed county
  */
