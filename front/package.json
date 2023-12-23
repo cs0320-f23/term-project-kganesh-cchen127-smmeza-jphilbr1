@@ -1,7 +1,7 @@
 {
   "name": "dotcommodities",
   "version": "0.0.0",
-  "homepage": ".",
+  "homepage": "https://github.com/term-project-kganesh-cchen127-smmeza-jphilbr1",
   "private": true,
   "type": "module",
   "scripts": {
@@ -20,6 +20,7 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@mui/material": "^5.15.0",
     "@types/react-toggle": "^4.0.5",
+    "commit": "^0.0.4",
     "esbuild": "^0.19.10",
     "hamburger-react": "^2.5.0",
     "mapbox-gl": "^2.15.0",
